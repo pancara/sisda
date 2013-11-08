@@ -10,7 +10,10 @@
     <bookmark url="file://$PROJECT_DIR$/src/main/webapp/css/site/sass/sidebar-right.sass" line="10" mnemonic="0" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f9415bcd-a45b-44dc-b962-3f60a7341877" name="Default" comment="" />
+    <list default="true" id="f9415bcd-a45b-44dc-b962-3f60a7341877" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="sisda.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/a.sass" changelist="f9415bcd-a45b-44dc-b962-3f60a7341877" time="1373977976796" ignored="false" />
@@ -598,6 +601,7 @@
     <file path="$PROJECT_DIR$/../intranet/src/main/resources/spring/persistence.xml" changelist="f9415bcd-a45b-44dc-b962-3f60a7341877" time="1382767855421" ignored="false" />
     <file path="$PROJECT_DIR$/../information-desk/pom.xml" changelist="f9415bcd-a45b-44dc-b962-3f60a7341877" time="1383470363143" ignored="false" />
     <file path="/BlobRepositoryImpl.java" changelist="f9415bcd-a45b-44dc-b962-3f60a7341877" time="1383903133365" ignored="false" />
+    <file path="/.gitignore" changelist="f9415bcd-a45b-44dc-b962-3f60a7341877" time="1383903453326" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -678,10 +682,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ContentTypeTest.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ContentTypeTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/ContentTypeTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="13" selection-start="119" selection-end="119" vertical-scroll-proportion="0.32249323">
+            <state line="7" column="13" selection-start="119" selection-end="119" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="6" selection-start="17" selection-end="17" vertical-scroll-proportion="0.04607046">
               <folding />
             </state>
           </provider>
@@ -691,15 +704,6 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/integrasolusi/utils/FileCacheManager.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="24" column="23" selection-start="492" selection-end="492" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DokumentasiPhotoService.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/integrasolusi/pusda/sisda/service/DokumentasiPhotoService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="9" selection-start="727" selection-end="727" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -771,7 +775,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/css/site/sass/profile.sass" />
         <option value="$PROJECT_DIR$/src/main/java/com/integrasolusi/pusda/sisda/service/MapService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/spring/service.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/integrasolusi/pusda/sisda/web/controller/site/MapController.java" />
@@ -787,6 +790,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/integrasolusi/pusda/sisda/tool/ffws/FfwsDataReader.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/integrasolusi/pusda/sisda/tool/ffws/DataPopulator.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/integrasolusi/pusda/sisda/repository/BlobRepositoryImpl.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -1461,7 +1465,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1482,7 +1486,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.10530303" sideWeight="0.6951424" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3151515" sideWeight="0.6968174" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3151515" sideWeight="0.6968174" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3378608" sideWeight="0.81118315" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959481" sideWeight="0.7894737" order="2" side_tool="false" content_ui="combo" />
@@ -1557,11 +1561,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://G:/Program Files/Java/jdk1.7.0/src.zip!/java/util/concurrent/ScheduledExecutorService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="181" column="30" selection-start="7047" selection-end="7047" vertical-scroll-proportion="2.2054546" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/integrasolusi/pusda/sisda/tool/ffws/PopulatorManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="61" column="28" selection-start="1850" selection-end="1850" vertical-scroll-proportion="0.0">
@@ -1660,7 +1659,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/ContentTypeTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="13" selection-start="119" selection-end="119" vertical-scroll-proportion="0.32249323">
+        <state line="7" column="13" selection-start="119" selection-end="119" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="6" selection-start="17" selection-end="17" vertical-scroll-proportion="0.04607046">
           <folding />
         </state>
       </provider>
