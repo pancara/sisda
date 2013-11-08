@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <span>Bendungan</span>
+    </title>
+</head>
+<body>
+
+<div id="bendungan">
+    <div class='right'>
+
+    </div>
+    <table class="no_border" style="width: 100%">
+        <tr>
+            <td colspan="3"></td>
+            <td>
+                <a href='#springUrl("/admin/sda/bendungan/new.html")' class='new button' style="padding-bottom: 2px;">
+                    baru
+                </a>
+            </td>
+
+        </tr>
+        #foreach($bendungan in $bendunganList)
+            <tr>
+                <td>
+                    $velocityCount.
+                </td>
+                <td style="width: 450px;">
+                    <a href="#springUrl("/popup/sda/bendungan/${bendungan.id}.html")" class="popup">
+                        ${bendungan.name}
+                    </a>
+
+                    <p>
+                        $!{bendungan.description}
+                    </p>
+                </td>
+                <td>
+                    <img src='#springUrl("/download/sda/bendungan/photo/${bendungan.id}/${bendungan.pictureFilename}")'/>
+                </td>
+                <td>
+                    <a href='#springUrl("/popup/sda/bendungan/${bendungan.id}.html")' class="button popup">
+                        preview
+                    </a>
+                    <a href='#springUrl("/admin/sda/bendungan/edit/${bendungan.id}.html")' class='button edit'>
+                        edit
+                    </a>
+                    <a href='#springUrl("/admin/sda/bendungan/remove/${bendungan.id}.html")' class='button remove'>
+                        hapus
+                    </a>
+                </td>
+            </tr>
+        #end
+    </table>
+
+</div>
+<script type="text/javascript">
+    //<![CDATA[
+    $(document).ready(function () {
+        $("#bendungan a.popup").colorbox({width: "800px", height: "95%", iframe: true});
+
+        $("#bendungan a.remove").clickConfirm({
+            position: "bottom",
+            questionText: "Hapus data bendungan ?",
+            followLinkOnProceed: false,
+            onProceed: function (trigger) {
+                var _url = $(trigger).attr("href");
+                jQuery.get(_url,
+                        function (data) {
+                            if (data.result == true) {
+                                var tr = $(trigger).parentsUntil("tbody");
+                                tr.remove();
+                            }
+                        }
+                );
+            }
+        });
+    });
+    // ]]>
+</script>
+
+</body>
+</html>

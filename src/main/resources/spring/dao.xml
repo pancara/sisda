@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="daoTemplate" abstract="true">
+        <property name="hibernateTemplate" ref="hibernateTemplate"/>
+    </bean>
+
+    <bean id="commentGuestDao" class="com.integrasolusi.pusda.sisda.dao.CommentGuestDaoImpl" parent="daoTemplate"/>
+
+    <bean id="commentGuestResponseDao" class="com.integrasolusi.pusda.sisda.dao.CommentGuestResponseDaoImpl"
+          parent="daoTemplate"/>
+
+    <bean id="notificationEmailDao" class="com.integrasolusi.pusda.sisda.dao.NotificationEmailDaoImpl"
+          parent="daoTemplate"/>
+
+    <bean id="dokumentasiDao" class="com.integrasolusi.pusda.sisda.dao.DokumentasiDaoImpl" parent="daoTemplate"/>
+
+    <bean id="dokumentasiPhotoDao" class="com.integrasolusi.pusda.sisda.dao.DokumentasiPhotoDaoImpl"
+          parent="daoTemplate"/>
+
+    <bean id="photoDao" class="com.integrasolusi.pusda.sisda.dao.PhotoDaoImpl" parent="daoTemplate"/>
+
+    <bean id="newsDao" class="com.integrasolusi.pusda.sisda.dao.NewsDaoImpl" parent="daoTemplate"/>
+
+    <bean id="commentNewsDao" class="com.integrasolusi.pusda.sisda.dao.CommentNewsDaoImpl" parent="daoTemplate"/>
+
+    <bean id="publicationDao" class="com.integrasolusi.pusda.sisda.dao.PublicationDaoImpl" parent="daoTemplate"/>
+
+    <bean id="commentPublicationDao" class="com.integrasolusi.pusda.sisda.dao.CommentPublicationDaoImpl"
+          parent="daoTemplate"/>
+
+    <bean id="publicationAttachmentDao" class="com.integrasolusi.pusda.sisda.dao.PublicationAttachmentDaoImpl"
+          parent="daoTemplate"/>
+
+    <bean id="agendaDao" class="com.integrasolusi.pusda.sisda.dao.AgendaDaoImpl" parent="daoTemplate"/>
+
+    <bean id="linkDao" class="com.integrasolusi.pusda.sisda.dao.LinkDaoImpl" parent="daoTemplate"/>
+
+    <bean id="linkTypeDao" class="com.integrasolusi.pusda.sisda.dao.LinkTypeDaoImpl" parent="daoTemplate"/>
+
+    <bean id="slideDao" class="com.integrasolusi.pusda.sisda.dao.SlideDaoImpl" parent="daoTemplate"/>
+
+    <bean id="bookDao" class="com.integrasolusi.pusda.sisda.dao.BookDaoImpl" parent="daoTemplate"/>
+
+    <bean id="regulationFolderDao" class="com.integrasolusi.pusda.sisda.dao.RegulationFolderDaoImpl"
+          parent="daoTemplate"/>
+
+    <bean id="regulationDao" class="com.integrasolusi.pusda.sisda.dao.RegulationDaoImpl" parent="daoTemplate"/>
+
+    <bean id="unitDao" class="com.integrasolusi.pusda.sisda.dao.UnitDaoImpl" parent="daoTemplate"/>
+
+    <bean id="personDao" class="com.integrasolusi.pusda.sisda.dao.PersonDaoImpl" parent="daoTemplate"/>
+
+    <bean id="userDao" class="com.integrasolusi.pusda.sisda.dao.UserDaoImpl" parent="daoTemplate"/>
+
+    <bean id="systemConfigDao" class="com.integrasolusi.pusda.sisda.dao.SystemConfigDaoImpl" parent="daoTemplate"/>
+
+    <bean id="mapDao" class="com.integrasolusi.pusda.sisda.dao.MapDaoImpl" parent="daoTemplate"/>
+
+    <bean id="mapCategoryDao" class="com.integrasolusi.pusda.sisda.dao.MapCategoryDaoImp" parent="daoTemplate"/>
+
+    <bean id="sdaDao" class="com.integrasolusi.pusda.sisda.dao.sda.SdaDaoImpl" parent="daoTemplate"/>
+
+    <bean id="bendunganDao" class="com.integrasolusi.pusda.sisda.dao.sda.BendunganDaoImpl" parent="daoTemplate"/>
+
+
+    <bean id="diTypeDao" class="com.integrasolusi.pusda.sisda.dao.sda.di.DiTypeDaoImpl"
+          parent="daoTemplate"/>
+
+    <bean id="diDiDao" class="com.integrasolusi.pusda.sisda.dao.sda.di.DiDiDaoImpl"
+          parent="daoTemplate"/>
+
+    <bean id="diDataDao" class="com.integrasolusi.pusda.sisda.dao.sda.di.DiDataDaoImpl"
+          parent="daoTemplate"/>
+
+    <bean id="bendungDao" class="com.integrasolusi.pusda.sisda.dao.sda.bendung.BendungDaoImpl" parent="daoTemplate"/>
+
+    <bean id="bendungSummaryDao" class="com.integrasolusi.pusda.sisda.dao.sda.bendung.BendungSummaryDaoImpl"
+          parent="daoTemplate"/>
+
+    <bean id="embungDao" class="com.integrasolusi.pusda.sisda.dao.sda.EmbungDaoImpl" parent="daoTemplate"/>
+
+    <bean id="telagaDao" class="com.integrasolusi.pusda.sisda.dao.sda.TelagaDaoImpl" parent="daoTemplate"/>
+
+    <bean id="embungPotensiDao" class="com.integrasolusi.pusda.sisda.dao.sda.EmbungPotensiDaoImpl"
+          parent="daoTemplate"/>
+
+    <bean id="airTanahDao" class="com.integrasolusi.pusda.sisda.dao.sda.AirTanahDaoImpl" parent="daoTemplate"/>
+
+    <bean id="daerahRawanBanjirDao" class="com.integrasolusi.pusda.sisda.dao.sda.DaerahRawanBanjirDaoImpl"
+          parent="daoTemplate"/>
+
+    <bean id="saboDamDao" class="com.integrasolusi.pusda.sisda.dao.sda.SaboDamDaoImpl" parent="daoTemplate"/>
+
+    <bean id="propinsiDao" class="com.integrasolusi.pusda.sisda.dao.sda.PropinsiDaoImpl" parent="daoTemplate"/>
+
+    <bean id="kabupatenDao" class="com.integrasolusi.pusda.sisda.dao.sda.KabupatenDaoImpl" parent="daoTemplate"/>
+
+    <bean id="wilayahSungaiDao" class="com.integrasolusi.pusda.sisda.dao.sda.WilayahSungaiDaoImpl"
+          parent="daoTemplate"/>
+
+    <bean id="dasDao" class="com.integrasolusi.pusda.sisda.dao.sda.DasDaoImpl" parent="daoTemplate"/>
+
+    <bean id="sungaiSaboDamDao" class="com.integrasolusi.pusda.sisda.dao.sda.SungaiSaboDamDaoImpl"
+          parent="daoTemplate"/>
+
+    <bean id="posCHDao" class="com.integrasolusi.pusda.sisda.dao.sda.hidrologi.PosCHDaoImpl" parent="daoTemplate"/>
+
+    <bean id="klimatologiDao" class="com.integrasolusi.pusda.sisda.dao.sda.hidrologi.KlimatologiDaoImpl"
+          parent="daoTemplate"/>
+
+    <bean id="posKlimatologiDao" class="com.integrasolusi.pusda.sisda.dao.sda.hidrologi.PosKlimatologiDaoImpl"
+          parent="daoTemplate"/>
+
+    <bean id="tinggiMukaAirDao" class="com.integrasolusi.pusda.sisda.dao.sda.hidrologi.TinggiMukaAirDaoImpl"
+          parent="daoTemplate"/>
+
+    <bean id="posTMADao" class="com.integrasolusi.pusda.sisda.dao.sda.hidrologi.PosTMADaoImpl" parent="daoTemplate"/>
+
+    <bean id="kualitasAirDao" class="com.integrasolusi.pusda.sisda.dao.sda.hidrologi.KualitasAirDaoImpl"
+          parent="daoTemplate"/>
+
+    <bean id="posHidrologiDao" class="com.integrasolusi.pusda.sisda.dao.sda.hidrologi.PosHidrologiDaoImpl"
+          parent="daoTemplate"/>
+
+    <bean id="sungaiDao" class="com.integrasolusi.pusda.sisda.dao.sda.sungai.SungaiDaoImpl" parent="daoTemplate"/>
+
+    <bean id="sungaiSummaryDao" class="com.integrasolusi.pusda.sisda.dao.sda.sungai.SungaiSummaryDaoImpl"
+          parent="daoTemplate"/>
+
+    <bean id="banjirDao" class="com.integrasolusi.pusda.sisda.dao.sda.BanjirDaoImpl" parent="daoTemplate"/>
+
+    <bean id="kekeringanDao" class="com.integrasolusi.pusda.sisda.dao.sda.KekeringanDaoImpl" parent="daoTemplate"/>
+
+    <bean id="sdaDasDao" class="com.integrasolusi.pusda.sisda.dao.sda.SdaDasDaoImpl" parent="daoTemplate"/>
+
+    <bean id="yearDao" class="com.integrasolusi.pusda.sisda.dao.sda.YearDaoImpl" parent="daoTemplate"/>
+
+    <!--- TKPSDA -->
+    <bean id="scheduleDao" class="com.integrasolusi.pusda.sisda.dao.tkpsda.ScheduleDaoImpl"
+          parent="daoTemplate"/>
+
+    <bean id="activityDao" class="com.integrasolusi.pusda.sisda.dao.tkpsda.meeting.ActivityDaoImpl"
+          parent="daoTemplate"/>
+
+    <bean id="activityDocumentDao" class="com.integrasolusi.pusda.sisda.dao.tkpsda.meeting.ActivityDocumentDaoImpl"
+          parent="daoTemplate"/>
+
+    <bean id="eventDao" class="com.integrasolusi.pusda.sisda.dao.tkpsda.documentation.EventDaoImpl"
+          parent="daoTemplate"/>
+
+    <bean id="eventPictureDao" class="com.integrasolusi.pusda.sisda.dao.tkpsda.documentation.EventPictureDaoImpl"
+          parent="daoTemplate"/>
+
+    <bean id="miscFolderDao" class="com.integrasolusi.pusda.sisda.dao.tkpsda.misc.MiscFolderDaoImpl"
+          parent="daoTemplate"/>
+
+    <bean id="miscDocumentDao" class="com.integrasolusi.pusda.sisda.dao.tkpsda.misc.MiscDocumentDaoImpl"
+          parent="daoTemplate"/>
+
+    <!--- leaflet -->
+    <bean id="leafletDao" class="com.integrasolusi.pusda.sisda.dao.LeafletDaoImpl" parent="daoTemplate"/>
+
+    <bean id="satuanKerjaDao" class="com.integrasolusi.pusda.sisda.dao.SatuanKerjaDaoImpl" parent="daoTemplate"/>
+
+    <bean id="progressPekerjaanDao" class="com.integrasolusi.pusda.sisda.dao.sda.ProgressPekerjaanDaoImpl"
+          parent="daoTemplate"/>
+
+    <bean id="strukturOrganisasiDao" class="com.integrasolusi.pusda.sisda.dao.StrukturOrganisasiDaoImpl"
+          parent="daoTemplate"/>
+
+    <bean id="tickerDao" class="com.integrasolusi.pusda.sisda.dao.TickerDaoImpl" parent="daoTemplate"/>
+
+    <bean id="meetingDao" class="com.integrasolusi.pusda.sisda.dao.presentation.MeetingDaoImpl" parent="daoTemplate"/>
+
+    <bean id="moduleDao" class="com.integrasolusi.pusda.sisda.dao.presentation.ModuleDaoImpl" parent="daoTemplate"/>
+
+    <bean id="visitorCounterDao" class="com.integrasolusi.pusda.sisda.dao.VisitorCounterDaoImpl" parent="daoTemplate"/>
+
+    <!-- ffws data -->
+    <bean id="stationDao" class="com.integrasolusi.pusda.sisda.dao.ffws.StationDaoImpl" parent="daoTemplate"/>
+
+    <bean id="waterLevelDao" class="com.integrasolusi.pusda.sisda.dao.ffws.WaterLevelDaoImpl" parent="daoTemplate"/>
+
+    <bean id="projectDao" class="com.integrasolusi.pusda.sisda.dao.ProjectDaoImpl" parent="daoTemplate"/>
+
+
+</beans>                           
+

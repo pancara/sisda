@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jee="http://www.springframework.org/schema/jee"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd">
+
+    <bean id="dataPopulator" class="com.integrasolusi.pusda.sisda.tool.ffws.DataPopulator">
+        <property name="stationService" ref="stationService"/>
+        <property name="waterLevelService" ref="waterLevelService"/>
+        <property name="ffwsDataSource" ref="ffwsDS"/>
+    </bean>
+
+    <bean id="populatorManager" class="com.integrasolusi.pusda.sisda.tool.ffws.PopulatorManager"
+          init-method="startAuto" destroy-method="stop">
+        <property name="dataPopulator" ref="dataPopulator"/>
+        <property name="delay" value="${ffws.dataPopulator.delay}"/>
+        <property name="awaitTermination" value="${ffws.dataPopulator.awaitTermination}"/>
+        <property name="autoStart" value="${ffws.dataPopulator.autoStart}"/>
+    </bean>
+</beans>

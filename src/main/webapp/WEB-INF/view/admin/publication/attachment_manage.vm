@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <img src='#springUrl("/images/16x16/photo.png")'/>
+        Pengumuman | Attachment
+    </title>
+</head>
+<body>
+<div>
+    <table style="width: 100%;" class="white list_attachment">
+        <colgroup style="width: 10px"/>
+        <colgroup style="width: 160px"/>
+        <colgroup style="width: 10px"/>
+        <colgroup style="width: 100px"/>
+        #foreach($attachment in $attachments)
+            <tr>
+                <td>${velocityCount}.</td>
+                <td>
+                    ${attachment.description}<br/>
+                    <span style="color: #336699;">${attachment.filename}</span>
+                </td>
+                <td>$mathTool.ceil($mathTool.div(${attachment.size}, 1024))&nbsp;Kb</td>
+                <td>
+                    <a href="#springUrl("/download/publication/attachment/${attachment.id}/${attachment.filename}")"
+                       class="download" target="_blank"/>
+                    <img src="#springUrl("/images/16x16/download.png")"/>
+                    </a>
+                    <a href="#springUrl("/admin/popup/publication/attachment/${attachment.id}/remove.html")"
+                       class="remove"/>
+                    <img src="#springUrl("/images/16x16/remove.png")"/>
+                    </a>
+                </td>
+            </tr>
+        #end
+    </table>
+</div>
+<div id="attachment">
+    <form action='#springUrl("/admin/popup/publication/attachment/${publication.id}/manage.html")' method="post"
+          enctype="multipart/form-data" style="clear: both;">
+        <div class="legend">
+            <img src="#springUrl("/images/16x16/upload.png")"/>
+            Upload
+        </div>
+        <table>
+            <tr>
+                <td colspan="2">
+                </td>
+            </tr>
+            <tr>
+                <td class='label'>File</td>
+                <td><input type='file' name='file'/></td>
+            </tr>
+            <tr>
+                <td class='label'>Keterangan</td>
+                <td>#springFormTextarea("form.description", "style='width: 250px; height: 60px;' class='text'")</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type='submit' value="submit"/></td>
+            </tr>
+        </table>
+    </form>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("table.list_attachment a.remove").clickConfirm({
+            position:"left",
+            questionText:"Hapus attachment ?",
+            followLinkOnProceed:false,
+            onProceed:function (trigger) {
+                var url = $(trigger).prop("href");
+                jQuery.get(url, function() {
+                    $(trigger).parentsUntil("tbody", "tr").remove();    
+                })
+            }
+        });
+    });
+</script>
+</body>
+</html>

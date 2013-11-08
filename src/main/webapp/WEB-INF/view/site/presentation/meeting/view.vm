@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <img src='#springUrl("/images/16x16/presentation.png")'/> &nbsp;
+        <a href="#springUrl("/presentation/meeting/list.html")">
+            Paparan Hasil Kegiatan
+        </a>
+        &raquo;
+        Detail
+    </title>
+</head>
+<body>
+<div id="presentation">
+    <div class="items">
+        <div class="detail">
+            <h3>$!{meeting.name}</h3>
+            <p>
+                <span class="date">$dateTool.format(${meeting.date})</span>
+            </p>
+            <p>
+                $!{meeting.location}
+            </p>
+
+            <h4>
+                <img src="#springUrl("/images/16x16/download.png")"/>
+                Berkas
+            </h4>
+            #set($row = $start_row + 1)
+            <table class="attachment">
+                #foreach ($module in $modules)
+                    <tr>
+                        <td>
+                            ${velocityCount}.
+                        </td>
+                        <td>
+                            $!{module.name}
+                        </td>
+                        <td>
+                            <a href='#springUrl("/download/presentation/module/${module.id}/${module.filename}")' class="btn">
+                                <img src="#springUrl("/images/filetype/$fileTool.getFileTypeIcon($module.filename)")"
+                                     class="filetype"/>
+                                download
+                            </a>
+                        </td>
+                    </tr>
+                    #set($row = $row + 1)
+                #end
+            </table>
+
+        </div>
+    </div>
+    <img src='#springUrl("/images/hr.png")'/>
+</div>
+</body>
+</html>

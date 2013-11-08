@@ -1,0 +1,546 @@
+// Updated on 26/10/2010 for ver 2.60
+
+#input "Guru Regular.ttf" 
+#output "Guru Regular.otf" 
+
+script latn {  
+    feature AlternateAnnotationForms;
+    feature AlternativeFractions; 
+    feature DiscretionaryLigatures; 
+    feature Ligatures; 
+    feature Fractions;
+    feature HistoricalForms;
+    feature HistoricalLigatures;
+    feature OldstyleFigures; 
+    feature Ordinals; 
+    feature Ornaments; 
+    feature PetiteCaps;
+    feature PetiteCapitalsFromCapitals;
+    feature ScientificInferiors; 
+    feature SmallCaps;
+    feature SmallCapitalsFromCapitals;
+    feature StylisticAlternates; 
+    feature Superscript; 
+    feature TerminalForms;
+} 
+
+feature AlternativeFractions afrc {
+    lookup AlternativeFractions;
+}  lookup AlternativeFractions {
+    sub one one slash one six -> uniEC85;
+    sub one three slash one six -> uniEC86;
+    sub one five slash one six -> uniEC87;
+    sub one slash three two -> uniEC88;
+    sub three slash three two -> uniEC89;
+    sub five slash three two -> uniEC8A;
+    sub seven slash three two -> uniEC8B;
+    sub nine slash three two -> uniEC8C;
+    sub one one slash three two -> uniEC8D;
+    sub one three slash three two -> uniEC8E;
+    sub one five slash three two -> uniEC8F;
+    sub one seven slash three two -> uniEC90;
+    sub one nine slash three two -> uniEC91;
+    sub two one slash three two -> uniEC92;
+    sub two three slash three two -> uniEC93;
+    sub two five slash three two -> uniEC94;
+    sub two seven slash three two -> uniEC95;
+    sub two nine slash three two -> uniEC96;
+    sub three one slash three two -> uniEC97;
+    sub one slash six four -> uniEC98;
+    sub three slash six four -> uniEC99;
+    sub five slash six four -> uniEC9A;
+    sub seven slash six four -> uniEC9B;
+    sub nine slash six four -> uniEC9C;
+    sub one one slash six four -> uniEC9D;
+    sub one three slash six four -> uniEC9E;
+    sub one five slash six four -> uniEC9F;
+    sub one seven slash six four -> uniECA0;
+    sub one nine slash six four -> uniECA1;
+    sub two one slash six four -> uniECA2;
+    sub two three slash six four -> uniECA3;
+    sub two five slash six four -> uniECA4;
+    sub two seven slash six four -> uniECA5;
+    sub two nine slash six four -> uniECA6;
+    sub three one slash six four -> uniECA7;
+    sub three three slash six four -> uniECA8;
+    sub three five slash six four -> uniECA9;
+    sub three seven slash six four -> uniECAA;
+    sub three nine slash six four -> uniECAB;
+    sub four one slash six four -> uniECAC;
+    sub four three slash six four -> uniECAD;
+    sub four five slash six four -> uniECAE;
+    sub four seven slash six four -> uniECAF;
+    sub four nine slash six four -> uniECB0;
+    sub five one slash six four -> uniECB1;
+    sub five three slash six four -> uniECB2;
+    sub five five slash six four -> uniECB3;
+    sub five seven slash six four -> uniECB4;
+    sub five nine slash six four -> uniECB5;
+    sub six one slash six four -> uniECB6;
+    sub six three slash six four -> uniECB7;
+    sub one slash four -> uniE34C;
+    sub one slash two -> uniE34D;
+    sub three slash four -> uniE34E;
+    sub one slash three -> uniEC73;
+    sub two slash three -> uniEC74;
+    sub one slash five -> uniEC75;
+    sub two slash five -> uniEC76;
+    sub three slash five -> uniEC77;
+    sub four slash five -> uniEC78;
+    sub one slash six -> uniEC79;
+    sub five slash six -> uniEC7A;
+    sub one slash eight -> uniEC7B;
+    sub three slash eight -> uniEC7C;
+    sub five slash eight -> uniEC7D;
+    sub seven slash eight -> uniEC7E;
+    sub one slash one six -> uniEC80;
+    sub three slash one six -> uniEC81;
+    sub five slash one six -> uniEC82;
+    sub seven slash one six -> uniEC83;
+    sub nine slash one six -> uniEC84;
+}
+
+feature Fractions frac {
+    lookup Fractions;
+}  lookup Fractions {
+    sub one slash four -> onequarter; 
+    sub one slash two -> onehalf; 
+    sub three slash four -> threequarters; 
+    sub one slash three -> onethird; 
+    sub two slash three -> twothirds; 
+    sub one slash five -> uni2155; 
+    sub two slash five -> uni2156; 
+    sub three slash five -> uni2157; 
+    sub four slash five -> uni2158; 
+    sub one slash six -> uni2159; 
+    sub five slash six -> uni215A; 
+    sub one slash eight -> oneeighth; 
+    sub three slash eight -> threeeighths; 
+    sub five slash eight -> fiveeighths; 
+    sub seven slash eight -> seveneighths; 
+    sub uni00B3 radical -> uni221B; 
+    sub uni2074 radical -> uni221C; 
+}
+
+feature ScientificInferiors sinf {
+    lookup ScientificInferiors;
+}  lookup ScientificInferiors {
+    sub [zero-nine] -> [uni2080-uni2089]; 
+    sub plus -> uni208A; 
+    sub minus -> uni208B; 
+    sub equal -> uni208C; 
+    sub parenleft -> uni208D; 
+    sub parenright -> uni208E; 
+}
+
+feature Superscript sups {
+    lookup Superscript;
+}  lookup Superscript {
+    sub zero -> uni2070; 
+    sub one -> uni00B9; 
+    sub two -> uni00B2; 
+    sub three -> uni00B3; 
+    sub [four-nine] -> [uni2074-uni2079]; 
+    sub plus -> uni207A; 
+    sub minus -> uni207B; 
+    sub equal -> uni207C; 
+    sub parenleft -> uni207D; 
+    sub parenright -> uni207E; 
+    sub [A-Z] -> [uniEAA1 - uniEABA];
+    sub [a-z] -> [uniEAC1 - uniEADA];
+}
+
+feature AlternateAnnotationForms nalt {
+    lookup AlternateAnnotationForms;
+}  lookup AlternateAnnotationForms {
+    sub [one-nine] -> [uni2460 - uni2468];
+    sub zero -> uni2469;
+    sub [A-Z] -> [uni24B6-uni24CF];
+}
+
+feature OldstyleFigures onum {
+    lookup OldstyleFigures;
+}  lookup OldstyleFigures {
+    sub [zero-nine] -> [uniE2C0-uniE2C9]; 
+}
+
+feature Ordinals ordn {
+    lookup Ordinals;
+}
+    group @Ordinals [zero-nine uniE2C0-uniE2C9 uniEAA1 - uniEABA uniEAC1 - uniEADA uniEB28 uniEB3A uniEB48 uniEB5A];
+    group @Alphas [A-Z a-z Egrave Uacute egrave uacute];
+
+    lookup Ordinals{
+    context (@Ordinals) @Alphas;
+    sub 0 Super;
+}  lookup Super {
+    sub [A-Z] -> [uniEAA1 - uniEABA];
+    sub [a-z] -> [uniEAC1 - uniEADA];
+    sub Egrave -> uniEB28;
+    sub Uacute -> uniEB3A;
+    sub egrave -> uniEB48;
+    sub uacute -> uniEB5A;
+}
+
+feature Ornaments ornm {
+    lookup Ornaments;
+}  lookup Ornaments {
+    sub [one-nine] -> [uni2776 - uni277E];
+    sub zero -> uni277F;
+    sub [A-Z] -> [uni2716 - uni272F];
+    sub [a-z] -> [uni2732 - uni274B];
+    sub quoteleft -> uni275B;
+    sub quoteright -> uni275C;
+    sub quotedblleft -> uni275D;
+    sub quotedblright -> uni275E;
+    sub paragraph -> uni2761;
+    sub exclam -> uni2753;
+    sub question -> uni2762;
+    sub parenleft -> uni2768;
+    sub parenright -> uni2769;
+    sub braceleft -> uni2774;
+    sub braceright -> uni2775;
+}
+
+feature StylisticAlternates salt {
+    lookup StylisticAlternates;
+}  lookup StylisticAlternates {
+    sub asterisk -> [asterisk asteriskmath uni2051 uni2042 uni203B uni273B];
+    sub plus -> [plus uni2795 uni271A-uni271C uni2720];
+    sub at -> [at uni2121 uni213B uni260E uni260F uni2709];
+    sub copyright -> [copyright uni2117 uniF000 estimated uni2139 uni2638];
+    sub multiply -> [multiply uni2715-uni2718 uni274E];
+    sub dagger -> [dagger uni2620 uni2622 uni26A1 uni26B0 uni2690];
+    sub daggerdbl -> [daggerdbl uni2623 uni26A0 uni2621 uni26B1 uni2691];
+    sub bullet -> [bullet uni204D uni2023  uni2767 uni2712 uni261B];
+}
+    
+feature TerminalForms fina {
+    lookup TerminalForms;
+}  lookup TerminalForms {
+    sub sigma -> sigma1; 
+}
+
+feature HistoricalLigatures hlig {
+    lookup HistoricalLigatures;
+}  lookup HistoricalLigatures {
+    sub s s i -> longssi;
+    sub s s l -> longssl;
+    sub s t i -> longsti;
+    sub s t r -> longstr;
+    sub s t -> longst;
+    sub s adieresis -> longsadieresis; 
+    sub s h -> longsh;
+    sub s i -> longsi;
+    sub s l -> longsl;
+    sub s odieresis -> longsodieresis;
+    sub s p -> longsp;
+    sub s s -> longss;
+    sub s udieresis -> longsudieresis;
+    sub s b -> longsb;
+    sub s k -> longsk;
+    sub A A -> AA; 
+    sub a a -> aa; 
+    sub A O -> AO; 
+    sub a o -> ao; 
+    sub A U -> AU; 
+    sub a u -> au; 
+    sub A V -> AV;
+    sub a v -> av; 
+    sub A Y -> AY;
+    sub a y -> ay; 
+    sub O O -> OO; 
+    sub o o -> oo; 
+    sub V Y -> VY;
+    sub v y -> vy; 
+}    
+
+feature HistoricalForms hist {
+    lookup HistoricalForms;
+}  lookup HistoricalForms {
+    sub s -> longs; 
+}    
+
+feature PetiteCaps pcap {
+    lookup SmallCaps;
+}    
+
+feature SmallCaps smcp {
+    lookup SmallCaps;
+}  lookup SmallCaps {
+    sub [zero-nine] -> [uniE2C0-uniE2C9]; 
+    sub [a-z] -> [uniE2F1 - uniE30A];
+    sub germandbls -> uniE36F;
+    sub [agrave - odieresis] -> [uniE370 - uniE386];
+    sub [oslash - ydieresis] -> [uniE388 - uniE38F];
+    sub amacron -> uniE391;
+    sub abreve -> uniE393;
+    sub aogonek -> uniE395;
+    sub cacute -> uniE397;
+    sub ccircumflex -> uniE399;
+    sub cdotaccent -> uniE39B;
+    sub ccaron -> uniE39D;
+    sub dcaron -> uniE39F;
+    sub dcroat -> uniE3A1;
+    sub emacron -> uniE3A3;
+    sub ebreve -> uniE3A5;
+    sub edotaccent -> uniE3A7;
+    sub eogonek -> uniE3A9;
+    sub ecaron -> uniE3AB;
+    sub gcircumflex -> uniE3AD;
+    sub gbreve -> uniE3AF;
+    sub gdotaccent -> uniE3B1;
+    sub gcommaaccent -> uniE3B3;
+    sub hcircumflex -> uniE3B5;
+    sub hbar -> uniE3B7;
+    sub itilde -> uniE3B9;
+    sub imacron -> uniE3BB;
+    sub ibreve -> uniE3BD;
+    sub iogonek -> uniE3BD;
+    sub dotlessi -> uniE3C1;
+    sub ij -> uniE3C3;
+    sub jcircumflex -> uniE3C5;
+    sub kcommaaccent -> uniE3C7;
+    sub lacute -> uniE3CA;
+    sub lcommaaccent -> uniE3CC;
+    sub lcaron -> uniE3CE;
+    sub ldot -> uniE3D0;
+    sub lslash -> uniE3D2;
+    sub nacute -> uniE3D4;
+    sub ncommaaccent -> uniE3D6;
+    sub ncaron -> uniE3D8;
+    sub eng -> uniE3DB;
+    sub omacron -> uniE3DD;
+    sub obreve -> uniE3DF;
+    sub ohungarumlaut -> uniE3E1;
+    sub oe -> uniE3E3;
+    sub racute -> uniE3E5;
+    sub rcommaaccent -> uniE3E7;
+    sub rcaron -> uniE3E9;
+    sub sacute -> uniE3EB;
+    sub scircumflex -> uniE3ED;
+    sub scedilla -> uniE3EF;
+    sub scaron -> uniE3F1;
+    sub tcommaaccent -> uniE3F3;
+    sub tcaron -> uniE3F5;
+    sub tbar -> uniE3F7;
+    sub utilde -> uniE3F9;
+    sub umacron -> uniE3FB;
+    sub ubreve -> uniE3FD;
+    sub uring -> uniE3FF;
+    sub uhungarumlaut -> uniE401;
+    sub uogonek -> uniE403;
+    sub wcircumflex -> uniE405;
+    sub ycircumflex -> uniE407;
+    sub zacute -> uniE40A;
+    sub zdotaccent -> uniE40C;
+    sub zcaron -> uniE40E;
+    sub uni01F5 -> uniE485;
+    sub aringacute -> uniE48B;
+    sub aeacute -> uniE48D;
+    sub oslashacute -> uniE48F;
+    sub scommaaccent -> uniE4A9;
+    sub uni021B -> uniE4AB;
+    sub uni1E0D -> uniE92D;   
+    sub uni1E25 -> uniE945;
+    sub uni1E37 -> uniE957;
+    sub uni1E39 -> uniE959;
+    sub uni1E41 -> uniE961; 
+    sub uni1E43 -> uniE963;
+    sub uni1E45 -> uniE965;
+    sub uni1E47 -> uniE967;
+    sub uni1E5B -> uniE97B;
+    sub uni1E5D -> uniE97D;
+    sub uni1E63 -> uniE983;
+    sub uni1E6D -> uniE98D;
+    sub wgrave -> uniE9A1;
+    sub wacute -> uniE9A3;
+    sub wdieresis -> uniE9A5;
+    sub ygrave -> uniEA13;
+    sub uni1EF9 -> uniEA19; 
+    sub iotadieresistonos -> uniE620;
+    sub [alphatonos - rho] -> [uniE63C - uniE651];
+    sub [sigma - omegatonos] -> [uniE653 - uniE65E];
+}
+
+feature PetiteCapitalsFromCapitals c2pc {
+    lookup SmallCapitalsFromCapitals;
+}    
+
+feature SmallCapitalsFromCapitals c2sc {
+    lookup SmallCapitalsFromCapitals;
+}  lookup SmallCapitalsFromCapitals {
+    sub exclam -> uniE2B1;
+    sub percent -> uniE2B5;
+    sub ampersand -> uniE2B6;
+    sub question -> uniE2CF;
+    sub parenleft -> uniE2B8;
+    sub parenright -> uniE2B9;
+    sub [zero-nine] -> [uniE2C0-uniE2C9]; 
+    sub bracketleft -> uniE2EB;
+    sub bracketright -> uniE2ED;
+    sub [A-Z] -> [uniE2F1 - uniE30A];
+    sub braceleft -> uniE30B;
+    sub braceright -> uniE30D;
+    sub exclamdown -> uniE331;
+    sub questiondown -> uniE34F;
+    sub germandbls -> uniE36F;
+    sub [Agrave - Odieresis] -> [uniE370 - uniE386];
+    sub [Oslash - Thorn] -> [uniE388 - uniE38E];
+    sub Ydieresis -> uniE38F;
+    sub Amacron -> uniE391;
+    sub Abreve -> uniE393;
+    sub Aogonek -> uniE395;
+    sub Cacute -> uniE397;
+    sub Ccircumflex -> uniE399;
+    sub Cdotaccent -> uniE39B;
+    sub Ccaron -> uniE39D;
+    sub Dcaron -> uniE39F;
+    sub Dcroat -> uniE3A1;
+    sub Emacron -> uniE3A3;
+    sub Ebreve -> uniE3A5;
+    sub Edotaccent -> uniE3A7;
+    sub Eogonek -> uniE3A9;
+    sub Ecaron -> uniE3AB;
+    sub Gcircumflex -> uniE3AD;
+    sub Gbreve -> uniE3AF;
+    sub Gdotaccent -> uniE3B1;
+    sub Gcommaaccent -> uniE3B3;
+    sub Hcircumflex -> uniE3B5;
+    sub Hbar -> uniE3B7;
+    sub Itilde -> uniE3B9;
+    sub Imacron -> uniE3BB;
+    sub Ibreve -> uniE3BD;
+    sub Iogonek -> uniE3BD;
+    sub IJ -> uniE3C3;
+    sub Jcircumflex -> uniE3C5;
+    sub Kcommaaccent -> uniE3C7;
+    sub Lacute -> uniE3CA;
+    sub Lcommaaccent -> uniE3CC;
+    sub Lcaron -> uniE3CE;
+    sub Ldot -> uniE3D0;
+    sub Lslash -> uniE3D2;
+    sub Nacute -> uniE3D4;
+    sub Ncommaaccent -> uniE3D6;
+    sub Ncaron -> uniE3D8;
+    sub Eng -> uniE3DB;
+    sub Omacron -> uniE3DD;
+    sub Obreve -> uniE3DF;
+    sub Ohungarumlaut -> uniE3E1;
+    sub OE -> uniE3E3;
+    sub Racute -> uniE3E5;
+    sub Rcommaaccent -> uniE3E7;
+    sub Rcaron -> uniE3E9;
+    sub Sacute -> uniE3EB;
+    sub Scircumflex -> uniE3ED;
+    sub Scedilla -> uniE3EF;
+    sub Scaron -> uniE3F1;
+    sub Tcommaaccent -> uniE3F3;
+    sub Tcaron -> uniE3F5;
+    sub Tbar -> uniE3F7;
+    sub Utilde -> uniE3F9;
+    sub Umacron -> uniE3FB;
+    sub Ubreve -> uniE3FD;
+    sub Uring -> uniE3FF;
+    sub Uhungarumlaut -> uniE401;
+    sub Uogonek -> uniE403;
+    sub Wcircumflex -> uniE405;
+    sub Ycircumflex -> uniE407;
+    sub Zacute -> uniE40A;
+    sub Zdotaccent -> uniE40C;
+    sub Zcaron -> uniE40E;
+    sub uni01F4 -> uniE485;
+    sub Aringacute -> uniE48B;
+    sub AEacute -> uniE48D;
+    sub Oslashacute -> uniE48F;
+    sub Scommaaccent -> uniE4A9;
+    sub uni021A -> uniE4AB;
+    sub uni1E0C -> uniE92D;   
+    sub uni1E24 -> uniE945;
+    sub uni1E36 -> uniE957;
+    sub uni1E38 -> uniE959;
+    sub uni1E40 -> uniE961; 
+    sub uni1E42 -> uniE963;
+    sub uni1E44 -> uniE965;
+    sub uni1E46 -> uniE967;
+    sub uni1E5A -> uniE97B;
+    sub uni1E5C -> uniE97D;
+    sub uni1E62 -> uniE983;
+    sub uni1E6C -> uniE98D;
+    sub Wgrave -> uniE9A1;
+    sub Wacute -> uniE9A3;
+    sub Wdieresis -> uniE9A5;
+    sub Ygrave -> uniEA13;
+    sub uni1EF8 -> uniEA19; 
+    sub Alphatonos -> uniE63C;
+    sub [Epsilontonos - Iotatonos] -> [uniE63D - uniE63F];
+    sub [Alpha - uni03A9] -> [uniE641 - uniE659];
+    sub [Iotadieresis - Upsilondieresis] -> [uniE65A - uniE65B];
+    sub [Omicrontonos - Omegatonos] -> [uniE65C - uniE65E];
+}
+
+feature DiscretionaryLigatures dlig { 
+    lookup dligSub; 
+}  lookup dligSub { 
+    sub c k y -> cky; 
+    sub c k -> ck; 
+    sub k y -> ky; 
+    sub c t -> ct; 
+    sub F F -> FF; 
+    sub F I -> FI; 
+    sub F L -> FL; 
+    sub H E -> HE; 
+    sub i t -> it; 
+    sub i p -> ip; 
+    sub L A -> LA; 
+    sub M B -> MB; 
+    sub M D -> MD; 
+    sub M E -> ME; 
+    sub M P -> MP; 
+    sub M R -> MR; 
+    sub N K -> NK; 
+    sub N T -> NT; 
+    sub O C -> OC;
+    sub O G -> OG;
+    sub O O -> OO;
+    sub T T -> TT;
+    sub T W -> TW;
+    sub t w -> tw;
+    sub T Y -> TY;
+    sub U B -> UB;
+    sub U D -> UD;
+    sub U L -> UL;
+    sub U P -> UP;
+    sub U R -> UR;
+    sub s p -> sp; 
+    sub s t -> st; 
+    sub t z -> tz; 
+    sub Q u -> Qu; 
+    sub T h -> Th; 
+}
+
+feature Ligatures liga { 
+    lookup ligaSub; 
+}  lookup ligaSub { 
+    sub question exclam -> uni203D;
+    sub exclam question -> uni203D;
+    sub f f i -> ffi; 
+    sub f f l -> ffl; 
+    sub f f r -> ffr; 
+    sub f f t -> fft; 
+    sub f f y -> ffy; 
+    sub f t y -> fty; 
+    sub f f -> ff; 
+    sub f i -> fi; 
+    sub f j -> fj; 
+    sub f l -> fl; 
+    sub f r -> fr; 
+    sub f t -> ft; 
+    sub f y -> fy; 
+    sub t t r -> ttr; 
+    sub t r -> tr; 
+    sub t t y -> tty; 
+    sub t t -> tt; 
+    sub t y -> ty; 
+    sub longs t -> longst;
+}

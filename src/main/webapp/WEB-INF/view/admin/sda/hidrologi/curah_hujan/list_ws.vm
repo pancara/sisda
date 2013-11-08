@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <a href="#springUrl("/admin/sda/hidrologi/curah_hujan/list.html")">Curah Hujan</a>
+        &#187;
+        <span>WS</span>
+    </title>
+</head>
+<body>
+
+<div id="activity">
+    <div>
+        <table class="no_border" style="width: 100%">
+            <col style="width: 20px"/>
+            <col style="width: 640px;"/>
+            <col style="width: 120px;"/>
+            <thead>
+            <tr>
+                <th>No.</th>
+                <th>Wilayah Sungai</th>
+                <th></th>
+            </tr>
+            </thead>
+            #foreach($ws in $wsList)
+                <tr>
+                    <td>${velocityCount}.</td>
+                    <td>
+                         <span class="text_id">
+                             ${ws.name}
+                         </span>
+                    </td>
+                    <td>
+                        <a href='#springUrl("/admin/sda/hidrologi/curah_hujan/list/${ws.id}.html")'
+                           class='button select'>
+                            pilih &raquo;
+                        </a>
+                    </td>
+                </tr>
+            #end
+            <tfoot>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+
+</div>
+</body>
+</html>

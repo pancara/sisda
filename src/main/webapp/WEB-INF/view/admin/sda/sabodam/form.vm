@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <a href="#springUrl("/admin/sda/sabodam/list.html")">Sabo Dam</a>
+        &#187;
+        <span>Form</span>
+    </title>
+</head>
+<body>
+<div id="sabodam">
+    <div>
+        #springBind("form")
+        #if ($status.getErrors().getErrorCount() > 0)
+            <ul class='error'>
+                #foreach($error in $status.errorMessages)
+                    <li>$error</li>
+                #end
+            </ul>
+        #end
+
+
+        <form method="post" enctype="multipart/form-data">
+            <table style='width: 95%;'>
+                <col style="width: 80px;"/>
+                <tr>
+                    <td class="label">Kode</td>
+                    <td>#springFormInput("form.code", "style='width: 200px;' class='text'")</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Koordinat Posisi</td>
+                </tr>
+                <tr>
+                    <td style="text-align: right;">X:</td>
+                    <td>
+                        #springFormInput("form.x", "style='width: 250px; class='text'")
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: right;">Y:</td>
+                    <td>
+                        #springFormInput("form.y", "style='width: 250px; class='text'")
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sungai</td>
+                    <td>
+                        #springFormSingleSelect("form.sungai", $sungaiLookup, "style='width: 250px; class='text'")
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="label">File</td>
+                    <td><input type="file" name="file"/></td>
+                </tr>
+                <tr>
+                    <td class="label">Keterangan</td>
+                    <td>#springFormTextarea("form.description", "style='width: 500px;' class='text'")</td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="submit" name='submit_action' class="button"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#description").ckeditor({
+            extraPlugins:"tableresize"
+        });
+    });
+</script>
+
+</body>
+</html>

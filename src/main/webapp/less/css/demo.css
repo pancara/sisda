@@ -1,0 +1,6 @@
+p {
+  font-weight: bold;
+}
+p > span {
+  color: #FF0000;
+}

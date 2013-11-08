@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="sisda:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="sisda.war">
+      <element id="artifact" artifact-name="sisda:war exploded" />
+    </root>
+  </artifact>
+</component>

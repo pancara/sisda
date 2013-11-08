@@ -1,0 +1,68 @@
+#footer
+  margin: 0px 0px 0px 0px
+  padding: 0px 0px 8px 0px
+  background: #224a63
+  line-height: 20px
+  text-align: right
+  letter-spacing: 1px
+  color: #FFF
+
+  div
+    margin: 4px 12px 4px 8px
+
+  span
+    color: #FFF
+    padding: 0px 0px 10px 0px
+
+  a
+    font-family: "Trebuchet MS"
+    padding: 0px 0px 0px 0px
+    text-decoration: none
+    font-size: 12px
+    color: #FFF
+
+  a:hover
+    text-decoration: none
+    color: #f4d00a
+
+  .last
+    a
+      margin-right: 10px
+
+  div.menubar_cont
+    margin: 0px 0px 0px 0px
+    padding: 4px 8px 2px 0px
+    text-align: right
+    color: #FFF
+
+  div.menubar
+    padding: 2px 0px 2px 8px
+    a
+      font-family: "Trebuchet MS"
+      padding: 2px 5px 2px 5px
+      margin: 0px 0px 0px 0px
+      text-decoration: none
+      font-size: 11px
+      font-weight: bold
+      color: #FFF
+      line-height: 12px
+      letter-spacing: 0px
+      outline: none
+
+    a:hover
+      text-decoration: none
+      color: #000
+      background: #30698c
+      border-radius: 4px
+
+  div.stats
+    display: inline-block
+    float: left
+    position: relative
+    text-align: left
+    margin: 4px
+    width: 350px
+    color: #000
+    border-right: 1px solid #30698c
+
+@import "module/imported"

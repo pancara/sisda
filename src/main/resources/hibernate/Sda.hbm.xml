@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.integrasolusi.pusda.sisda.persistence.Sda" table="sda">
+        <id name="id" column="UID" type="java.lang.Long" unsaved-value="null">
+            <generator class="native"/>
+        </id>
+
+        <version name="version" access="field" column="OBJ_VERSION"/>
+
+        <property name="title" type="java.lang.String">
+            <column name="TITLE" sql-type="TEXT"/>
+        </property>
+
+        <property name="description" type="java.lang.String">
+            <column name="DESCRIPTION" sql-type="TEXT"/>
+        </property>
+
+        <property name="published" type="boolean">
+            <column name="PUBLISHED" sql-type="INTEGER"/>
+        </property>
+
+        <property name="index" type="java.lang.Integer" column="IDX" not-null="false"/>
+
+    </class>
+</hibernate-mapping>

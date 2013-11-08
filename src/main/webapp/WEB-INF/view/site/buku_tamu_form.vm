@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <img src='#springUrl("/images/16x16/user_comment.png")'/> &nbsp;
+        Buku Tamu
+    </title>
+</head>
+<body>
+    #springBind("form")
+<div id="guest">
+    #if ($status.getErrors().getErrorCount() > 0)
+        <ul class='error'>
+            #foreach($error in $status.errorMessages)
+                <li>$error</li>
+            #end
+        </ul>
+    #end
+
+
+    #parse("site/includes/buku_tamu_form.vm")
+</div>
+</body>
+</html>

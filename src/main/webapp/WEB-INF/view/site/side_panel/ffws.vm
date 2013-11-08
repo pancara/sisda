@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <img src='#springUrl("/images/16x16/news_latest.png")'/> &nbsp;
+        Tinggi Muka Air
+    </title>
+</head>
+<body>
+<div class="ffws">
+    <h1>
+        <img src="#springUrl("/images/16x16/chart_curve.png")"/>
+        <span>
+            Tinggi Muka Air
+        </span>
+    </h1>
+
+    <div class="content">
+        
+        <div class="items">
+            #foreach($waterLevel in $waterLevels)
+                <table class="item">
+                    <tr>
+                        <td class="pos">
+                            ${waterLevel.station.name}
+                        </td>
+                        <td class="value" rowspan="2">
+                            $numberTool.format("#0.00", $mathTool.div(${waterLevel.value}, 100))&nbsp;<span class="unit">m</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="time">
+                            #if ($waterLevel)
+                                $dateTimeTool.format("d MMM yyyy HH:mm", ${waterLevel.samplingAt})
+                            #end
+                        </td>
+                    </tr>
+                </table>
+            #end
+        </div>
+        <div class="footer" style="text-align: right;">
+            <a href="#springUrl("/ffws/chart.html")" class="btn">
+                &raquo; Grafik
+            </a>
+            &nbsp;
+            <a href="#springUrl("/ffws/map.html")" class="btn">
+                &raquo; Peta Lokasi
+            </a>
+            
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <img src='#springUrl("/images/16x16/potensi_sda.png")'/> &nbsp;
+        Potensi SDA
+    </title>
+</head>
+<body>
+<div id="potensi_sda">
+    <div class='context-menu'>
+        #foreach($page in $pages)
+            #if ($page == $current)
+                <a href='#springUrl("/admin/potensi_sda/${page}.html?keyword=$!{keyword}")' class="current">$page</a>
+            #else
+                <a href='#springUrl("/admin/potensi_sda/${page}.html?keyword=$!{keyword}")' class="page">$page</a>
+            #end
+        #end
+    </div>
+    <div class='right'>
+        <form action='#springUrl("/admin/potensi_sda.html")'
+              style="float: left; display: block; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;">
+            Kata kunci: &nbsp;<input type='text' name='keyword' value='$!{keyword}' class='text'/><input type='submit'
+                                                                                                         value='cari'/>
+        </form>
+        <a href='#springUrl("/admin/potensi_sda/new.html")' class='new' style="padding-bottom: 2px;">
+            baru
+        </a>
+    </div>
+    <table class="no_border" style="width: 100%">
+        #set($row = $start_row + 1)
+        #foreach ($potensi_sda in $potensiSdaList)
+            <tr>
+                <td style="width: 24px;">${row}.</td>
+                <td>
+                    #if ($titlePictures.get($potensi_sda))
+                        <img src='#springUrl("/potensi_sda/thumb/${potensi_sda.id}.html?width=70")' class='title_thumb'/>
+                    #end
+
+                    <span class="title">$potensi_sda.title</span>
+
+                    <div style='font-size: 10px;'>$dateTimeTool.format($potensi_sda.publishedDate)</div>
+                    <p>$potensi_sda.shortDescription</p>
+
+                    <div class='right'>
+                        <a href='#springUrl("/admin/potensi_sda/manage/${potensi_sda.id}.html")' class='manage'>
+                            kelola
+                        </a>
+                        <a href='#springUrl("/potensi_sda/read/${potensi_sda.id}.html")' class='link' target="_blank">
+                            preview
+                        </a>
+                        <a href='#springUrl("/admin/potensi_sda/edit/${potensi_sda.id}.html")' class='edit'>
+                            edit
+                        </a>
+                        <a rel='#springUrl("/admin/potensi_sda/remove/${potensi_sda.id}.html")' class='remove'>
+                            hapus
+                        </a>
+                    </div>
+                </td>
+            </tr>
+            #set($row = $row + 1)
+        #end
+    </table>
+
+    <div class='context-menu'>
+        #foreach($page in $pages)
+            #if ($page == $current)
+                <a href='#springUrl("/admin/potensi_sda/${page}.html?keyword=$!{keyword}")' class="current">$page</a>
+            #else
+                <a href='#springUrl("/admin/potensi_sda/${page}.html?keyword=$!{keyword}")' class="page">$page</a>
+            #end
+        #end
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        $("#potensi_sda a.remove").clickConfirm({
+            position: "bottom",
+            questionText: "Hapus berita ?",
+            followLinkOnProceed: false,
+            onProceed: function(trigger) {
+                var _url = $(trigger).attr("rel");
+                jQuery.get(_url,
+                          function(data) {
+                              if (data.result == true) {
+                                  var tr = $(trigger).parentsUntil("tbody");
+                                  tr.remove();
+                              }
+                          }
+                        );
+            }
+        });
+
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+#macro(paging $pages $das $keyword)
+<div class="page_index">
+    #if ($pages.size() > 0)
+        <a href='#springUrl("/admin/sda/embung/page/1.html?das=$!{das}&keyword=$!{keyword}")'>
+            <img src="#springUrl("/images/16x16/go-first.png")" alt="1"/>
+        </a>
+
+        #set($prev = $current - 1)
+        #if ($prev < 1)
+            #set($prev = 1)
+        #end
+        <a href='#springUrl("/admin/sda/embung/page/${prev}.html?das=$!{das}&keyword=$!{keyword}")'>
+            <img src="#springUrl("/images/16x16/go-previous.png")" alt="${prev}"/>
+        </a>
+
+        #foreach($page in $pages)
+
+            #if ($page == $current)
+                <a href='#springUrl("/admin/sda/embung/page/${page}.html?das=$!{das}&keyword=$!{keyword}")'
+                   class="current">$page</a>
+            #else
+                <a href='#springUrl("/admin/sda/embung/page/${page}.html?das=$!{das}&keyword=$!{keyword}")'
+                   class="page">$page</a>
+            #end
+        #end
+
+        #set($next = $current + 1)
+        #if ($next > $last)
+            #set($next = $last)
+        #end
+        <a href='#springUrl("/admin/sda/embung/page/${next}.html?das=$!{das}&keyword=$!{keyword}")'>
+            <img src="#springUrl("/images/16x16/go-next.png")" alt="${next}"/>
+        </a>
+
+        <a href='#springUrl("/admin/sda/embung/page/${last}.html?das=$!{das}&keyword=$!{keyword}")'>
+            <img src="#springUrl("/images/16x16/go-last.png")" alt="${last}"/>
+        </a>
+
+    #end
+</div>
+#end<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <img src='#springUrl("/images/16x16/embung.png")'/> &nbsp;
+        <span>Embung</span>
+    </title>
+</head>
+<body>
+<div id="embung">
+    <div style="display: block;">
+        <form action='#springUrl("/admin/sda/embung/list.html")'
+              style="display: block; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;">
+
+            DAS: <select id="das" name="das">
+            <option value="">-- SEMUA --</option>
+            #foreach($das in ${dasList})
+                #if ($form.das && $form.das == $das.id)
+                    <option value="$!{das.id}" selected="selected">${das.name}</option>
+                #else
+                    <option value="$!{das.id}">${das.name}</option>
+                #end
+            #end
+        </select>
+            &nbsp;&nbsp;
+            Kata kunci:&nbsp;
+            <input type='text' name='keyword' value='$!{form.keyword}' class='text'/>
+            <input type='submit' value='cari'/>
+        </form>
+    </div>
+    <div>
+        <span class="info">
+                <img src="#springUrl("/images/16x16/table_row_select.png")"/>
+                Ditemukan ${count} data.
+        </span>
+        #paging($pages, ${form.das}, ${form.keyword})
+    </div>
+    <div>
+        <form action="#springUrl("/admin/sda/embung/manage.html")" method="post">
+            <table class="no_border">
+                <col style="width: 20px"/>
+                <col style="width: 20px"/>
+                <col style="width: 20px"/>
+                <col style="width: 800px;"/>
+                <col style="width: 20px;"/>
+                <col style="width: 50px"/>
+                <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>
+                        <input type='checkbox' name="ids_all" class="select_all"/>
+                    </th>
+                    <th>ID</th>
+                    <th>Judul</th>
+                    <th>DAS</th>
+                    <th>
+                        <a href='#springUrl("/admin/sda/embung/add.html")' class='button'>
+                            baru
+                        </a>
+                    </th>
+                </tr>
+                </thead>
+                #set($row = $start + 1)
+                #foreach ($embung in $embungList)
+                    <tr>
+                        <td>${row}.</td>
+                        <td>
+                            <input type='checkbox' name='ids' value='${embung.id}'/>
+                        </td>
+                        <td>
+                         <span class="text_id">
+                             ${embung.id}
+                         </span>
+                        </td>
+                        <td class="short_content">
+                            <a href="#springUrl("/popup/sda/embung/detail/${embung.id}/${embung.name}.html")" class="popup">
+                                ${embung.name}
+                            </a>
+                        </td>
+                        <td>
+                            $!{embung.das.name}
+                        </td>
+                        <td>
+                            <a href='#springUrl("/admin/sda/embung/edit/${embung.id}.html")' class='button'>
+                                edit
+                            </a>
+                        </td>
+                    </tr>
+                    #set($row = $row + 1)
+                #end
+                <tfoot>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type='checkbox' name="ids_all" class="select_all"/>
+                    </td>
+                    <td colspan="5">
+                        <input type="hidden" name="das" value="$!{form.das}"/>
+                        <input type="hidden" name="keyword" value="$!{form.keyword}"/>
+                        <input type="hidden" name="page" value="${current}"/>
+
+                        <input type="submit" name="remove" value="Hapus"/>
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+        </form>
+    </div>
+    <div>
+        <span class="info">
+                <img src="#springUrl("/images/16x16/table_row_select.png")"/>
+                Ditemukan ${count} data.
+        </span>
+        #paging($pages, ${form.das}, ${form.keyword})
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".popup").colorbox({width:"800px", height:"95%", iframe:true});
+
+        $("input[type=checkbox].select_all").click(function () {
+            var checked = $(this).prop("checked");
+            $("#embung table input[type=checkbox]").attr("checked", checked);
+        });
+    });
+</script>
+</body>
+</html>

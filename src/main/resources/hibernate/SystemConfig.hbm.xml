@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.integrasolusi.pusda.sisda.persistence.SystemConfig" table="system_config">
+
+        <id name="id" column="UID" type="java.lang.Long" unsaved-value="null">
+            <generator class="assigned"/>
+        </id>
+
+        <version name="version" access="field" column="OBJ_VERSION"/>
+
+        <property name="description" type="java.lang.String">
+            <column name="DESCRIPTION" sql-type="TEXT"/>
+        </property>
+
+        <property name="longValue" type="java.lang.Long">
+            <column name="LONG_VALUE" sql-type="BIGINT(20)"/>
+        </property>
+
+        <property name="stringValue" type="java.lang.String" column="STRING_VALUE"/>
+
+        <property name="intValue" type="java.lang.Integer" column="INT_VALUE"/>
+
+        <property name="booleanValue" type="java.lang.Boolean" column="BOOLEAN_VALUE"/>
+
+    </class>
+</hibernate-mapping>

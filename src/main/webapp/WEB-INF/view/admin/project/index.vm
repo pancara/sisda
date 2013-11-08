@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <span>Proyek Strategis</span>
+    </title>
+</head>
+<body>
+
+<div id="project">
+    <table class="no_border" style="width: 100%">
+        <col style="width: 20px"/>
+        <col style="width: 150px"/>
+        <col style="width: 640px;"/>
+        <col style="width: 100px;"/>
+        <col style="width: 180px;"/>
+        <col style="width: 180px;"/>
+        <thead>
+        <tr>
+            <th>No.</th>
+            <th></th>
+            <th>Proyek</th>
+            <th>Tahun</th>
+            <th>
+                <a href='#springUrl("/admin/project/add.html")' class='button' style="padding-bottom: 2px;">
+                    tambah
+                </a>
+            </th>
+        </tr>
+        </thead>
+        #foreach($project in $listProject)
+            <tr>
+                <td>
+                    $velocityCount.
+                </td>
+                <td>
+                    <img src='#springUrl("/download/proyek_strategis/picture/${project.id}/${project.picture}")' style="max-width: 100px;" />
+                </td>
+                <td style="width: 450px;">
+                    <a href="#springUrl("/popup/proyek_strategis/${project.id}.html")" class="popup">
+                        ${project.name}
+                    </a>
+
+                    <p>
+                        $!{project.description}
+                    </p>
+                </td>
+                <td>
+                    $!{project.year.value}
+                </td>
+                
+                <td>
+                    <a href='#springUrl("/admin/project/edit/${project.id}.html")' class='button edit'>
+                        edit
+                    </a>
+                    <a href='#springUrl("/admin/project/remove/${project.id}.html")' class='button remove'>
+                        hapus
+                    </a>
+                </td>
+            </tr>
+        #end
+    </table>
+
+</div>
+<script type="text/javascript">
+    //<![CDATA[
+    $(document).ready(function () {
+        $("#project a.popup").colorbox({width: "800px", height: "95%", iframe: true});
+
+        $("#project a.remove").clickConfirm({
+            position: "bottom",
+            questionText: "Hapus data project ?",
+            followLinkOnProceed: false,
+            onProceed: function (trigger) {
+                var _url = $(trigger).attr("href");
+                jQuery.get(_url,
+                        function (data) {
+                            if (data.result == true) {
+                                var tr = $(trigger).parentsUntil("tbody");
+                                tr.remove();
+                            }
+                        }
+                );
+            }
+        });
+    });
+    // ]]>
+</script>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<form action='#springUrl("/buku_tamu/post.html")' method='post'>
+    <table style='width: 100%;'>
+        <tr>
+            <td colspan="2" style='color: #006fcc; height: 40px;'>
+                Silakan kirimkan saran, kritik, komentar atau pertanyaan Anda di sini.
+            </td>
+        </tr>
+        <tr>
+            <td>Pengirim</td>
+            <td>#springFormInput("form.name", "style='width: 300px;' class='text'")</td>
+        </tr>
+        <tr>
+            <td>
+                Email
+            </td>
+            <td>#springFormInput("form.email", "style='width: 300px;' class='text'")</td>
+        </tr>
+        <tr>
+            <td>Telepon</td>
+            <td>#springFormInput("form.phone", "style='width: 300px;' class='text'")</td>
+        </tr>
+        <tr>
+            <td>Pesan</td>
+            <td>#springFormTextarea("form.message", "style='width:400px; height: 80px;'")</td>
+        </tr>
+        <tr>
+            <td colspan='2'>
+                Isikan teks di bawah ini.
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <img src='#springUrl("/buku_tamu/captcha.html")' class="captcha"/>
+                <br/>
+                <input name="captcha" type="text" class="text" style="width: 160px; font-size: 16px;"/>
+            </td>
+        <tr>
+            <td></td>
+            <td><input type='submit' name='submit' value='Submit'/></td>
+        </tr>
+    </table>
+</form>

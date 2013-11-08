@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <span>TKPSDA</span>
+        &raquo;
+        <a href="#springUrl("/admin/tkpsda/year/set.html")">Tahun Aktif</a>
+    </title>
+</head>
+<body>
+<div id="progress_pekerjaan">
+    <div>
+        #springBind("form")
+        #if ($status.getErrors().getErrorCount() > 0)
+            <ul class='error'>
+                #foreach($error in $status.errorMessages)
+                    <li>$error</li>
+                #end
+            </ul>
+        #end
+
+
+        <form method='post'>
+            <table style='width: 95%;'>
+                <tr>
+                    <td class="label" style="width: 120px;">Tahun Berjalan</td>
+                    <td>
+                        #springFormSingleSelect("form.year", $yearValueLookup, "class='text'")
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="submit" name='submit_action' class="button"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+</body>
+</html>

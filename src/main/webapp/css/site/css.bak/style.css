@@ -1,0 +1,169 @@
+#container {
+    width: 915px;
+    margin: 0px auto 12px auto;
+    padding: 40px 10px 12px 10px;
+    border: 1px solid #999;
+    border-top: none;
+    background: #FFF;
+    box-shadow: 0px 0px 8px #999;
+    border-radius: 2px;
+}
+
+#cont_ticker {
+    z-index: 9999;
+    visibility: hidden;
+}
+
+#header {
+    height: 150px;
+    margin: 0px auto 0px auto;
+    padding: 0px 0px 0px 0px;
+    background: #224a63;
+    border: none;
+    display: block;
+}
+
+#page {
+    margin: 0px 0px 0px 0px;
+    background: transparent;
+    border: none;
+    padding: 0px 0px 0px 0px;
+    width: 915px;
+}
+
+/* Content */
+#header h2 {
+    color: #FFF;
+    font-size: 16px;
+    letter-spacing: 1px;
+    line-height: 24px;
+}
+
+#header h3 {
+    font-size: 12px;
+    color: #FFF;
+}
+
+#header div.menubar_cont {
+    margin: 0px 0px 0px 0px;
+    padding: 4px 8px 2px 0px;
+    /*background: #224a63;*/
+    text-align: right;
+    color: #FFF;
+}
+
+#header div.menubar_cont {
+    border-bottom: 1px solid #99b0bd;
+}
+
+#header div.menubar {
+    padding: 2px 0px 2px 8px;
+
+}
+
+#header div.menubar a {
+    font-family: "Trebuchet MS";
+    padding: 2px 5px 2px 5px;
+    margin: 0px 0px 0px 0px;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: bold;
+    color: #FFF;
+    line-height: 12px;
+    letter-spacing: 0px;
+    outline: none;
+}
+
+#header div.menubar a:hover {
+    text-decoration: none;
+    color: #FFF;
+    background: #30698c;
+    border-radius: 4px;
+}
+
+img.news_photo_thumb {
+    width: 80px;
+    float: left;
+    margin-right: 6px;
+}
+
+table.bordered {
+    border-collapse: collapse;
+    box-shadow: 0px 0px 8px #EEE;
+}
+
+table.bordered th {
+    color: #3366CC;
+    border: 1px solid #EEE;
+    background: #F5F5F5;
+    padding: 8px 4px 8px 8px;
+}
+
+table.bordered td {
+    border: 1px solid #EEE;
+}
+
+#external_link, #app_system {
+    text-align: left;
+}
+
+#external_link a, #app_system a {
+    padding: 5px 2px 4px 2px;
+    display: block;
+    margin-bottom: 5px;
+    border: 0px solid #DDD;
+    background: #F5F5F5;
+    /*background: -moz-linear-gradient(top, #b9d9f9, #6699CC);*/
+    /*background: -webkit-gradient(linear, left top, left bottom, from(#336699), to(#6699CC));*/
+    /*filter: progid:dximagetransform.microsoft.gradient(StartColorStr = '#336699', EndColorStr = '#6699CC', GradientType = 0);*/
+    border-radius: 4px;
+    clear: both;
+    height: 40px;
+}
+
+#external_link a:hover, #app_system a:hover {
+    background: #EEE;
+}
+
+#external_link a img, #app_system a img {
+    float: left;
+    display: inline-block;
+    margin: 4px 2px 0px 6px;
+    padding: 2px 1px 2px 1px;
+    background: #FFF;
+    border-radius: 3px;
+}
+
+#external_link a span, #app_system a span {
+    padding: 2px 2px 2px 2px;
+    margin-left: 0px;
+    font-family: "Trebuchet MS";
+    font-weight: normal;
+    font-size: 12px;
+    color: #555;
+    display: inline-block;
+    width: 112px;
+    letter-spacing: 0.1pt;
+    float: right;
+
+}
+
+a.button {
+    padding: 1px 4px 1px 4px;
+    font-family: "Trebuchet MS";
+    font-size: 10px;
+    font-weight: normal;
+    letter-spacing: 0px;
+    text-shadow: 1px 1px 1px #999;
+    box-shadow: 1px 1px 1px #AAA;
+    background: #306689 url(../../images/menu-overlay.png) repeat-x left bottom;
+    border-radius: 3px;
+    outline: none;
+    color: #FFF;
+}
+
+a.button:hover {
+    background: #448fc2 url(../../images/menu-overlay.png) repeat-x left bottom;
+
+}
+

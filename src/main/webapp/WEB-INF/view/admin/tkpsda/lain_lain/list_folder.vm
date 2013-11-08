@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <span>TKPSDA</span>
+        &raquo;
+        <a href="#springUrl("/admin/tkpsda/lain_lain/view.html")">Lain-lain</a>
+        &raquo;
+        <a href="#springUrl("/admin/tkpsda/lain_lain/view/${wilayahSungai.id}.html")">${wilayahSungai.name}</a>
+        &raquo;
+        <a href="#springUrl("/admin/tkpsda/lain_lain/view/${wilayahSungai.id}/${year.id}.html")">${year.value}</a>
+        &raquo;
+        <span>Folder</span>
+    </title>
+</head>
+<body>
+
+<div id="activity">
+    <div>
+        <form action="#springUrl("/admin/tkpsda/lain_lain/remove/${wilayahSungai.id}/${year.id}.html")" method="post">
+            <table class="no_border" style="width: 100%">
+                <col style="width: 20px"/>
+                <col style="width: 20px"/>
+                <col style="width: 640px;"/>
+                <col style="width: 120px"/>
+                <col style="width: 120px;"/>
+                <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>
+                        <input type='checkbox' name="ids_all" class="select_all"/>
+                    </th>
+                    <th>Nama Folder</th>
+                    <th>Urutan</th>
+                    <th>
+                        <a href='#springUrl("/admin/tkpsda/lain_lain/add/${wilayahSungai.id}/${year.id}.html")'
+                           class='button'>
+                            baru
+                        </a>
+                    </th>
+                </tr>
+                </thead>
+                #foreach($folder in $folders)
+                    <tr>
+                        <td>${velocityCount}.</td>
+                        <td>
+                            <input type='checkbox' name='ids' value='${folder.id}'/>
+                        </td>
+                        <td>
+                         <span class="text_id">
+                             ${folder.name}
+                         </span>
+                        </td>
+                        <td>
+                            ${folder.index}
+                        </td>
+                        <td>
+                            <a href='#springUrl("/admin/tkpsda/lain_lain/edit/${wilayahSungai.id}/${year.id}/${folder.id}.html")'
+                               class='button edit'>
+                                edit
+                            </a>
+                            <a href='#springUrl("/admin/tkpsda/lain_lain/view/${wilayahSungai.id}/${year.id}/${folder.id}.html")'
+                               class='button select'>
+                                pilih &raquo;
+                            </a>
+                        </td>
+                    </tr>
+                #end
+                <tfoot>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type='checkbox' name="ids_all" class="select_all"/>
+                    </td>
+                    <td colspan="3">
+                        <input type="submit" name="remove" value="Hapus"/>
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+        </form>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    //<![CDATA[
+    $(document).ready(function () {
+
+        $("#activity input[type=checkbox].select_all").click(function () {
+            var checked = $(this).prop("checked");
+            $("#activity table input[type=checkbox]").attr("checked", checked);
+        });
+
+    });
+    // ]]>
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        &nbsp;&nbsp; Progress Pekerjaan Tahun ${year.value}
+    </title>
+</head>
+<body>
+
+<h3></h3>
+
+<div id="progress_pekerjaan">
+    <div class="jquery_foldertree"
+         style="border: 1px solid #EEE;  padding: 8px; width: 540px; margin: 0px auto 0px auto; border-radius: 4px;">
+        <div class="title">
+            Progress Pekerjaan Tahun ${year.value}
+        </div>
+        #foreach($entry in $progressPekerjaanData.entrySet())
+            #set($satker = ${entry.key})
+            <div class="folder">
+                <span class="label">
+                    $satker.name
+                </span>
+                <div class="children">
+                    #foreach($p in $entry.value)
+                        <div class="item_date">
+                            <span class="label">$dateTool.format("d MMM yyyy", ${p.reportingDate})
+                                <a href="#springUrl("/download/progress_pekerjaan/${p.id}/${p.filename}")"
+                                   style="float: right;">
+                                    <img src="#springUrl("/images/16x16/pdf.png")"/>
+                                </a>
+                            </span>
+                        </div>
+                    #end
+                </div>
+            </div>
+        #end
+    </div>
+</div>
+
+<script type="text/javascript">
+    //<![CDATA[
+    $("div.jquery_foldertree div.folder > span.label").each(function () {
+        $(this).click(function () {
+            var children = $(this).siblings(".children");
+            children.slideToggle();
+        });
+    });
+    // ]]>
+</script>
+</body>
+</html>

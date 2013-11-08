@@ -1,0 +1,360 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        &nbsp;&nbsp; Profil
+    </title>
+</head>
+<body>
+<div id="profile">
+<div style="text-align: center; margin-top: 8px;">
+    <a href='#springUrl("/images/profile/peta_profile.jpg")' class='pirobox'
+       title='Balai Besar Wilayah Sungai Serayu Opak'>
+        <img src='#springUrl("/images/profile/peta_profile_small.jpg")' style="max-width: 550px;" class="profile"/>
+    </a>
+</div>
+<br/>
+
+<h3>Latar Belakang</h3>
+
+<p>Balai Besar Wilayah Sungai Serayu Opak adalah balai besar tipe A yang dibentuk berdasarkan :</p>
+
+<ol>
+    <li>
+        Persetujuan Menteri Pendayagunaan Aparatur Negara dalam Surat Nomor: 8/11616/M.PAN/6/2006 tanggal 28 Juni 2006.
+    </li>
+    <li>Penyusunan rencana dan pelaksanaan pengelolaan kawasan lindung sumber daya air pada wilayah sungai.</li>
+    <li>
+        Kriteria & Penetapan Wilayah Sungai No. 11A/PRT/M/2006, 26 Juni 2006.
+    </li>
+    <li>
+        Peraturan Menteri Pekerjaan Umum Nomor: 12/PRT/M/2006, tentang Organisasi dan Tata Kerja Balai Besar Wilayah
+        Sungai, tanggal 17 Juli 2006.
+    </li>
+</ol>
+<br/>
+<h3>UMUM</h3>
+<table style="width: 80%; margin: 5px auto 5px auto;">
+    <tr>
+        <td style="width: 90px;">N a m a</td>
+        <td>:</td>
+        <td>Balai Besar Wilayah Sungai Serayu Opak</td>
+    </tr>
+    <tr>
+        <td>Alamat</td>
+        <td>:</td>
+        <td>Jl. Solo Km. 6 Yogyakarta</td>
+    </tr>
+    <tr>
+        <td>Telepon</td>
+        <td>:</td>
+        <td>(0274) 489172</td>
+    </tr>
+    <tr>
+        <td>Facsimile</td>
+        <td>:</td>
+        <td>(0274) 489552</td>
+    </tr>
+    <tr>
+        <td>Website</td>
+        <td>:</td>
+        <td>http://www.bbws-so.net</td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td>:</td>
+        <td>so.prog@gmail.com</td>
+    </tr>
+    <tr>
+        <td>Kepala Balai</td>
+        <td>:</td>
+        <td>Ir. Agus Suprapto Kusmulyono M.Eng, Ph.D. </td>
+    </tr>
+    <tr>
+        <td>Wilayah Kerja</td>
+        <td>:</td>
+        <td>WS Serayu Bogowonto (Kode WS: 02-12-A3) dan WS Progo Opak Serang (Kode WS: 02-17-A3)</td>
+    </tr>
+    <tr>
+        <td>Klasifikasi WS</td>
+        <td>:</td>
+        <td>Strategis Nasional dan Lintas Propinsi</td>
+    </tr>
+</table>
+<br/>
+
+<h3>RIWAYAT SINGKAT</h3>
+
+<p>
+    Embrio organisasi Balai Besar Wilayah Sungai Serayu Opak terdiri dari Ex Satuan Kerja Non Vertikal Tertentu
+    (SNVT)
+    yaitu: Pengendalian Banjir dan Pengamanan Pantai Serayu Bogowonto (PBPP-SB), Pengembangan dan Pengelolaan Sumber
+    Air
+    Serayu Bogowonto (PPSA-SB), Pengendalian Banjir dan Pengamanan Pantai (PBPP-DIY), Pengembangan dan Pengelolaan
+    Sumber Air DIY (PPSA-DIY), Penyediaan Air Baku (PAB) DIY, Proyek Irigasi Andalan (PIA) DIY, dan Penanggulangan
+    Lahar
+    Gunung Merapi (PLG-MERAPI).
+</p>
+
+<table style="width: 80%; margin: 5px auto 5px auto;" class="bordered">
+    <thead>
+    <tr>
+        <th>
+            Tahun
+        </th>
+        <th>
+            Nama Organisasi
+        </th>
+        <th>
+            Dasar Hukum
+        </th>
+        <th>
+            Keterangan
+        </th>
+    </tr>
+    </thead>
+    <tr>
+        <td>1969</td>
+        <td>
+            Proyek Kedu Selatan
+        </td>
+        <td></td>
+        <td>
+            Waduk Sempor
+        </td>
+    </tr>
+    <tr>
+        <td>
+            1994
+        </td>
+        <td>
+            Proyek Irigasi Gambarsari
+        </td>
+        <td></td>
+        <td>
+            Bendung Gerak Serayu
+        </td>
+    </tr>
+    <tr>
+        <td>
+            1994
+        </td>
+        <td>
+            PIPWS Serayu Bogowonto
+        </td>
+        <td>
+            SK Dirjen Air 27/KPTS/1994
+        </td>
+        <td>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            IPK PWS Serayu Bogowonto
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            PBPP DIY
+        </td>
+        <td>
+            SK Dirjen Air 27/KPTS/1994
+        </td>
+        <td>WS.POS</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            Proyek Lahar Gunung Merapi
+        </td>
+        <td>
+            Kepmen PU No. 115/KPTS/1998
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            Proyek Irigasi Andalan Yogyakarta
+        </td>
+        <td>
+            Kepmen PU No. 115/KPTS/1998
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>PKSA DIY</td>
+        <td>
+            Kepmen PU No. 115/KPTS/1998
+        </td>
+        <td>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            PAB DIY
+        </td>
+        <td>
+            Kepmen PU No. 20/SK/SJ/2000
+        </td>
+        <td>
+        </td>
+    </tr>
+    <tr>
+        <td>2006</td>
+        <td>
+            BBWS Serayu Opak
+        </td>
+        <td>
+            Permen PU 12/PRT/M/2006
+        </td>
+        <td>
+        </td>
+    </tr>
+</table>
+<br/>
+
+<p>
+    Secara lengkap identitas Balai Besar Wilayah Sungai Serayu Opak adalah sebagai berikut:
+</p>
+<div class="article_list">
+    <table>
+        <tr>
+            <td>1.</td>
+            <td>Nama</td>
+            <td>:</td>
+            <td> BBWS Serayu Opak</td>
+        </tr>
+        <tr>
+            <td>2.</td>
+            <td>Wilayah</td>
+            <td>:</td>
+            <td> Jawa Tengah Bagian Selatan dan Daerah Istimewa Yogyakarta</td>
+        </tr>
+        <tr>
+            <td>3.</td>
+            <td>Kantor</td>
+            <td>:</td>
+            <td> Jl. Solo Km. 6 Yogyakarta</td>
+        </tr>
+        <tr>
+            <td>4.</td>
+            <td>Unit Organisasi</td>
+            <td>:</td>
+            <td>Direktorat Jenderal Sumber Daya Air</td>
+        </tr>
+        <tr>
+            <td>5.</td>
+            <td>Kementerian/Lembaga</td>
+            <td>:</td>
+            <td>Kementerian Pekerjaan Pekerjaan Umum</td>
+        </tr>
+        <tr>
+            <td>6.</td>
+            <td>SK Pengangkatan Kepala</td>
+            <td>:</td>
+            <td>
+                Keputusan Menteri PU No. 24/KPTS/M/2013 Tanggal 28 Januari 2013
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td colspan="3">
+                <img src="#springUrl("/images/photo_ka_bbwsso.jpg")" style="width: 80px; float: left;" />
+                <br/>
+                <table>
+                    <tr>
+                        <td>Nama</td>
+                        <td>:</td>
+                        <td>Ir. Agus Suprapto Kusmulyono, M.Eng, Ph.D.</td>
+                    </tr>
+                    <tr>
+                        <td>Jabatan</td>
+                        <td>:</td>
+                        <td>Kepala BBWS-SO</td>
+                    </tr>
+                    <tr>
+                        <td>Golongan</td>
+                        <td>:</td>
+                        <td>IV.b</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+<h3>Tugas dan Fungsi</h3>
+<h4>Tugas</h4>
+
+<p>
+    Tugas Balai Besar Wilayah Sungai Serayu Opak sesuai dengan Permen
+    PU No. 12/PRT/M/2006, tentang Organisasi dan Tata Kerja Balai Besar
+    Wilayah Sungai adalah melaksanakan pengelolaan sumber daya air (SDA)
+    yang meliputi perencanaan, pelaksanaan konstruksi, operasi &
+    pemeliharaan dalam rangka konservasi SDA, pengembangan SDA,
+    pendayagunaan SDA dan pengendalian daya rusak air pada wilayah sungai
+</p>
+<h4>Fungsi</h4>
+
+<p>
+    Tugas Balai Besar Wilayah Sungai Serayu Opak sesuai dengan Permen
+    PU No. 12/PRT/M/2006, tentang Organisasi dan Tata Kerja Balai Besar
+    Wilayah Sungai adalah:
+</p>
+<ol>
+    <li>Penyusunan pola dan rencana pengelolaan sumber daya air pada wilayah sungai.</li>
+    <li>Penyusunan rencana dan pelaksanaan pengelolaan kawasan lindung sumber air pada wilayah sungai.</li>
+    <li>Pengelolaan sumber daya air yang meliputi konservasi sumber daya air, pengembangan sumber daya air,
+        pendayagunaan sumber daya air dan pengendalian daya rusak air pada wilayah sungai.
+    </li>
+    <li>Penyiapan rekomendasi teknis dalam pemberian ijin atas penyediaan, peruntukan, penggunaan dan pengusahaan
+        SDA
+        pada wilayah sungai.
+    </li>
+    <li>Operasi dan pemeliharaan sumber daya air pada wilayah sungai.</li>
+    <li>Pengelolaan sistem hidrologi.</li>
+    <li>Penyelenggaraan data dan informasi sumber daya air.</li>
+    <li>Fasilitasi kegiatan tim kordinasi pengelolaan sumber daya air pada wilayah sungai.</li>
+    <li>Pemberdayaan masyarakat dalam pengelolaan sumber daya air.</li>
+    <li>Pelaksanaan ketatausahaan Balai Besar Wilayah Sungai.</li>
+</ol>
+<br/>
+<br/>
+
+<div class="panel" style="text-align: right;">
+    <a href="#springUrl("/profile/profile.pdf")" target="_blank">
+        <img src="#springUrl("/images/filetype/pdf.png")"/>
+        Download
+    </a>
+</div>
+
+
+<img src='#springUrl("/images/hr.png")'/>
+
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $().piroBox({
+            my_speed:600,
+            bg_alpha:0.5,
+            radius:4,
+            scrollImage:false,
+            pirobox_next:'piro_next',
+            pirobox_prev:'piro_prev',
+            close_all:'.piro_close',
+            slideShow:'slideshow',
+            slideSpeed:3
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+#macro(paging $pages)
+<div class='paging'>
+    #if ($current != 1)
+        <a href='#springUrl("/dokumentasi/1.html")'>
+            &laquo;&laquo;
+        </a>
+        #set($previous = $current - 1)
+        <a href='#springUrl("/dokumentasi/page/${previous}.html")'>
+            &laquo;
+        </a>
+    #else
+        <a>&laquo;&laquo;</a>
+        <a>&laquo;</a>
+    #end
+
+    #foreach($page in $pages)
+        #if ($page == $current)
+            <a href='#springUrl("/dokumentasi/page/${page}.html")' class="current">$page</a>
+        #else
+            <a href='#springUrl("/dokumentasi/page/${page}.html")' class="page">$page</a>
+        #end
+    #end
+    #if ($current != $last_page)
+        #set($next_page = $current + 1)
+        <a href='#springUrl("/dokumentasi/page/${next_page}.html")'>
+            &raquo;
+        </a>
+        <a href='#springUrl("/dokumentasi/page/${last_page}.html")'>
+            &raquo;&raquo;
+        </a>
+    #else
+        <a>&raquo;&raquo;</a>
+        <a>&raquo;</a>
+    #end
+</div>
+#end
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <img src='#springUrl("/images/16x16/map.png")'/> &nbsp;
+        Peta
+    </title>
+</head>
+<body>
+<div id="map">
+    #paging($pages)
+    
+    #set($row = $start_row + 1)
+    #foreach ($map in $mapList)
+        <div class="item">
+            #if ($pictures.get($map))
+                <img src='#springUrl("/map/thumb/${map.id}.html?width=180")' class="thumb"/>
+            #end
+            <span class="title">$map.name</span>
+
+            <p>
+                $map.description
+            </p>
+
+            <div class='right'>
+                <a href='#springUrl("/popup/map/read/${map.id}.html")' class='link box_view'>
+                    selengkapnya
+                </a>
+            </div>
+        </div>
+        #set($row = $row + 1)
+    #end
+
+    <div class='context-menu'>
+        #if ($current != 1)
+            <a href='#springUrl("/map/1.html")'>
+                <img src='#springUrl("/images/16x16/go-first.png")'/>
+            </a>
+            #set($previous = $current - 1)
+            <a href='#springUrl("/map/${previous}.html")'>
+                <img src='#springUrl("/images/16x16/go-previous.png")'/>
+            </a>
+        #else
+            <img src='#springUrl("/images/16x16/go-first.png")'/>
+            <img src='#springUrl("/images/16x16/go-previous.png")'/>
+        #end
+
+        #foreach($page in $pages)
+            #if ($page == $current)
+                <a href='#springUrl("/map/${page}.html")' class="current">$page</a>
+            #else
+                <a href='#springUrl("/map/${page}.html")' class="page">$page</a>
+            #end
+        #end
+
+        #if ($current != $last_page)
+            #set($next_page = $current + 1)
+            <a href='#springUrl("/map/${next_page}.html")'>
+                <img src='#springUrl("/images/16x16/go-next.png")'/>
+            </a>
+            <a href='#springUrl("/map/${last_page}.html")'>
+                <img src='#springUrl("/images/16x16/go-last.png")'/>
+            </a>
+        #else
+            <img src='#springUrl("/images/16x16/go-next.png")'/>
+            <img src='#springUrl("/images/16x16/go-last.png")'/>
+        #end
+    </div>
+
+    <img src='#springUrl("/images/hr.png")'/>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".box_view").colorbox({width:"800px", height:"95%", iframe:true});
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.integrasolusi.pusda.sisda.persistence.Project" table="project">
+
+        <id name="id" column="UID" type="java.lang.Long" unsaved-value="null">
+            <generator class="native"/>
+        </id>
+
+        <version name="version" access="field" column="OBJ_VERSION"/>
+
+        <property name="name" type="java.lang.String">
+            <column name="NAME" sql-type="TEXT"/>
+        </property>
+
+        <property name="description" type="java.lang.String">
+            <column name="DESCRIPTION" sql-type="TEXT"/>
+        </property>
+
+        <property name="content" type="java.lang.String">
+            <column name="CONTENT" sql-type="TEXT"/>
+        </property>
+
+        <property name="picture" type="java.lang.String" column="PICTURE"/>
+
+        <property name="latitude" type="java.lang.Double" column="LATITUDE"/>
+
+        <property name="longitude" type="java.lang.Double" column="LONGITUDE"/>
+
+
+        <many-to-one name="year" class="com.integrasolusi.pusda.sisda.persistence.Year"
+                     column="YEAR" lazy="false"/>
+
+        <property name="index" type="java.lang.Long" column="IDX"/>
+
+    </class>
+</hibernate-mapping>

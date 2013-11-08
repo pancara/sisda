@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <title>
+            <a href="#springUrl("/sda.html")">Data SDA</a>
+            &#187;
+            <span>Hidrologi</span>
+        </title>
+    </title>
+</head>
+<body>
+<h3>
+    HIDROLOGI
+</h3>
+
+<div id="sda_content">
+    <div class="menu">
+    ## 1 => caption, 2=> url, 3 => open in new window
+        #set($links = [
+        ["Curah Hujan", "curah_hujan.html", false],
+        ["Klimatologi", "klimatologi.html", false],
+        ["Tinggi Muka Air", "tinggi_muka_air.html", false],
+        ["Kualitas Air", "kualitas_air.html", false],
+        ["Peta Sebaran Stasiun Hidrologi&nbsp;&nbsp;&nbsp;", "pos_hidrologi.html", false]            
+        ])
+
+        <table style="margin: 0px auto 0px auto; text-align: left;" class="noborder">
+            #foreach($link in $links)
+                #set($caption = $link.get(0))
+                #set($url = $link.get(1))
+                #set($new_window = $link.get(2))
+                <tr>
+                    <td>
+                        <img src="#springUrl("/images/16x16/button_arrow_right.png")"/>
+                    </td>
+                    <td>
+                        #if ($new_window)
+                            <a href="#springUrl("/sda/hidrologi/${url}")" style="display: block;" target="_blank">
+                                $caption
+                            </a>
+                        #else
+                            <a href="#springUrl("/sda/hidrologi/${url}")" style="display: block;">
+                                $caption
+                            </a>
+                        #end
+                    </td>
+                </tr>
+            #end
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <span>${so.name}</span>
+    </title>
+</head>
+<body>
+<div style="text-align: center;">
+    <img src="#springUrl("/download/struktur_organisasi/${so.id}/${so.filename}")" style="width: 95%;"/>
+</div>
+
+</body>
+</html>
+

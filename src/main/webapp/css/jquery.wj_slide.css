@@ -1,0 +1,60 @@
+.wj_slide  div.indicator {
+    top: 0;
+    position: relative;
+    display: block;
+    text-align: left;
+    background: transparent;
+    border: none;
+    height: 12px;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    display: block;
+    z-index: 5;
+
+}
+
+.wj_slide .indicator a {
+    font-size: 9px;
+    display: inline-block;
+    cursor: pointer;
+    margin: 0px 1px 0px 2px;
+    padding: 0px 0px 2px 0px;
+    border-radius: 3px;
+    border: none;
+    background: #06649d;
+    width: 14px;
+    height: 14px;
+    text-align: center;
+    color: #FFF !important;
+    opacity: 0.6;
+    box-shadow: 2px 2px 2px #EEE;
+}
+
+.wj_slide .indicator a.clicker {
+    opacity: 0.6;
+}
+
+.wj_slide .indicator a.previous, .wj_slide .indicator a.next {
+    background: #06649d !important;
+}
+
+.wj_slide .indicator a.previous:hover, .wj_slide .indicator a.next:hover {
+    opacity: 0.9;
+}
+
+.wj_slide .indicator a.highlight {
+    background: #c22407 !important;
+}
+
+.wj_slide .indicator a.pause_resume {
+    float: right;
+    background: #FFF;
+    margin-right: 12px;
+}
+
+.wj_slide .tab_content {
+    position: absolute;
+    top: 0;
+    overflow: visible;
+    margin: 0px 0px 0px 0px;
+}

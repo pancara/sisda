@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <img src='#springUrl("/images/16x16/news.png")'/> &nbsp;
+        <a href="#springUrl("/admin/progress_pekerjaan/list.html")">Progress Pekerjaan</a>
+        &#187;
+        <span>Form</span>
+    </title>
+</head>
+<body>
+<div id="progress_pekerjaan">
+    <div>
+        #springBind("form")
+        #if ($status.getErrors().getErrorCount() > 0)
+            <ul class='error'>
+                #foreach($error in $status.errorMessages)
+                    <li>$error</li>
+                #end
+            </ul>
+        #end
+
+
+        <form method='post' enctype="multipart/form-data">
+            <table style='width: 95%;'>
+                <tr>
+                    <td class="label">Tgl Pelaporan</td>
+                    <td>
+                        #form_date("form.reportingDate.date", "")
+                        #form_month("form.reportingDate.month", "")
+                        #form_year("form.reportingDate.year", 2010, 2020, "")
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">Tahun</td>
+                    <td>#springFormSingleSelect("form.year", $yearLookup, "")</td>
+                </tr>
+                <tr>
+                    <td class="label">Satuan Kerja</td>
+                    <td>#springFormSingleSelect("form.satuanKerja", $satuanKerjaLookup, "")</td>
+                </tr>
+                <tr>
+                    <td>File</td>
+                    <td><input type="file" name="file"/></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="submit" name='submit_action' class="button"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+</body>
+</html>

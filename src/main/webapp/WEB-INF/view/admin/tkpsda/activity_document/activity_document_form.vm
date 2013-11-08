@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <span>TKPSDA</span>
+        &raquo;
+        <a href="#springUrl("/admin/tkpsda/hasil_sidang/view.html")">Hasil Sidang</a>
+        &raquo;
+        <a href="#springUrl("/admin/tkpsda/hasil_sidang/view/${wilayahSungai.id}.html")">${wilayahSungai.name}</a>
+        &raquo;
+        <a href="#springUrl("/admin/tkpsda/hasil_sidang/view/${wilayahSungai.id}/${year.id}.html")">${year.value}</a>
+        &raquo;
+        <a href="#springUrl("/admin/tkpsda/hasil_sidang/view/${wilayahSungai.id}/${year.id}/${activity.id}.html")">${activity.name}</a>
+        &raquo;
+        <span>Form Dokumen</span>
+    </title>
+</head>
+<body>
+<div id="tkpsda_activity">
+    <div>
+        #springBind("form")
+        #if ($status.getErrors().getErrorCount() > 0)
+            <ul class='error'>
+                #foreach($error in $status.errorMessages)
+                    <li>$error</li>
+                #end
+            </ul>
+        #end
+
+
+        <form method='post' enctype="multipart/form-data">
+            <table style='width: 95%;'>
+                <tr>
+                    <td style="width: 140px;" class="label">Nama Kegiatan</td>
+                    <td>
+                        <input type="text" class="text" style="width: 700px;" value="$!{esc.html($form.name)}" name="name"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>File</td>
+                    <td><input type="file" name="file"/></td>
+                </tr>
+                <tr>
+                    <td style="width: 140px;" class="label">Index</td>
+                    <td>
+                        <select name="index">
+                            <option value="">- Terakhir -</option>
+                            #foreach($i in [1..25])
+                                #if ($form.index == $i)
+                                    <option value="$i" selected="selected">$i</option>
+                                #else
+                                    <option value="$i">$i</option>
+                                #end
+                            #end
+                        </select>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="submit" name='submit_action' class="button"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

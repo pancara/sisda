@@ -1,0 +1,30 @@
+#main_menu {
+    margin: 4px 4px 0px 4px;
+    padding: 2px 2px 2px 2px;
+    display: block;
+    border-radius: 4px;
+}
+
+#main_menu a {
+    font-family: "Trebuchet MS", calibri, sans-serif;
+    display: block;
+    font-size: 11px;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 3px 0px 3px 5px;
+    margin-top: 2px;
+    color: #FFF;
+    background: #295876;
+    border-radius: 3px;
+    border: 2px solid #306689;
+    outline: none;
+}
+
+#main_menu a:hover {
+    color: #FFF;
+    border: 2px solid #903049;
+    background: #6a2435;
+    background-image: url("../../images/16x16/arrow_box_blue_right.png");
+    background-repeat: no-repeat;
+    background-position: right center ;
+}

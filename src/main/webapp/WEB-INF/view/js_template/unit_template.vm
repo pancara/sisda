@@ -1,0 +1,38 @@
+<script type="text/x-jqote-template" id="unit_template">
+    <![CDATA[
+    <div>
+        <div class="unit">
+            <table style="width: 100%;">
+                <tr>
+                    <td class="unit_name" colspan="2"><%= this.name %></td>
+                </tr>
+                <tr>
+                    <td rowspan="4" style="width: 80px;">
+                        <img src='#springUrl("/person/photo/<%= this.head.id %>.html")' class="photo"/>
+                    </td>
+                    <td class="person"><%= this.head.name %></td>
+                </tr>
+                <tr>
+                    <td class="person"><span><%= this.head.nip %></td>
+                </tr>
+                <tr>
+                    <td class="person"><%= this.head.golongan %> / <%= this.head.jabatan %></span></td>
+                </tr>
+                <tr>
+                    <td class="unit_desc" colspan="2"><%= this.description %></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <a href='#springUrl("/popup/struktur_organisasi/view/<%= this.id %>.html")'
+                           class='link box_view'>selengkapnya</a>
+                        <a class='btn_show_child' name="<%= this.id %>">
+                            <img src="#springUrl("/images/16x16/button_arrow_down.png")"/>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="subunits">
+        </div>
+        ]]>
+</script>

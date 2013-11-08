@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.integrasolusi.pusda.sisda.persistence.sda.SaboDam" table="sabo_dam">
+        <id name="id" column="UID" type="java.lang.Long" unsaved-value="null">
+            <generator class="native"/>
+        </id>
+
+        <version name="version" access="field" column="OBJ_VERSION"/>
+
+        <property name="code" type="java.lang.String" column="CODE" unique="true" not-null="true"/>
+
+        <property name="description" type="java.lang.String">
+            <column name="DESCRIPTION" sql-type="TEXT"/>
+        </property>
+
+        <many-to-one name="sungai" class="com.integrasolusi.pusda.sisda.persistence.region.SungaiSaboDam"
+                     column="SUNGAI" lazy="false" not-null="false"/>
+
+        <property name="x" type="java.lang.Long" column="X" not-null="false"/>
+
+        <property name="y" type="java.lang.Long" column="Y" not-null="false"/>
+
+        <property name="filename" type="java.lang.String" column="FILENAME" not-null="false"/>
+
+    </class>
+</hibernate-mapping>

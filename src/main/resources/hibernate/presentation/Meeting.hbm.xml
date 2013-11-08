@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.integrasolusi.pusda.sisda.persistence.presentation.Meeting" table="meeting">
+        <id name="id" column="UID" type="java.lang.Long" unsaved-value="null">
+            <generator class="native"/>
+        </id>
+
+        <version name="version" access="field" column="OBJ_VERSION"/>
+
+        <property name="name" type="java.lang.String" column="NAME"/>
+        
+        <property name="location" type="java.lang.String" column="LOCATION"/>
+
+        <property name="date" type="java.util.Date">
+            <column name="MEETING_DATE" sql-type="datetime"/>
+        </property>
+
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <img src='#springUrl("/images/16x16/agenda.png")'/> &nbsp;
+        Agenda
+    </title>
+</head>
+<body>
+<div id="agenda">
+    <div class='context-menu'>
+        #foreach($page in $pages)
+            #if ($page == $current)
+                <a href='#springUrl("/admin/agenda/${page}.html?keyword=$!{keyword}")' class="current">$page</a>
+            #else
+                <a href='#springUrl("/admin/agenda/${page}.html?keyword=$!{keyword}")' class="page">$page</a>
+            #end
+        #end
+    </div>
+    <div class='right'>
+        <form action='#springUrl("/admin/agenda.html")'
+              style="float: left; display: block; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;">
+            Kata kunci: &nbsp;<input type='text' name='keyword' value='$!{keyword}' class='text'/>
+            <input type='submit' value='cari'/>
+        </form>
+        <a href='#springUrl("/admin/agenda/new.html")' class='new' style="padding-bottom: 2px;">
+            baru
+        </a>
+    </div>
+    <table class="no_border" style="width: 100%">
+        #set($row = $start_row + 1)
+        #foreach ($agenda in $agendaList)
+            <tr>
+                <td style="width: 24px;">${row}.</td>
+                <td>
+                    <span class="title">$agenda.title</span>
+
+                    <div style='font-size: 10px;'>$dateTimeTool.format($agenda.holdDate)</div>
+                    <p>$agenda.shortDescription</p>
+
+                    <div class='right'>
+                        <a href='#springUrl("/agenda/read/${agenda.id}.html")' class='link' target="_blank">
+                            preview
+                        </a>
+                        <a href='#springUrl("/admin/agenda/edit/${agenda.id}.html")' class='edit'>
+                            edit
+                        </a>
+                        <a rel='#springUrl("/admin/agenda/remove/${agenda.id}.html")' class='remove'>
+                            hapus
+                        </a>
+                    </div>
+                </td>
+            </tr>
+            #set($row = $row + 1)
+        #end
+    </table>
+
+    <div class='context-menu'>
+        #foreach($page in $pages)
+            #if ($page == $current)
+                <a href='#springUrl("/admin/agenda/${page}.html?keyword=$!{keyword}")' class="current">$page</a>
+            #else
+                <a href='#springUrl("/admin/agenda/${page}.html?keyword=$!{keyword}")' class="page">$page</a>
+            #end
+        #end
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        $("#agenda a.remove").clickConfirm({
+            position: "bottom",
+            questionText: "Hapus agenda ?",
+            followLinkOnProceed: false,
+            onProceed: function(trigger) {
+                var _url = $(trigger).attr("rel");
+                jQuery.get(_url,
+                          function(data) {
+                              if (data.result == true) {
+                                  var tr = $(trigger).parentsUntil("tbody");
+                                  tr.remove();
+                              }
+                          }
+                        );
+            }
+        });
+
+    });
+</script>
+</body>
+</html>

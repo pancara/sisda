@@ -1,0 +1,16 @@
+<script id="photo_template" type="text/html">
+<![CDATA[
+<div style="display: inline-block; text-align: center;" class="picture_item">
+    <a href="#springUrl("/gallery/picture/")<%= this.pictureId %>.html" class="pirobox"
+       title="<%= this.description %>" style="display: block;">
+            <span>
+                <img src="#springUrl("/gallery/picture/thumb/")<%= this.pictureId %>.html?width=120"
+                     class="photo_thumb"/>
+            </span>
+    </a>
+    <a rel="<%= this.pictureId %>" class="button_remove">
+        <img src="#springUrl("/images/16x16/cross_black.png")"/>
+    </a>
+</div>
+]]>
+</script>

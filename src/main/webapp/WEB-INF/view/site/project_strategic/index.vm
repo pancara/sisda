@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        Proyek Strategis
+    </title>
+</head>
+<body>
+
+<div id="project">
+    <p>
+        Proyek-proyek strategis BBWS Serayu Opak:
+    </p>
+    <ol>
+        #foreach($project in $listProject)
+            <li>
+                <a href="#springUrl("/popup/proyek_strategis/${project.id}.html")" class="popup title">
+                    ${project.name}
+                </a>
+
+                <p class="description">
+                    <img src='#springUrl("/download/proyek_strategis/picture/${project.id}/${project.picture}")'/>
+                    $!{project.description}
+                </p>
+            </li>
+        #end
+    </ol>
+
+</div>
+<script type="text/javascript">
+    //<![CDATA[
+    $(document).ready(function () {
+        $("#project a.popup").colorbox({width: "800px", height: "95%", iframe: true});
+    });
+
+</script>
+</body>
+</html>

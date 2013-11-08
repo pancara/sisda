@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <img src='#springUrl("/images/16x16/publication.png")'/> &nbsp;
+        Pengumuman Terbaru
+    </title>
+</head>
+<body>
+<div class="publication">
+    <h1>
+        <img src="#springUrl("/images/16x16/publication.png")"/>
+        <span>
+            Pengumuman Terbaru
+        </span>
+    </h1>
+
+    <div class="content">
+        <div class="items">
+            #foreach($publication in $publicationList)
+                <div>
+                <span class='date'>
+                    $dateTimeTool.format("EEEE, d MMM yyyy kk.mm" , $publication.publishedDate) WIB
+                </span>
+                <a href="#springUrl("/publication/full/${publication.id}.html")">
+                    #if ($titlePictures.get($publication))
+                        <img src='#springUrl("/download/publication/picture/${publication.id}/${publication.picture}?width=35")'
+                             class="thumb"/>
+                    #end
+                    $publication.title
+                </a>
+                </div>
+            #end
+        </div>
+    </div>
+</div>
+</body>
+</html>

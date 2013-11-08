@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        Paparan Hasil Kegiatan
+    </title>
+</head>
+<body>
+<div class="presentation_meeting">
+    <h1>
+        <img src="#springUrl("/images/16x16/presentation.png")"/>
+        <span>
+            Paparan Hasil Kegiatan
+        </span>
+    </h1>
+
+    <div class="content">
+        <div class="items">
+            #foreach($meeting in $meetings)
+                <div class="item">
+                    <a href="#springUrl("/download/presentation/meeting/view/${meeting.id}.html")">
+                        <img src="#springUrl("/images/16x16/presentation.png")" class="filetype"/>
+                        ${meeting.name}
+                        <span class="clear"></span>
+                    </a>
+                </div>
+            #end
+        </div>
+        <div class="footer">
+            <a href="#springUrl("/presentation/meeting/list.html")" class="btn">&raquo; &nbsp; semua</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

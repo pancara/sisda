@@ -1,0 +1,122 @@
+#macro(paging $pages $keyword)
+<div class="page_index">
+    #foreach($page in $pages)
+        #if ($page == $current)
+            <a href='#springUrl("/admin/progress_pekerjaan/page/${page}.html?year=$!{form.year}")'
+               class="current">$page</a>
+        #else
+            <a href='#springUrl("/admin/progress_pekerjaan/page/${page}.html?year=$!{form.year}")'
+               class="page">$page</a>
+        #end
+    #end
+</div>
+#end
+<html>
+<head>
+    <title>Progress Pekerjaan</title>
+</head>
+<body>
+<div id="progress_pekerjaan">
+    <form action='#springUrl("/admin/progress_pekerjaan/list.html")' style="margin-top: 4px;" id="form_search">
+        Tahun: &nbsp;
+        <select name="year">
+            #foreach($key in $yearLookup.keySet())
+                #if ($form.year == $key)
+                    <option value="$!{key}" selected="selected">$!{yearLookup.get($key)}</option>
+                #else
+                    <option value="$!{key}">$!{yearLookup.get($key)}</option>
+                #end
+
+            #end
+        </select>
+
+        <input type='submit' value='cari'/>
+        
+        <a href='#springUrl("/admin/progress_pekerjaan/tahun_berjalan.html")' class='button' style="float: right; padding: 4px 2px 4px 2px;">
+            Set Tahun Berjalan
+        </a>
+    </form>
+    <div>
+        <span class="info">
+            <img src="#springUrl("/images/16x16/table_row_select.png")"/>
+            Ditemukan $count data.
+        </span>
+        #paging($pages, $keyword)
+    </div>
+    <form id="progress_pekerjaan_form" method="post" action="#springUrl("/admin/progress_pekerjaan/manage.html")">
+        <table>
+            <colgroup style="width: 20px"/>
+            <colgroup style="width: 20px"/>
+            <colgroup style="width: 120px"/>
+            <colgroup style="width: 80px"/>
+            <colgroup style="width: 250px;"/>
+            <colgroup style="width: 20px"/>
+            <thead>
+            <tr>
+                <th rowspan="2">No.</th>
+                <th rowspan="2">
+                    <input type='checkbox' name="ids_all" class="select_all"/>
+                </th>
+                <th rowspan="2">Tgl Pelaporan</th>
+                <th rowspan="2">Tahun Pekerjaan</th>
+                <th rowspan="2">Satker</th>
+                <th rowspan="2">File</th>
+                <th rowspan="2">
+                    <a href='#springUrl("/admin/progress_pekerjaan/add.html")' class='button'>
+                        baru
+                    </a>
+                </th>
+            </tr>
+             
+            </thead>
+            #set($row = $start + 1)
+            #foreach($p in $progressPekerjaanList)
+                <tr>
+                    <td style="width: 24px;">${row}.</td>
+                    <td>
+                        <input type='checkbox' name='ids' value='$!{p.id}'/>
+                    </td>
+                    <td class="short_content">
+                        $dateTool.format("d MMM yyyy", ${p.reportingDate})
+                    </td><td class="short_content">
+                        $!{p.year.value}
+                    </td>
+                    <td class="short_content">$!{p.satuanKerja.name}</td>
+                    <td class="short_content">$!{p.filename}</td>
+                    <td>
+                        <a href="#springUrl("/admin/progress_pekerjaan/edit/${p.id}.html")" class="button">
+                            edit
+                        </a>
+                    </td>
+                </tr>
+                #set($row = $row + 1)
+            #end
+            <tfoot>
+            <tr>
+                <td></td>
+                <td>
+                    <input type='checkbox' name="ids_all" class="select_all"/>
+                </td>
+                <td colspan="9">
+                    <input type="hidden" name="page" value="$!{current}"/>
+                    <input type="hidden" name="year" value="$!{form.year}"/>
+
+                    &nbsp;&nbsp;
+                    <input type="submit" name="remove" value="Hapus"/>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+    </form>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("input[type=checkbox].select_all").click(function () {
+            var checked = $(this).prop("checked");
+            $("#progress_pekerjaan table input[type=checkbox]").attr("checked", checked);
+        });
+
+    });
+</script>
+</body>
+</html>

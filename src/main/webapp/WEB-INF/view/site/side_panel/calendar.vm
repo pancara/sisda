@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        Calendar
+    </title>
+</head>
+<body>
+<div class="calendar">
+    <h1>
+        <img src="#springUrl("/images/16x16/calendar.png")"/>
+        <span>
+            Kalendar
+        </span>
+    </h1>
+
+    <div class="content">
+        <div class="month_year">
+            <div style="display: inline; float: left;">
+                <img src='#springUrl("/images/16x16/button_arrow_first.png")' class='previous_year'/>
+                <img src='#springUrl("/images/16x16/button_arrow_left.png")' class='previous_month'/>
+            </div>
+
+            <span class="selected">$dateTool.getShortMonthString($selectedMonth)&nbsp;$selectedYear</span>
+
+            <div style="display: inline; float: right;">
+                <img src='#springUrl("/images/16x16/button_arrow_right.png")' class='next_month'/>
+                <img src='#springUrl("/images/16x16/button_arrow_last.png")' class='next_year'/>
+            </div>
+        </div>
+
+        #parse ("site/side_panel/calendar_view.vm")
+
+        <div class='summary'>
+            #if ($total_agenda_count == 0)
+                tidak ada kegiatan.
+            #else
+                ${total_agenda_count} agenda kegiatan
+            #end
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var calendar_month = ${selectedMonth};
+    var calendar_year = ${selectedYear};
+
+    $(document).ready(function () {
+        bind_calendar_click();
+    });
+
+    function displayed_selected_month() {
+        var monthName = shortMonthNames[calendar_month];
+        $(".calendar .content .month_year span.selected").html(monthName + " " + calendar_year);
+    }
+
+    function bind_calendar_click() {
+        $(".calendar .content .previous_year").click(function () {
+            calendar_year--;
+            update_calendar();
+        });
+
+        $(".calendar .content .previous_month").click(function () {
+            calendar_month--;
+            if (calendar_month == -1) {
+                calendar_month = 11;
+                calendar_year--;
+            }
+            update_calendar();
+        });
+
+        $(".calendar .content .next_month").click(function () {
+            calendar_month++;
+            if (calendar_month == 12) {
+                calendar_month = 0;
+                calendar_year++;
+            }
+            update_calendar();
+        });
+
+        $(".calendar .content .next_year").click(function () {
+            calendar_year++;
+            update_calendar();
+        });
+    }
+
+    function update_calendar() {
+        displayed_selected_month();
+
+        $("#sidebar-left .calendar").wj_progress_indicator({"image": "#springUrl("/images/ajax-loader.gif")"});
+        var url = "#springUrl("/ajax/calendar_view/")" + calendar_year + "/" + calendar_month + ".html";
+        jQuery.get(url, function (data) {
+            var content = $("#sidebar-left .calendar .content");
+            $(".calendar_view", content).remove();
+            $(data).insertAfter($(".month_year", content));
+            $(".calendar .content .calendar_view").wj_progress_indicator({"action": 'hide'});
+        });
+    }
+</script>
+</body>
+</html>

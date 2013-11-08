@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.integrasolusi.pusda.sisda.persistence.region.Kabupaten" table="kabupaten">
+        <id name="id" column="UID" type="java.lang.Long" unsaved-value="null">
+            <generator class="native"/>
+        </id>
+
+        <version name="version" access="field" column="OBJ_VERSION"/>
+
+        <property name="name" type="java.lang.String" column="NAME"/>
+
+        <property name="shortName" type="java.lang.String" column="SHORT_NAME"/>
+
+
+        <many-to-one name="propinsi" class="com.integrasolusi.pusda.sisda.persistence.region.Propinsi" column="PROPINSI"
+                     lazy="false" not-null="true"/>
+
+    </class>
+</hibernate-mapping>

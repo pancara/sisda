@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <img src='#springUrl("/images/home_white.png")'/>&nbsp;Kontak
+    </title>
+</head>
+<body>
+<div class="main_menu">
+        <span>
+            <a href="#springUrl("/profile.html")" class="first">
+                Profil
+            </a>
+            <a href="#springUrl("/visi_misi.html")">
+                Visi dan Misi
+            </a>
+            <a href="#springUrl("/struktur_organisasi.html")">
+                Struktur Organisasi
+            </a>
+            <a href="#springUrl("/wilayah_kerja.html")">
+                Wilayah Kerja
+            </a>
+             <a href="#springUrl("/proyek_strategis.html")">
+                 Proyek Strategis
+             </a>
+            <a href="#springUrl("/sda.html")">
+                Data SDA
+            </a>
+        ##            <a href="#springUrl("/annual_activity.html")">
+        ##                Kegiatan Tahunan
+        ##            </a>
+            <a href="#springUrl("/map/index.html")">
+                Peta
+            </a>
+             <a href="#springUrl("/tkpsda.html")">
+                 TKPSDA
+             </a>
+        ##            <a href="#springUrl("/leaflet.html")">
+        ##                Leaflet masuk ke link sidebar
+        ##            </a>
+            <a href="#springUrl("/regulation.html")">
+                Peraturan <span class="small">&amp;</span> Perundangan
+            </a>
+        ##             <a href="#springUrl("/progress_pekerjaan.html")">
+        ##                 Progress Pekerjaan Tahun Berjalan
+        ##             </a>
+            <a href="#springUrl("/agenda.html")">
+                Agenda Kegiatan
+            </a>
+             
+        </span>
+</div>
+</body>
+</html>

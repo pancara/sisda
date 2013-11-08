@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="blobRepository" class="com.integrasolusi.pusda.sisda.repository.BlobRepositoryImpl"
+          init-method="init">
+        <property name="streamHelper" ref="streamHelper"/>
+        <property name="dataDir" value="${repository.dataDir}"/>
+        <property name="bufferDir" value="${repository.bufferDir}"/>
+
+        <property name="extension" value="${repository.extension}"/>
+    </bean>
+</beans>
+

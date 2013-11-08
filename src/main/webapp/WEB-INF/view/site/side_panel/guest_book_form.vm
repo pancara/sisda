@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        Leaflet
+    </title>
+</head>
+<body>
+<div class="guest_book_form">
+    <h1>
+        <img src="#springUrl("/images/16x16/user_comment.png")"/>
+        <span>
+            Buku Tamu
+        </span>
+    </h1>
+
+    <div class="content">
+        <span>
+            Silakan kirimkan saran dan komentar Anda di sini.
+        </span>
+        #springBind("form")
+        <form action='#springUrl("/buku_tamu/post.html")' method='post'>
+            
+            <label>Pengirim</label>
+            #springFormInput("form.name", "")
+
+            <label>Email</label>
+            #springFormInput("form.email", "")
+
+            <label>Telepon</label>
+            #springFormInput("form.phone", "")
+
+            <label>Pesan</label>
+            #springFormTextarea("form.message", "")
+
+
+            <label>Isikan teks di bawah ini.</label>
+            <img src='#springUrl("/buku_tamu/captcha.html?key=.side_panel")' class="captcha"/>
+            #springFormInput("form.captcha", "")
+            <br/>
+            
+            <input type="hidden" name="key" value=".side_panel"/>
+            <input type='submit' name='submit' value='Submit'/>
+        </form>
+        <div class="footer">
+        </div>
+    </div>
+</div>
+</body>
+</html>

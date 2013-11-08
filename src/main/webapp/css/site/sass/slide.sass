@@ -1,0 +1,51 @@
+.slide
+   border: 6px solid #FFF
+   box-shadow: 0px 0px 4px 4px #dce7ec
+   border-radius: 6px
+   height: 280px
+   width: 540px
+   padding: 0px
+   background: transparent
+   margin: 0px auto 0px auto
+   
+   img
+      border-radius: 2px
+      position: absolute
+      height: 280px
+      width: 540px
+      z-index: 1
+   div
+      &.info, &.overlay
+         position: absolute
+         height: 55px
+         width: 250px
+         margin: 215px 205px 0px 0px
+         padding: 2px 5px 5px 5px
+         border-top-right-radius: 5px
+         border-bottom-right-radius: 5px
+      &.info
+         z-index: 100
+         background: transparent
+         text-align: left
+         color: #000
+      &.overlay
+         opacity: 0.4
+         background: #000
+         z-index: 99
+      &.info span
+         &.title, &.desc
+            display: block
+         &.title
+            padding: 0px 0px 2px 0px
+            font-size: 16px
+            font-weight: normal
+            text-shadow: 0px 0px 3px #CCC
+            color: #FFF
+            font-family: "Trebuchet MS"
+            display: inline-block
+         /*border-bottom: 1px solid #a24837;
+         &.desc
+            font-family: "Trebuchet MS"
+            font-size: 12px
+            font-weight: normal
+            color: #FFF

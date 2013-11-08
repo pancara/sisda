@@ -1,0 +1,83 @@
+#macro(paging $pages)
+<div class='paging'>
+    #if ($current != 1)
+        <a href='#springUrl("/publication/1.html")'>
+            &laquo;&laquo;
+        </a>
+        #set($previous = $current - 1)
+        <a href='#springUrl("/publication/${previous}.html")'>
+            &laquo;
+        </a>
+    #else
+        <a>&laquo;&laquo;</a>
+        <a>&laquo;</a>
+    #end
+
+    #foreach($page in $pages)
+        #if ($page == $current)
+            <a href='#springUrl("/publication/${page}.html")' class="current">$page</a>
+        #else
+            <a href='#springUrl("/publication/${page}.html")' class="page">$page</a>
+        #end
+    #end
+    #if ($current != $last_page)
+        #set($next_page = $current + 1)
+        <a href='#springUrl("/publication/${next_page}.html")'>
+            &raquo;
+        </a>
+        <a href='#springUrl("/publication/${last_page}.html")'>
+            &raquo;&raquo;
+        </a>
+    #else
+        <a>&raquo;</a>
+        <a>&raquo;&raquo;</a>
+    #end
+</div>
+#end
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <img src='#springUrl("/images/16x16/publication.png")'/> &nbsp;
+        Pengumuman
+    </title>
+</head>
+<body>
+<div id="publication">
+    #paging($pages)
+
+    <div class="items">
+        #set($row = $start_row + 1)
+        #foreach ($publication in $publicationList)
+            <div class="item">
+                #if ($titlePictures.get($publication))
+                    <img src='#springUrl("/download/publication/picture/${publication.id}/${publication.picture}?width=40")'
+                         class='thumb'/>
+                #end
+                <h3>$publication.title</h3>
+
+                <p>
+                     <span class="date">
+                         $dateTimeTool.format($publication.publishedDate)
+                     </span> 
+                    &nbsp;
+                    $publication.shortDescription
+                </p>
+
+                <div class='panel'>
+                    <a href='#springUrl("/publication/full/${publication.id}.html")' class='link'>
+                        &raquo; baca &laquo;
+                    </a>
+                </div>
+                #set($row = $row + 1)
+            </div>
+        #end
+    </div>
+
+    #paging($pages)
+
+
+    <img src='#springUrl("/images/hr.png")'/>
+</div>
+</body>
+</html>

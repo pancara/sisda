@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    
+    <class name="com.integrasolusi.pusda.sisda.persistence.CommentGuestResponse" table="comment_guest_response">
+
+        <id name="id" column="UID" type="java.lang.Long" unsaved-value="null">
+            <generator class="native"/>
+        </id>
+
+        <version name="version" access="field" column="OBJ_VERSION"/>
+
+        <property name="text" type="java.lang.String">
+            <column name="RESPONSE_TEXT" sql-type="TEXT"/>
+        </property>
+
+        <property name="by" type="java.lang.String">
+            <column name="RESPONSE_BY" sql-type="VARCHAR(255)"/>
+        </property>
+
+        <many-to-one name="commentGuest" class="com.integrasolusi.pusda.sisda.persistence.CommentGuest" column="COMMENT_GUEST"
+                     lazy="proxy"/>
+
+        <property name="postDate" type="java.util.Date">
+            <column name="POST_DATE" sql-type="datetime"/>
+        </property>
+
+    </class>
+</hibernate-mapping>

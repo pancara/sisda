@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.integrasolusi.pusda.sisda.persistence.tkpsda.documentation.Event" table="tkpsda_event">
+        <id name="id" column="UID" type="java.lang.Long" unsaved-value="null">
+            <generator class="native"/>
+        </id>
+
+        <version name="version" access="field" column="OBJ_VERSION"/>
+
+        <property name="title" type="java.lang.String" column="TITLE"/>
+
+        <property name="date" type="date" column="DATE"/>
+
+        <many-to-one name="year" class="com.integrasolusi.pusda.sisda.persistence.Year"
+                     column="YEAR" lazy="false" not-null="true"/>
+
+        <many-to-one name="wilayahSungai" class="com.integrasolusi.pusda.sisda.persistence.region.WilayahSungai"
+                     column="WILAYAH_SUNGAI" lazy="false" not-null="true"/>
+
+        <property name="active" type="java.lang.Boolean" column="ACTIVE"/>
+
+    </class>
+</hibernate-mapping>

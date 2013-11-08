@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <img src='#springUrl("/images/16x16/publication.png")'/> &nbsp;
+        Pengumuman
+    </title>
+</head>
+<body>
+<div id="publication">
+    <div class="item">
+        <h3>
+            #if($publication.picture)
+                <img src='#springUrl("/download/publication/picture/${publication.id}/${publication.picture}?width=60")'
+                     class='thumb'/>
+            #end
+            ${publication.title}</h3>
+        
+    <span class="date">
+            $dateTimeTool.format($publication.publishedDate) WIB
+    </span>
+        <br/>
+        <br/>
+
+        <div class="content">
+            #if($news.photoFilename)
+                <img src='#springUrl("/download/news/photo/${news.id}/${news.photoFilename}")' class='thumb'/>
+            #end
+            ${publication.content}
+        </div>
+
+
+        #if($documents.size() > 0)
+            <div class="attachments">
+                <h4>
+                    <img src='#springUrl("/images/16x16/arrow_down.png")' style="float: left;"/>
+                    Lampiran :
+                </h4>
+                <table>
+                    #foreach($document in $documents)
+                        <tr>
+                            <td>
+                                ${velocityCount}.
+                            </td>
+                            <td>
+                                ${document.description}
+                            </td>
+                            <td>
+                                <a href='#springUrl("/download/publication/attachment/${document.id}/${document.filename}")'  class="btn">
+                                    <img src='#springUrl("/images/filetype/$fileTool.getFileTypeIcon($document.filename)")' />&nbsp;download
+                                </a>
+                            </td>
+                        </tr>
+                    #end
+                </table>
+            </div>
+        #end
+    </div>
+    <div class='clear'>&nbsp;</div>
+    <img src='#springUrl("/images/hr.png")'/>
+
+    <br/>
+
+
+    <div class="comments">
+        <div class="title">
+            <img src='#springUrl("/images/16x16/comments.png")' style="float: left;"/>&nbsp;
+            Comments <span style="font-weight: normal;">($comments.size())</span>
+        </div>
+
+        <table>
+            #foreach ($c in $comments)
+                <tr>
+                    <td>
+                        <img src='#springUrl("/images/32x32/user_comment.png")'
+                             style='float: left; vertical-align: top;'/>
+                    <span style='color: #ab0d22;'>$c.name <br/>
+                        #getEncodedEmail($c.email, $code)
+                        <img src='#springUrl("/email/${code}.html")'/>
+                    </span>
+
+                        <div style='font-size: 10px;'>$dateTimeTool.format($c.postDate)</div>
+                        <p>$c.message</p>
+                    </td>
+                </tr>
+            #end
+        </table>
+        #parse("site/publication/comment_form.vm")
+    </div>
+</div>
+</body>
+</html>

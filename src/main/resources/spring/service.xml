@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="commentGuestService" class="com.integrasolusi.pusda.sisda.service.CommentGuestServiceImpl">
+        <property name="commentGuestDao" ref="commentGuestDao"/>
+        <property name="commentGuestResponseDao" ref="commentGuestResponseDao"/>
+        <property name="emailForwarder" ref="emailForwarder"/>
+    </bean>
+
+    <bean id="commentGuestResponseService"
+          class="com.integrasolusi.pusda.sisda.service.CommentGuestResponseServiceImpl">
+        <property name="commentGuestResponseDao" ref="commentGuestResponseDao"/>
+    </bean>
+
+    <bean id="notificationEmailService" class="com.integrasolusi.pusda.sisda.service.NotificationEmailServiceImpl">
+        <property name="notificationEmailDao" ref="notificationEmailDao"/>
+    </bean>
+
+    <bean id="dokumentasiService" class="com.integrasolusi.pusda.sisda.service.DokumentasiServiceImpl">
+        <property name="blobRepository" ref="blobRepository"/>
+        <property name="dokumentasiDao" ref="dokumentasiDao"/>
+        <property name="dokumentasiPhotoDao" ref="dokumentasiPhotoDao"/>
+    </bean>
+
+    <bean id="dokumentasiPhotoService" class="com.integrasolusi.pusda.sisda.service.DokumentasiPhotoServiceImpl">
+        <property name="dokumentasiPhotoDao" ref="dokumentasiPhotoDao"/>
+        <property name="blobRepository" ref="blobRepository"/>
+        <property name="fileCacheManager" ref="fileCacheManager"/>
+        <property name="imageUtils" ref="imageUtils"/>
+        <property name="streamHelper" ref="streamHelper"/>
+    </bean>
+
+    <!--<bean id="galleryService" class="com.integrasolusi.pusda.sisda.service.DokumentasiServiceImpl">-->
+    <!--<property name="dokumentasiDao" ref="dokumentasiDao"/>-->
+    <!--<property name="dokumentasiPhotoDao" ref="dokumentasiPhotoDao"/>-->
+    <!--<property name="blobRepository" ref="blobRepository"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="galleryPictureService" class="com.integrasolusi.pusda.sisda.service.DokumentasiPhotoServiceImpl">-->
+    <!--<property name="dokumentasiPhotoDao" ref="dokumentasiPhotoDao"/>-->
+    <!--<property name="contentTypeUtils" ref="contextTypeUtils"/>-->
+    <!--<property name="blobRepository" ref="blobRepository"/>-->
+    <!--</bean>-->
+
+    <bean id="photoService" class="com.integrasolusi.pusda.sisda.service.PhotoServiceImpl">
+        <property name="photoDao" ref="photoDao"/>
+        <property name="blobRepository" ref="blobRepository"/>
+        <property name="streamHelper" ref="streamHelper"/>
+        <property name="fileCacheManager" ref="fileCacheManager"/>
+        <property name="imageUtils" ref="imageUtils"/>
+    </bean>
+
+    <bean id="newsService" class="com.integrasolusi.pusda.sisda.service.NewsServiceImpl">
+        <property name="newsDao" ref="newsDao"/>
+        <property name="commentNewsDao" ref="commentNewsDao"/>
+        <property name="blobRepository" ref="blobRepository"/>
+        <property name="imageUtils" ref="imageUtils"/>
+        <property name="fileCacheManager" ref="fileCacheManager"/>
+    </bean>
+
+    <bean id="commentNewsService" class="com.integrasolusi.pusda.sisda.service.CommentNewsServiceImpl">
+        <property name="commentNewsDao" ref="commentNewsDao"/>
+    </bean>
+
+    <bean id="publicationService" class="com.integrasolusi.pusda.sisda.service.PublicationServiceImpl">
+        <property name="publicationDao" ref="publicationDao"/>
+        <property name="publicationAttachmentDao" ref="publicationAttachmentDao"/>
+        <property name="commentPublicationDao" ref="commentPublicationDao"/>
+        <property name="blobRepository" ref="blobRepository"/>
+        <property name="imageUtils" ref="imageUtils"/>
+    </bean>
+
+    <bean id="publicationAttachmentService"
+          class="com.integrasolusi.pusda.sisda.service.PublicationAttachmentServiceImpl">
+        <property name="blobRepository" ref="blobRepository"/>
+        <property name="publicationAttachmentDao" ref="publicationAttachmentDao"/>
+    </bean>
+
+    <bean id="commentPublicationService" class="com.integrasolusi.pusda.sisda.service.CommentPublicationServiceImpl">
+        <property name="commentPublicationDao" ref="commentPublicationDao"/>
+    </bean>
+
+
+    <bean id="agendaService" class="com.integrasolusi.pusda.sisda.service.AgendaServiceImpl">
+        <property name="agendaDao" ref="agendaDao"/>
+        <property name="blobRepository" ref="blobRepository"/>
+    </bean>
+
+    <bean id="linkService" class="com.integrasolusi.pusda.sisda.service.LinkServiceImpl">
+        <property name="linkDao" ref="linkDao"/>
+        <property name="linkTypeDao" ref="linkTypeDao"/>
+        <property name="blobRepository" ref="blobRepository"/>
+    </bean>
+
+    <bean id="linkTypeService" class="com.integrasolusi.pusda.sisda.service.LinkTypeServiceImpl">
+        <property name="linkTypeDao" ref="linkTypeDao"/>
+    </bean>
+
+    <bean id="slideService" class="com.integrasolusi.pusda.sisda.service.SlideServiceImpl">
+        <property name="slideDao" ref="slideDao"/>
+        <property name="blobRepository" ref="blobRepository"/>
+        <property name="fileCacheManager" ref="fileCacheManager"/>
+        <property name="imageUtils" ref="imageUtils"/>
+        <property name="streamHelper" ref="streamHelper"/>
+    </bean>
+
+    <bean id="bookService" class="com.integrasolusi.pusda.sisda.service.BookServiceImpl">
+        <property name="bookDao" ref="bookDao"/>
+        <property name="blobRepository" ref="blobRepository"/>
+    </bean>
+
+    <bean id="regulationTypeService" class="com.integrasolusi.pusda.sisda.service.RegulationFolderServiceImpl">
+        <property name="regulationFolderDao" ref="regulationFolderDao"/>
+    </bean>
+
+    <bean id="regulationService" class="com.integrasolusi.pusda.sisda.service.RegulationServiceImpl">
+        <property name="regulationDao" ref="regulationDao"/>
+        <property name="blobRepository" ref="blobRepository"/>
+    </bean>
+
+    <bean id="unitService" class="com.integrasolusi.pusda.sisda.service.UnitServiceImpl">
+        <property name="unitDao" ref="unitDao"/>
+        <property name="blobRepository" ref="blobRepository"/>
+    </bean>
+
+    <bean id="personService" class="com.integrasolusi.pusda.sisda.service.PersonServiceImpl">
+        <property name="personDao" ref="personDao"/>
+        <property name="blobRepository" ref="blobRepository"/>
+    </bean>
+
+    <bean id="userService" class="com.integrasolusi.pusda.sisda.service.UserServiceImpl">
+        <property name="userDao" ref="userDao"/>
+    </bean>
+
+    <bean id="systemConfigService" class="com.integrasolusi.pusda.sisda.service.SystemConfigServiceImpl">
+        <property name="systemConfigDao" ref="systemConfigDao"/>
+    </bean>
+
+    <bean id="mapService" class="com.integrasolusi.pusda.sisda.service.MapServiceImpl">
+        <property name="mapDao" ref="mapDao"/>
+        <property name="mapCategoryDao" ref="mapCategoryDao"/>
+        <property name="blobRepository" ref="blobRepository"/>
+    </bean>
+
+    <bean id="mapCategoryService" class="com.integrasolusi.pusda.sisda.service.MapCategoryServiceImpl">
+        <property name="mapCategoryDao" ref="mapCategoryDao"/>
+    </bean>
+
+    <bean id="sdaService" class="com.integrasolusi.pusda.sisda.service.sda.SdaServiceImpl">
+        <property name="sdaDao" ref="sdaDao"/>
+    </bean>
+
+    <bean id="bendunganService" class="com.integrasolusi.pusda.sisda.service.sda.BendunganServiceImpl">
+        <property name="bendunganDao" ref="bendunganDao"/>
+        <property name="blobRepository" ref="blobRepository"/>
+    </bean>
+
+    <bean id="diTypeService" class="com.integrasolusi.pusda.sisda.service.sda.di.DiTypeServiceImpl">
+        <property name="diTypeDao" ref="diTypeDao"/>
+        <property name="blobRepository" ref="blobRepository"/>
+    </bean>
+
+    <bean id="diDiService" class="com.integrasolusi.pusda.sisda.service.sda.di.DiDiServiceImpl">
+        <property name="diDiDao" ref="diDiDao"/>
+        <property name="blobRepository" ref="blobRepository"/>
+    </bean>
+
+    <bean id="diDataService" class="com.integrasolusi.pusda.sisda.service.sda.di.DiDataServiceImpl">
+        <property name="diDataDao" ref="diDataDao"/>
+        <property name="blobRepository" ref="blobRepository"/>
+    </bean>
+
+    <bean id="sungaiService" class="com.integrasolusi.pusda.sisda.service.sda.sungai.SungaiServiceImpl">
+        <property name="sungaiDao" ref="sungaiDao"/>
+        <property name="blobRepository" ref="blobRepository"/>
+    </bean>
+
+    <bean id="sungaiSummaryService" class="com.integrasolusi.pusda.sisda.service.sda.sungai.SungaiSummaryServiceImpl">
+        <property name="sungaiSummaryDao" ref="sungaiSummaryDao"/>
+        <property name="blobRepository" ref="blobRepository"/>
+    </bean>
+
+    <bean id="bendungService" class="com.integrasolusi.pusda.sisda.service.sda.bendung.BendungServiceImpl">
+        <property name="bendungDao" ref="bendungDao"/>
+        <property name="blobRepository" ref="blobRepository"/>
+    </bean>
+
+    <bean id="bendungSummaryService"
+          class="com.integrasolusi.pusda.sisda.service.sda.bendung.BendungSummaryServiceImpl">
+        <property name="bendungSummaryDao" ref="bendungSummaryDao"/>
+        <property name="blobRepository" ref="blobRepository"/>
+    </bean>
+
+    <bean id="embungService" class="com.integrasolusi.pusda.sisda.service.sda.EmbungServiceImpl">
+        <property name="embungDao" ref="embungDao"/>
+    </bean>
+
+    <bean id="telagaService" class="com.integrasolusi.pusda.sisda.service.sda.TelagaServiceImpl">
+        <property name="telagaDao" ref="telagaDao"/>
+    </bean>
+
+    <bean id="embungPotensiService" class="com.integrasolusi.pusda.sisda.service.sda.EmbungPotensiServiceImpl">
+        <property name="embungPotensiDao" ref="embungPotensiDao"/>
+    </bean>
+
+    <bean id="airTanahService" class="com.integrasolusi.pusda.sisda.service.sda.AirTanahServiceImpl">
+        <property name="airTanahDao" ref="airTanahDao"/>
+        <property name="blobRepository" ref="blobRepository"/>
+    </bean>
+
+
+    <bean id="daerahRawanBanjirService" class="com.integrasolusi.pusda.sisda.service.sda.DaerahRawanBanjirServiceImpl">
+        <property name="daerahRawanBanjirDao" ref="daerahRawanBanjirDao"/>
+        <property name="blobRepository" ref="blobRepository"/>
+    </bean>
+
+    <bean id="propinsiService" class="com.integrasolusi.pusda.sisda.service.sda.PropinsiServiceImpl">
+        <property name="propinsiDao" ref="propinsiDao"/>
+    </bean>
+
+    <bean id="kabupatenService" class="com.integrasolusi.pusda.sisda.service.sda.KabupatenServiceImpl">
+        <property name="kabupatenDao" ref="kabupatenDao"/>
+    </bean>
+
+    <bean id="wilayahSungaiService" class="com.integrasolusi.pusda.sisda.service.sda.WilayahSungaiServiceImpl">
+        <property name="wilayahSungaiDao" ref="wilayahSungaiDao"/>
+    </bean>
+
+    <bean id="dasService" class="com.integrasolusi.pusda.sisda.service.sda.DasServiceImpl">
+        <property name="dasDao" ref="dasDao"/>
+    </bean>
+
+    <bean id="saboDamService" class="com.integrasolusi.pusda.sisda.service.sda.SaboDamServiceImpl">
+        <property name="saboDamDao" ref="saboDamDao"/>
+        <property name="blobRepository" ref="blobRepository"/>
+    </bean>
+
+    <bean id="postCHService" class="com.integrasolusi.pusda.sisda.service.sda.hidrologi.PosCHServiceImpl">
+        <property name="posCHDao" ref="posCHDao"/>
+        <property name="blobRepository" ref="blobRepository"/>
+    </bean>
+
+    <bean id="klimatologiService" class="com.integrasolusi.pusda.sisda.service.sda.hidrologi.KlimatologiServiceImpl">
+        <property name="klimatologiDao" ref="klimatologiDao"/>
+        <property name="blobRepository" ref="blobRepository"/>
+    </bean>
+
+    <bean id="posKlimatologiService"
+          class="com.integrasolusi.pusda.sisda.service.sda.hidrologi.PosKlimatologiServiceImpl">
+        <property name="posKlimatologiDao" ref="posKlimatologiDao"/>
+        <property name="blobRepository" ref="blobRepository"/>
+    </bean>
+
+    <bean id="tinggiMukaAirService"
+          class="com.integrasolusi.pusda.sisda.service.sda.hidrologi.TinggiMukaAirServiceImpl">
+        <property name="tinggiMukaAirDao" ref="tinggiMukaAirDao"/>
+        <property name="blobRepository" ref="blobRepository"/>
+    </bean>
+
+    <bean id="posTMAService" class="com.integrasolusi.pusda.sisda.service.sda.hidrologi.PosTMAServiceImpl">
+        <property name="posTMADao" ref="posTMADao"/>
+        <property name="blobRepository" ref="blobRepository"/>
+    </bean>
+
+    <bean id="kualitasAirService" class="com.integrasolusi.pusda.sisda.service.sda.hidrologi.KualitasAirServiceImpl">
+        <property name="kualitasAirDao" ref="kualitasAirDao"/>
+        <property name="blobRepository" ref="blobRepository"/>
+    </bean>
+
+    <bean id="posHidrologiService" class="com.integrasolusi.pusda.sisda.service.sda.hidrologi.PosHidrologiServiceimpl">
+        <property name="posHidrologiDao" ref="posHidrologiDao"/>
+        <property name="blobRepository" ref="blobRepository"/>
+    </bean>
+
+    <bean id="banjirService" class="com.integrasolusi.pusda.sisda.service.sda.BanjirServiceImpl">
+        <property name="banjirDao" ref="banjirDao"/>
+        <property name="blobRepository" ref="blobRepository"/>
+    </bean>
+
+    <bean id="kekeringanService" class="com.integrasolusi.pusda.sisda.service.sda.KekeringanServiceImpl">
+        <property name="kekeringanDao" ref="kekeringanDao"/>
+        <property name="blobRepository" ref="blobRepository"/>
+    </bean>
+    <bean id="sdaDasService" class="com.integrasolusi.pusda.sisda.service.sda.SdaDasServiceImpl">
+        <property name="sdaDasDao" ref="sdaDasDao"/>
+        <property name="blobRepository" ref="blobRepository"/>
+    </bean>
+
+    <bean id="yearService" class="com.integrasolusi.pusda.sisda.service.sda.YearServiceImpl">
+        <property name="yearDao" ref="yearDao"/>
+    </bean>
+
+    <bean id="sungaiSaboDamService" class="com.integrasolusi.pusda.sisda.service.sda.SungaiSaboDamServiceImpl">
+        <property name="saboDamDao" ref="saboDamDao"/>
+        <property name="sungaiSaboDamDao" ref="sungaiSaboDamDao"/>
+        <property name="blobRepository" ref="blobRepository"/>
+        <property name="fileCacheManager" ref="fileCacheManager"/>
+        <property name="imageUtils" ref="imageUtils"/>
+        <property name="streamHelper" ref="streamHelper"/>
+    </bean>
+
+    <!-- TKPSDA -->
+    <bean id="activityService" class="com.integrasolusi.pusda.sisda.service.tkpsda.activity.ActivityServiceImpl">
+        <property name="activityDao" ref="activityDao"/>
+    </bean>
+
+    <bean id="activityDocumentService"
+          class="com.integrasolusi.pusda.sisda.service.tkpsda.activity.ActivityDocumentServiceImpl">
+        <property name="activityDocumentDao" ref="activityDocumentDao"/>
+        <property name="blobRepository" ref="blobRepository"/>
+    </bean>
+
+    <bean id="scheduleService" class="com.integrasolusi.pusda.sisda.service.tkpsda.ScheduleServiceImpl">
+        <property name="scheduleDao" ref="scheduleDao"/>
+    </bean>
+
+    <bean id="eventService"
+          class="com.integrasolusi.pusda.sisda.service.tkpsda.documentation.EventServiceImpl">
+        <property name="eventDao" ref="eventDao"/>
+    </bean>
+
+    <bean id="eventPictureService"
+          class="com.integrasolusi.pusda.sisda.service.tkpsda.documentation.EventPictureServiceImpl">
+        <property name="blobRepository" ref="blobRepository"/>
+        <property name="eventPictureDao" ref="eventPictureDao"/>
+        <property name="fileCacheManager" ref="fileCacheManager"/>
+        <property name="streamHelper" ref="streamHelper"/>
+        <property name="imageUtils" ref="imageUtils"/>
+    </bean>
+
+
+    <bean id="miscFolderService" class="com.integrasolusi.pusda.sisda.service.tkpsda.misc.MiscFolderServiceImpl">
+        <property name="miscFolderDao" ref="miscFolderDao"/>
+    </bean>
+
+    <bean id="miscDocumentService"
+          class="com.integrasolusi.pusda.sisda.service.tkpsda.misc.MiscDocumentServiceImpl">
+        <property name="miscDocumentDao" ref="miscDocumentDao"/>
+        <property name="blobRepository" ref="blobRepository"/>
+    </bean>
+
+    <!-- END TKPSDA -->
+
+    <bean id="leafletService" class="com.integrasolusi.pusda.sisda.service.LeafletServiceImpl">
+        <property name="leafletDao" ref="leafletDao"/>
+        <property name="blobRepository" ref="blobRepository"/>
+        <property name="imageUtils" ref="imageUtils"/>
+    </bean>
+
+    <bean id="satuanKerjaService" class="com.integrasolusi.pusda.sisda.service.SatuanKerjaServiceImpl">
+        <property name="satuanKerjaDao" ref="satuanKerjaDao"/>
+    </bean>
+
+    <bean id="progressPekerjaanService" class="com.integrasolusi.pusda.sisda.service.ProgressPekerjaanServiceImpl">
+        <property name="progressPekerjaanDao" ref="progressPekerjaanDao"/>
+        <property name="blobRepository" ref="blobRepository"/>
+    </bean>
+
+    <bean id="strukturOrganisasiService" class="com.integrasolusi.pusda.sisda.service.StrukturOrganisasiServiceImpl">
+        <property name="strukturOrganisasiDao" ref="strukturOrganisasiDao"/>
+        <property name="blobRepository" ref="blobRepository"/>
+        <property name="fileCacheManager" ref="fileCacheManager"/>
+        <property name="imageUtils" ref="imageUtils"/>
+        <property name="streamHelper" ref="streamHelper"/>
+    </bean>
+
+    <bean id="tickerService" class="com.integrasolusi.pusda.sisda.service.TickerServiceImpl">
+        <property name="tickerDao" ref="tickerDao"/>
+    </bean>
+
+    <bean id="visitorCounterService" class="com.integrasolusi.pusda.sisda.service.VisitorCounterServiceImpl">
+        <property name="visitorCounterDao" ref="visitorCounterDao"/>
+    </bean>
+
+    <bean id="meetingService" class="com.integrasolusi.pusda.sisda.service.presetantion.MeetingServiceImpl">
+        <property name="meetingDao" ref="meetingDao"/>
+    </bean>
+
+    <bean id="moduleService" class="com.integrasolusi.pusda.sisda.service.presetantion.ModuleServiceImpl">
+        <property name="moduleDao" ref="moduleDao"/>
+        <property name="blobRepository" ref="blobRepository"/>
+    </bean>
+
+    <!-- ffws data service -->
+
+    <bean id="stationService" class="com.integrasolusi.pusda.sisda.service.ffws.StationServiceImpl">
+        <property name="stationDao" ref="stationDao"/>
+    </bean>
+
+    <bean id="waterLevelService" class="com.integrasolusi.pusda.sisda.service.ffws.WaterLevelServiceImpl">
+        <property name="waterLevelDao" ref="waterLevelDao"/>
+        <property name="stationDao" ref="stationDao"/>
+    </bean>
+
+    <bean id="projectService" class="com.integrasolusi.pusda.sisda.service.ProjectServiceImpl">
+        <property name="projectDao" ref="projectDao"/>
+        <property name="blobRepository" ref="blobRepository"/>
+    </bean>
+
+</beans>
+
+

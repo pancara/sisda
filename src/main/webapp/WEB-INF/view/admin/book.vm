@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <img src='#springUrl("/images/16x16/book.png")'/> &nbsp;
+        Pustaka
+    </title>
+</head>
+<body>
+<div id="book">
+    <div class='context-menu'>
+        #foreach($page in $pages)
+            #if ($page == $current)
+                <a href='#springUrl("/admin/pustaka/${page}.html?keyword=$keyword")' class="current">$page</a>
+            #else
+                <a href='#springUrl("/admin/pustaka/${page}.html?keyword=$keyword")' class="page">$page</a>
+            #end
+        #end
+    </div>
+
+    <div class='right' style="display: block;">
+        <form action='#springUrl("/admin/pustaka.html")'
+              style="float: left; display: block; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;">
+            Kata kunci: &nbsp;
+            <input type='text' name='keyword' value='$!{keyword}' class='text'/>
+            <input type='submit' value='cari'/>
+        </form>
+
+        <a href='#springUrl("/admin/pustaka/new.html")' class='new' style="padding-bottom: 2px;">
+            baru
+        </a>
+    </div>
+    <div class='clear'>&nbsp;</div>
+
+    <table class="no_border">
+        #set($row = $start_row + 1)
+        #foreach ($book in $bookList)
+            <tr>
+                <td>${row}.</td>
+                <td>
+                    <span class="title">$book.title</span>
+
+                    <div style='font-size: 10px;'>$dateTimeTool.format($book.postDate)</div>
+                    <p>$book.description</p>
+
+                    <div class='right'>
+                        <span style="float: left;">
+                            #set($image = $fileTool.getFileTypeIcon($book.filename))
+                            <img src='#springUrl("/images/filetype/$image")'/>
+                            $book.filename &nbsp; $mathTool.idiv($book.size, 1024) Kb
+                        </span>
+                        <a href='#springUrl("/pustaka/download/${book.id}.html")' class='link' target="_blank">
+                            download
+                        </a>
+                        <a href='#springUrl("/admin/pustaka/edit/${book.id}.html")' class='edit'>
+                            edit
+                        </a>
+                        <a rel='#springUrl("/admin/pustaka/remove/${book.id}.html")' class='remove'>
+                            hapus
+                        </a>
+                    </div>
+                </td>
+            </tr>
+            #set($row = $row + 1)
+        #end
+    </table>
+
+    <div class='context-menu'>
+        #foreach($page in $pages)
+            #if ($page == $current)
+                <a href='#springUrl("/admin/pustaka/${page}.html?keyword=$keyword")' class="current">$page</a>
+            #else
+                <a href='#springUrl("/admin/pustaka/${page}.html?keyword=$keyword")' class="page">$page</a>
+            #end
+        #end
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        $("#book a.remove").clickConfirm({
+            position: "bottom",
+            questionText: "Hapus pustaka ?",
+            followLinkOnProceed: false,
+            onProceed: function(trigger) {
+                var _url = $(trigger).attr("rel");
+                jQuery.get(_url,
+                          function(data) {
+                              if (data.result == true) {
+                                  var tr = $(trigger).parentsUntil("tbody");
+                                  tr.remove();
+                              }
+                          }
+                        );
+            }
+        });
+
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+.jquery_foldertree
+  display: block
+  cursor: default
+
+  div.title
+    background: #EEEEEE
+    padding: 2px 4px 2px 12px
+    margin-bottom: 4px
+    color: #3366CC
+
+  div.children
+    margin-left: 24px
+
+  div.folder
+    padding: 0px 0px 0px 0px
+    border: none
+
+    span.empty
+      display: block
+      color: #CC0000
+      padding: 6px 4px 6px 8px
+      border-bottom: 1px solid #EEEEEE
+
+    span.label
+      display: block
+      padding: 6px 4px 6px 32px
+      border-bottom: 1px solid #EEEEEE
+      background: #FFF url(../../images/16x16/folder.png) no-repeat 2px 5px
+
+    span.label:hover
+      background-color: #F5F5F5
+
+  div.item
+    @extend div.folder
+
+    span.empty
+      display: block
+      color: #CC0000
+      padding: 6px 4px 6px 8px
+      border-bottom: 1px solid #EEEEEE
+
+    span.label
+      display: block
+      padding: 6px 4px 6px 32px
+      border-bottom: 1px solid #EEEEEE
+      background: #FFF url(../../images/16x16/page_white_edit.png) no-repeat 2px 5px
+
+    span.label:hover
+      background-color: #F5F5F5
+
+  div.item_html
+    @extend div.folder
+
+    span.empty
+      display: block
+      color: #CC0000
+      padding: 6px 4px 6px 8px
+      border-bottom: 1px solid #EEEEEE
+
+    span.label
+      display: block
+      padding: 6px 4px 6px 32px
+      border-bottom: 1px solid #EEEEEE
+      background: #FFF url(../../images/16x16/html.png) no-repeat 2px 5px
+
+    span.label:hover
+      background-color: #F5F5F5
+
+  div.item_pdf
+    @extend div.folder
+    span.empty
+      display: block
+      color: #CC0000
+      padding: 6px 4px 6px 8px
+      border-bottom: 1px solid #EEEEEE
+
+    span.label
+      display: block
+      padding: 6px 4px 6px 32px
+      border-bottom: 1px solid #EEEEEE
+      background: #FFF url(../../images/16x16/pdf.png) no-repeat 2px 5px
+
+    span.label:hover
+      background-color: #F5F5F5
+
+  // date type
+  div.item_date
+    @extend div.folder
+    span.empty
+      display: block
+      color: #CC0000
+      padding: 6px 4px 6px 8px
+      border-bottom: 1px solid #EEEEEE
+
+    span.label
+      display: block
+      padding: 6px 4px 6px 32px
+      border-bottom: 1px solid #EEEEEE
+      background: #FFF url(../../images/16x16/date_magnify.png) no-repeat 2px 5px
+
+    span.label:hover
+      background-color: #F5F5F5
+
+  div.item_file
+    @extend div.folder
+    span.empty
+      display: block
+      color: #CC0000
+      padding: 6px 4px 6px 8px
+      border-bottom: 1px solid #EEEEEE
+
+    span.label
+      display: block
+      padding: 6px 4px 6px 32px
+      border-bottom: 1px solid #EEEEEE
+      background: #FFF url(../../images/16x16/page_white.png) no-repeat 2px 5px
+
+    span.label:hover
+      background-color: #F5F5F5
+
+  div.item_map
+    @extend div.folder
+    span.empty
+      display: block
+      color: #CC0000
+      padding: 6px 4px 6px 8px
+      border-bottom: 1px solid #EEEEEE
+
+    span.label
+      display: block
+      padding: 6px 4px 6px 32px
+      border-bottom: 1px solid #EEEEEE
+      background: #FFF url(../../images/16x16/map.png) no-repeat 2px 5px
+
+    span.label:hover
+      background-color: #F5F5F5
+
+  div.item_empty
+    @extend div.folder
+    background-image: none
+    vertical-align: top
+    img
+      margin-right: 5px
+    
+    span.empty
+      display: block
+      color: #CC0000
+      padding: 6px 4px 6px 8px
+      border-bottom: 1px solid #EEEEEE
+  
+    span.label
+      display: block
+      padding: 6px 4px 6px 0px
+      border-bottom: 1px solid #EEEEEE
+      background: #FFF
+      background-image: none
+      vertical-align: top
+  
+    span.label:hover
+      background-color: #F5F5F5    
+
+  // last child
+  div.folder:last-child, div.item:last-child, div.item_html:last-child, div.item_date:last-child
+    border: none
+     
+  

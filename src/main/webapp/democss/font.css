@@ -1,0 +1,75 @@
+@font-face {
+    font-family: 'BebasNeue';
+    src: local('BebasNeue'), url('../demofonts/BebasNeue.otf') format('opentype');
+}
+@font-face {
+    font-family: 'Sansation';
+    src: local('Sansation'), url('../demofonts/Sansation_Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Waukegan LDO';
+    font-weight: normal;
+    src: local('Waukegan LDO'), url('../demofonts/Waukegan LDO.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Waukegan LDO';
+    src: local('Waukegan LDO'), url('../demofonts/Waukegan LDO Bold.ttf') format('truetype');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Guru';
+    src: local('Guru'), url('../demofonts/Guru Regular.otf') format('opentype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Guru';
+    font-weight: bold;
+    src: local('Guru'), url('../demofonts/Guru Bold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Liberation Sans';
+    src: local('Liberation Sans'), url('../demofonts/LiberationSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Liberation Sans';
+    src: local('Liberation Sans'), url('../demofonts/LiberationSans-Bold.ttf') format('truetype');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Liberation Sans';
+    src: local('Liberation Sans'), url('../demofonts/LiberationSans-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'JosefinSans';
+    src: local('JosefinSans'), url('../demofonts/JosefinSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'JosefinSans';
+    src: local('JosefinSans'), url('../demofonts/JosefinSans-Bold.ttf') format('truetype');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Pali';
+    src: local('Pali'), url('../demofonts/Pali Regular.otf') format('opentype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Pali';
+    src: local('Pali'), url('../demofonts/Pali Regular.otf') format('opentype');
+    font-weight: bold;
+}

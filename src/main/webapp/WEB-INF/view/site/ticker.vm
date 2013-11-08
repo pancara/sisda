@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        Ticker
+    </title>
+</head>
+<body>
+<div id="ticker">
+    <ul class="ticker_panel" id="ticker_ticker">
+        #foreach($ticker in $tickerList)
+            <li>
+                <a href="#springUrl(${ticker.url})">
+                    ${ticker.title}
+                </a>
+            </li>
+        #end
+    </ul>
+</div>
+</body>
+</html>

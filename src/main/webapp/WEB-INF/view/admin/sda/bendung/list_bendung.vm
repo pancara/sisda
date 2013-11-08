@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <a href="#springUrl("/admin/sda/bendung/list.html")">Bendung</a>
+        &#187;
+        <a href="#springUrl("/admin/sda/bendung/list/${ws.id}.html")">${ws.name}</a>
+        &#187;
+        <span>Data Bendung</span>
+    </title>
+</head>
+<body>
+<div id="bendung">
+    <div>
+        <form action="#springUrl("/admin/sda/bendung/${ws.id}/${das.id}/remove.html")" method="post">
+            <table class="no_border">
+                <col style="width: 20px"/>
+                <col style="width: 20px"/>
+                <col style="width: 20px"/>
+                <col style="width: 200px;"/>
+                <col style="width: 580px;"/>
+                <col style="width: 50px"/>
+                <col style="width: 10px;"/>
+                <col style="width: 50px"/>
+                <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>
+                        <input type='checkbox' name="ids_all" class="select_all"/>
+                    </th>
+                    <th>ID</th>
+                    <th>Bendung</th>
+                    <th>Keterangan</th>
+                    <th></th>
+                    <th>
+                        <a href='#springUrl("/admin/sda/bendung/add/${ws.id}.html")' class='button'>
+                            baru
+                        </a>
+                    </th>
+                </tr>
+                </thead>
+                #foreach ($bendung in $listBendung)
+                    #set($row = $velocityCount)
+                    <tr>
+                        <td>${row}.</td>
+                        <td>
+                            <input type='checkbox' name='ids' value='${bendung.id}'/>
+                        </td>
+                        <td>
+                         <span class="text_id">
+                             ${bendung.id}
+                         </span>
+                        </td>
+                        <td class="short_content">
+                            ${bendung.name}
+                        </td>
+                        <td class="short_content">
+                            ${bendung.description}
+                        </td>
+                        <td>
+                            #if (${bendung.filename})
+                                <a href="#springUrl("/download/admin/sda/bendung/${bendung.id}/$!{bendung.filename}")"
+                                   target="_blank">
+                                    <img src="#springUrl("/images/filetype/$fileTool.getFileTypeIcon($!{bendung.filename})")"/>
+                                </a>
+                            #end
+                        </td>
+                        <td>
+                            <a href='#springUrl("/admin/sda/bendung/edit/${ws.id}/${bendung.id}.html")' class='button'>
+                                edit
+                            </a>
+                        </td>
+                    </tr>
+                    #set($row = $row + 1)
+                #end
+                <tfoot>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type='checkbox' name="ids_all" class="select_all"/>
+                    </td>
+                    <td colspan="5">
+                        <input type="hidden" name="keyword" value="$!{form.keyword}"/>
+                        <input type="hidden" name="page" value="${current}"/>
+
+                        <input type="submit" name="remove" value="Hapus"/>
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".popup").colorbox({width: "800px", height: "95%", iframe: true});
+
+        $("input[type=checkbox].select_all").click(function () {
+            var checked = $(this).prop("checked");
+            $("#bendung table input[type=checkbox]").attr("checked", checked);
+        });
+    });
+</script>
+</body>
+</html>

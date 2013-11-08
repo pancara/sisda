@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <img src='#springUrl("/images/16x16/news.png")'/> &nbsp;
+        Berita
+    </title>
+</head>
+<body>
+<div id="news">
+    <div class="item">
+        <h3>$news.title</h3>
+
+        
+        <span class="date">
+                $dateTimeTool.format($news.publishedDate) WIB
+        </span>
+        <br/>
+        <br/>
+
+        <div class="content">
+            #if($news.photoFilename)
+                <img src='#springUrl("/download/news/photo/${news.id}/${news.photoFilename}")' class='thumb'/>
+            #end
+
+            
+            $news.content
+        </div>
+    </div>
+
+    <div class="comments">
+        <div class="title">
+            <img src='#springUrl("/images/16x16/comments.png")' style="float: left;"/>&nbsp;
+            Comments <span style="font-weight: normal;">($comments.size())</span>
+        </div>
+
+        <ol>
+            #foreach ($c in $comments)
+                <li>
+                    <img src='#springUrl("/images/32x32/user_comment.png")' style='float: left; vertical-align: top;'/>
+                    <span style='color: #ab0d22;'>$c.name <br/>
+                        #getEncodedEmail($c.address, $address)
+                        <img src='#springUrl("/email/${address}}.html")'/>
+                    </span>
+
+                    <div style='font-size: 10px;'>$dateTimeTool.format($c.postDate)</div>
+                    <p>$c.message</p>
+                </li>
+            #end
+
+            <li>#parse("site/news/comment_form.vm")</li>
+        </ol>
+    </div>
+</div>
+</body>
+</html>

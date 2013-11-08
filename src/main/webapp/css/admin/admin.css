@@ -1,0 +1,264 @@
+body {
+  background: #02253a;
+  font-family: "Trebuchet MS", Helvetica, Arial;
+  font-size: 12px;
+  color: #103446;
+  margin-bottom: 32px; }
+
+br {
+  height: 1px; }
+
+h1, h2, h3, h4 {
+  margin: 0px 0px 0px 0px; }
+
+h1 {
+  letter-spacing: 0.1px;
+  font-size: 35px; }
+
+h2 {
+  font-size: 16px;
+  font-weight: bold; }
+
+h3 {
+  font-family: "Trebuchet MS", Helvetica, Arial;
+  font-size: 12px;
+  font-weight: bold;
+  color: #006fcc; }
+
+h4 {
+  font-size: 16px;
+  font-weight: bold; }
+
+p, ul, ol {
+  margin: 0 0 2em 0;
+  text-align: justify;
+  line-height: 26px; }
+
+a:link {
+  color: #0094e0; }
+a:hover, a:active {
+  text-decoration: none;
+  color: #0094e0; }
+a:visited {
+  color: #0094e0; }
+
+button {
+  font-family: "Trebuchet MS";
+  font-size: 11px;
+  letter-spacing: 1px;
+  border: 1px solid #dde9fc;
+  background: #f4fbfe; }
+  button img {
+    float: left;
+    margin-right: 8px; }
+
+img {
+  border: none; }
+  img.left {
+    float: left; }
+  img.right {
+    float: right; }
+
+#login {
+  margin: -8px 0px 0px 0px;
+  text-align: left;
+  font-size: 12px;
+  padding: 4px; }
+  #login h2 {
+    font-size: 14px;
+    padding: 0px; }
+
+#footer {
+  margin: 0px 0px 10px 0px;
+  padding: 8px 16px 8px 16px;
+  border: 1px solid #103446;
+  background: #02253a;
+  height: 30px;
+  line-height: 24px;
+  text-align: right;
+  color: white;
+  border-radius: 4px; }
+  #footer span {
+    color: white; }
+  #footer a {
+    font-family: "Trebuchet MS";
+    padding: 5px 4px 5px 4px;
+    text-decoration: none;
+    font-size: 9pt;
+    color: white;
+    line-height: 14px; }
+    #footer a:hover {
+      text-decoration: none;
+      color: #f4d00a; }
+  #footer .last a {
+    margin-right: 10px; }
+
+td.summary {
+  font-family: Arial, Tahoma;
+  font-size: 10pt;
+  font-weight: bold;
+  color: #02253a;
+  background: #d5ecfd; }
+
+span.left {
+  float: left; }
+
+.images_news {
+  float: left;
+  margin: 0px 16px 0px 0px;
+  padding: 4px;
+  border: 1px solid #e1e1e1; }
+
+.slide_caption {
+  font-family: "Trebuchet MS";
+  margin: 8px 4px 2px 4px;
+  padding: 4px 4px 2px 4px;
+  font-size: 11px;
+  border-bottom: 1px solid #d2d8dc;
+  color: #005193;
+  background: white;
+  letter-spacing: 1pt; }
+  .slide_caption:hover {
+    background: #e5f2f9; }
+
+.slide_content {
+  border: 1px solid #d2d8dc;
+  margin: 0px 4px 8px 4px;
+  padding: 2px 4px 2px 4px; }
+
+#main_content table.no_border {
+  border: none;
+  padding: 4px;
+  line-height: 14pt;
+  margin: 0px 4px 4px 0px;
+  vertical-align: top; }
+  #main_content table.no_border td {
+    font-family: "Trebuchet MS";
+    padding: 5px 4px 5px 4px;
+    font-size: 12px;
+    letter-spacing: 0.4pt;
+    color: #2f4c5d;
+    border: none; }
+#main_content a.button {
+  margin: 0px 0px 0px 0px;
+  padding: 2px 2px 2px 2px;
+  font-family: "Trebuchet MS";
+  font-size: 10px;
+  font-weight: bold;
+  color: #666666;
+  vertical-align: bottom;
+  display: inline-block;
+  border: 1px solid #eeeeee;
+  border-radius: 5px;
+  background: #def4f8; }
+  #main_content a.button:hover {
+    color: black;
+    background: #dceafd;
+    border: 1px solid #eeeeee; }
+
+div.right {
+  text-align: right;
+  display: block;
+  padding: 4px 4px 4px 4px; }
+  div.right img {
+    display: inline; }
+
+#control_panel {
+  font-family: Arial;
+  font-size: 11px;
+  font-weight: bold;
+  float: right;
+  display: inline-block;
+  padding: 1px 4px 1px 4px;
+  border-radius: 4px;
+  border: 3px solid #ff9e32;
+  background: #ffb665;
+  color: white; }
+
+#logout {
+  float: right;
+  color: white;
+  text-decoration: none;
+  font-weight: bold; }
+  #logout:hover {
+    color: white; }
+
+ul.photo_list {
+  clear: both;
+  display: block;
+  list-style-position: inside;
+  text-indent: 0px;
+  padding: 0px 0px 0px 0px;
+  margin: 24px 0px 0px 0px; }
+  ul.photo_list li {
+    display: inline;
+    margin: 0px 4px 0px 0px; }
+  ul.photo_list img {
+    display: inline-block;
+    position: relative;
+    padding: 4px 4px 4px 4px;
+    margin: 0px 0px 0px 0px;
+    border: 1px solid #dceafd; }
+
+p {
+  margin: 0px 0px 0px 0px;
+  text-indent: 0px; }
+
+.list_title {
+  font-size: 11px;
+  font-weight: bold;
+  color: #486fcc; }
+
+#main_content ul.error {
+  color: red;
+  margin: 8px 0px 8px 0px;
+  padding: 0px 0px 0px 0px;
+  list-style-type: square;
+  list-style-position: inside; }
+  #main_content ul.error li {
+    font-family: "Trebuchet MS", Verdana;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    line-height: 24px; }
+#main_content a.link, #main_content a.upload, #main_content a.manage, #main_content a.new, #main_content a.edit, #main_content a.remove {
+  margin: 0px 0px 0px 0px;
+  padding: 1px 2px 2px 24px;
+  font-family: "Trebuchet MS";
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #496fcc;
+  vertical-align: top;
+  border-radius: 2px;
+  border: 1px solid #dce7ec;
+  display: inline-block;
+  background: #dde9fc no-repeat 2px 2px; }
+#main_content a.link {
+  background-image: url(../../images/16x16/arrow_box_blue_right.png); }
+#main_content a.upload {
+  background-image: url(../../images/16x16/upload.png); }
+#main_content a.manage {
+  background-image: url(../../images/16x16/wrench.png); }
+#main_content a.new {
+  background-image: url(../../images/16x16/add.png); }
+#main_content a.edit {
+  background-image: url(../../images/16x16/page_white_edit.png); }
+#main_content a.remove {
+  background-image: url(../../images/16x16/cross_black.png); }
+#main_content a.link:hover, #main_content a.upload:hover, #main_content a.manage:hover, #main_content a.new:hover, #main_content a.edit:hover, #main_content a.remove:hover {
+  color: #ff8600;
+  background-color: #fffbf5;
+  border: 1px solid #ffcf85;
+  box-shadow: 0px 0px 4px #ffcf85; }
+#main_content span.tab_title {
+  background: transparent;
+  color: #f09b25;
+  padding: 2px 1px 2px 0px;
+  font-size: 11px; }
+#main_content div.clear {
+  height: 1px;
+  clear: both; }
+#main_content span.note {
+  font-size: 12px;
+  line-height: 16px;
+  color: red; }

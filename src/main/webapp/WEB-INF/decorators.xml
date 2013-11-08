@@ -1,0 +1,48 @@
+<decorators defaultdir="/WEB-INF/decorator">
+    <excludes>
+        <pattern>/exclude/*</pattern>
+    </excludes>
+
+    <decorator name="three-column" page="site/three-column.jsp">
+        <pattern>/*</pattern>
+    </decorator>
+
+    <decorator name="one-column" page="site/one-column.jsp">
+        <pattern>/ffws/*</pattern>
+    </decorator>
+
+    <decorator name="ajax" page="ajax.jsp">
+        <pattern>/ajax/*</pattern>
+        <pattern>/ajx/*</pattern>
+        <pattern>/ax/*</pattern>
+    </decorator>
+
+    <decorator name="popup" page="site/popup.jsp">
+        <pattern>/popup/*</pattern>
+    </decorator>
+
+    <decorator name="login" page="admin/login.jsp">
+        <pattern>/login.html</pattern>
+    </decorator>
+
+    <decorator name="admin" page="admin/default.jsp">
+        <pattern>/admin/*</pattern>
+    </decorator>
+
+    <decorator name="admin_ajax" page="admin/ajax.jsp">
+        <pattern>/admin/ajax/*</pattern>
+    </decorator>
+
+    <decorator name="admin_popup" page="admin/popup.jsp">
+        <pattern>/admin/popup/*</pattern>
+    </decorator>
+
+
+    <decorator name="json" page="json.jsp">
+        <pattern>/json/*</pattern>
+    </decorator>
+
+    <decorator name="box" page="site/box.jsp"/>
+
+    <decorator name="body_only" page="site/body_only.jsp"/>
+</decorators>

@@ -1,0 +1,83 @@
+@import "includes/vars"
+#agenda
+   
+   div.item
+      margin: 8px 0px 8px 0px
+      padding: 8px 0px 8px 0px
+      border-bottom: 1px dashed #DDD
+      &:last-child
+         border: none
+
+      h3
+         padding: 0px 0px 0px 0px
+         margin: 0px 0px 8px 0px
+         font-family: $font_title
+         font-size: 16px
+         font-weight: normal
+         color: $color_title
+         letter-spacing: 1px
+         display: block
+         text-align: left
+         text-shadow: 2px 1px 1px #DDD
+
+      div.panel
+         margin: 0px
+         background: transparent
+         text-align: right
+
+         a
+            margin: 0px 0px 0px 0px
+            padding: 0px 4px 0px 4px
+            font-size: 11px
+            font-weight: normal
+            line-height: 18px
+            color: #444
+            vertical-align: top
+            border-radius: 4px
+            border: none
+            display: inline-block
+            letter-spacing: 0px
+            color: #376ea6
+            background: #edf4ff
+            &:hover
+               background: #cde4ff
+         
+      .date
+         display: inline-block
+         //width: 60px
+         background: #FFF
+         //color: #30698c
+         color: #A62B53
+         padding: 1px 2px 1px 2px
+         margin: 2px 2px 4px 2px
+         //border: 1px solid lighten(#A62B53,45)
+         border-radius: 5px
+            
+         float: right
+   
+         .day
+            display: inline-block
+            float: left
+            border-radius: 2px
+            font-size: 24px
+            line-height: 26px
+            font-weight: bold
+            text-align: center
+            padding: 0px 2px 0px 0px
+            margin-right: 4px
+            border-right: 1px solid #F0F0F0
+      
+         div
+            display: inline-block
+      
+            .month
+               font-size: 12px
+               font-weight: normal
+               display: block
+               line-height: 14px
+      
+            .year
+               @extend .month
+               border-top: 1px solid #F0F0F0
+   
+    

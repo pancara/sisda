@@ -1,0 +1,114 @@
+#header {
+  margin: 0px 0px 0px 0px;
+  padding: 2px 6px 6px 6px;
+  background: #224a63;
+  border: none;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px; }
+  #header .menubar {
+    margin: 2px 0px 0px 0px;
+    text-align: right;
+    border-bottom: 1px solid #295876;
+    padding: 0px 2px 2px 2px;
+    display: block; }
+    #header .menubar a {
+      font-family: "Trebuchet MS";
+      padding: 1px 5px 2px 5px;
+      margin: 0px 0px 0px 0px;
+      text-decoration: none;
+      font-size: 11px;
+      line-height: 16px;
+      font-weight: bold;
+      color: white;
+      letter-spacing: 0px;
+      outline: none;
+      display: inline-block;
+      vertical-align: top; }
+      #header .menubar a:hover {
+        text-decoration: none;
+        color: white;
+        background: #30698c;
+        background-image: linear-gradient(to top, #2c6081, #3d85b2);
+        background-repeat: repeat-x;
+        border-radius: 4px; }
+      #header .menubar a span {
+        display: inline-block; }
+      #header .menubar a img {
+        display: inline-block;
+        float: left;
+        margin-left: 2px;
+        margin-right: 5px; }
+  #header .banner {
+    margin: 8px 8px 8px 8px; }
+    #header .banner img.logo {
+      float: left;
+      margin-right: 16px;
+      box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.6);
+      margin-top: -2px; }
+    #header .banner h1 {
+      display: block;
+      margin-bottom: 2px;
+      font-family: Signika;
+      font-size: 16px;
+      color: white;
+      font-weight: lighter;
+      text-shadow: 1px 1px 2px black;
+      letter-spacing: 1px; }
+    #header .banner h2 {
+      display: block;
+      margin: 0px;
+      font-family: Signika;
+      font-size: 12px;
+      line-height: 14px;
+      font-weight: normal;
+      text-shadow: 1px 1px 2px black; }
+    #header .banner h3 {
+      display: block;
+      margin: 0px 0px 0px 0px;
+      font-family: Signika;
+      font-size: 12px;
+      font-weight: normal;
+      line-height: 14px;
+      letter-spacing: 1px;
+      text-shadow: 1px 1px 2px black; }
+    #header .banner form.search {
+      border: 1px solid #999999;
+      border-radius: 5px;
+      width: 206px;
+      overflow: hidden;
+      background: white;
+      padding: 0px;
+      float: left; }
+      #header .banner form.search span {
+        position: relative;
+        display: inline-block;
+        color: red; }
+      #header .banner form.search input[type="text"] {
+        background: transparent;
+        border: none;
+        float: left;
+        font-family: Signika;
+        font-size: 12px;
+        line-height: 18px;
+        height: 18px;
+        margin: 0;
+        padding: 3px 4px 3px 4px;
+        width: 172px; }
+        #header .banner form.search input[type="text"]:focus {
+          border: none;
+          box-shadow: none;
+          outline: none; }
+      #header .banner form.search input[type="submit"] {
+        background: transparent url(../../images/16x16/search.png);
+        background-position: 4px 0px;
+        background-repeat: no-repeat;
+        border: none;
+        height: 16px;
+        margin: 4px 0px 0px 0px;
+        padding: 0px;
+        text-indent: 100px;
+        width: 24px;
+        float: left; }
+        #header .banner form.search input[type="submit"]:focus {
+          border: none;
+          box-shadow: none; }

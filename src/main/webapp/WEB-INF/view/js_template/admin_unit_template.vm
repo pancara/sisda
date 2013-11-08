@@ -1,0 +1,47 @@
+<script type="text/x-jqote-template" id="unit_template">
+    <![CDATA[
+    <div>
+        <div class="unit">
+            <table style="width: 100%;">
+                <tr>
+                    <td class="unit_name" colspan="2"><%= this.name %></td>
+                </tr>
+                <tr>
+                    <td class="unit_desc" colspan="2"><%= this.description %></td>
+                </tr>
+                <tr>
+                    <td rowspan="4" style="width: 80px;">
+                        <img src='#springUrl("/person/photo/<%= this.head.id %>.html")' class="photo"/>
+                    </td>
+                    <td><%= this.head.name %></td>
+                </tr>
+                <tr>
+                    <td><span><%= this.head.nip %></td>
+                </tr>
+                <tr>
+                    <td><%= this.head.golongan %> / <%= this.head.jabatan %></span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href='#springUrl("/window/organization/view/<%= this.id %>.html")' class='link box_view'>selengkapnya</a>
+
+                        <a href='#springUrl("/admin/organization/add/<%= this.id %>.html")' class='link'>tambah</a>
+                        <a href='#springUrl("/admin/organization/edit/<%= this.id %>.html")' class='link'>edit</a>
+                        <a href='#springUrl("/admin/organization/remove/<%= this.id %>.html")' class='link'>hapus</a>
+
+                        <a rel='#springUrl("/admin/organization/moveup/<%= this.id %>.html")'
+                           class='link moveup'>atas</a>
+                        <a rel='#springUrl("/admin/organization/movedown/<%= this.id %>.html")' class='link movedown'>bawah</a>
+
+                        <a class='btn_show_child' name="<%= this.id %>">
+                            <img src="#springUrl("/images/16x16/button_arrow_down.png")"/>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="subunits">
+        </div>
+    </div>
+    ]]>
+</script>

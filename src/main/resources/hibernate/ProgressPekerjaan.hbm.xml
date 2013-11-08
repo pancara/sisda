@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.integrasolusi.pusda.sisda.persistence.ProgressPekerjaan" table="progress_pekerjaan">
+
+        <id name="id" column="UID" type="java.lang.Long" unsaved-value="null">
+            <generator class="native"/>
+        </id>
+
+        <version name="version" access="field" column="OBJ_VERSION"/>
+
+        <many-to-one name="satuanKerja" class="com.integrasolusi.pusda.sisda.persistence.SatuanKerja"
+                     column="SATUAN_KERJA" not-null="false" lazy="false"/>
+
+        <many-to-one name="year" class="com.integrasolusi.pusda.sisda.persistence.Year"
+                     column="YEAR" not-null="false" lazy="false"/>
+
+        <property name="filename" type="java.lang.String">
+            <column name="FILENAME" sql-type="VARCHAR(255)"/>
+        </property>
+
+        <property name="reportingDate" type="date">
+            <column name="REPORTING_DATE" sql-type="datetime"/>
+        </property>
+
+
+    </class>
+</hibernate-mapping>

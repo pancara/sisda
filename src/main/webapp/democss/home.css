@@ -1,0 +1,46 @@
+#home {
+    font-family: "Trebuchet MS";
+    border: 0px solid #CCC;
+}
+
+#home > div {
+    border: 0px solid #F0F0F0;
+    display: inline-block;
+    background: #FFF;
+    position: relative;;
+    float: left;
+    margin-left: 12px;
+    padding: 0px 0px 0px 0px;
+}
+
+#home > div:first-child {
+    margin-left: 0px;
+}
+
+#home > div h1 {
+    padding: 8px 4px 8px 4px;
+    margin: 0px;
+    border-radius: 3px;
+    display: block;
+    position: relative;
+    color: #FFF;
+    font-family: "Trebuchet MS";
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 12px;
+    /*border-top-left-radius: 3px;*/
+    /*border-top-right-radius: 3px;*/
+    border-bottom: 1px solid #EEE;
+    background: #222 url(../demoimg/menu-overlay.png) repeat-x;
+    text-shadow: 0px 1px 1px #000;
+
+}
+#home > div > div{
+    margin-top: 2px;
+    border: 0px solid #EEE;
+    padding: 4px 8px 4px 8px;
+    font-size: 12px;
+    border-radius: 3px;
+    height: 280px;
+    background: #F5F5F5;
+}

@@ -1,0 +1,141 @@
+#sda {
+  margin: 12px auto 12px auto; }
+  #sda a.item {
+    padding: 8px 4px 2px 4px;
+    text-align: center;
+    margin: 4px;
+    width: 130px;
+    display: block;
+    border: 1px solid white;
+    border-radius: 0px; }
+    #sda a.item:hover {
+      text-decoration: none;
+      background: #f2f2f2;
+      /*background: #ebf7fe; */
+      border: 1px solid #eeeeee;
+      border-radius: 0px; }
+    #sda a.item .img {
+      color: #cccccc;
+      height: 95px; }
+  #sda .item .title {
+    color: #333333;
+    padding: 4px 2px 2px 2px;
+    margin: 2px 4px 2px 4px;
+    font-size: 11px;
+    text-shadow: 2px 2px 4px #cccccc;
+    font-family: Tahoma, Arial, "Trebuchet MS", Arial, sans-serif;
+    height: 30px;
+    text-align: center;
+    text-shadow: 2px 2px 3px white; }
+
+#sda_content {
+  margin: 12px auto 12px auto; }
+  #sda_content div.menu {
+    text-align: center;
+    font-size: 12px; }
+    #sda_content div.menu a {
+      font-size: 12px;
+      font-weight: normal;
+      padding: 2px 4px 2px 4px;
+      background: whitesmoke;
+      border-radius: 2px; }
+      #sda_content div.menu a:hover {
+        color: white;
+        background: #336699; }
+  #sda_content div.main {
+    background: white;
+    padding: 4px; }
+    #sda_content div.main ol {
+      border: none;
+      padding: 0px 0px 0px 0px;
+      text-indent: 0px;
+      margin: 0px 0px 0px 0px;
+      list-style-position: inside; }
+    #sda_content div.main ul {
+      padding: 0px 0px 0px 0px;
+      text-indent: 0px;
+      margin: 0px 0px 0px 4px;
+      list-style-position: inside;
+      border-left: 1px solid #dde9fc; }
+    #sda_content div.main ol > li {
+      margin: 0px 0px 0px 0px;
+      border-bottom: 1px dotted #dde9fc;
+      padding: 3px; }
+      #sda_content div.main ol > li:last-child {
+        border: none; }
+  #sda_content table {
+    border: 1px solid #eeeeee;
+    border-collapse: collapse; }
+    #sda_content table.noborder {
+      border: none; }
+      #sda_content table.noborder td {
+        border: none; }
+    #sda_content table tr th {
+      border-spacing: 3px;
+      border: none;
+      background: whitesmoke;
+      color: black;
+      padding: 4px 4px 4px 5px;
+      font-size: 11px;
+      font-weight: normal;
+      border-radius: 0px; }
+    #sda_content table tr td {
+      border-top: 1px solid #eeeeee;
+      border-bottom: 1px solid #eeeeee;
+      border-left: none;
+      border-right: none;
+      padding: 5px 4px 4px 4px; }
+    #sda_content table td a {
+      font-family: "Trebuchet MS";
+      font-size: 12px;
+      font-weight: normal;
+      color: black;
+      line-height: 16px;
+      letter-spacing: 0px;
+      outline: none; }
+      #sda_content table td a:hover {
+        color: #3366aa; }
+  #sda_content .pnl_bottom {
+    margin-top: 4px;
+    text-align: right; }
+    #sda_content .pnl_bottom a {
+      display: inline-block;
+      border: 1px solid #f0f0f0;
+      border-radius: 3px;
+      padding: 2px 6px 2px 4px;
+      color: #3366cc;
+      background: whitesmoke; }
+      #sda_content .pnl_bottom a:hover {
+        display: inline-block;
+        border: 1px solid #f0f0f0;
+        border-radius: 3px;
+        padding: 2px 6px 2px 4px;
+        color: #990000;
+        background: #eeeeee; }
+      #sda_content .pnl_bottom a img {
+        float: left; }
+      #sda_content .pnl_bottom a span {
+        margin-left: 8px;
+        font-size: 12px; }
+  #sda_content ol.list {
+    border: none;
+    margin: 0px 0px 6px 0px;
+    list-style-position: inside; }
+    #sda_content ol.list li {
+      border: none;
+      margin: 0px 0px 6px 0px;
+      vertical-align: top; }
+      #sda_content ol.list li > div {
+        display: inline-block;
+        vertical-align: top;
+        width: 520px; }
+        #sda_content ol.list li > div a.title {
+          margin-top: 3px;
+          font-size: 14px;
+          display: block;
+          color: #3366aa;
+          line-height: 18px;
+          text-align: left; }
+          #sda_content ol.list li > div a.title:hover {
+            text-decoration: underline;
+            text-decoration-color: red; }

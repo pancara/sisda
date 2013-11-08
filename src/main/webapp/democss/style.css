@@ -1,0 +1,391 @@
+* {
+    font-family: "Trebuchet MS";
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background: #195182 url("../demoimg/body.png") scroll;
+    background-position: left top;
+}
+
+#container {
+    position: relative;
+    border: 0px solid #CCC;
+    width: 980px;
+    margin: 0px auto 0px auto;
+    padding: 0px 0px 0px 0px;
+    background: transparent;
+    min-height: 800px;
+}
+
+#banner {
+    color: #EEE;
+    height: 90px;
+    background: transparent;
+    font-family: BebasNeue, 'Waukegan LDO', "Liberation Sans", "Trebuchet MS", 'Waukegan LDO';
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 20px;
+    letter-spacing: 2px;
+    /*text-shadow: 0px 0px 2px #CCC;*/
+}
+
+#menu_top {
+    position: relative;
+    margin-left: 200px;
+    padding: 4px 0px 8px 64px;
+    background: url(../demoimg/menu-top-overlay.png) repeat-x;
+
+}
+
+#menu_top img.icon {
+    margin: 0px 0px 0px 0px;
+    display: inline;
+    position: relative;
+    border: 0px solid #FF0000;
+    padding: 2px 0px 0px 0px;
+}
+
+#menu_top ul {
+    display: inline-block;
+    position: relative;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    vertical-align: top;
+}
+
+#menu_top ul li {
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    display: inline-block;
+    position: relative;
+    vertical-align: bottom;
+}
+
+#menu_top ul li a {
+    display: block;
+    text-decoration: none;
+    position: relative;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 24px 0px 0px;
+    vertical-align: middle;
+    outline: none;
+}
+
+#menu_top ul li a span {
+    display: inline-block;
+    font-family: Tahoma, "Trebuchet MS";
+    font-size: 11px;
+    color: #d4e7fa;
+    padding: 2px 6px 4px 6px;
+    margin: 0px 4px 0px 4px;
+    border-radius: 3px;
+}
+
+#menu_top ul li a:hover span {
+    background: #415d7a;
+    color: #FFF;
+}
+
+#menubar {
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 16px;
+    /*background: #c52817 url(../demoimg/menu-overlay.png) repeat-x;*/
+    background: #edae0e url(../demoimg/menu-overlay.png) repeat-x left bottom;
+    text-decoration: none;
+    border: none;
+    display: block;
+}
+
+#menubar ul {
+    display: inline-block;
+    position: relative;
+    padding: 5px 0px 5px 0px;
+    margin: 0px 0px 0px 0px;
+    background: transparent;
+}
+
+#menubar ul li {
+    display: inline-block;
+    padding: 0px 4px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    /*border-right: 1px solid #FFF;*/
+}
+
+#menubar  ul li a {
+    position: relative;
+    display: inline-block;
+    margin: 0px 0px 0px 0px;
+    padding: 1px 4px 1px 4px;
+    font-family: Tahoma, "Trebuchet MS";
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: -2px -2px 5px #666;
+    color: #FFF;
+    background: transparent;
+    border: 1px solid transparent;
+    outline: none;
+}
+
+#menubar  ul li a:focus {
+    outline-style: none;
+}
+
+/*padding: 0px 8px 0px 8px;*/
+#menubar a:hover {
+    background: #444 url(../demoimg/menu-overlay.png) repeat-x;
+    border: 1px solid #222;
+    /*text-shadow: 0px 1px 1px #AAA;*/
+    color: #FFF;
+    border-radius: 5px;
+    box-shadow: 0px 0px 3px #333;
+}
+
+#menubar a span {
+    background: transparent;
+    margin: 4px 4px 4px 4px;
+    display: inline-block;
+}
+
+#menu_bottom {
+    background: url(../demoimg/menu-bottom-overlay.png) repeat-y left top;
+    color: #FFF;
+    margin: 0px;
+    position: relative;
+    padding: 0px 0px 2px 0px;
+}
+
+#menu_bottom ul {
+    margin: 0px 0px 4px 0px;
+    padding: 0px 0px 0px 20px;
+    border-bottom: 1px solid #306292;
+}
+
+#menu_bottom ul li {
+    padding: 3px 0px 5px 0px;
+    margin: 0px 0px 0px 0px;
+    display: inline-block;
+}
+
+#menu_bottom ul li a {
+    text-decoration: none;
+    position: relative;
+    padding: 5px 8px 5px 8px;
+    margin: 0px 24px 0px 0px;
+    vertical-align: middle;
+}
+
+#menu_bottom ul li a span {
+    display: inline-block;
+    font-family: Tahoma, "Trebuchet MS";
+    font-size: 11px;
+    padding: 4px 6px 4px 6px;
+    color: #d4e7fa;
+    outline: none;
+    border-radius: 5px;
+}
+
+#menu_bottom ul li a:hover span {
+    text-decoration: none;
+    /*border-bottom: 1px solid #CCC;*/
+    background: #415d7a;
+    color: #FFF;
+}
+
+#content_wrapper {
+    display: block;
+    position: relative;
+    margin: 0px;
+    padding: 0px 0px 16px 0px;
+    margin-bottom: 0px;
+    border: 0px solid #FF0000;
+    min-height: 500px;
+    background: #FFF;
+}
+
+#content_wrapper > div.sidebar {
+    border: 0px solid #d8dfe3;
+    width: 230px;
+    /*background: #edf2f5;*/
+    background: #F9F9F9;
+    margin: 18px 0px 12px 12px;;
+    padding: 12px;
+
+    border-radius: 5px;
+    display: inline-block;
+    position: relative;
+    float: left;
+}
+
+#content_wrapper > div.main {
+    width: 684px;
+    display: inline-block;
+    position: relative;
+    float: left;
+    margin-top: 18px;
+    margin-left: 16px;
+    border-radius: 5px;
+    padding: 0px 0px 0px 0px;
+}
+
+#content_wrapper > div.main > div.title {
+    position: relative;
+    /*background: #F5F5F5;*/
+    margin: 0px 0px 0px 0px;
+    padding: 6px 12px 0px 16px;
+    /*border-top: 1px solid #EEE;*/
+    min-height: 64px;
+    background: #F0F0F0;
+    background: -moz-linear-gradient(top, #F0F0F0, #FFF);
+    background: -webkit-gradient(linear, left top, left bottom, from(#F0F0F0), to(#FFF));
+    filter: progid:DXImageTransform.Microsoft.Gradient(StartColorStr = '#F9F9F9', EndColorStr = '#FFF', GradientType = 0);
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+#content_wrapper > div.main > div.title > div.menu {
+    font-family: Tahoma, Arial, "Trebuchet MS";
+    font-size: 14px;
+    font-weight: normal;
+    margin-bottom: 12px;
+    padding: 6px 0px 6px 0px;
+    border-bottom: 1px solid #EEE;
+    text-shadow: 0px 0px 2px #FFF;
+    letter-spacing: 1px;
+    color: #666;
+}
+
+#content_wrapper > div.main > div.title h1 {
+    margin: 0px 0px 0px 0px;
+    padding: 3px 0px 8px 0px;
+}
+
+#content_wrapper > div.main >  div.title h1 span {
+    font-family: "Waukegan LDO", Tahoma, Arial, "Trebuchet MS";
+    font-size: 22px;
+    font-weight: bold;
+    color: #376ea6;
+    letter-spacing: 1px;
+    display: inline-block;
+}
+
+#content_wrapper > div.main > div.desc {
+    font-family: "Trebuchet MS";
+    font-size: 12px;
+    position: relative;
+    /*background: #F5F5F5;*/
+    margin: 12px 0px 24px 0px;
+    padding: 6px 12px 6px 16px;
+    border-radius: 5px;
+}
+
+#content_wrapper > div.main > div.content {
+    margin: 0px 0px 0px 0px;
+    padding: 4px 12px 24px 16px;
+    font-family: "Trebuchet MS";
+    font-size: 13px;
+    line-height: 24px;
+    color: #333;
+}
+
+#content_wrapper > div.main > div.footer {
+    font-family: "Trebuchet MS";
+    font-size: 12px;
+    position: relative;
+    margin: 0px 0px 0px 0px;
+    padding: 12px 12px 12px 16px;
+    background: #F9F9F9;
+    border-radius: 5px;
+
+}
+
+#footer {
+    background: transparent url("../demoimg/footer.png");
+    min-height: 180px;
+    margin: 0px 0px 4px 0px;
+    padding: 16px 8px 16px 8px;
+    border: none;
+    position: relative;
+    color: #c8d3de;
+    font-family: "Trebuchet MS";
+    font-size: 13px;
+}
+
+#footer > div.top {
+    display: block;
+}
+
+#footer > div.top > div {
+    display: inline-block;
+    float: left;
+    margin-right: 8px;
+}
+
+#footer > div.top > div:last-child {
+    margin-right: 0px;
+}
+
+#footer > div.top > div h1 {
+    color: #EEE;
+    font-size: 13px;
+    font-weight: bold;
+    border-bottom: 1px solid #306292;
+    padding-bottom: 8px;
+    text-shadow: -1px -1px 2px #000;
+}
+
+#footer > div.top > div h2 {
+
+}
+
+#footer > div.top > div p {
+    line-height: 24px;
+    font-size: 12px;
+    margin: 0px 0px 0px 0px;
+}
+
+#footer > div.top > div > p > a {
+    text-decoration: none;
+    color: #d4e7fa;
+    font-weight: bold;
+}
+
+#footer > div.top > div > ul {
+    display: inline-block;
+    position: relative;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    list-style-position: inside;
+}
+
+#footer > div.top > div ul li {
+    display: inline-block;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    list-style-position: inside;
+}
+
+#footer > div.top > div ul li a img {
+    padding: 4px;
+    border-radius: 4px;
+}
+
+#footer > div.top td {
+    font-size: 12px;
+}
+
+#footer > div.top td.num {
+    text-align: right;
+}
+
+#footer > div.bottom {
+    font-size: 12px;
+    color: #FFF;
+    padding-top: 32px;
+    display: block;
+    clear: both;
+    text-align: center;
+    text-shadow: 0px 0px 2px #000;
+}

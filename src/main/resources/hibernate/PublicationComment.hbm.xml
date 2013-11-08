@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.integrasolusi.pusda.sisda.persistence.CommentPublication" table="comment_publication">
+        <id name="id" column="UID" type="java.lang.Long" unsaved-value="null">
+            <generator class="native"/>
+        </id>
+
+        <version name="version" access="field" column="OBJ_VERSION"/>
+
+        <property name="name" type="java.lang.String">
+            <column name="NAME" sql-type="TEXT"/>
+        </property>
+
+        <property name="email" type="java.lang.String">
+            <column name="EMAIL" sql-type="VARCHAR(255)"/>
+        </property>
+
+
+        <property name="site" type="java.lang.String">
+            <column name="SITE" sql-type="VARCHAR(255)"/>
+        </property>
+
+        <property name="message" type="java.lang.String">
+            <column name="MESSAGE" sql-type="TEXT"/>
+        </property>
+
+        <many-to-one name="publication" class="com.integrasolusi.pusda.sisda.persistence.Publication"
+                     column="PUBLICATION"
+                     lazy="proxy"/>
+
+        <property name="postDate" type="java.util.Date">
+            <column name="POST_DATE" sql-type="datetime"/>
+        </property>
+
+    </class>
+</hibernate-mapping>

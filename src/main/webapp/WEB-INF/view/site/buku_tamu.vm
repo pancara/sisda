@@ -1,0 +1,96 @@
+#macro(paging $pages)
+<div class='paging'>
+    #if ($current != 1)
+        <a href='#springUrl("/buku_tamu/page/1.html")'>
+            &laquo;&laquo;
+        </a>
+        #set($previous = $current - 1)
+        <a href='#springUrl("/buku_tamu/page/${previous}.html")'>
+            &laquo;
+        </a>
+    #else
+        <a>&laquo;&laquo;</a>
+        <a>&laquo;</a>
+    #end
+
+    #foreach($page in $pages)
+        #if ($page == $current)
+            <a href='#springUrl("/buku_tamu/page/${page}.html")' class="current">$page</a>
+        #else
+            <a href='#springUrl("/buku_tamu/page/${page}.html")' class="page">$page</a>
+        #end
+    #end
+    #if ($current != $last_page)
+        #set($next_page = $current + 1)
+        <a href='#springUrl("/buku_tamu/page/${next_page}.html")'>
+            &raquo;
+        </a>
+        <a href='#springUrl("/buku_tamu/page/${last_page}.html")'>
+            &raquo;&raquo;
+        </a>
+    #else
+        <a>&raquo;</a>
+        <a>&raquo;&raquo;</a>
+    #end
+</div>
+#end
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <img src='#springUrl("/images/16x16/user_comment.png")'/> &nbsp;
+        Buku Tamu
+    </title>
+</head>
+<body>
+<div id="guest">
+    #paging($pages)
+    #set($row = $start_row + 1)
+    <table>
+        #foreach ($entry in $commentGuestMap.entrySet())
+            <tr>
+                <td>
+                    ${row}.
+                </td>
+                <td>
+                    <img src='#springUrl("/images/32x32/user_comment.png")' style='float: left;'/>
+                    <span style='color: #ab0d22;'>$entry.key.name <br/>
+                        #getEncodedEmail($entry.key.email, $code)
+                        <img src='#springUrl("/email/${code}.html")'/>
+                    </span>
+
+                    <div style='font-size: 10px;'>$dateTimeTool.format($entry.key.postDate)</div>
+                    <p>$entry.key.message</p>
+                    #if ($entry.value.size() > 0)
+                        #foreach($r in $entry.value)
+                            <div class="response">
+                                ${r.text}
+                                <div class="footer">
+                                    <img src='#springUrl("/images/16x16/admin.png")'/>
+                                    $r.by
+                                    &nbsp;
+                                    |
+                                    &nbsp;
+                                    $dateTimeTool.format($r.postDate)
+                                </div>
+                            </div>
+                        #end
+                    #end
+                </td>
+            </tr>
+            #set($row = $row + 1)
+        #end
+    </table>
+
+     #paging($pages)
+
+    <img src='#springUrl("/images/hr.png")'/>
+    <br/>
+
+    <div>
+        #parse("site/includes/buku_tamu_form.vm")
+    </div>
+
+</div>
+</body>
+</html>

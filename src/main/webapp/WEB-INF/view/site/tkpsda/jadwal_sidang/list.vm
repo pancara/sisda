@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <a href="#springUrl("/tkpsda.html")">TKPSDA</a>
+        &raquo;
+        ${wilayahSungai.name}
+        &raquo;
+        <span>Jadwal Sidang</span>
+    </title>
+</head>
+<body>
+<div id="tkpsda">
+    <h3>WS ${wilayahSungai.name}</h3>
+
+    <div style="background: #F5F5F5; padding: 4px 16px 16px 16px; border-radius: 2px;">
+        <p style="font-size: 12px;">
+        </p>
+        <table>
+            <colgroup style="width: 10px;;"></colgroup>
+            <colgroup style="width: 90px;;"></colgroup>
+            <colgroup style="width: 500px;;"></colgroup>
+            #if($scheduleList.size() > 0)
+                #foreach($item in $scheduleList)
+                    <tr>
+                        <td>
+                            <img src="#springUrl("/images/16x16/calendar.png")"/>
+                        </td>
+                        <td>
+                            <b>
+                                $dateTool.format(${item.holdDate})
+                            </b>
+                        </td>
+
+                        <td>
+                            <a href="#springUrl("/popup/tkpsda/jadwal_sidang/${item.wilayahSungai.id}/view/${item.id}.html")" class="popup">
+                                ${item.year.value}
+                                ${item.title}
+                            </a>
+                        </td>
+                    </tr>
+                #end
+            #else
+                <tr>
+                    <td colspan="3">
+                        <span class="empty">Belum ada data ...</span>
+                    </td>
+                </tr>
+            #end
+        </table>
+    </div>
+</div>
+<script type="text/javascript">
+    //<![CDATA[
+    $(document).ready(function () {
+        $(".popup").colorbox({width:"800px", height:"95%", iframe:true});
+    });
+    // ]]>
+</script>
+</body>
+</html>

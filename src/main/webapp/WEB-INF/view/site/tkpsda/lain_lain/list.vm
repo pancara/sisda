@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <a href="#springUrl("/tkpsda.html")">TKPSDA</a>
+        &raquo;
+        ${ws.name}
+        &raquo;
+        <span>
+            Lain-lain
+        </span>
+    </title>
+</head>
+<body>
+<div id="tkpsda">
+    <h4>WS ${ws.name}</h4>
+
+    <div class="jquery_foldertree"
+         style="border: 1px solid #EEE;  padding: 8px; width: 540px; margin: 0px auto 0px auto; border-radius: 4px;">
+        <div class="title">
+            Hasil Sidang TKPSDA
+        </div>
+        #if ($yearFolderMap.size() > 0)
+            #foreach($year in $yearFolderMap.keySet())
+                <div class="folder">
+                    <span class="label">
+                        ${year.value}
+                    </span>
+
+                    <div class="children">
+                        #set($mapFolder = $yearFolderMap.get($year))
+                        
+                        #foreach($folder in $mapFolder.keySet())
+                            <div class="folder">
+                                <span class="label">
+                                    $folder.name
+                                </span>
+                                #set($documents = $mapFolder.get($folder))
+                                <div class="children">
+                                    #foreach($document in $documents)
+                                        <div class="item_file">
+                                            <span class="label">
+                                                $document.name
+                                                <a href="#springUrl("/download/tkpsda/lain_lain/${ws.id}/${year.id}/${folder.id}/${document.id}/${document.filename}")"
+                                                   style="float: right;" target="_blank">
+                                                    <img src="#springUrl("/images/filetype/$fileTool.getFileTypeIcon($document.filename)")"/>
+                                                </a>
+                                            </span>
+                                        </div>
+                                    #end
+                                </div>
+                            </div>
+                        #end
+                    </div>
+                </div>
+            #end
+        #else
+            <span class="empty">Belum ada data ...</span>
+        #end
+    </div>
+</div>
+<script type="text/javascript">
+    //<![CDATA[
+    $("div.jquery_foldertree div.folder > span.label").each(function () {
+        $(this).click(function () {
+            $(this).siblings(".children").slideToggle();
+        });
+    });
+    // ]]>
+</script>
+</body>
+</html>

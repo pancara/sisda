@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <a href="#springUrl("/sda.html")">Data SDA</a>
+        &#187;
+        <span>Daerah Irigasi</span>
+    </title>
+</head>
+<body>
+
+
+<div id="sda_content">
+    <h3 style="display: block;  border-bottom: 1px dotted #EEE; ">
+        DAERAH IRIGASI
+    </h3>
+
+    <div style="text-align: center;">
+        <img src="#springUrl("/images/sda/daerah_irigasi/img_1.png")"
+             style="border-radius: 4px; box-shadow: 0px 0px 6px #AACCDD;"/>
+    </div>
+
+    <br/>
+
+    <div style="background: #F5F5F5; padding: 4px 16px 16px 16px; border-radius: 2px;">
+        <p style="font-size: 12px;">
+            Daftar Daerah Irigasi pada BBWS Serayu Opak berdasarkan Kepmen PU No.
+            390/KPTS/M/2007 tentang Kewenangan Pengelolaan Irigasi:
+        </p>
+
+        <div class="main jquery_foldertree">
+            <div class="title">
+                Data Daerah Irigasi
+            </div>
+            #foreach($type in $mapDi.keySet())
+                <div class="folder">
+                    <span class="label">
+                        ${type.name}
+
+                        #if ($type.filename != "")
+                        <a href="#springUrl("/download/sda/daerah_irigasi/type/${type.id}/${type.filename}")"
+                           style="float: right;" target="_blank">
+                            <img src="#springUrl("/images/filetype/$fileTool.getFileTypeIcon(${type.filename})")"/>
+                        </a>
+                        #end
+                    </span>
+
+                    <div class="children">
+                        #set($mapDiDi = $mapDi.get($type))
+                        #foreach($di in $mapDiDi.keySet())
+                            <div class="folder">
+                                <span class="label">
+                                    $di.name
+                                    #if ($di.filename != "")
+                                        <a href="#springUrl("/download/sda/daerah_irigasi/di/${type.id}/${di.id}/${di.filename}")"
+                                           style="float: right;" target="_blank">
+                                            <img src="#springUrl("/images/filetype/$fileTool.getFileTypeIcon(${di.filename})")"/>
+                                        </a>
+                                    #end
+                                </span>
+
+                                <div class="children">
+                                    #set($listData = $mapDiDi.get($di))
+                                    #foreach($data in $listData)
+                                        <div class="item_file">
+                                            <span class="label">
+                                                $data.name
+                                                <a href="#springUrl("/download/sda/daerah_irigasi/data/${type.id}/${di.id}/${data.id}/${data.filename}")"
+                                                   style="float: right;" target="_blank">
+                                                    <img src="#springUrl("/images/filetype/$fileTool.getFileTypeIcon($data.filename)")"/>
+                                                </a>
+                                            </span>
+                                        </div>
+                                    #end
+                                </div>
+                            </div>
+                        #end
+                    </div>
+                </div>
+            #end
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    //<![CDATA[
+    $("div.jquery_foldertree div.folder > span.label").each(function () {
+        $(this).click(function () {
+            var children = $(this).siblings(".children");
+            children.slideToggle();
+        });
+    });
+
+    $("div.jquery_foldertree .children").each(function () {
+        $(this).slideUp();
+    });
+    // ]]>
+</script>
+</body>
+</html>

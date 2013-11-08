@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.integrasolusi.pusda.sisda.persistence.VisitorCounter" table="visitor_counter">
+
+        <id name="id" column="UID" type="java.lang.Long" unsaved-value="null">
+            <generator class="native"/>
+        </id>
+
+        <version name="version" access="field" column="OBJ_VERSION"/>
+
+        <property name="date" type="date" unique="true">
+            <column name="VISIT_DATE" sql-type="date"/>
+        </property>
+
+        <property name="count" type="java.lang.Long">
+            <column name="COUNT" sql-type="BIGINT(20)"  default="1"/>
+        </property>
+    </class>
+</hibernate-mapping>

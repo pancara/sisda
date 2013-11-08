@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.integrasolusi.pusda.sisda.persistence.ffws.WaterLevel" table="ffws_water_level">
+
+        <id name="id" column="UID" type="java.lang.Long" unsaved-value="null">
+            <generator class="native"/>
+        </id>
+
+        <version name="version" access="field" column="OBJ_VERSION"/>
+
+        <many-to-one name="station" class="com.integrasolusi.pusda.sisda.persistence.ffws.Station"
+                     column="STATION" lazy="false"/>
+
+        <property name="samplingAt" type="java.util.Date">
+            <column name="SAMPLING_AT" sql-type="datetime"/>
+        </property>
+
+        <property name="value" type="java.lang.Double" column="VALUE"/>
+
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,158 @@
+#macro(renderCategory $category)
+    <span>
+        <img src="#springUrl("/images/16x16/tag.png")"/>
+        ${category.name}
+    </span>
+    #if ($category.parent)
+        &nbsp;&nbsp;
+        #renderCategory($category.parent)
+    #end
+#end
+
+#macro(paging $pages $category $keyword)
+<div class='paging'>
+    #if ($current != 1)
+        <a href='#springUrl("/map/search/1.html?category=$!{category}&keyword=$!{keyword}")'>
+            &laquo;&laquo;
+        </a>
+        #set($previous = $current - 1)
+        <a href='#springUrl("/map/search/${previous}.html?category=$!{category}&keyword=$!{keyword}")'>
+            &laquo;
+        </a>
+    #else
+        <a>&laquo;&laquo;</a>
+        <a>&laquo;</a>
+    #end
+
+    #foreach($page in $pages)
+        #if ($page == $current)
+            <a href='#springUrl("/map/search/${page}.html?category=$!{category}&keyword=$!{keyword}")'
+               class="current">$page</a>
+        #else
+            <a href='#springUrl("/map/search/${page}.html?category=$!{category}&keyword=$!{keyword}")'
+               class="page">$page</a>
+        #end
+    #end
+    #if ($current != $last_page)
+        #set($next_page = $current + 1)
+        <a href='#springUrl("/map/search/${next_page}.html?category=$!{category}&keyword=$!{keyword}")'>
+            &raquo;
+        </a>
+        <a href='#springUrl("/map/search/${last_page}.html?category=$!{category}&keyword=$!{keyword}")'>
+            &raquo;&raquo;
+        </a>
+    #else
+        <a>&raquo;</a>
+        <a>&raquo;&raquo;</a>
+    #end
+</div>
+#end
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <a href='#springUrl("/map/index.html")'>
+            <img src='#springUrl("/images/16x16/map.png")'/>
+            Peta
+        </a>
+        &nbsp;
+        &raquo;
+        <span>Pencarian</span>
+    </title>
+</head>
+<body>
+
+<div id="map">
+    <div>
+        <form action='#springUrl("/map/search.html")' style=" text-align: right;" class="search">
+            Pencarian :
+            <input type='text' name='keyword' value='$!{form.keyword}' style="width: 100px;"
+                   placeholder=" ..kata kunci.. "/>
+            &nbsp;
+            &nbsp;
+            Kategori :
+            <select id="category" name="category" style="">
+                #foreach($category in ${categoryList})
+                    #if ($category.id && $form.category == $category.id)
+                        <option value="$!{category.id}" selected="selected">${category.name}</option>
+                    #else
+                        <option value="$!{category.id}">${category.name}</option>
+                    #end
+                #end
+            </select>
+            <input type='submit' value='cari' class="btn"/>
+        </form>
+    </div>
+    <div class="clear">&nbsp;</div>
+    #paging($pages, ${form.category}, ${form.keyword})
+
+    <div>
+        <span class="info">
+            #if ($count == 0)
+                Tidak ditemukan data.
+            #else
+                Ditemukan ${count} data.
+            #end
+        </span>
+    </div>
+
+
+    <table style="width: 100%;">
+        <colgroup style="width: 10px"/>
+        <colgroup style="width: 60px"/>
+        <colgroup style="width: 400px"/>
+        #set($row = $start_row + 1)
+        #foreach ($map in $mapList)
+            <tr>
+                <td>
+                    ${row}.
+                </td>
+
+                <td>
+                    <a href='#springUrl("/download/map/${map.id}/${map.filename}")' class="view" target="_blank">
+                        <img src="#springUrl("/download/map/thumb/${map.id}/${map.filename}")?width=80"
+                             style="max-width: 80px; float: left;"
+                             rel="#springUrl("/download/map/${map.id}/${map.filename}")" class="thumb"/>
+                    </a>
+                </td>
+                <td>
+                    <span class="title">${map.name}</span>
+                    ${map.description}
+
+                    <div class="clear">&nbsp;</div>
+                    <div class="list_category">
+                        #renderCategory($map.category)
+                    </div>
+                </td>
+            </tr>
+            #set($row = $row + 1)
+        #end
+    </table>
+
+    #paging($pages, ${form.category}, ${form.keyword})
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#map img.thumb").tooltip({
+            delay: 0,
+            showURL: false,
+            bodyHandler: function () {
+                var rel = $(this).attr("rel");
+                return $("<img/>").attr("src", rel)
+                        .css({"max-height": "400px"});
+
+            }
+        });
+
+//        $("#map .view").colorbox({width:"95%", height:"95%", iframe:true});
+
+        $("input[type=checkbox].select_all").click(function () {
+            var checked = $(this).prop("checked");
+            $("#map table input[type=checkbox]").attr("checked", checked);
+        });
+    });
+</script>
+</body>
+</html>

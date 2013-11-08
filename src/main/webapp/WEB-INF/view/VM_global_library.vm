@@ -1,0 +1,97 @@
+#macro(agenda_date $date)
+<div>
+    $dateTimeTool.getDay($date)
+    $dateTimeTool.getMonth($date)
+    $dateTimeTool.getYear($date)
+</div>
+#end
+
+#macro(encodeEmail $_email)
+##
+    $textTool.stringToHex($textEncryptor.encrypt($emailTool.encryptMail($_email))))
+##
+#end
+
+#macro(getEncodedEmail $_email $_var)
+##
+    #set ($_var = $textTool.stringToHex($textEncryptor.encrypt($emailTool.encryptMail($_email))))
+##
+#end
+
+
+#macro(form_date $path $attributes)
+    #springBind($path)
+<select id="${status.expression}" name="${status.expression}" ${attributes}>
+    #foreach($i in [0..31])
+        #if ($i == 0)
+            <option value="$i"> - tgl -</option>
+        #elseif($i == ${status.value})
+            <option value="$i" selected="selected">$i</option>
+        #else
+            <option value="$i">$i</option>
+        #end
+    #end
+</select>
+#end
+
+#macro(form_month $path $attributes)
+    #springBind($path)
+<select id="${status.expression}" name="${status.expression}" ${attributes}>
+    #foreach($i in [-1..11])
+        #if ($i == -1)
+            <option value="$i">- bulan -</option>
+        #else
+            #if($i == ${status.value})
+                <option value="$i" selected="selected">$dateTool.getMonthString($i)</option>
+            #else
+                <option value="$i">$dateTool.getMonthString($i)</option>
+            #end
+        #end
+    #end
+</select>
+#end
+
+#macro(form_year $path $start $end $attributes)
+    #springBind($path)
+<select id="${status.expression}" name="${status.expression}" ${attributes}>
+    <option value="0"> - tahun -</option>
+    #foreach($i in [$start..$end])
+
+        #if($i == ${status.value})
+            <option value="$i" selected="selected">$i</option>
+        #else
+            <option value="$i">$i</option>
+        #end
+    #end
+</select>
+#end
+
+#macro(form_hour $path $attributes)
+    #springBind($path)
+<select id="${status.expression}" name="${status.expression}" ${attributes}>
+    #foreach($i in [0..23])
+        #if ($i == 0)
+            <option value="$i"> - jam -</option>
+        #elseif($i == ${status.value})
+            <option value="$i" selected="selected">$i</option>
+        #else
+            <option value="$i">$i</option>
+        #end
+    #end
+</select>
+
+#macro(form_minute $path $attributes)
+        #springBind($path)
+    <select id="${status.expression}" name="${status.expression}" ${attributes}>
+        #foreach($i in [0..59])
+            #if ($i == 0)
+                <option value="$i"> - menit -</option>
+            #elseif($i == ${status.value})
+                <option value="$i" selected="selected">$i</option>
+            #else
+                <option value="$i">$i</option>
+            #end
+        #end
+    </select>
+    #end
+#end

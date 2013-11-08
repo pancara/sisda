@@ -1,0 +1,81 @@
+#footer {
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 8px 0px;
+    background: #224a63;
+    line-height: 20px;
+    text-align: right;
+    letter-spacing: 1px;
+    color: white;
+}
+
+#footer div {
+    margin: 4px 12px 4px 8px;
+}
+
+#footer span {
+    color: white;
+    padding: 0px 0px 10px 0px;
+}
+
+#footer a {
+    font-family: "Trebuchet MS";
+    padding: 0px 0px 0px 0px;
+    text-decoration: none;
+    font-size: 12px;
+    color: white;
+}
+
+#footer a:hover {
+    text-decoration: none;
+    color: #f4d00a;
+}
+
+#footer .last a {
+    margin-right: 10px;
+}
+
+#footer div.menubar_cont {
+    margin: 0px 0px 0px 0px;
+    padding: 4px 8px 2px 0px;
+    text-align: right;
+    color: white;
+}
+
+#footer div.menubar {
+    padding: 2px 0px 2px 8px;
+}
+
+#footer div.menubar a {
+    font-family: "Trebuchet MS";
+    padding: 2px 5px 2px 5px;
+    margin: 0px 0px 0px 0px;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: bold;
+    color: white;
+    line-height: 12px;
+    letter-spacing: 0px;
+    outline: none;
+}
+
+#footer div.menubar a:hover {
+    text-decoration: none;
+    color: black;
+    background: #30698c;
+    border-radius: 4px;
+}
+
+#footer div.stats {
+    display: inline-block;
+    float: left;
+    position: relative;
+    text-align: left;
+    margin: 4px;
+    width: 350px;
+    color: black;
+    border-right: 1px solid #30698c;
+}
+
+.demo2 {
+    width: 100px;
+}

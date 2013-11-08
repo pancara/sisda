@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <img src='#springUrl("/images/16x16/site_url.png")'/> &nbsp;
+        Site URL
+    </title>
+</head>
+<body>
+<div id="external_link">
+    #foreach($link in $links)
+        <a href="${link.url}" target="_blank">
+             <img src="#springUrl("/download/link/picture/${link.id}/${link.filename}")"/>
+             <span>
+                 ${link.description}
+             </span>
+        </a>
+    #end
+</div>
+</body>
+</html>

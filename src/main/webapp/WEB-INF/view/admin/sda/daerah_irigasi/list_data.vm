@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <a href="#springUrl("/admin/sda/daerah_irigasi/list.html")">Daerah Irigasi</a>
+        &#187;
+        <a href="#springUrl("/admin/sda/daerah_irigasi/list/${type.id}.html")">${type.name}</a>
+        &#187;
+        <a href="#springUrl("/admin/sda/daerah_irigasi/list/${type.id}/${di.id}.html")">${di.name}</a>
+        &#187;
+        <span>Data</span>
+    </title>
+</head>
+<body>
+
+<div id="di_data">
+    <form action="#springUrl("/admin/sda/daerah_irigasi/remove/${type.id}/${di.id}.html")" method="post">
+        <table class="no_border" style="width: 100%">
+            <col style="width: 20px"/>
+            <col style="width: 20px"/>
+            <col style="width: 540px;"/>
+            <col style="width: 220px;"/>
+            <col style="width: 120px;"/>
+            <thead>
+            <tr>
+                <th>No.</th>
+                <th>
+                    <input type='checkbox' name="ids_all" class="select_all"/>
+                </th>
+                <th>Data DI</th>
+                <th>File</th>
+                <th>
+                    <a href='#springUrl("/admin/sda/daerah_irigasi/add/${type.id}/${di.id}.html")' class='button'>
+                        baru
+                    </a>
+                </th>
+            </tr>
+            </thead>
+            #foreach($data in $datas)
+                <tr>
+                    <td>${velocityCount}.</td>
+                    <td>
+                        <input type='checkbox' name='ids' value='${data.id}'/>
+                    </td>
+                    <td>
+                         <span class="text_id">
+                             ${data.name}
+                         </span>
+                    </td>
+                    <td>
+                        $!{data.filename}
+                    </td>
+                    <td>
+                        <a href='#springUrl("/admin/sda/daerah_irigasi/edit/${type.id}/${di.id}/${data.id}.html")'
+                           class='button select'>
+                            edit
+                        </a>
+                    </td>
+                </tr>
+            #end
+            <tfoot>
+            <tr>
+                <td></td>
+                <td>
+                    <input type='checkbox' name="ids_all" class="select_all"/>
+                </td>
+                <td colspan="3">
+                    <input type="submit" name="remove" value="Hapus"/>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+    </form>
+
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("input[type=checkbox].select_all").click(function () {
+            var checked = $(this).prop("checked");
+            $("#di_data table input[type=checkbox]").attr("checked", checked);
+        });
+    });
+</script>
+</body>
+</html>

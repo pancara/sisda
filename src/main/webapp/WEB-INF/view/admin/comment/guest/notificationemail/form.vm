@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <title>
+            <img src='#springUrl("/images/16x16/mail-arrow.png")'/> &nbsp;
+            <a href="#springUrl("/admin/comment/guest/notificationemail/list.html")">User</a>
+            &#187;
+            <span>Form</span>
+        </title>
+    </title>
+</head>
+<body>
+<div id="notification_email">
+    <div>
+        #springBind("form")
+        #if ($status.getErrors().getErrorCount() > 0)
+            <ul class='error'>
+                #foreach($error in $status.errorMessages)
+                    <li>$error</li>
+                #end
+            </ul>
+        #end
+
+        <form method="post">
+            <table>
+                <tr>
+                    <td class='label'>Email</td>
+                    <td>
+                        <input type="text" class="text" style="width: 500px;" value="$!esc.html($form.address)" name="address"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class='label'>User ID</td>
+                    <td>#springFormInput("form.name", "style='width: 300px;' class='text'")</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type='submit' value="submit"/></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+</body>
+</html>

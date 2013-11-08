@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <img src='#springUrl("/images/16x16/telephone_white.png")'/> &nbsp; Kontak
+    </title>
+</head>
+<body>
+<div id='contact'>
+    <img src='#springUrl("/images/pu_90.jpg")' class="logo"/>
+
+    <div class="content">
+        <h2>Balai Besar Wilayah Sungai Serayu Opak</h2>
+
+        <p>Jl. Solo Km. 6 Yogyakarta 55281</p>
+
+        <p>Telp. (0274) 489552, (0274) 489172</p>
+        <p>Fax. (0274) 489552</p>
+        <p>
+            <a href="http://www.bbws-so.net">
+                http://www.bbws-so.net
+            </a>
+        </p>
+    </div>
+</div>
+</body>
+</html>

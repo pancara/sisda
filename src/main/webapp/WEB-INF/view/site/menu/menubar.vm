@@ -1,0 +1,25 @@
+<div class="menubar">
+    <a href='#springUrl("/home.html")'>
+        <img src="#springUrl("/images/16x16/home_white.png")" alt="Home"/>
+        <span>home</span>
+    </a>
+    <a href='#springUrl("/news.html")'>
+        <span>berita</span>
+    </a>
+    <a href='#springUrl("/publication.html")'>
+        <span>pengumuman</span>
+    </a>
+    <a href='#springUrl("/dokumentasi.html")'>
+        <span>dokumentasi</span>
+    </a>
+    <a href='#springUrl("/buku_tamu.html")'>
+        <span>
+            buku tamu
+        </span>
+    </a>
+    <a href='#springUrl("/contact.html")'>
+        <span>
+            kontak kami
+        </span>
+    </a>
+</div>

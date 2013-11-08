@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd 
+            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd"
+       default-destroy-method="destroy"
+       default-init-method="afterPropertiesSet"
+       default-autowire="byName">
+
+    <aop:aspectj-autoproxy/>
+
+    <aop:config>
+        <aop:pointcut id="serviceMethods"
+                      expression="execution(* com.integrasolusi.pusda.sisda.service..*.*(..))"/>
+        <aop:advisor advice-ref="txServiceAdvice" pointcut-ref="serviceMethods"/>
+    </aop:config>
+
+    <tx:advice id="txServiceAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <!-- read write transaction -->
+            <tx:method name="save*" propagation="SUPPORTS" read-only="false"
+                       isolation="READ_COMMITTED" timeout="0" rollback-for="Exception"/>
+
+            <tx:method name="increment*" propagation="SUPPORTS" read-only="false"
+                       isolation="READ_COMMITTED" timeout="0" rollback-for="Exception"/>
+
+
+            <tx:method name="postComment*" propagation="SUPPORTS" read-only="false"
+                       isolation="READ_COMMITTED" timeout="0" rollback-for="Exception"/>
+
+            <tx:method name="activate*" propagation="SUPPORTS" read-only="false"
+                       isolation="READ_COMMITTED" timeout="0" rollback-for="Exception"/>
+            
+            <tx:method name="deactivate*" propagation="SUPPORTS" read-only="false"
+                       isolation="READ_COMMITTED" timeout="0" rollback-for="Exception"/>
+
+            <tx:method name="update*" propagation="SUPPORTS" read-only="false"
+                       isolation="READ_COMMITTED" rollback-for="Exception"/>
+
+            <tx:method name="publish*" propagation="SUPPORTS" read-only="false"
+                       isolation="READ_COMMITTED" rollback-for="Exception"/>
+
+            <tx:method name="unpublish*" propagation="SUPPORTS" read-only="false"
+                       isolation="READ_COMMITTED" rollback-for="Exception"/>
+
+            <tx:method name="remove*" propagation="SUPPORTS" read-only="false"
+                       isolation="READ_COMMITTED" timeout="0" rollback-for="Exception"/>
+
+            <tx:method name="reindex*" propagation="SUPPORTS" read-only="false"
+                       isolation="READ_COMMITTED" timeout="0" rollback-for="Exception"/>
+
+            <tx:method name="normalize*" propagation="SUPPORTS" read-only="false"
+                       isolation="READ_COMMITTED" timeout="0" rollback-for="Exception"/>
+
+            <tx:method name="move*" propagation="SUPPORTS" read-only="false"
+                       isolation="READ_COMMITTED" timeout="0" rollback-for="Exception"/>
+
+            <!-- read only transaction -->
+            <tx:method name="find*" propagation="NEVER" read-only="true" isolation="REPEATABLE_READ"/>
+            <tx:method name="*" propagation="NEVER" read-only="true" isolation="REPEATABLE_READ"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+        <property name="prepareConnection" value="true"/>
+        <property name="rollbackOnCommitFailure" value="true"/>
+    </bean>
+</beans>

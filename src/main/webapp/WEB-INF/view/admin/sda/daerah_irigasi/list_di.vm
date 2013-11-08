@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <a href="#springUrl("/admin/sda/daerah_irigasi/list.html")">Daerah Irigasi</a>
+        &#187;
+        <a href="#springUrl("/admin/sda/daerah_irigasi/list/${type.id}.html")">${type.name}</a>
+        &#187;
+        <span>Daerah Irigasi</span>
+    </title>
+</head>
+<body>
+
+<div id="di_di">
+    <div>
+        <form action="#springUrl("/admin/sda/daerah_irigasi/remove/${type.id}.html")" method="post">
+            <table class="no_border" style="width: 100%">
+                <col style="width: 20px"/>
+                <col style="width: 20px"/>
+                <col style="width: 540px;"/>
+                <col style="width: 120px;"/>
+                <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>
+                        <input type='checkbox' name="ids_all" class="select_all"/>
+                    </th>
+                    <th>Daerah Irigasi</th>
+                ##                <th>File</th>
+                    <th>
+                        <a href='#springUrl("/admin/sda/daerah_irigasi/add/${type.id}.html")' class='button select'>
+                            tambah
+                        </a>
+                    </th>
+                </tr>
+                </thead>
+                #foreach($di in $listDi)
+                    <tr>
+                        <td>${velocityCount}.</td>
+                        <td>
+                            <input type='checkbox' name='ids' value='${di.id}'/>
+                        </td>
+                        <td>
+                         <span class="text_id">
+                             ${di.name}
+                         </span>
+                        </td>
+                    ##                    <td>
+                    ##                        ${di.filename}
+                    ##                    </td>
+                        <td>
+                            <a href='#springUrl("/admin/sda/daerah_irigasi/edit/${type.id}/${di.id}.html")'
+                               class='button select'>
+                                edit
+                            </a>
+                            <a href='#springUrl("/admin/sda/daerah_irigasi/list/${type.id}/${di.id}.html")'
+                               class='button select'>
+                                pilih &raquo;
+                            </a>
+                        </td>
+                    </tr>
+                #end
+                <tfoot>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type='checkbox' name="ids_all" class="select_all"/>
+                    </td>
+                    <td colspan="3">
+                        <input type="submit" name="remove" value="Hapus"/>
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("input[type=checkbox].select_all").click(function () {
+            var checked = $(this).prop("checked");
+            $("#di_di table input[type=checkbox]").attr("checked", checked);
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <img src='#springUrl("/images/16x16/photo.png")'/>
+        Thumbnail 
+    </title>
+</head>
+<body>
+<div id="photo">
+    Photo berita berhasil diupdate.
+</div>
+</body>
+</html>

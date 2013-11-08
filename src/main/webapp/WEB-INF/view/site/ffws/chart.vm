@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        Tinggi Muka Air &raquo; Grafik
+    </title>
+</head>
+<body>
+<h1>
+    <img src='#springUrl("/images/16x16/chart_curve.png")'/> &nbsp;
+    Data Real Time Tinggi Muka Air
+</h1>
+
+<div id="ffws">
+    <div class="tab">
+        <a href="#springUrl("/ffws/chart.html")" class="current">
+            Grafik
+        </a>
+        <a href="#springUrl("/ffws/map.html")">
+            Peta Lokasi
+        </a>
+    </div>
+
+    <div class="items">
+        #foreach($entry in $waterLevelData.entrySet())
+            #set($station = $entry.key)
+            #set($waterLevel = $entry.value)
+            <div class="item">
+                <div class="pos">
+                    <h4>${station.name}</h4>
+
+                    <p>
+                        ${station.description}.
+                    </p>
+                    <a href="#springUrl("/ffws/map.html?station=${station.id}")" class="btn">
+                        &raquo; Lihat Lokasi
+                    </a>
+                </div>
+
+                <div class="chart_ffws_station chart" data-url="#springUrl("/ffws/get_data/${station.id}.html")">
+                </div>
+            </div>
+        #end
+    </div>
+
+</div>
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        init_ffws_chart();
+        start_ffws_update_chart();
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <a href="#springUrl("/admin/sda/daerah_irigasi/list.html")">Daerah Irigasi</a>
+        &#187;
+        <a href="#springUrl("/admin/sda/daerah_irigasi/list/${type.id}.html")">${type.name}</a>
+        &#187;
+        <span>Form Jenis Data DI</span>
+    </title>
+</head>
+<body>
+<div id="daerah_irigasi_type">
+    <div>
+        #springBind("form")
+        #if ($status.getErrors().getErrorCount() > 0)
+            <ul class='error'>
+                #foreach($error in $status.errorMessages)
+                    <li>$error</li>
+                #end
+            </ul>
+        #end
+
+
+        <form method="post" enctype="multipart/form-data">
+            <table style='width: 95%;'>
+                <tr>
+                    <td class="label">Nama</td>
+                    <td>#springFormInput("form.name", "style='width: 500px;' class='text'")</td>
+                </tr>
+                <tr>
+                    <td class="label">File:</td>
+                    <td><input type="file" name="file"/></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="submit" name='submit_action' class="button"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+</body>
+</html>

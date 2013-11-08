@@ -1,0 +1,33 @@
+<div class="folder">
+    <span class="label">
+        ${dto.folder.name}
+    </span>
+
+    <div class="children">
+        #if ($dto.children.size() == 0 && $dto.regulations.size() == 0)
+            <div class="item">
+                <span class="empty">
+                    .. dokumen tidak tersedia ..
+                </span>
+            </div>
+        #else
+            #foreach($dto in ${dto.children})
+                #parse("site/regulation/folder.vm")
+            #end
+            #foreach($regulation in ${dto.regulations})
+                <div class="item">
+                <span class="label">
+                    ${regulation.title} tentang:
+                    ${regulation.description}
+
+                    <a href="#springUrl("/download/regulation/${regulation.id}/${regulation.filename}")"
+                       style="float: right; display: inline;" target="_blank">
+                        <img src="#springUrl("/images/16x16/download.png")"/>
+                    </a>
+                </span>
+                </div>
+
+            #end
+        #end
+    </div>
+</div>

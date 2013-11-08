@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.integrasolusi.pusda.sisda.persistence.sda.bendung.Bendung" table="bendung">
+
+        <id name="id" column="UID" type="java.lang.Long" unsaved-value="null">
+            <generator class="native"/>
+        </id>
+
+        <version name="version" access="field" column="OBJ_VERSION"/>
+
+        <property name="name" type="java.lang.String">
+            <column name="NAME" sql-type="TEXT"/>
+        </property>
+        
+        <property name="filename" type="java.lang.String">
+            <column name="FILENAME" sql-type="TEXT"/>
+        </property>
+
+        <property name="description" type="java.lang.String">
+            <column name="DESCRIPTION" sql-type="TEXT"/>
+        </property>
+
+
+        <many-to-one name="das" class="com.integrasolusi.pusda.sisda.persistence.region.Das"
+                     column="DAS" lazy="false" not-null="true"/>
+
+
+        <property name="mapUrl" type="java.lang.String" column="MAP_URL"/>
+
+
+    </class>
+</hibernate-mapping>

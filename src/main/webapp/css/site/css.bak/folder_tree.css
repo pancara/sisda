@@ -1,0 +1,81 @@
+.jquery_foldertree {
+    /*border: 1px solid #FF0000;*/
+    display: block;
+    cursor: default;
+}
+
+.jquery_foldertree div.title {
+    background: #EEE;
+    padding: 2px 4px 2px 12px;
+    margin-bottom: 4px;
+    color: #3366CC;
+}
+
+.jquery_foldertree div.folder {
+
+}
+
+.jquery_foldertree div.folder, .jquery_foldertree div.item, .jquery_foldertree div.item_html, .jquery_foldertree div.item_date {
+    padding: 0px 0px 0px 0px;
+    border: none;
+}
+
+.jquery_foldertree div.folder:last-child, .jquery_foldertree div.item:last-child, .jquery_foldertree div.item_html:last-child,.jquery_foldertree div.item_date:last-child {
+    border: none;
+}
+
+.jquery_foldertree div.folder span.empty {
+    display: block;
+    color: #CC0000;
+    padding: 6px 4px 6px 8px;
+    border-bottom: 1px solid #EEE;
+}
+
+.jquery_foldertree div.folder span.label,
+.jquery_foldertree div.item span.label,
+.jquery_foldertree div.item_html span.label,
+.jquery_foldertree div.item_date span.label,
+
+.jquery_foldertree div.folder span.label:hover,
+.jquery_foldertree div.item span.label:hover,
+.jquery_foldertree div.item_html span.label:hover,
+.jquery_foldertree div.item_date span.label:hover {
+    display: block;
+    padding: 6px 4px 6px 32px;
+    border-bottom: 1px solid #EEE;
+}
+
+.jquery_foldertree div.folder span.label,
+.jquery_foldertree div.folder span.label:hover {
+    background: #FFF url(../../images/16x16/folder.png) no-repeat 2px 5px;
+}
+
+.jquery_foldertree div.item span.label,
+.jquery_foldertree div.item span.label:hover {
+    background: #FFF url(../../images/16x16/pdf.png) no-repeat 2px 5px;
+}
+
+.jquery_foldertree div.item_pdf span.label,
+.jquery_foldertree div.item_pdf span.label:hover {
+    background: #FFF url(../../images/16x16/pdf.png) no-repeat 2px 5px;
+}
+
+.jquery_foldertree div.item_html span.label,
+.jquery_foldertree div.item_html span.label:hover {
+    background: #FFF url(../../images/16x16/html.png) no-repeat 2px 5px;
+}
+
+.jquery_foldertree div.item_date span.label,
+.jquery_foldertree div.item_date span.label:hover {
+    background: #FFF url(../../images/16x16/calendar.png) no-repeat 2px 5px;
+}
+
+.jquery_foldertree div.folder span.label:hover,
+.jquery_foldertree div.item span.label:hover,
+.jquery_foldertree div.item_html span.label:hover {
+    background-color: #F5F5F5;
+}
+
+.jquery_foldertree div.children {
+    margin-left: 24px;
+}

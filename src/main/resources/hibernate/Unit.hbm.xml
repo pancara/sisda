@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.integrasolusi.pusda.sisda.persistence.Unit" table="unit">
+
+        <id name="id" column="UID" type="java.lang.Long" unsaved-value="null">
+            <generator class="native"/>
+        </id>
+
+        <version name="version" access="field" column="OBJ_VERSION"/>
+
+        <property name="name" type="java.lang.String">
+            <column name="NAME" sql-type="TEXT"/>
+        </property>
+
+        <property name="description" type="java.lang.String">
+            <column name="DESCRIPTION" sql-type="TEXT"/>
+        </property>
+
+        <property name="fullDescription" type="java.lang.String">
+            <column name="FULL_DESCRIPTION" sql-type="TEXT"/>
+        </property>
+
+        <many-to-one name="parent" class="com.integrasolusi.pusda.sisda.persistence.Unit" column="PARENT"
+                     lazy="proxy" not-null="false"/>
+
+        <many-to-one name="head" class="com.integrasolusi.pusda.sisda.persistence.Person" column="HEAD"
+                     lazy="false" not-null="false"/>
+
+        <property name="index" type="java.lang.Long">
+            <column name="IDX" sql-type="BIGINT(20)" default="0"/>
+        </property>
+
+        <property name="childrenCount" type="java.lang.Long"
+                  formula="(select COUNT(u.UID) from unit u WHERE u.PARENT = UID)"
+                  lazy="false"/>
+    </class>
+</hibernate-mapping>

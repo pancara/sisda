@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.integrasolusi.pusda.sisda.persistence.Slide" table="slide">
+        <id name="id" column="UID" type="java.lang.Long" unsaved-value="null">
+            <generator class="native"/>
+        </id>
+
+        <version name="version" access="field" column="OBJ_VERSION"/>
+
+        <property name="title" type="java.lang.String">
+            <column name="TITLE" sql-type="TEXT"/>
+        </property>
+
+        <property name="description" type="java.lang.String">
+            <column name="DESCRIPTION" sql-type="TEXT"/>
+        </property>
+
+        <property name="published" type="java.lang.Boolean">
+            <column name="IS_PUBLISHED" sql-type="tinyint"/>
+        </property>
+
+        <property name="filename" type="java.lang.String" column="FILENAME"/>
+
+        <property name="index" type="java.lang.Long" index="SLIDE_NDX">
+            <column name="IDX" sql-type="BIGINT(20)"/>
+        </property>
+
+    </class>
+</hibernate-mapping>

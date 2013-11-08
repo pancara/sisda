@@ -1,0 +1,108 @@
+#sidebar-left {
+    position: relative;
+    display: inline-block;
+    width: 170px;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    background: #224a63;
+    float: left;
+}
+
+#sidebar-left .box {
+    padding: 2px 1px 2px 1px;
+    margin: 0px 0px 0px 0px !important;
+    color: #666;
+    font-weight: normal;
+    border: none;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+#sidebar-left div.box h1 {
+    margin: 4px 4px 0px 4px;
+    padding: 2px 4px 2px 4px;
+    display: block;
+    font-size: 11px;
+    font-family: "Trebuchet MS";
+    text-align: left;
+    font-weight: bold;
+    color: #FFF;
+    background: #295876;
+    border-radius: 3px;
+    border: 2px solid #306689;
+}
+
+#sidebar-left div.box  h1 img {
+    float: left;
+}
+
+#sidebar-left div.box div.topinner {
+    background-repeat: no-repeat;
+    height: 8px;
+    margin: 0px 0px 0px 0px;
+}
+
+#sidebar-left div.box div.middle {
+    padding: 0px 16px 0px 16px;
+    height: auto;
+    background-repeat: repeat-y;
+}
+
+#sidebar-left div.box div.bottominner {
+    height: 8px;
+    clear: both;
+    background-repeat: no-repeat;
+}
+
+#sidebar-left div.news_latest {
+    height: 320px; /*border: 2px solid #d0e1ef;*/
+    margin: 4px 4px 4px 4px;
+    padding: 4px 0px 4px 8px;
+    border-radius: 2px;
+    background: #f4f8ff;
+}
+
+#sidebar-left div.news_latest ul {
+    list-style: none;
+    padding: 0px 0px 0px 0px;
+    width: 146px;
+}
+
+#sidebar-left div.news_latest ul li {
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+}
+
+#sidebar-left div.news_latest ul li a {
+    padding-top: 4px;
+    display: block;
+    color: #000;
+    font-size: 11px;
+    font-weight: normal;
+    text-align: left;
+    line-height: 15px;
+    text-decoration: none;
+    letter-spacing: 0px;
+}
+
+#sidebar-left div.news_latest ul li a:hover {
+    color: #0033CC;
+}
+
+#sidebar-left div.news_latest ul li img.thumb {
+    float: left;
+    margin-right: 8px;
+    border: 1px solid #dceafd;
+    padding: 2px 2px 2px 2px;
+    background: #FFF;
+}
+
+#sidebar-left div.news_latest div.date {
+    font-size: 10px;
+    color: #990000;
+    margin: 0px;
+    text-align: left;
+    padding: 1px 0px 1px 4px;
+    border-bottom: 1px dashed #d0e1ef;
+    border-top: 1px solid #d0e1ef;
+}

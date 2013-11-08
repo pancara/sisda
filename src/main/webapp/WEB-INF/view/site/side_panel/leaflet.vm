@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        Leaflet
+    </title>
+</head>
+<body>
+<div class="leaflet">
+    <h1>
+        <img src="#springUrl("/images/16x16/leaflet.png")"/>
+        <span>
+            Leaflet
+        </span>
+    </h1>
+
+    <div class="content">
+        <div class="items">
+        #foreach($leaflet in $leafletList)
+            
+            <a href="#springUrl("/download/leaflet/document/${leaflet.id}/${leaflet.filename}")">
+                <img src="#springUrl("/images/filetype/$fileTool.getFileTypeIcon($leaflet.filename)")" class="filetype"/>
+                
+                <img src="#springUrl("/download/leaflet/thumb/${leaflet.id}/${leaflet.thumbFilename}")"/>
+                    <span>
+                        ${leaflet.title}
+                    </span>
+                <span class="clear"></span>
+            </a>
+
+        #end
+        </div>
+        <div class="footer">
+            <a href="#springUrl("/leaflet/list.html")" class="btn">&raquo;  &nbsp; semua</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

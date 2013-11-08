@@ -1,0 +1,53 @@
+<table class="calendar_view" cellpadding="0" cellspacing="0">
+    <tr>
+        #set($days = ["Mg", "Sn", "Sl", "Rb", "Km", "Jm", "Sb"])
+        #foreach($day in $days)
+            <td class='nameday'>$day</td>
+        #end
+    </tr>
+    #set($total_agenda_count = 0)
+    #foreach($week in $monthCalendar)
+        <tr>
+            #foreach($d in $week.keySet())
+                #set($day = $dateTool.getDay($d))
+                #set($day_of_week = $dateTool.getDayOfWeek($d))
+
+                #if ($day_of_week == 1)
+                    #set($class_td = "sunday")
+                #elseif($day_of_week == 7)
+                    #set($class_td = "saturday")
+                #else
+                    #set($class_td = "workday")
+                #end
+
+                #set($span_title  = "")
+                #if ($dateTool.isSameDay($today, $d))
+                    #set($class_span  = "today")
+                    #set($span_title  = "hari ini")
+                #elseif (($selectedMonth == $dateTool.getMonth($d)) && ($selectedYear == $dateTool.getYear($d)))
+                    #set($class_span = "visible")
+                #else
+                    #set($class_span = "blur")
+                #end
+
+                #set($agenda_count = $week.get($d))
+                #set($total_agenda_count = $total_agenda_count + $agenda_count)
+
+                #if ($agenda_count > 0)
+                    <td class="$class_td activity">
+                        #set($monthIndex = $selectedMonth + 1)
+                        <a href='#springUrl("/agenda/$selectedYear/$monthIndex/${day}.html")' class='$class_span'
+                           title="$agenda_count kegiatan">
+                            $day
+                        </a>
+                    </td>
+                #else
+                    <td class="$class_td">
+                        <span class='$class_span' title="$span_title">$day</span>
+                    </td>
+                #end
+            #end
+        </tr>
+    #end
+</table>
+       

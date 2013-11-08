@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <img src='#springUrl("/images/16x16/book.png")'/> &nbsp;
+        Pustaka
+    </title>
+</head>
+<body>
+<div id="book">
+    <div class='context-menu'>
+        #if ($current != 1)
+            <a href='#springUrl("/pustaka/1.html")'>
+                <img src='#springUrl("/images/16x16/go-first.png")'/>
+            </a>
+            #set($previous = $current - 1)
+            <a href='#springUrl("/pustaka/${previous}.html")'>
+                <img src='#springUrl("/images/16x16/go-previous.png")'/>
+            </a>
+        #else
+            <img src='#springUrl("/images/16x16/go-first.png")'/>
+            <img src='#springUrl("/images/16x16/go-previous.png")'/>
+        #end
+
+        #foreach($page in $pages)
+            #if ($page == $current)
+                <a href='#springUrl("/pustaka/${page}.html")' class="current">$page</a>
+            #else
+                <a href='#springUrl("/pustaka/${page}.html")' class="page">$page</a>
+            #end
+        #end
+
+        #if ($current != $last_page)
+            #set($next_page = $current + 1)
+            <a href='#springUrl("/pustaka/${next_page}.html")'>
+                <img src='#springUrl("/images/16x16/go-next.png")'/>
+            </a>
+            <a href='#springUrl("/pustaka/${last_page}.html")'>
+                <img src='#springUrl("/images/16x16/go-last.png")'/>
+            </a>
+        #else
+            <img src='#springUrl("/images/16x16/go-next.png")'/>
+            <img src='#springUrl("/images/16x16/go-last.png")'/>
+        #end
+    </div>
+
+    #set($row = $start_row + 1)
+    #foreach ($book in $bookList)
+        <div class="item">
+            <span class="title">$book.title</span>
+
+            <div style='font-size: 10px;'>$dateTimeTool.format($book.postDate)</div>
+            <p>
+                $book.description
+            </p>
+
+            <div class='right'>
+                <span style="float: left;">
+                    #set($image = $fileTool.getFileTypeIcon($book.filename))
+                    <img src='#springUrl("/images/filetype/$image")'/>
+
+                    $book.filename &nbsp;
+                    #set($size = $mathTool.idiv($book.size, 1024))
+                    #if ($size)
+                        $size Kb
+                    #end
+                </span>
+                <a href='#springUrl("/pustaka/download/${book.id}.html")' class='link'>
+                    download
+                </a>
+            </div>
+        </div>
+        #set($row = $row + 1)
+    #end
+
+    <div class='context-menu'>
+        #if ($current != 1)
+            <a href='#springUrl("/pustaka/1.html")'>
+                <img src='#springUrl("/images/16x16/go-first.png")'/>
+            </a>
+            #set($previous = $current - 1)
+            <a href='#springUrl("/pustaka/${previous}.html")'>
+                <img src='#springUrl("/images/16x16/go-previous.png")'/>
+            </a>
+        #else
+            <img src='#springUrl("/images/16x16/go-first.png")'/>
+            <img src='#springUrl("/images/16x16/go-previous.png")'/>
+        #end
+
+        #foreach($page in $pages)
+            #if ($page == $current)
+                <a href='#springUrl("/pustaka/${page}.html")' class="current">$page</a>
+            #else
+                <a href='#springUrl("/pustaka/${page}.html")' class="page">$page</a>
+            #end
+        #end
+
+        #if ($current != $last_page)
+            #set($next_page = $current + 1)
+            <a href='#springUrl("/pustaka/${next_page}.html")'>
+                <img src='#springUrl("/images/16x16/go-next.png")'/>
+            </a>
+            <a href='#springUrl("/pustaka/${last_page}.html")'>
+                <img src='#springUrl("/images/16x16/go-last.png")'/>
+            </a>
+        #else
+            <img src='#springUrl("/images/16x16/go-next.png")'/>
+            <img src='#springUrl("/images/16x16/go-last.png")'/>
+        #end
+    </div>
+
+    <img src='#springUrl("/images/hr.png")'/>
+</div>
+</body>
+</html>

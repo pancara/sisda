@@ -1,0 +1,40 @@
+#parse("constant.vm")
+<html>
+<style>
+    * {
+        border: none;
+    }
+</style>
+<body>
+Komentar baru di buku tamu web SISDA BBWS SO:
+
+<table>
+    <tr>
+        <td>Dari:</td>
+        <td>
+            ${comment.name}
+        </td>
+    </tr>
+    <tr>
+        <td>Email:</td>
+        <td>
+            <a href="mailto:${commment.email}">
+                ${comment.email}
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <td>Telp:</td>
+        <td>${comment.phone}</td>
+    </tr>
+    <tr>
+        <td>Dikirim pada:</td>
+        <td>${comment.postDate}</td>
+    </tr>
+    <tr>
+        <td colspan="2">${comment.message}</td>
+    </tr>
+</table>
+
+</body>
+</html>

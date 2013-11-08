@@ -1,0 +1,275 @@
+@import "includes/vars"
+#home
+  margin: 0px 0px 0px 0px
+  .slide
+    border: 6px solid #FFF
+    box-shadow: 0px 0px 4px 4px #dce7ec
+    border-radius: 6px
+    height: 280px
+    width: 540px
+    padding: 0px
+    background: transparent
+    margin: 0px auto 0px auto
+
+    img
+      border-radius: 2px
+      position: absolute
+      height: 280px
+      width: 540px
+      z-index: 1
+    div
+      &.info, &.overlay
+        position: absolute
+        height: 55px
+        width: 250px
+        margin: 215px 205px 0px 0px
+        padding: 2px 5px 5px 5px
+        border-top-right-radius: 5px
+        border-bottom-right-radius: 5px
+      &.info
+        z-index: 100
+        background: transparent
+        text-align: left
+        color: #000
+      &.overlay
+        opacity: 0.4
+        background: #000
+        z-index: 99
+      &.info span
+        &.title, &.desc
+          display: block
+        &.title
+          padding: 0px 0px 2px 0px
+          font-size: 16px
+          font-weight: normal
+          text-shadow: 0px 0px 3px #CCC
+          color: #FFF
+          font-family: "Trebuchet MS"
+          display: inline-block
+        /*border-bottom: 1px solid #a24837;
+        &.desc
+          font-family: "Trebuchet MS"
+          font-size: 12px
+          font-weight: normal
+          color: #FFF
+
+  .news
+    display: block
+    margin-top: 0px
+    padding: 0px 0px 0px 0px
+    h2
+      font-family: $font_title
+      font-weight: normal
+      font-size: 14px
+      line-height: 20px
+      margin: 4px 0px 4px 0px
+      padding: 4px 4px 2px 8px
+      background: #426178
+      border: none
+      border-radius: 3px
+      text-shadow: 2px 1px 1px #333
+
+    > div
+      margin: 8px 0px 8px 0px
+      padding: 8px 0px 8px 0px
+      border-bottom: 1px dashed #DDD
+      &:last-child
+        border: none
+      h3
+        padding: 0px 0px 0px 0px
+        margin: 0px 0px 8px 0px
+        font-family: $font_title
+        font-size: 16px
+        font-weight: normal
+        color: $color_title
+        letter-spacing: 1px
+        display: block
+        text-align: left
+        text-shadow: 2px 1px 1px #DDD
+
+      .date
+        margin: 8px 0px 0px 0px
+        padding: 2px 5px 2px 5px
+        border-radius: 4px
+        color: #444
+        background: #EEE
+        font-size: 11px
+        font-weight: bold
+        font-family: Signika
+        margin-top: 8px
+        margin-bottom: 8px
+        text-shadow: 1px 2px 2px #FFF
+
+      .thumb
+        float: left
+        padding: 0px 0px 0px 0px
+        margin: 0px 8px 0px 0px
+        border: 3px solid #FFF
+        box-shadow: 0px 0px 2px 2px #EEE
+        transform: rotate(20deg)
+
+      p
+        font-family: Signika
+        font-style: normal
+        font-weight: 500
+        font-size: 12px
+        color: #333
+        text-transform: none
+        text-decoration: none
+        letter-spacing: 0em
+        word-spacing: 0em
+        line-height: 22px
+        text-shadow: 2px 0px 0px #EEE
+        margin: 0px
+
+      div.panel
+        margin: 0px
+        background: transparent
+        text-align: right
+
+        a
+          margin: 0px 0px 0px 0px
+          padding: 0px 4px 2px 4px
+          font-size: 11px
+          font-weight: normal
+          line-height: 18px
+          color: #444
+          vertical-align: top
+          border-radius: 4px
+          border: none
+          display: inline-block
+          letter-spacing: 0px
+          color: #376ea6
+          background: #edf4ff
+          &:hover
+            background: #cde4ff
+          
+          img
+            display: inline-block
+            vertical-align: bottom 
+
+  .agenda
+    display: block
+    margin-top: 0px
+    padding: 0px 0px 0px 0px
+
+    h2
+      font-family: $font_title
+      font-weight: normal
+      font-size: 14px
+      line-height: 20px
+      margin: 4px 0px 4px 0px
+      padding: 4px 4px 2px 8px
+      background: #426178
+      border: none
+      border-radius: 3px
+      text-shadow: 2px 1px 1px #333
+
+    div
+      margin: 0px 0px 0px 0px
+      padding: 0px
+      border: 0px solid #dceafd
+
+      div.item
+        display: inline-block
+        width: 262px
+        background: #F9F9F9
+        margin-bottom: 4px
+        padding: 0px 4px 0px 4px
+        border: 1px solid #F5F5F5
+
+        h3
+          padding: 0px 0px 0px 0px
+          margin: 4px 0px 0px 0px
+          text-align: left
+          line-height: 16px
+
+          a
+            padding: 0px 0px 0px 0px
+            margin: 0px 0px 8px 0px
+            font-family: "Trebuchet MS"
+            font-size: 12px
+            font-weight: bold
+            color: #376ea6
+            letter-spacing: 0px
+            display: inline
+            text-shadow: 2px 0px 0px #EEE
+            &:hover
+              color: #3366CC
+              text-decoration: underline
+
+        .date
+          display: inline-block
+          //width: 60px
+          background: #FFF
+          //color: #30698c
+          color: #A62B53
+          padding: 2px 4px 2px 4px
+          margin: 2px 2px 4px 2px
+          border-right: 1px solid #F5F5F5
+          border-bottom: 1px solid #F5F5F5
+          float: right
+
+          .day
+            display: inline-block
+            float: left
+            border-radius: 2px
+            font-size: 24px
+            line-height: 26px
+            font-weight: bold
+            text-align: center
+            padding: 0px 2px 0px 0px
+            margin-right: 4px
+            border-right: 1px solid #F0F0F0
+
+          div
+            display: inline-block
+
+            .month
+              font-size: 12px
+              font-weight: normal
+              display: block
+              line-height: 14px
+
+            .year
+              @extend .month
+              border-top: 1px solid #F0F0F0
+
+        p
+          font-family: 'Telex', sans-serif
+          font-style: normal
+          font-weight: 550
+          font-size: 11px
+          color: #222222
+          text-transform: none
+          text-decoration: none
+          letter-spacing: 0em
+          word-spacing: 0em
+          line-height: 18px
+          text-shadow: 1px 1px 1px #EEEEEE
+          margin-top: 8px
+
+  .guest_book
+    ul
+      list-style-type: none
+      padding: 0px
+      margin: 0px
+      li
+        margin: 12px 0px 4px 0px
+        padding: 4px 4px 4px 4px
+        border-left: 2px solid #dceafd
+    div.response
+      border: 1px solid #F0F0F0
+      border-radius: 4px
+      background: #F5F5F5
+      margin-left: 16px
+      margin-bottom: 5px
+      padding: 4px 4px 2px 4px
+      div.footer
+        background: #F0F0F0
+        color: #336699
+        img
+          float: left
+          display: inline
+          margin-top: 2px
+          margin-right: 8px

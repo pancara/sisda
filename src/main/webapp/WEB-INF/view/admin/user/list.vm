@@ -1,0 +1,162 @@
+#macro(paging $pages $keyword)
+<div class="page_index">
+    #if ($pages.size() > 0)
+        <a href='#springUrl("/admin/user/page/1.html?&keyword=$!{keyword}")'>
+            <img src="#springUrl("/images/16x16/go-first.png")" alt="1"/>
+        </a>
+
+        #set($prev = $current - 1)
+        #if ($prev < 1)
+            #set($prev = 1)
+        #end
+        <a href='#springUrl("/admin/user/page/${prev}.html?keyword=$!{keyword}")'>
+            <img src="#springUrl("/images/16x16/go-previous.png")" alt="${prev}"/>
+        </a>
+
+        #foreach($page in $pages)
+
+            #if ($page == $current)
+                <a href='#springUrl("/admin/user/page/${page}.html?keyword=$!{keyword}")'
+                   class="current">$page</a>
+            #else
+                <a href='#springUrl("/admin/user/page/${page}.html?keyword=$!{keyword}")'
+                   class="page">$page</a>
+            #end
+        #end
+
+        #set($next = $current + 1)
+        #if ($next > $last)
+            #set($next = $last)
+        #end
+        <a href='#springUrl("/admin/user/page/${next}.html?keyword=$!{keyword}")'>
+            <img src="#springUrl("/images/16x16/go-next.png")" alt="${next}"/>
+        </a>
+
+        <a href='#springUrl("/admin/user/page/${last}.html?keyword=$!{keyword}")'>
+            <img src="#springUrl("/images/16x16/go-last.png")" alt="${last}"/>
+        </a>
+    #end
+</div>
+#end<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <img src='#springUrl("/images/16x16/user.png")'/> &nbsp;
+        User
+    </title>
+</head>
+<body>
+<div id="user">
+    <div style="display: block;">
+        <form action='#springUrl("/admin/user/list.html")'
+              style="display: block; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;">
+            &nbsp;&nbsp;
+            Kata kunci:&nbsp;
+            <input type='text' name='keyword' value='$!{form.keyword}' class='text'/>
+            <input type='submit' value='cari'/>
+        </form>
+    </div>
+
+    <div>
+        <span class="info">
+                <img src="#springUrl("/images/16x16/table_row_select.png")"/>
+                Ditemukan ${count} data.
+        </span>
+        #paging($pages, ${form.keyword})
+    </div>
+
+    <form action="#springUrl("/admin/user/manage.html")" method="post">
+        <table class="no_border" style="width: 100%;">
+            <col style="width: 20px"/>
+            <col style="width: 20px"/>
+            <col style="width: 20px"/>
+            <col style="width: 840px;"/>
+            <col style="width: 20px;"/>
+            <col style="width: 20px;"/>
+            <thead>
+            <tr>
+                <th>No.</th>
+                <th>
+                    <input type='checkbox' name="ids_all" class="select_all"/>
+                </th>
+                <th>User ID</th>
+                <th>Nama</th>
+                <th></th>
+                <th>
+                    <a href='#springUrl("/admin/user/add.html?page=$!{current}&keyword=$!{form.keyword}")'
+                       class='button'>
+                        baru
+                    </a>
+                </th>
+            </tr>
+            </thead>
+            #set($row = $start + 1)
+            #foreach ($user in $userList)
+                <tr>
+                    <td style="width: 20px;">${row}.</td>
+                    <td>
+                        <input type='checkbox' name='ids' value='$!{user.id}'/>
+                    </td>
+                    <td class="short_content">
+                        ${user.userId}
+                    </td>
+                    <td class="short_content">
+                        ${user.name}
+                    </td>
+                    <td>
+                        #if(${user.active})
+                            <img src="#springUrl("/images/16x16/news_published.png")"/>
+                        #else
+                            <img src="#springUrl("/images/16x16/news_not_published.png")"/>
+                        #end
+                    </td>
+                    <td>
+                        <a href='#springUrl("/admin/user/edit/${user.id}.html?page=$!{current}&keyword=$!{form.keyword}")'
+                           class='button edit'>
+                            edit
+                        </a>
+                    </td>
+                    <td></td>
+                </tr>
+                #set($row = $row + 1)
+            #end
+            <tfoot>
+            <tr>
+                <td></td>
+                <td>
+                    <input type='checkbox' name="ids_all" class="select_all"/>
+                </td>
+                <td colspan="3">
+                    <input type="hidden" name="keyword" value="$!{form.keyword}"/>
+                    <input type="hidden" name="page" value="${current}"/>
+
+                    <input type="submit" name="activate" value="Enable"/>
+                    <input type="submit" name="deactivate" value="Disable"/>
+                    &nbsp;&nbsp;
+                    <input type="submit" name="remove" value="Hapus"/>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+    </form>
+
+    <div>
+        <span class="info">
+                <img src="#springUrl("/images/16x16/table_row_select.png")"/>
+                Ditemukan ${count} data.
+        </span>
+        #paging($pages,  ${form.keyword})
+    </div>
+
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#user input[type=checkbox].select_all").click(function () {
+            var checked = $(this).prop("checked");
+            $("#user table input[type=checkbox]").attr("checked", checked);
+        });
+
+    });
+</script>
+</body>
+</html>

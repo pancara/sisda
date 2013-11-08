@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <span>TKPSDA</span>
+        &#187;
+        <a href="#springUrl("/admin/tkpsda/dokumentasi/list.html")">Dokumentasi</a>
+        &#187;
+        <span>Photo</span>
+    </title>
+</head>
+<body>
+
+<div id="dokumentasi">
+    <div style="color: #000; display: block; padding: 4px; border: 1px solid #F5F5F5; border-radius: 5px; font-size: 13px;">
+        <span style="color: #990000; font-size: 24px; float: left; padding-right: 4px; margin: 0px 4px 4px 4px; border-right: 1px solid #F0F0F0;">
+            ${dokumentasi.id}
+        </span>
+        ${dokumentasi.title}
+    </div>
+    <div>
+        <span class="info">
+                <img src="#springUrl("/images/16x16/table_row_select.png")"/>
+                Ditemukan ${photoList.size()} photo.
+        </span>
+    </div>
+    <div>
+        <form action="#springUrl("/admin/tkpsda/dokumentasi/${dokumentasi.id}/photo/remove.html")" method="post">
+            <table class="no_border" style="width: 100%">
+                <col style="width: 20px"/>
+                <col style="width: 20px"/>
+                <col style="width: 20px"/>
+                <col style="width: 120px"/>
+                <col style="width: 840px;"/>
+                <col style="width: 60px;"/>
+                <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>
+                        <input type='checkbox' name="ids_all" class="select_all"/>
+                    </th>
+                    <th>ID</th>
+                    <th></th>
+                    <th>Judul</th>
+                    <th>
+                        <a href='#springUrl("/admin/tkpsda/dokumentasi/${dokumentasi.id}/photo/add.html")'
+                           class='button'>
+                            baru
+                        </a>
+                    </th>
+                </tr>
+                </thead>
+                #set($row = 1)
+                #foreach($photo in $photoList)
+                    <tr>
+                        <td>${row}.</td>
+                        <td>
+                            <input type='checkbox' name='ids' value='${photo.id}'/>
+                        </td>
+                        <td>
+                             <span class="text_id">
+                                 ${photo.id}
+                             </span>
+                        </td>
+                        <td>
+                            <img src="#springUrl("/download/tkpsda/dokumentasi/photo/thumb/${photo.id}/${photo.filename}?width=120")"/>
+                        </td>
+                        <td class="short_content">
+                            ${photo.title}
+                        </td>
+                        <td>
+                            <a href='#springUrl("/admin/tkpsda/dokumentasi/${dokumentasi.id}/photo/edit/${photo.id}.html")'
+                               class='button edit'>
+                                edit
+                            </a>
+                        </td>
+                    </tr>
+                    #set($row = $row + 1)
+                #end
+                <tfoot>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type='checkbox' name="ids_all" class="select_all"/>
+                    </td>
+                    <td colspan="5">
+                        <input type="submit" name="remove" value="Hapus"/>
+                    </td>
+                </tr>
+
+                </tfoot>
+            </table>
+        </form>
+    </div>
+
+    <div>
+        <span class="info">
+                <img src="#springUrl("/images/16x16/table_row_select.png")"/>
+                Ditemukan ${photoList.size()} photo.
+        </span>
+    </div>
+</div>
+
+<script type="text/javascript">
+    //<![CDATA[
+    $(document).ready(function () {
+        $("#bendungan a.popup").colorbox({width:"800px", height:"95%", iframe:true});
+
+        $("#dokumentasi input[type=checkbox].select_all").click(function () {
+            var checked = $(this).prop("checked");
+            $("#dokumentasi table input[type=checkbox]").attr("checked", checked);
+        });
+
+        $("#dokumentasi a.remove").clickConfirm({
+            position:"bottom",
+            questionText:"Hapus data ?",
+            followLinkOnProceed:false,
+            onProceed:function (trigger) {
+                var _url = $(trigger).attr("href");
+                jQuery.get(_url,
+                        function (data) {
+                            if (data.result == true) {
+                                var tr = $(trigger).parentsUntil("tbody");
+                                tr.remove();
+                            }
+                        }
+                );
+            }
+        });
+    });
+    // ]]>
+</script>
+
+</body>
+</html>

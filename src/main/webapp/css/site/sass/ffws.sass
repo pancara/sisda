@@ -1,0 +1,124 @@
+@import "includes/vars"
+#ffws
+   margin: 0px 0px 0px 0px
+   padding: 0px 8px 0px 8px
+   border: none
+   background: #FFF
+   
+   h3
+      text-align: left
+      font-family: Signika
+   
+   .tab
+      display: block
+      margin: 4px 0px 0px 0px
+      padding: 0px 0px 0px 0px
+      border: none
+      background: #FFF
+      text-align: left
+      a
+         padding: 4px 8px 4px 8px
+         display: inline-block
+         background: #295876
+         background-image: linear-gradient(to bottom, #295876, darken(#295876, 5))
+         background-repeat: repeat-x
+         border-radius: 4px
+         
+         color:  #DDD
+         text-shadow: 1px -1px 1px #000
+         text-align: center
+         min-width: 60px
+   
+         &:hover
+            background-image: linear-gradient(to bottom, #295876, lighten(#295876, 7))
+            
+         &.current
+            color:  #FFF
+            background: #295876
+            background-image: linear-gradient(to bottom, #295876, lighten(#295876, 10))
+            text-shadow: 1px 1px 1px #000
+   
+   .items
+      margin-top: 8px
+      .item
+         margin: 4px 0px 8px 0px
+         padding: 4px 4px 4px 4px
+         border: 0px solid #F5F5F5
+         background: #FFF
+         border-radius: 3px
+         vertical-align: top
+         
+         .pos
+            width: 200px
+            display: inline-block
+            vertical-align: top
+            border:  1px solid #F5F5F5
+            padding: 4px 4px 8px 4px
+            
+            h4
+               margin: 0px 0px 0px 0px
+               padding: 0px 4px 4px 0px
+               border-bottom:  1px solid #F5F5F5
+               font-size: 14px
+               color: $color_title
+               letter-spacing: 1px
+               display: block
+               text-align: left
+               text-shadow: 2px 1px 1px #EEE
+            
+
+         .chart
+            width: 645px
+            height: 300px
+            background: #FFF
+            display: inline-block
+            margin-left: 6px
+
+   .map
+      padding: 0px 0px 0px 0px
+      .chart
+         width : 300px
+         height: 200px
+         background: #000
+         right: 100px
+         bottom: 100px
+         position: absolute
+         z-index: 999999
+         opacity: 0.6
+
+#ffws_map
+   width: 100%
+   margin: 8px 0px 8px 0px
+   border:  1px solid #EEE
+   border-radius: 4px
+   width: 100%
+   height: 600px 
+   z-index: 1000
+
+#map_panel 
+   border: none
+   background-color: #FFF
+   width: 190px
+   height: 24px
+   font-size: 11px
+   padding: 2px 2px 2px 8px
+   box-shadow: 1px 2px 5px #888
+   border-radius: 4px
+   border: 1px solid #CCC
+   
+   span
+      margin-right: 4px
+   
+   select
+      height: 24px
+      width: 160px
+      line-height: 24px
+      font-family: Signika
+      font-size: 12px
+      outline: none
+      border:  1px solid #DDD
+      border-radius: 3px
+
+      
+      
+      

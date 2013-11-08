@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <array>
+                <value>classpath:setting.properties</value>
+            </array>
+        </property>
+    </bean>
+
+    <bean id="pagingHelper" class="com.integrasolusi.utils.PagingHelper">
+        <property name="rowPerPage" value="10"/>
+    </bean>
+
+    <bean id="textEncryptor" class="org.jasypt.util.text.BasicTextEncryptor">
+        <property name="password" value="${textEncryptor.password}"/>
+    </bean>
+
+    <bean id="imageUtils" class="com.integrasolusi.utils.ImageUtils">
+        <property name="path" value="captcha"/>
+        <property name="base" value="captcha"/>
+        <property name="type" value="png"/>
+
+        <property name="defaultBackground">
+            <bean class="java.awt.Color">
+                <constructor-arg index="0" value="1"/>
+                <constructor-arg index="1" value="1"/>
+                <constructor-arg index="2" value="1"/>
+                <constructor-arg index="3" value="0"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="streamHelper" class="com.integrasolusi.utils.StreamHelper"/>
+
+    <bean id="garbageCollector" class="com.integrasolusi.utils.GarbageCollector"
+          init-method="start" destroy-method="stop"/>
+
+    <bean id="contextTypeUtils" class="com.integrasolusi.utils.ContentTypeUtils"/>
+
+    <bean id="fileCacheManager" class="com.integrasolusi.utils.FileCacheManager">
+        <property name="root" value="${cache.root}"/>
+        <property name="extension" value="${cache.fileExtension}"/>
+        <property name="streamHelper" ref="streamHelper"/>
+    </bean>
+
+    <bean id="javaMailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="username" value="${mail.username}"/>
+        <property name="password" value="${mail.password}"/>
+        <property name="javaMailProperties">
+            <util:properties>
+                <prop key="mail.transport.protocol">${mail.transport.protocol}</prop>
+                <prop key="mail.host">${mail.host}</prop>
+                <prop key="mail.smtp.auth">${mail.smtp.auth}</prop>
+                <prop key="mail.smtp.port">${mail.smtp.port}</prop>
+                <prop key="mail.smtp.socketFactory.port">${mail.smtp.socketFactory.port}</prop>
+                <prop key="mail.smtp.socketFactory.class">${mail.smtp.socketFactory.class}</prop>
+                <prop key="mail.smtp.socketFactory.fallback">${mail.smtp.socketFactory.fallback}</prop>
+                <prop key="mail.smtp.quitwait">${mail.smtp.quitwait}</prop>
+            </util:properties>
+        </property>
+    </bean>
+
+    <bean id="templateEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+        <property name="resourceLoaderPath" value="classpath:/template/"/>
+        <property name="configLocation" value="classpath:/velocity.properties"/>
+    </bean>
+
+    <bean id="textGenerator" class="com.integrasolusi.utils.TextGenerator">
+        <property name="velocityEngine" ref="templateEngine"/>
+        <property name="notifyCommentGuestTemplate" value="notify-comment-guest.vm"/>
+    </bean>
+
+    <bean id="emailForwarder" class="com.integrasolusi.utils.EmailForwarder"
+          init-method="init" destroy-method="terminate">
+        <property name="mailSender" ref="javaMailSender"/>
+        <property name="textGenerator" ref="textGenerator"/>
+        <property name="toAddress" value="${mail.to}"/>
+        <property name="replyAddress" value="${mail.username}"/>
+        <property name="notificationEmailDao" ref="notificationEmailDao"/>
+    </bean>
+</beans>

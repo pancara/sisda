@@ -1,0 +1,1 @@
+#macro(url $path)$HOST_URL/$APP_PATH/$path#end

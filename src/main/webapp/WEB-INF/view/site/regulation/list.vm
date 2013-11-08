@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <img src='#springUrl("/images/16x16/book.png")'/> &nbsp;
+        Peraturan &amp; Undang-Undang
+    </title>
+</head>
+<body>
+<div class="jquery_foldertree"
+     style="border: 1px solid #EEE;  padding: 8px; width: 540px; margin: 0px auto 0px auto; border-radius: 4px;">
+    #foreach ($dto in ${folderDtos})
+        <div class="folder">
+            #parse("site/regulation/folder.vm")
+        </div>
+    #end
+
+    <img src='#springUrl("/images/hr.png")'/>
+</div>
+
+<script type="text/javascript">
+    //<![CDATA[
+    $("div.jquery_foldertree div.folder > span.label").each(function () {
+        $(this).click(function () {
+            var children = $(this).siblings(".children");
+            children.slideToggle();
+        });
+    });
+
+    $("div.jquery_foldertree .children").each(function () {
+        $(this).slideUp();
+    });
+    // ]]>
+</script>
+</body>
+</html>

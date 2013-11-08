@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <img src='#springUrl("/images/16x16/gallery.png")'/> &nbsp;
+        Dokumentasi
+    </title>
+</head>
+<body>
+<div id="gallery">
+    <span class="title">$gallery.title</span>
+    <img src='#springUrl("/download/dokumentasi/thumb/${gallery.id}/${gallery.filename}?width=60")' class='title_thumb'/>
+
+    <p>
+        $gallery.description
+    </p>
+
+    <div class="picture_list">
+        #foreach($pic in $pictures)
+            <a href='#springUrl("/download/dokumentasi/picture/${pic.id}/${pic.filename}?")' class='pirobox_gall' title="$pic.description">
+                <span>
+                    <img src='#springUrl("/download/dokumentasi/picture/thumb/${pic.id}/${pic.filename}?width=120")' class='photo_thumb'/>
+                </span>
+            </a>
+        #end
+    </div>
+
+    <img src='#springUrl("/images/hr.png")'/>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $().piroBox({
+            my_speed:600,
+            bg_alpha:0.5,
+            radius:4,
+            scrollImage:false,
+            pirobox_next:'piro_next',
+            pirobox_prev:'piro_prev',
+            close_all:'.piro_close',
+            slideShow:'slideshow',
+            slideSpeed:3
+        });
+    });
+</script>
+
+</body>
+</html>

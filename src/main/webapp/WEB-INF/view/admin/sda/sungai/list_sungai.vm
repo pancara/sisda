@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <a href="#springUrl("/admin/sda/sungai/list.html")">Sungai</a>
+        &#187;
+        <a href="#springUrl("/admin/sda/sungai/list/${ws.id}.html")">${ws.name}</a>
+        &#187;
+        <a href="#springUrl("/admin/sda/sungai/list/${ws.id}/${das.id}.html")">${das.name}</a>
+        &#187;
+        <span>Data Sungai</span>
+    </title>
+</head>
+<body>
+<div id="sungai">
+    <div>
+        <form action="#springUrl("/admin/sda/sungai/${ws.id}/${das.id}/remove.html")" method="post">
+            <table class="no_border">
+                <col style="width: 20px"/>
+                <col style="width: 20px"/>
+                <col style="width: 20px"/>
+                <col style="width: 780px;"/>
+                <col style="width: 50px"/>
+                <col style="width: 10px;"/>
+                <col style="width: 50px"/>
+                <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>
+                        <input type='checkbox' name="ids_all" class="select_all"/>
+                    </th>
+                    <th>ID</th>
+                    <th>Nama</th>
+                    <th></th>
+                    <th>
+                        <a href='#springUrl("/admin/sda/sungai/add/${ws.id}/${das.id}.html")' class='button'>
+                            baru
+                        </a>
+                    </th>
+                </tr>
+                </thead>
+                #foreach ($sungai in $listSungai)
+                    #set($row = $velocityCount)
+                    <tr>
+                        <td>${row}.</td>
+                        <td>
+                            <input type='checkbox' name='ids' value='${sungai.id}'/>
+                        </td>
+                        <td>
+                         <span class="text_id">
+                             ${sungai.id}
+                         </span>
+                        </td>
+                        <td class="short_content">
+                            ${sungai.name}
+                        </td>
+                        <td>
+                            #if (${sungai.filename})
+                                <a href="#springUrl("/download/admin/sda/sungai/${sungai.id}/$!{sungai.filename}")"
+                                   target="_blank">
+                                    <img src="#springUrl("/images/16x16/$fileTool.getFileTypeIcon($!{sungai.filename})")"/>
+                                </a>
+                            #end
+                        </td>
+                        <td>
+                            <a href='#springUrl("/admin/sda/sungai/edit/${ws.id}/${das.id}/${sungai.id}.html")' class='button'>
+                                edit
+                            </a>
+                        </td>
+                    </tr>
+                    #set($row = $row + 1)
+                #end
+                <tfoot>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type='checkbox' name="ids_all" class="select_all"/>
+                    </td>
+                    <td colspan="5">
+                        <input type="hidden" name="keyword" value="$!{form.keyword}"/>
+                        <input type="hidden" name="page" value="${current}"/>
+
+                        <input type="submit" name="remove" value="Hapus"/>
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".popup").colorbox({width: "800px", height: "95%", iframe: true});
+
+        $("input[type=checkbox].select_all").click(function () {
+            var checked = $(this).prop("checked");
+            $("#sungai table input[type=checkbox]").attr("checked", checked);
+        });
+    });
+</script>
+</body>
+</html>

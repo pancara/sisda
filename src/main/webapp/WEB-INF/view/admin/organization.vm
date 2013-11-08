@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <img src='#springUrl("/images/16x16/chart_organization.png")'/> &nbsp;
+        Struktur Organisasi
+    </title>
+</head>
+<body>
+<div id="organization">
+    #foreach($unit in $units)
+        <div>
+            <div class="unit">
+                <table style="width: 100%;">
+                    <tr>
+                        <td class="unit_name" colspan="2">$unit.name</td>
+                    </tr>
+                    <tr>
+                        <td class="unit_desc" colspan="2">$unit.description</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="4" style="width: 80px;">
+                            <img src='#springUrl("/person/photo/$!{unit.head.id}.html")' class="photo"/>
+                        </td>
+                        <td class="unit_head">$!{unit.head.name}</td>
+                    </tr>
+                    <tr>
+                        <td class="unit_head">$!{unit.head.nip}</td>
+                    </tr>
+                    <tr>
+                        <td class="unit_head">$!{unit.head.jabatan}  $!{unit.head.golongan}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href='#springUrl("/admin/organization/add/${unit.id}.html")' class='link'>tambah</a>
+                            <a href='#springUrl("/admin/organization/edit/${unit.id}.html")' class='link'>edit</a>
+                            #if($unit.id != 1 && $unit.id != 2)
+                                <a href='#springUrl("/admin/organization/remove/${unit.id}.html")'
+                                   class='link'>hapus</a>
+                            #end
+
+                            <a class='btn_show_child' name="${unit.id}">
+                                <img src="#springUrl("/images/16x16/button_arrow_down.png")"/>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="subunits">
+            </div>
+        </div>
+    #end
+
+    <img src='#springUrl("/images/hr.png")'/>
+</div>
+<script type="text/javascript">
+    
+    $(document).ready(function (){
+        $("a.btn_show_child").click(func_show_child);
+        $(".subunits").slideUp();
+        set_bg_color();
+    });
+
+    var func_show_child = function show_child() {
+        var show_glyph = "#springUrl("/images/16x16/button_arrow_down.png")";
+        var hide_glyph = "#springUrl("/images/16x16/button_arrow_up.png")";
+        var id = $(this).attr("name");
+        var url = "#springUrl("/admin/organization/unit/")" + id + ".html";
+
+        var unit_div = $(this).parentsUntil(".unit").parent();
+
+        var subunits_div = $(unit_div).next();
+        if (subunits_div.is(':visible')) {
+            subunits_div.slideUp("slow");
+            var img = $("img", this);
+            img.attr("src", show_glyph);
+        } else {
+            $("table", unit_div).wj_progress_indicator({"image":"#springUrl("/images/ajax-loader.gif")"});
+            jQuery.get(url, function (result) {
+                if (subunits_div != null) {
+                    subunits_div.empty();
+                    for (var i = 0; i < result.units.length; i++) {
+                        var json_unit = result.units[i];
+                        var template_text = $('#unit_template').jqote(json_unit);
+                        var unit = $(template_text);
+                        if (json_unit.childrenCount == 0) {
+                            $(".btn_show_child", unit).css({"display":"none"});
+                        }
+                        unit.appendTo(subunits_div);
+                    }
+                }
+                $("a.btn_show_child").unbind("click");
+                $("a.btn_show_child").bind("click", func_show_child);
+                set_bg_color();
+                set_func_full_view();
+
+                set_moveup_handler();
+                set_movedown_handler();
+                $("table", unit_div).wj_progress_indicator({"action":'hide'});
+                subunits_div.slideDown("slow");
+            });
+            var img = $("img", this);
+            img.attr("src", hide_glyph);
+        }
+    };
+
+    var set_bg_color = function () {
+        var colors = ["#edfaff", "#e0f6ff", "#edfaff", "#e0f6ff"];
+        var selector = ".unit";
+        for (var i = 0; i < colors.length; i++) {
+            $(selector).css({"background":colors[i]});
+            selector = ".subunits " + selector;
+        }
+    };
+
+    var set_moveup_handler = function () {
+        $("#organization a.moveup").unbind();
+
+        $("#organization a.moveup").click(function () {
+            var _trigger = this;
+            var url = $(this).attr("rel");
+            jQuery.get(url, function (data) {
+                if (data.result == true) {
+                    var container_unit = $(_trigger).parents("div.unit").parent();
+                    var before_unit = $(container_unit).prev();
+                    container_unit.slideUp("slow", function () {
+                        container_unit.insertBefore(before_unit);
+                        container_unit.slideDown("slow");
+                    });
+                }
+            });
+        })
+    };
+
+    var set_movedown_handler = function () {
+        $("#organization a.movedown").unbind();
+        $("#organization a.movedown").click(function () {
+            var _trigger = this;
+            var url = $(this).attr("rel");
+            jQuery.get(url, function (data) {
+                if (data.result == true) {
+                    var container_unit = $(_trigger).parents("div.unit").parent();
+                    var next_unit = $(container_unit).next();
+                    container_unit.slideUp("slow", function () {
+                        container_unit.insertAfter(next_unit);
+                        container_unit.slideDown("slow");
+                    });
+                }
+            });
+        });
+    };
+
+    var set_func_full_view = function () {
+        $(".box_view").colorbox({width:"800px", height:"95%", iframe:true});
+    };
+</script>
+#parse("js_template/admin_unit_template.vm")
+</body>
+</html>
+

@@ -1,0 +1,153 @@
+body {
+    background: #02253a;
+    font-family: "Trebuchet MS", Helvetica, Arial;
+    font-size: 12px;
+    color: #103446;
+    margin-bottom: 32px;
+}
+
+br {
+    height: 0px;
+}
+
+h1, h2, h3, h4 {
+    margin: 0px 0px 0px 0px;
+}
+
+h1 {
+    letter-spacing: 0.1px;
+    font-size: 35px;
+}
+
+h2 {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+h3 {
+    font-family: "Trebuchet MS", Helvetica, Arial;
+    font-size: 12px;
+    font-weight: bold;
+    color: #006fcc;
+}
+
+h4 {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+p, ul, ol {
+    margin: 0px;
+    text-align: justify;
+}
+
+a:link {
+    font-family: "Trebuchet MS";
+    font-size: 14px;
+    text-decoration: none;
+    color: #0a5ad1;
+    display: inline-block;
+}
+
+a:hover, a:active {
+    text-decoration: none;
+    color: #ff9f0c;
+}
+
+a:visited {
+    color: #0094E0;
+}
+
+textarea {
+    font-family: "Trebuchet MS";
+    font-size: 13px;
+    line-height: 18px;
+}
+
+input[type=text], select, textarea {
+    padding: 2px 4px 2px 4px;
+    font-family: "Trebuchet MS";
+    font-size: 12px;
+    letter-spacing: 1px;
+    background: #FFF;
+    color: #000;
+    border: 1px solid #CCC;
+    border-radius: 2px;
+}
+
+input[type=text]:focus, select:focus, textarea:focus, input[type=file]:focus {
+    border: 1px solid #0094E0;
+    box-shadow: 0px 0px 5px #AACCFF;
+    outline: none;
+}
+
+input[type=checkbox] {
+    border-radius: 5px;
+}
+
+input[type=submit], button {
+    padding: 2px 4px 2px 4px;
+
+    font-family: "Trebuchet MS";
+    font-size: 12px;
+    border: 1px solid #DDD;
+    background: #F5F5F5;
+    background: -moz-linear-gradient(top, #dddddd, #f5f5f5);
+    background: -webkit-gradient(linear, left top, left bottom, from(#dddddd), to(#f5f5f5));
+    filter: progid:dximagetransform.microsoft.gradient(StartColorStr = '#DDD', EndColorStr = '#F5F5F5', GradientType = 0);
+    border-radius: 4px;
+    outline: none;
+    color: #000;
+}
+
+input[type=submit]:focus, button:focus {
+    border: 1px solid #0094E0;
+    outline: none;
+}
+
+img {
+    border: none;
+    padding: 0px;
+}
+
+table {
+    margin: 8px 0px 8px 0px;
+    border-spacing: 2px;
+    border: 1px solid #F5F5F5;
+}
+
+table thead th {
+    font-size: 12px;
+    line-height: 14px;
+    text-align: left;
+    padding: 4px 4px 4px 6px;
+    border-bottom: 1px solid #EEE;
+    background: #F9F9F9;
+}
+
+table tbody td {
+    font-size: 12px;
+    line-height: 18px;
+    vertical-align: top;
+    padding: 4px 4px 4px 6px;
+}
+
+table tfoot td {
+    font-size: 12px;
+    line-height: 18px;
+    vertical-align: top;
+    padding: 4px 4px 4px 6px;
+    border-top: 1px solid #F0F0F0;
+    background: #F9F9F9;
+}
+
+#logout {
+    float: right;
+    color: #FFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#logout:hover {
+    color: #FFF;
+}

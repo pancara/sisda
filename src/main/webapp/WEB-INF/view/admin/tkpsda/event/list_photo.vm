@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <span>TKPSDA</span>
+        &raquo;
+        <a href="#springUrl("/admin/tkpsda/event/view.html")">Dokumentasi</a>
+        &raquo;
+        <a href="#springUrl("/admin/tkpsda/event/view/${wilayahSungai.id}.html")">${wilayahSungai.name}</a>
+        &raquo;
+        <a href="#springUrl("/admin/tkpsda/event/view/${wilayahSungai.id}/${year.id}.html")">${year.value}</a>
+        &raquo;
+        <a href="#springUrl("/admin/tkpsda/event/view/${wilayahSungai.id}/${year.id}/${event.id}.html")">${event.title}</a>
+        &raquo;
+        <span>Data Dokumentasi</span>
+    </title>
+</head>
+<body>
+
+<div id="event">
+    <div>
+        <form action="#springUrl("/admin/tkpsda/event/remove/${wilayahSungai.id}/${year.id}/${event.id}.html")" method="post">
+            <table class="no_border" style="width: 100%">
+                <col style="width: 20px"/>
+                <col style="width: 20px"/>
+                <col style="width: 150px;"/>
+                <col style="width: 400px"/>
+                <col style="width: 120px;"/>
+                <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>
+                        <input type='checkbox' name="ids_all" class="select_all"/>
+                    </th>
+                    <th>Photo</th>
+                    <th>Judul</th>
+                    <th>
+                        <a href='#springUrl("/admin/tkpsda/event/add/${wilayahSungai.id}/${year.id}/${event.id}.html")'
+                           class='button'>
+                            baru
+                        </a>
+                    </th>
+                </tr>
+                </thead>
+                #foreach($photo in $photos)
+                    <tr>
+                        <td>${velocityCount}.</td>
+                        <td>
+                            <input type='checkbox' name='ids' value='${photo.id}'/>
+                        </td>
+                        <td>
+                            <img src="#springUrl("/download/admin/tkpsda/event/picture/${wilayahSungai.id}/${year.id}/${event.id}/${photo.id}/${photo.filename}?w=90")"/>
+                        </td>
+                        <td>
+                         <span class="text_id">
+                             $!{photo.title}
+                         </span>
+                        </td>
+                      
+                        <td>
+                            <a href='#springUrl("/admin/tkpsda/event/edit/${wilayahSungai.id}/${year.id}/${event.id}/${photo.id}.html")'
+                               class='button edit'>
+                                edit
+                            </a>
+                        </td>
+                    </tr>
+                #end
+                <tfoot>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type='checkbox' name="ids_all" class="select_all"/>
+                    </td>
+                    <td colspan="3">
+                        <input type="submit" name="remove" value="Hapus"/>
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+        </form>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    //<![CDATA[
+    $(document).ready(function () {
+
+        $("#event input[type=checkbox].select_all").click(function () {
+            var checked = $(this).prop("checked");
+            $("#event table input[type=checkbox]").attr("checked", checked);
+        });
+
+    });
+    // ]]>
+</script>
+</body>
+</html>

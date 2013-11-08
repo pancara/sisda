@@ -1,0 +1,45 @@
+#map {
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px; }
+  #map form.search {
+    background: whitesmoke;
+    padding: 2px 4px 2px 4px;
+    border: 1px solid #eeeeee;
+    border-radius: 4px;
+    margin-bottom: 8px; }
+  #map table {
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    border-collapse: separate;
+    border-spacing: 0px 4px; }
+    #map table td {
+      margin: 0px 0px 4px 0px;
+      padding: 4px 2px 4px 2px;
+      border-bottom: 1px dotted whitesmoke; }
+      #map table td .list_category {
+        margin-top: 8px; }
+        #map table td .list_category span {
+          padding: 2px 4px 2px 4px;
+          background: whitesmoke;
+          color: #888888;
+          border-radius: 4px; }
+          #map table td .list_category span img {
+            position: relative;
+            vertical-align: top; }
+  #map img.thumb {
+    border: 1px solid whitesmoke;
+    padding: 4px;
+    background: white;
+    box-shadow: 0px 0px 5px whitesmoke; }
+  #map span.title {
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 8px 0px;
+    font-family: "Trebuchet MS", serif;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 20px;
+    display: block;
+    color: #0065d9; }
+  #map div.page_index {
+    float: right; }

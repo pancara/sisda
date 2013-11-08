@@ -1,0 +1,16 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <img src='#springUrl("/images/16x16/map.png")'/> &nbsp;
+        Peta Sungai ${sungai.name}
+    </title>
+</head>
+<body>
+<div>
+    <img src="#springUrl("/download/sda/sabo_dam/map/sungai/${sungai.id}/$!{sungai.filename}")" style="width: 95%;" />
+</div>
+
+</body>
+</html>
+

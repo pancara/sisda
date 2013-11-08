@@ -1,0 +1,1 @@
+<img src='#springUrl("/gallery/thumb/${gallery.id}.html?width=90")' style="float: left; margin-right: 8px;"/>

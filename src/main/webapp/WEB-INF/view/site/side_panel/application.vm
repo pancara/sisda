@@ -1,0 +1,37 @@
+<html>
+<head><title></title></head>
+<body>
+<div class="application">
+    <h1>
+        <img src="#springUrl("/images/16x16/application.png")"/>
+        <span>
+            Aplikasi BBWS-SO
+        </span>
+    </h1>
+
+    #set($data = [])
+    
+    #set($dummy = $data.add(["http://www.bbws-so.net/monitoring_banjir", "/images/links/apps/monitoring_banjir.png", "Monitoring Banjir"]))
+    #set($dummy = $data.add(["http://sermo.te.ugm.ac.id", "/images/links/apps/monitoring_deformasi_sermo.png", "Mon. Deformasi Bendungan Sermo"]))
+    #set($dummy = $data.add(["http://www.bbws-so.net:8080/inventory/", "/images/links/apps/inventory.png", "Inventory"]))
+    #set($dummy = $data.add(["http://www.bbws-so.net/intranet/", "/images/links/apps/intranet.png", "Intranet"]))
+    #set($dummy = $data.add(["http://www.bbws-so.net/hidrologi/", "/images/links/apps/hidrologi.png", "Hidrologi"]))
+    #set($dummy = $data.add(["http://bbws-so.net/monitoring_banjir_lahar/", "/images/links/apps/monitoring_banjir_lahar.png", "Monitoring Banjir Lahar"]))
+        
+    <div class="content">
+        #foreach($item in $data)
+            #set($url = $item.get(0))
+            #set($img = $item.get(1))
+            #set($text = $item.get(2))
+            <div class="item">
+                <a href="$url">
+                    <img src="#springUrl($img)"/>
+                    <span>$text</span>
+                    <div class="clear">&nbsp;</div>
+                </a>
+            </div>
+        #end
+    </div>
+</div>
+</body>
+</html>

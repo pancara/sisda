@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <a href="#springUrl("/sda.html")">Data SDA</a>
+        &#187;
+        <span>Bendungan</span>
+    </title>
+</head>
+<body>
+
+<h3>
+    BENDUNGAN
+</h3>
+
+<div style="text-align: center;">
+    <img src="#springUrl("/images/sda/bendungan/img_1.png")"
+         style="border-radius: 4px; box-shadow: 0px 0px 6px #AACCDD;"/>
+</div>
+<br/>
+
+<div id="sda_content">
+    <p>
+        Bendungan-bendungan di wilayah kerja BBWS Serayu Opak:
+    </p>
+
+
+    <table class="noborder" style="border: 1px solid #EEEEFF; margin-bottom: 5px; border-radius: 12px;" cellpadding="2">
+        #foreach($bendungan in $bendunganList)
+            <tr>
+                <td>
+                    $velocityCount.
+                </td>
+                <td style="width: 450px;">
+                    <a href="#springUrl("/popup/sda/bendungan/${bendungan.id}.html")" class="popup">
+                        ${bendungan.name}
+                    </a>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <p>
+                        $!{bendungan.description}
+                    </p>
+                </td>
+                <td>
+                    <img src='#springUrl("/download/sda/bendungan/photo/${bendungan.id}/${bendungan.pictureFilename}")'/>
+                </td>
+            </tr>
+        #end
+    </table>
+</div>
+<script type="text/javascript">
+    //<![CDATA[
+    $(document).ready(function () {
+        $(".popup").colorbox({width:"800px", height:"95%", iframe:true});
+    });
+    // ]]>
+</script>
+
+</body>
+</html>

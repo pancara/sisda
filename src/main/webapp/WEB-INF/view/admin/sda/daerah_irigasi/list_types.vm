@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <a href="#springUrl("/admin/sda/daerah_irigasi/list.html")">Daerah Irigasi</a>
+        &#187;
+        <span>Tipe DI</span>
+    </title>
+</head>
+<body>
+
+<div id="activity">
+    <div>
+        <table class="no_border" style="width: 100%">
+            <col style="width: 20px"/>
+            <col style="width: 540px;"/>
+            <col style="width: 220px;"/>
+            <col style="width: 120px;"/>
+            <thead>
+            <tr>
+                <th>No.</th>
+                <th>Tipe</th>
+                <th>File</th>
+                <th></th>
+            </tr>
+            </thead>
+            #foreach($type in $types)
+                <tr>
+                    <td>${velocityCount}.</td>
+                    <td>
+                         <span class="text_id">
+                             $!{type.name}
+                         </span>
+                    </td>
+                    <td>
+                        $!{type.filename}
+                    </td>
+                    <td>
+                        <a href='#springUrl("/admin/sda/daerah_irigasi/edit/${type.id}.html")' class='button select'>
+                            edit
+                        </a>
+                        <a href='#springUrl("/admin/sda/daerah_irigasi/list/${type.id}.html")' class='button select'>
+                            pilih &raquo;
+                        </a>
+                    </td>
+                </tr>
+            #end
+            <tfoot>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+
+</div>
+</body>
+</html>

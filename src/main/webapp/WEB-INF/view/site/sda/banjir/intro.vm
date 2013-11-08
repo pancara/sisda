@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <a href="#springUrl("/sda.html")">Data SDA</a>
+        &#187;
+        <span>Banjir</span>
+    </title>
+</head>
+<body>
+<h3>
+    BANJIR
+</h3>
+
+<div id="sda_content">
+    <div class="menu">
+        #set($links = [
+        ["Data Banjir", "data_banjir.html"],
+        ["Daerah Rawan Banjir", "daerah_rawan_banjir.html"]
+        ])
+
+        <table style="margin: 0px auto 0px auto; text-align: left;" class="noborder">
+            #foreach($link in $links)
+                #set($caption = $link.get(0))
+                #set($url = $link.get(1))
+                <tr>
+                    <td>
+                        <img src="#springUrl("/images/16x16/button_arrow_right.png")"/>
+                    </td>
+                    <td>
+                        <a href="#springUrl("/sda/banjir/${url}")" style="display: block;">
+                            $caption
+                        </a>
+                    </td>
+                </tr>
+            #end
+        </table>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <span>TKPSDA</span>
+        &raquo;
+        <a href="#springUrl("/admin/tkpsda/jadwal_sidang/view.html")">Jadwal Sidang</a>
+        &raquo;
+        <a href="#springUrl("/admin/tkpsda/jadwal_sidang/view/${wilayahSungai.id}.html")">${wilayahSungai.name}</a>
+        &raquo;
+        <a href="#springUrl("/admin/tkpsda/jadwal_sidang/view/${wilayahSungai.id}/${year.id}.html")">${year.value}</a>
+        &raquo;
+        <span>Data Jadwal Sidang</span>
+    </title>
+</head>
+<body>
+
+<div id="schedule">
+    <div>
+        <form action="#springUrl("/admin/tkpsda/jadwal_sidang/remove/${wilayahSungai.id}/${year.id}.html")" method="post">
+            <table class="no_border" style="width: 100%">
+                <col style="width: 20px"/>
+                <col style="width: 20px"/>
+                <col style="width: 640px;"/>
+                <col style="width: 120px"/>
+                <col style="width: 120px;"/>
+                <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>
+                        <input type='checkbox' name="ids_all" class="select_all"/>
+                    </th>
+                    <th>Sidang</th>
+                    <th>Tanggal</th>
+                    <th>
+                        <a href='#springUrl("/admin/tkpsda/jadwal_sidang/add/${wilayahSungai.id}/${year.id}.html")'
+                           class='button'>
+                            baru
+                        </a>
+                    </th>
+                </tr>
+                </thead>
+                #foreach($schedule in $schedules)
+                    <tr>
+                        <td>${velocityCount}.</td>
+                        <td>
+                            <input type='checkbox' name='ids' value='${schedule.id}'/>
+                        </td>
+                        <td>
+                         <span class="text_id">
+                             ${schedule.title}
+                         </span>
+                        </td>
+                        <td>
+                            $dateTool.format($schedule.holdDate)
+                        </td>
+                        <td>
+                            <a href='#springUrl("/admin/tkpsda/jadwal_sidang/edit/${wilayahSungai.id}/${year.id}/${schedule.id}.html")'
+                               class='button edit'>
+                                edit
+                            </a>
+                        </td>
+                    </tr>
+                #end
+                <tfoot>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type='checkbox' name="ids_all" class="select_all"/>
+                    </td>
+                    <td colspan="3">
+                        <input type="submit" name="remove" value="Hapus"/>
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+        </form>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    //<![CDATA[
+    $(document).ready(function () {
+
+        $("#schedule input[type=checkbox].select_all").click(function () {
+            var checked = $(this).prop("checked");
+            $("#schedule table input[type=checkbox]").attr("checked", checked);
+        });
+
+    });
+    // ]]>
+</script>
+</body>
+</html>

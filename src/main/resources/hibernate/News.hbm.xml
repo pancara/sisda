@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.integrasolusi.pusda.sisda.persistence.News" table="news">
+        <id name="id" column="UID" type="java.lang.Long" unsaved-value="null">
+            <generator class="native"/>
+        </id>
+
+        <version name="version" access="field" column="OBJ_VERSION"/>
+
+        <property name="title" type="java.lang.String">
+            <column name="TITLE" sql-type="TEXT"/>
+        </property>
+
+        <property name="author" type="java.lang.String">
+            <column name="AUTHOR" sql-type="VARCHAR(255)"/>
+        </property>
+
+        <property name="postDate" type="java.util.Date">
+            <column name="POST_DATE" sql-type="datetime"/>
+        </property>
+
+        <property name="lastEditDate" type="java.util.Date">
+            <column name="LAST_EDIT_DATE" sql-type="datetime"/>
+        </property>
+
+        <property name="publishedDate" type="java.util.Date">
+            <column name="PUBLISHED_DATE" sql-type="datetime"/>
+        </property>
+
+        <property name="shortDescription" type="java.lang.String">
+            <column name="SHORT_DESCRIPTION" sql-type="TEXT"/>
+        </property>
+
+        <property name="content" type="java.lang.String">
+            <column name="CONTENT" sql-type="TEXT"/>
+        </property>
+
+        <property name="published" type="java.lang.Boolean">
+            <column name="IS_PUBLISHED" sql-type="tinyint"/>
+        </property>
+
+        <property name="photoFilename" type="java.lang.String" column="PHOTO_FILENAME"/>
+
+    </class>
+</hibernate-mapping>

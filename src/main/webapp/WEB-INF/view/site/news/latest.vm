@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <img src='#springUrl("/images/16x16/news_latest.png")'/> &nbsp;
+        Berita Terkini
+    </title>
+</head>
+<body>
+<div class="news_latest">
+    <ul>
+        #foreach($news in $newsList)
+            <li>
+                <div class='date'>
+                    $dateTimeTool.format("E, d MMM yyyy kk.mm" ,$news.publishedDate) WIB
+                </div>
+                <a href="#springUrl("/news/full/${news.id}.html")">
+                    #if ($titlePictures.get($news))
+                        <img src='#springUrl("/download/news/photo/${news.id}/${news.title}?width=30")' class='thumb' style="width: 30px;"/>
+                    #end
+                    $news.title
+                </a>
+            </li>
+        #end
+    </ul>
+</div>
+</body>
+</html>

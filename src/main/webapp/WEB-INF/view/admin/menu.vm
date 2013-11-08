@@ -1,0 +1,121 @@
+<html>
+<head>
+    <title>Menu Pengelolaan</title>
+</head>
+<body>
+<div id="header">
+    <span id='control_panel'>
+        Pengelolaan SISDA
+    </span>
+</div>
+
+    #set ($moderator = [
+    ["comment/guest.html", "Komentar Tamu"],
+    ["comment/news.html", "Komentar Berita"],
+    ["comment/publication.html", "Komentar Pengumuman"]
+    ])
+
+    #set($article = [
+    ["news.html", "Berita"],
+    ["publication.html", "Pengumuman"],
+    ["leaflet.html", "Leaflet/Booklet"],
+    ["agenda/list.html", "Agenda"],
+    ["ticker/list.html", "Ticker"],
+    ["presentation/meeting/list.html", "Paparan Hasil Kegiatan"]
+    ])
+
+    #set($peta = [
+    ["map/category.html", "Kategori"],
+    ["map.html", "Peta"]
+    ])
+
+    #set($photos = [
+    ["dokumentasi/list.html", "Dokumentasi"],
+    ["repo/photo/list.html", "Repository Photo"],
+    ["slide/list.html", "Slide"]
+    ])
+
+    #set($tkpsda = [
+    ["tkpsda/jadwal_sidang/view.html", "Jadwal Sidang"],
+    ["tkpsda/hasil_sidang/view.html", "Hasil Sidang"],
+    ["tkpsda/event/view.html", "Dokumentasi"],
+    ["tkpsda/lain_lain/view.html", "Lain-lain"],
+    ["tkpsda/year/set.html", "Tahun Aktif"]
+    ])
+
+    #set ($dataSDA = [
+    ["sda/bendungan/view.html", "Bendungan"],
+    ["sda/daerah_irigasi/list.html", "Daerah Irigasi"],
+    ["sda/sungai/list.html", "Sungai"],
+    ["sda/bendung/list.html", "Bendung"],
+    ["sda/embung/list.html", "Embung"],
+    ["sda/telaga/list.html", "Telaga"],
+    ["sda/hidrologi/curah_hujan/list.html", "Curah Hujan"],
+    ["sda/hidrologi/tinggi_muka_air/list.html", "Tinggi Muka Air"],
+    ["sda/hidrologi/pos_hidrologi/list.html", "Pos Hidrologi"],
+    ["sda/hidrologi/klimatologi/list.html", "Klimatologi"],
+    ["sda/hidrologi/kualitas_air/list.html", "Kualitas Air"],
+
+    ["sda/banjir/data_banjir/list.html", "Data Banjir"],
+    ["sda/banjir/daerah_rawan_banjir/list.html", "Daerah Rawan Banjir"],
+
+    ["sda/sabodam/list.html", "Sabo Dam"],
+    ["sda/sabodam/sungai/list.html", "Sungai Sabo Dam"],
+    ["sda/kekeringan/list.html", "Kekeringan"],
+    ["sda/air_tanah/list.html", "Air Tanah"]
+    ])
+
+    #set($lain_lain = [
+    ["project/index.html", "Proyek Strategis"],
+    ["struktur_organisasi/list.html", "Struktur Organisasi"],
+    ["progress_pekerjaan/list.html", "Progress Pekerjaan"],
+    ["regulation/list.html", "Peraturan dan UU"],
+    ["regulation/folder/list.html", "Folder Peraturan dan UU"],
+    ["link/list.html", "Link"],
+    ["comment/guest/notificationemail/list.html", "Email Notifikasi"],
+    ["user/list.html", "User"]
+    ])
+
+    #set ($ffws = [
+    ["ffws/populator/manager.html", "Sinkronisasi Data"],
+    ["ffws/station/list.html", "POS Hidrologi"]
+    ])
+
+    #set ($menus = [
+    ["Moderator", $moderator],
+    ["Artikel", $article],
+    ["Peta", $peta],
+    ["Photo &amp; Gambar", $photos],
+    ["TKPSDA", $tkpsda],
+    ["Data SDA", $dataSDA],
+    ["Lain-Lain", $lain_lain],
+    ["Data Realtime", $ffws]
+    ])
+
+
+
+<div id="menubar">
+    <img src='#springUrl("/images/16x16/arrow_box_blue_right.png")'
+         style="float: left; color: #FFF; margin: 4px 8px 0px 0px;"/>
+    &nbsp;&nbsp;
+    <a href='#springUrl("/logout.html")' id='logout'>
+        Logout
+    </a>
+
+    <ul id="menu" class="sf-menu">
+        #foreach($menu in $menus)
+            <li>
+                <a>$menu.get(0)</a>
+                <ul>
+                    #foreach($item in $menu.get(1))
+                        #set($url = $item.get(0))
+                        #set($caption = $item.get(1))
+                        <li><a href='#springUrl("/admin/${url}")'>${caption}</a></li>
+                    #end
+                </ul>
+            </li>
+        #end
+    </ul>
+</div>
+</body>
+</html>

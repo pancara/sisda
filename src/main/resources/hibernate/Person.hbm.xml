@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.integrasolusi.pusda.sisda.persistence.Person" table="person">
+
+        <id name="id" column="UID" type="java.lang.Long" unsaved-value="null">
+            <generator class="native"/>
+        </id>
+
+        <version name="version" access="field" column="OBJ_VERSION"/>
+
+        <property name="name" type="java.lang.String">
+            <column name="NAME" sql-type="VARCHAR(255)"/>
+        </property>
+
+        <property name="nip" type="java.lang.String">
+            <column name="NIP" sql-type="VARCHAR(255)"/>
+        </property>
+
+        <property name="jabatan" type="java.lang.String">
+            <column name="JABATAN" sql-type="VARCHAR(255)"/>
+        </property>
+
+        <property name="golongan" type="java.lang.String">
+            <column name="GOLONGAN" sql-type="VARCHAR(25)"/>
+        </property>
+
+        <property name="birthDate" type="date">
+            <column name="BIRTH_DATE" sql-type="DATETIME"/>
+        </property>
+
+        <property name="photoFilename" type="java.lang.String">
+            <column name="PHOTO_FILE_NAME" sql-type="VARCHAR(255)"/>
+        </property>
+
+        <property name="photoSize" type="java.lang.Long">
+            <column name="PHOTO_SIZE" sql-type="BIGINT(20)" default="0"/>
+        </property>
+
+    </class>
+</hibernate-mapping>

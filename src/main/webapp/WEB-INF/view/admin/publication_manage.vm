@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <img src='#springUrl("/images/16x16/publication.png")'/> &nbsp;
+        Pengumuman
+    </title>
+</head>
+<body>
+<div id="publication">
+    <div class='tab_title'>Judul :</div>
+    <div>
+        #if($hasTitlePicture)
+            #set($display = "inline")
+        #else
+            #set($display = "none")
+        #end
+
+        <img id="photo_title" src='#springUrl("/publication/thumb/${publication.id}.html?width=70")'
+             style="float: left; margin-right: 8px; display:$display;"/>
+
+        <span class='title'>$publication.title</span>
+
+        <form enctype="multipart/form-data" method="post" id='form_upload_title_picture'>
+            <img src='#springUrl("/images/22x22/go-previous.png")' style='float: left;'/>
+            <input type='file' name='file'/><input type='submit' value='submit'/>
+        </form>
+    </div>
+
+    <div class="clear">&nbsp;</div>
+
+    <div class='tab_title'>Status :</div>
+        <form action='#springUrl("/admin/publication/publish/${publication.id}.html")' method="post">
+            #if ($publication.published)
+                <img src='#springUrl("/images/22x22/apply.png")'/>
+                PUBLISH
+            #else
+                <img src='#springUrl("/images/22x22/stop.png")'/>
+                TIDAK DIPUBLIKASIKAN
+            #end
+            </select>
+            <input type='submit' value='ubah status'/>
+        </form>
+    <div class='tab_title'>Tgl Publikasi :</div>
+
+    <div style='font-size: 12px;'>$dateTimeTool.format($publication.publishedDate)</div>
+
+
+    <div class='tab_title'>Lampiran :</div>
+
+    <div>
+        <form action="#springUrl("/admin/publication/document/upload/${publication.id}.html")"
+              enctype="multipart/form-data" method="post" id='form_upload_document'>
+            <table id="document_list">
+                <tr>
+                    <th></th>
+                    <th>File</th>
+                    <th>Keterangan</th>
+                </tr>
+                #foreach($doc in $documents)
+                    <tr>
+                        <td style="vertical-align: top; padding-top: 8px;">
+                            <a rel='#springUrl("/admin/publication/document/remove/${doc.id}.html")'
+                               class='remove_document'>
+                                <img src='#springUrl("/images/16x16/cross_black.png")'/>
+                            </a>
+                        </td>
+                        <td>
+                            <span style="float: left;">
+                                #set($image = $fileTool.getFileTypeIcon($doc.filename))
+                                <img src='#springUrl("/images/filetype/$image")'/>
+                                $doc.filename
+                            </span>
+                        </td>
+                        <td>
+                            <p>
+                                ${doc.description}
+                            </p>
+                        </td>
+                    </tr>
+                #end
+                <tr>
+                    <td></td>
+                    <td><input type='file' name='file'/></td>
+                    <td>
+                        <textarea style="width: 300px; height: 80px;" name="description"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type='submit' value='submit'/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <div class='tab_title'>Isi pengumuman :</div>
+    <div class="full_content">
+        $publication.content
+    </div>
+
+    <img src='#springUrl("/images/hr.png")'/>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        set_button_remove_handler();
+        $("#form_upload_title_picture").ajaxForm({
+            url : "#springUrl("/admin/ajax/publication/picture/upload/${publication.id}.html")",
+            type: "POST",
+            dataType: "json",
+            success: function(data) {
+                if (data.result == true) {
+                    var photo_title = $("#photo_title");
+                    photo_title.hide();
+                    photo_title.attr("src", '#springUrl("/publication/thumb/${publication.id}.html?width=120&t=")' + new Date());
+                    photo_title.fadeIn("slow");
+                }
+            }
+        });
+
+    })
+
+    function set_button_remove_handler() {
+        $("#document_list a.remove_document").clickConfirm({
+            position: "bottom",
+            questionText: "Hapus dokuemen ?",
+            followLinkOnProceed: false,
+            onProceed: function(trigger) {
+                var _url = $(trigger).attr("rel");
+                jQuery.get(_url,
+                          function(data) {
+                              if (data.result == true) {
+                                  var tr = $(trigger).parentsUntil("tbody");
+                                  tr.remove();
+                              }
+                          }
+                        );
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

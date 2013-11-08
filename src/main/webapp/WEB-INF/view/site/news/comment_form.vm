@@ -1,0 +1,43 @@
+<form action='#springUrl("/news/${news.id}/comment/post.html")' method='post'>
+    <table style='width: 95%;'>
+        <tr>
+            <td style="width: 180px;">Pengirim <em>*</em></td>
+            <td>
+                #springFormInput("form.name", "style='width: 300px;' class='text'")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Email <em>*</em>
+            </td>
+            <td>
+                #springFormInput("form.email", "style='width: 300px;' class='text'")
+            </td>
+        </tr>
+        <tr>
+            <td>Site</td>
+            <td>
+                #springFormInput("form.site", "style='width: 300px;' class='text'")
+            </td>
+        </tr>
+        <tr>
+            <td>Komentar <em>*</em></td>
+            <td>
+                #springFormTextarea("form.message", "style='width:300px; height: 80px;'")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Security&nbsp;Code
+            </td>
+            <td>
+                <img src='#springUrl("/news/comment/captcha.html")' class="captcha"/>
+                <br/>
+                #springFormInput("form.captcha", "style='width:120px; margin-top: 4px;'")
+            </td>
+        <tr>
+            <td></td>
+            <td><input type='submit' name='submit' value='Submit'/></td>
+        </tr>
+    </table>
+</form>

@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <img src='#springUrl("/images/16x16/link.png")'/> &nbsp;
+        <span>Link</span>
+    </title>
+</head>
+<body>
+<div id="link">
+    <div>
+        <span class="info">
+                <img src="#springUrl("/images/16x16/table_row_select.png")"/>
+                Ditemukan ${count} data.
+        </span>
+    </div>
+    <form action="#springUrl("/admin/link/manage.html")" method="post">
+
+        <table class="no_border" style="width: 99%;">
+            <col style="width: 20px"/>
+            <col style="width: 20px"/>
+            <col style="width: 10px;"/>
+            <col style="width: 20px"/>
+            <col style="width: 250px"/>
+            <col style="width: 120px"/>
+            <col style="width: 20px;"/>
+            <col style="width: 40px;"/>
+            <thead>
+            <tr>
+                <th>No.</th>
+                <th>
+                    <input type='checkbox' name="ids_all" class="select_all"/>
+                </th>
+                <th>Gambar</th>
+                <th>URL</th>
+                <th>Keterangan</th>
+                <th></th>
+                <th></th>
+                <th>
+                    <a href='#springUrl("/admin/link/add.html")' class='button'>
+                        baru
+                    </a>
+                </th>
+            </tr>
+            </thead>
+
+            #set($row = 1)
+            #foreach ($link in $linkList)
+                <tr>
+                    <td>${row}.</td>
+                    <td>
+                        <input type='checkbox' name='ids' value='${link.id}'/>
+                    </td>
+                    <td>
+                        <img src="#springUrl("/download/admin/link/pic/${link.id}/${link.filename}")"/>
+                    </td>
+                    <td class="short_content">
+                        ${link.url}
+                    </td>
+                    <td class="short_content">
+                        $!{link.description}
+                    </td>
+                    <td class="short_content">
+                        $!{link.type.description}
+                    </td>
+                    <td>
+                        #if(${link.published})
+                            <img src="#springUrl("/images/16x16/link_published.png")"/>
+                        #else
+                            <img src="#springUrl("/images/16x16/link_not_published.png")"/>
+                        #end
+                    </td>
+                    <td>
+                        <a href='#springUrl("/admin/link/edit/${link.id}.html")' class='edit button'>
+                            edit
+                        </a>
+                    </td>
+                </tr>
+                #set($row = $row + 1)
+            #end
+            <tfoot>
+            <tr>
+                <td></td>
+                <td>
+                    <input type='checkbox' name="ids_all" class="select_all"/>
+                </td>
+                <td colspan="5">
+                    <input type="submit" name="remove" value="Hapus"/>
+                    <input type="submit" name="publish" value="Publish"/>
+                    <input type="submit" name="unpublish" value="Unpublish"/>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+
+    </form>
+    <div>
+        <span class="info">
+                <img src="#springUrl("/images/16x16/table_row_select.png")"/>
+                Ditemukan ${count} data.
+        </span>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#link td a.thumb").tooltip({
+            delay:0,
+            showURL:false,
+            bodyHandler:function () {
+                var src = $(this).attr("href");
+                return $("<img style='max-width: 300px;'/>").attr("src", src);
+            }
+        }).click(function () {
+                    return false;
+                });
+
+        $("#link input[type=checkbox].select_all").click(function () {
+            var checked = $(this).prop("checked");
+            $("#link table input[type=checkbox]").attr("checked", checked);
+        });
+
+        $("#link a.remove").clickConfirm({
+            position:"bottom",
+            questionText:"Hapus link ?",
+            followLinkOnProceed:false,
+            onProceed:function (trigger) {
+                var _url = $(trigger).attr("rel");
+                jQuery.get(_url,
+                        function (data) {
+                            if (data.result == true) {
+                                var tr = $(trigger).parentsUntil("tbody");
+                                tr.remove();
+                            }
+                        }
+                );
+            }
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.integrasolusi.pusda.sisda.persistence.ffws.Station" table="ffws_station">
+        <id name="id" column="UID" type="java.lang.Long" unsaved-value="null">
+            <generator class="native"/>
+        </id>
+
+        <version name="version" access="field" column="OBJ_VERSION"/>
+
+        <property name="name" type="java.lang.String" column="NAME"/>
+
+        <property name="description" type="java.lang.String">
+            <column name="DESCRIPTION" sql-type="TEXT"/>
+        </property>
+
+        <property name="latitude" type="java.lang.Double" column="LATITUDE"/>
+
+        <property name="longitude" type="java.lang.Double" column="LONGITUDE"/>
+
+        <property name="sourceTable" type="java.lang.String" column="SOURCE_TABLE"/>
+
+    </class>
+</hibernate-mapping>

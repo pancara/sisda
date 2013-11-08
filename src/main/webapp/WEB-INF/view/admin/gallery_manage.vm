@@ -1,0 +1,196 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <img src='#springUrl("/images/16x16/gallery.png")'/> &nbsp;
+        Galleri
+    </title>
+</head>
+<body>
+#parse("js_template/gallery_photo_template.vm")
+
+<div id="gallery">
+    <div>
+        #if($hasTitlePicture)
+            #set($display = "inline")
+        #else
+            #set($display = "none")
+        #end
+        <img id="photo_title" src='#springUrl("/gallery/thumb/${gallery.id}.html?width=120")' style="float: left; margin-right: 8px; display:$display;" />
+        <span class='title'>$gallery.title</span>
+
+        <form enctype="multipart/form-data" method="post" id='form_upload_title_picture'>
+            <img src='#springUrl("/images/22x22/go-previous.png")' style='float: left;'/>
+            <input type='file' name='file'/><input type='submit' value='submit'/>
+        </form>
+    </div>
+
+    <div class="clear">&nbsp;</div>
+    <div>
+        <form action='#springUrl("/admin/gallery/publish/${gallery.id}.html")' method="post">
+            <span class='tab_title'>Status :</span>
+            #if ($gallery.published)
+                <img src='#springUrl("/images/22x22/apply.png")'/>
+                PUBLISH
+            #else
+                <img src='#springUrl("/images/22x22/stop.png")'/>
+                TIDAK DIPUBLIKASIKAN
+            #end
+            </select>
+            <input type='submit' value='ubah status'/>
+        </form>
+    </div>
+    <div>
+        <span class='tab_title'>Keterangan Singkat :</span>
+
+        <p>
+            $gallery.shortDescription
+        </p>
+    </div>
+
+    <div>
+        <span class='tab_title'>Keterangan Lengkap :</span>
+
+        <p>
+            $gallery.description
+        </p>
+    </div>
+
+    <div class="picture_list">
+        <span class='tab_title'>Photo :</span>
+
+        <div class="clear">&nbsp;</div>
+        #if ($pictures.size() > 1)
+            #set($class = "pirobox_gallery")
+        #else
+            #set($class = "pirobox")
+        #end
+        #foreach($pic in $pictures)
+            <div style="display: inline-block; text-align: center;" class='picture_item'>
+                <a href='#springUrl("/gallery/picture/${pic.id}.html?")' class='$class'
+                   title="$pic.description" style="display: block;">
+                    <span>
+                        <img src='#springUrl("/gallery/picture/thumb/${pic.id}.html?width=120")' class="photo_thumb"/>
+                    </span>
+                </a>
+                <a rel="$pic.id" class='button_remove'>
+                    <img src='#springUrl("/images/16x16/cross_black.png")'/>
+                </a>
+            </div>
+        #end
+    </div>
+    <div>
+        <div class="clear">&nbsp;</div>
+        <form id='form_upload_picture' enctype="multipart/form-data" method="post">
+            <input type="hidden" name="gallery" value="$gallery.id"/>
+            <table>
+                <tr>
+                    <td class="label">Photo</td>
+                    <td><input type="file" name="file" style="width: 500px;"/></td>
+                </tr>
+                <tr>
+                    <td class="label">Keterangan</td>
+                    <td><textarea name="description" style="width: 500px;"></textarea></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type='submit' value="upload"/></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        init_pirobox();
+        set_button_remove_handler();
+
+        $("#form_upload_picture").ajaxForm({
+            url : "#springUrl("/admin/ajax/gallery/picture/upload.html")",
+            type: "POST",
+            dataType: "json",
+            success: function(data) {
+                if (data.result.result == true) {
+                    addPicture(data.result.pictureId, data.result.description);
+                    $("#form_upload_picture").clearForm();
+                }
+            }
+        });
+
+        $("#form_upload_title_picture").ajaxForm({
+            url : "#springUrl("/admin/ajax/gallery/title/picture/upload/${gallery.id}.html")",
+            type: "POST",
+            dataType: "json",
+            success: function(data) {
+                if (data.result == true) {
+                    var photo_title = $("#photo_title");
+                    photo_title.hide();
+                    photo_title.attr("src", '#springUrl("/gallery/thumb/${gallery.id}.html?width=120&t=")' + new Date());
+                    photo_title.fadeIn("slow");
+                }
+            }
+        });
+    });
+
+    function addPicture(pictureId, description) {
+        var obj =
+        {
+            pictureId: pictureId,
+            description: description
+        };
+        var text = $('#photo_template').jqote(obj);
+        $(text).appendTo($('div.picture_list'));
+
+        var pic_count = $(".picture_list .picture_item").length;
+        if (pic_count > 1) {
+            $(".picture_list .picture_item a.pirobox")
+                    .removeClass("pirobox")
+                    .addClass("pirobox_gallery");
+        }
+
+        set_button_remove_handler();
+        init_pirobox();
+    }
+
+    function set_button_remove_handler() {
+        $(".button_remove").unbind();
+        $(".button_remove").click(function() {
+            var _this = this;
+            var id = $(this).attr("rel");
+            jQuery.ajax({
+                url: "#springUrl("/admin/gallery/picture/remove.html")",
+                data: {"id": id},
+                success: function(data) {
+                    var div = $(_this).parentsUntil(".picture_list");
+                    $(div).remove();
+                    var pic_count = $(".picture_list .picture_item").length;
+                    if (pic_count > 1) {
+                        $(".picture_list .picture_item a.pirobox")
+                                .removeClass("pirobox")
+                                .addClass("pirobox_gallery");
+                    }
+                    init_pirobox();
+                }
+            });
+        });
+    }
+
+    function init_pirobox() {
+        $(".pirobox_content").remove();
+        $(".piro_overlay").remove();
+        $("a[class^=pirobox]").unbind();
+        $().piroBox({
+            my_speed: 600,
+            bg_alpha: 0.5,
+            radius: 4,
+            scrollImage : false,
+            pirobox_next : 'piro_next',
+            pirobox_prev : 'piro_prev',
+            close_all : '.piro_close',
+            slideShow : 'slideshow',
+            slideSpeed : 3
+        });
+    }
+</script>
+</body>
+</html>

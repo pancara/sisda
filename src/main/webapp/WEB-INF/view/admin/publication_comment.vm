@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <img src='#springUrl("/images/16x16/user_comment2.png")'/> &nbsp;
+        Komentar Pengumuman
+    </title>
+</head>
+<body>
+<div>
+    <div>
+        <form action='#springUrl("/admin/publication_comment.html")' method='post' style="margin-top: 4px;" id="form_search">
+            Pencarian:&nbsp;
+            #springFormInput("form.keyword", "style='width: 150px; margin: 0px 0px 0px 0px;' class='text'")
+            <input type='submit' name='submit' value='Submit'/>
+        </form>
+    </div>
+    <div class='context-menu'>
+        #foreach($page in $pages)
+            #if ($page == $current)
+                <a href='#springUrl("/admin/publication_comment/${page}.html?keyword=$!{form.keyword}")'
+                   class="current">$page</a>
+            #else
+                <a href='#springUrl("/admin/publication_comment/${page}.html?keyword=$!{form.keyword}")'
+                   class="page">$page</a>
+            #end
+        #end
+    </div>
+
+    <span class="info">
+        Ditemukan $count data.
+    </span>
+
+    <form action='#springUrl("/admin/publication_comment/remove.html")' method='post' id="form_remove_message"
+          name="form_remove_message">
+        <input type='hidden' name='page' value='$!{current}'/>
+        <input type='hidden' name='keyword' value='$!{form.keyword}'/>
+        <table class="no_border">
+            #set($row = $start_row + 1)
+            #foreach ($comment in $comments)
+                <tr>
+                    <td>${row}.</td>
+                    <td><input type='checkbox' name='ids' value='$comment.id'/></td>
+                    <td>
+                        <img src='#springUrl("/images/32x32/user_comment.png")' style='float: left;'/>
+                        <span style='color: #ab0d22;'>$comment.name <br/>
+                            <imgsrc='#springUrl("/publication/comment/email.html?code=${m.address}")'/>
+                        </span>
+
+                        <div style='font-size: 10px;'>$dateTimeTool.format($comment.postDate)</div>
+                        <p>$comment.message</p>
+                    </td>
+                </tr>
+                #set($row = $row + 1)
+            #end
+            <tr>
+                <td>
+                    <img src='#springUrl("/images/16x16/arrow_box_blue_right.png")'/>
+                </td>
+                <td colspan="2">
+                    <input type='submit' value='hapus' name='button_submit' class='button' id='button_remove'/>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <div class='context-menu'>
+        #foreach($page in $pages)
+            #if ($page == $current)
+                <a href='#springUrl("/admin/publication_comment/${page}.html")' class="current">$page</a>
+            #else
+                <a href='#springUrl("/admin/publication_comment/${page}.html")' class="page">$page</a>
+            #end
+        #end
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#button_remove").clickConfirm({
+            position: "right",
+            questionText: "Hapus pesan ?",
+            onProceed: function() {
+                $("#form_remove_message").submit();
+            }
+        });
+    });
+</script>
+</body>
+</html>

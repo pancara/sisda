@@ -1,0 +1,2 @@
+#set($HOST_URL = "http://bbws-so.net")
+#set($APP_PATH = "sisda")

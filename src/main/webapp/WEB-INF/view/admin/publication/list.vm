@@ -1,0 +1,236 @@
+#macro(paging $pages $keyword)
+<div class="page_index">
+    #foreach($page in $pages)
+        #if ($page == $current)
+            <a href='#springUrl("/admin/publication/${page}.html?keyword=$!{keyword}")' class="current">$page</a>
+        #else
+            <a href='#springUrl("/admin/publication/${page}.html?keyword=$!{keyword}")' class="page">$page</a>
+        #end
+    #end
+</div>
+#end
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <img src='#springUrl("/images/16x16/publication.png")'/> &nbsp;
+        <span>Pengumuman</span>
+    </title>
+</head>
+<body>
+<div id="publication">
+    <form action='#springUrl("/admin/publication.html")' style="margin-top: 4px;" id="form_search">
+        Kata kunci: &nbsp;<input type='text' name='keyword' value='$!{keyword}' class='text'/>
+        <input type='submit' value='cari'/>
+    </form>
+    <div>
+        <span class="info">
+            <img src="#springUrl("/images/16x16/table_row_select.png")"/>
+            Ditemukan $count data.
+        </span>
+        #paging($pages, $keyword)
+    </div>
+
+    <form id="publication_list" method="post" action="#springUrl("/admin/publication/manage.html")">
+        <table>
+            <colgroup style="width: 20px"/>
+            <colgroup style="width: 20px"/>
+            <colgroup style="width: 20px"/>
+            <colgroup style="width: 20px"/>
+            <colgroup style="width: 500px;"/>
+            <colgroup style="width: 20px"/>
+            <colgroup style="width: 100px;"/>
+            <colgroup style="width: 190px"/>
+            <thead>
+            <tr>
+                <th>No.</th>
+                <th>
+                    <input type='checkbox' name="ids_all" class="select_all"/>
+                </th>
+                <th>ID</th>
+                <th></th>
+                <th>Judul</th>
+                <th></th>
+                <th>Tgl Publikasi</th>
+                <th>
+                    <a href='#springUrl("/admin/publication/add.html")' class='button'>
+                        baru
+                    </a>
+                </th>
+            </tr>
+            </thead>
+            #set($row = $start_row + 1)
+            #foreach ($publication in $publicationList)
+                <tr>
+
+                    <td style="width: 24px;">${row}.</td>
+                    <td>
+                        <input type='checkbox' name='ids' value='$publication.id'/>
+                    </td>
+                    <td>
+                        
+                    <span class="text_id">
+                        ${publication.id}
+                    </span>
+                    </td>
+
+                    <td class="cont_image">
+                        #if ($publication.picture)
+                            <img src="#springUrl("/download/publication/picture/${publication.id}/${publication.picture}")"
+                                 style="max-width: 40px;"
+                                 rel="#springUrl("/download/publication/picture/${publication.id}/${publication.picture}")"/>
+                        #end
+                    </td>
+
+                    <td class="short_content">
+                        <a href='#springUrl("/publication/full/${publication.id}.html")' target="_blank">
+                            ${publication.title}
+                        </a>
+
+                        <p>${publication.shortDescription}</p>
+                    </td>
+                    <td>
+                        #if(${publication.published})
+                            <img src="#springUrl("/images/16x16/publication_published.png")"/>
+                        #else
+                            <img src="#springUrl("/images/16x16/publication_not_published.png")"/>
+                        #end
+                    </td>
+                    <td>
+                        #if(${publication.published})
+                            <span class='date'>$dateTimeTool.format($publication.publishedDate)</span>
+                        #end
+                    </td>
+                    <td>
+                        #if ($publication.picture)
+                            #set($class = "confirm")
+                        #else
+                            #set($class = "disabled")
+                        #end
+
+                        <a href="#springUrl("/admin/publication/${publication.id}/photo/clear.html")?keyword=${keyword}&page=${current}"
+                           class="clear button ${class}">clear</a>
+
+                        <a href="#springUrl("/admin/popup/publication/picture/upload/${publication.id}.html")"
+                           class="upload button popup" title="${publication.id}">upload</a>
+
+                        <a href='#springUrl("/admin/publication/edit/${publication.id}.html")' class='button'>
+                            edit
+                        </a>
+
+                        <a href="#springUrl("/admin/popup/publication/attachment/${publication.id}/manage.html")"
+                           class="manage button popup" title="${publication.id}">attach</a>
+                    </td>
+                </tr>
+                #set($row = $row + 1)
+            #end
+            <tfoot>
+            <tr>
+                <td></td>
+                <td>
+                    <input type='checkbox' name="ids_all" class="select_all"/>
+                </td>
+                <td colspan="6">
+                    <input type="hidden" name="page" value="${current}"/>
+                    <input type="hidden" name="keyword" value="${keyword}"/>
+
+                    <input type="submit" name="publish" value="Publish"/>
+                    <input type="submit" name="unpublish" value="Unpublish"/>
+                    <input type="submit" name="ticker" value="Tambah ke Ticker"/>
+                    &nbsp;&nbsp;
+                    <input type="submit" name="remove" value="Hapus"/>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+    </form>
+
+    <div>
+        <span class="info">
+            <img src="#springUrl("/images/16x16/table_row_select.png")"/>
+            Ditemukan $count data.
+        </span>
+        #paging($pages, $keyword)
+    </div>
+</div>
+<script type="text/html" id="thumb_template">
+    <![CDATA[
+    <img src="#springUrl("/download/publication/picture/")/<%= this.id %>/<%= this.filename %>"
+         style="max-width: 40px;"/>
+    ]]>
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("input[type=checkbox].select_all").click(function () {
+            var checked = $(this).prop("checked");
+            $("#publication_list table input[type=checkbox]").attr("checked", checked);
+        });
+
+        $("a.clear").clickConfirm({
+            position:"bottom",
+            questionText:"Kosongkan gambar headline pengumuman ?",
+            onProceed:function () {
+                $("#form_remove_message").submit();
+            }
+        });
+
+        $("td.cont_image img").tooltip({
+            delay:0,
+            showURL:false,
+            bodyHandler:function () {
+                return $("<img/>").attr("src", this.src);
+            }
+        });
+
+        $("#publication_list a.disabled").click(function (e) {
+            e.preventDefault();
+        })
+
+        $("#publication_list a.popup").click(function () {
+            var _this = this;
+            jQuery.colorbox({
+                "href":$(_this).attr("href"),
+                "width":"500px",
+                "height":"400px",
+                "iframe":true,
+                onClosed:function () {
+                    var tr = $(_this).parentsUntil("tbody", "tr");
+                    var td = $("td.cont_image", tr);
+                    var id = $(_this).prop("title");
+                    var url = "#springUrl("/json/publication/picture/")" + id + "/info";
+
+                    jQuery.getJSON(url, function (data) {
+                        if (!data.empty) {
+                            $(td).empty();
+                            $($('#thumb_template').jqote(data))
+                                    .appendTo(td)
+                                    .tooltip({
+                                        delay:0,
+                                        showURL:false,
+                                        bodyHandler:function () {
+                                            return $("<img/>").attr("src", this.src);
+                                        }
+                                    });
+
+                            $("a.clear", tr)
+                                    .removeClass("disabled")
+                                    .unbind("click");
+
+                            $("a.clear", tr).clickConfirm({
+                                position:"bottom",
+                                questionText:"Kosongkan gambar headline pengumuman ?",
+                                onProceed:function () {
+                                    $("#form_remove_message").submit();
+                                }
+                            });
+                        }
+                    });
+                }
+            });
+            return false;
+        });
+    });
+</script>
+</body>
+</html>

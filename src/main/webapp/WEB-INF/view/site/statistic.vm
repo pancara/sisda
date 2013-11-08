@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+    </title>
+</head>
+<body>
+<div class="statistic">
+    <h1>
+        <img src="#springUrl("/images/16x16/chart_curve.png")" />
+        Statistik Pengunjung
+    </h1>
+    <div class="content">
+        <table>
+            <tr>
+                <th>
+                    <img src="#springUrl("/images/16x16/calendar.png")" />
+                </th>
+                <th colspan="2">     
+                    per $dateTimeTool.format($today) WIB
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <img src="#springUrl("/images/16x16/user-online.png")" />
+                </td>
+                <td>
+                    Online user:
+                </td>
+                <td class="num">${system_session_count}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    Hari ini:
+                </td>
+                <td class="num">$!{count_today.count}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    Minggu ini:
+                </td>
+                <td class="num">$!{count_week}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+##                    <img src="#springUrl("/images/16x16/user-online.png")" />
+                    Bulan ini:
+                </td>
+                <td class="num">$!{count_month}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+##                    <img src="#springUrl("/images/16x16/user-online.png")" />
+                    Total Pengunjung:
+                </td>
+                <td class="num">$!{count_total}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

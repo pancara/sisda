@@ -1,0 +1,103 @@
+#macro(renderMap $renderData)
+    #foreach($c in $renderData.keySet())
+    <div class="folder">
+        <span class="label">
+            $c.name
+        </span>
+
+        <div class="children">
+            #set($children = $renderData.get($c))
+            #if ($collectionsTool.isList($children))
+                #foreach($map in $children)
+                    <div class="item_empty">
+                    <span class="label">
+                        <img src="#springUrl("/download/map/thumb/${map.id}/${map.filename}?width=40")"
+                             data-thumbURL='#springUrl("/download/map/thumb/${map.id}/${map.filename}?width=240")'/>
+                        $map.name
+                        <a href='#springUrl("/download/map/${map.id}/${map.filename}")'
+                           style="float: right; margin-left: 10px;" target="_blank">
+                            <img src="#springUrl("/images/filetype/$fileTool.getFileTypeIcon($!{map.filename})")"/>
+                        </a>
+                     </span>
+                    </div>
+                #end
+            #end
+
+            #if ($collectionsTool.isMap($children))
+                #renderMap($children)
+            #end
+        </div>
+    </div>
+    #end
+#end
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <img src='#springUrl("/images/16x16/map.png")'/><span>Peta</span>
+    </title>
+</head>
+<body>
+
+<div id="map">
+    <div>
+        <form action='#springUrl("/map/search.html")' style=" text-align: right;" class="search">
+            Pencarian :
+            <input type='text' name='keyword' value='$!{form.keyword}' style="width: 100px;"
+                   placeholder=" ..kata kunci.. "/>
+            &nbsp;
+            &nbsp;
+            Kategori :
+            <select id="category" name="category" style="">
+                #foreach($category in ${categoryList})
+                    #if ($category.id && $form.category == $category.id)
+                        <option value="$!{category.id}" selected="selected">${category.name}</option>
+                    #else
+                        <option value="$!{category.id}">${category.name}</option>
+                    #end
+                #end
+            </select>
+            <input type='submit' value='cari' class="btn"/>
+        </form>
+    </div>
+    <div class="clear">&nbsp;</div>
+    <div class="jquery_foldertree"
+         style="border: 1px solid #EEE;  padding: 8px; width: 540px; margin: 0px auto 0px auto; border-radius: 4px;">
+        #renderMap($mapCategories)
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#map div.item_empty span.label > img").tooltip({
+            delay: 500,
+            showURL: false,
+            bodyHandler: function () {
+                var thumbURL = $(this).attr("data-thumbURL");
+                return $("<img/>").attr("src", thumbURL)
+                        .css({"max-height": "400px"});
+            }
+        });
+
+        $("input[type=checkbox].select_all").click(function () {
+            var checked = $(this).prop("checked");
+            $("#map table input[type=checkbox]").attr("checked", checked);
+        });
+
+        $("div.jquery_foldertree div.folder > span.label").each(function () {
+            $(this).click(function () {
+                var children = $(this).siblings(".children");
+                children.slideToggle();
+            });
+        });
+
+        $("div.jquery_foldertree .children").each(function () {
+            $(this).slideUp();
+        });
+    });
+
+</script>
+</body>
+</html>

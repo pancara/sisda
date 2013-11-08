@@ -1,0 +1,47 @@
+<html>
+<head><title></title></head>
+<body>
+<div id="app_system">
+    <a href="http://www.bbws-so.net:8080/monitoring_banjir">
+        <img src="#springUrl("/images/links/apps/monitoring_banjir.png")"/>
+        <span>Monitoring Banjir</span>
+
+        <div class="clear">&nbsp;</div>
+    </a>
+    <a href="http://sermo.te.ugm.ac.id">
+        <img src="#springUrl("/images/links/apps/monitoring_deformasi_sermo.png")"/>
+        <span>Mon. Deformasi Bendungan Sermo</span>
+
+        <div class="clear">&nbsp;</div>
+    </a>
+
+    <a href="http://www.bbws-so.net:8080/inventory/">
+        <img src="#springUrl("/images/links/apps/inventory.png")"/>
+        <span>Inventory</span>
+
+        <div class="clear">&nbsp;</div>
+    </a>
+
+    <a href="//bbws-so.net/intranet/">
+        <img src="#springUrl("/images/links/apps/intranet.png")"/>
+        <span>Intranet</span>
+
+        <div class="clear">&nbsp;</div>
+    </a>
+
+    <a href="http://bbws-so.net:8080/hidrologi/">
+        <img src="#springUrl("/images/links/apps/hidrologi.png")"/>
+        <span>Hidrologi</span>
+
+        <div class="clear">&nbsp;</div>
+    </a>
+    <a href="http://bbws-so.net:8080/monitoring_banjir_lahar/">
+        <img src="#springUrl("/images/links/apps/monitoring_banjir_lahar.png")"/>
+        <span>Monitoring Banjir Lahar</span>
+
+        <div class="clear">&nbsp;</div>
+    </a>
+
+</div>
+</body>
+</html>

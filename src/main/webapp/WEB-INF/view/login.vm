@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="robots" content="index, follow"/>
+    <title>Login</title>
+</head>
+<body>
+
+#springBind("form")
+#if ($status.getErrors().getErrorCount() > 0)
+    <ul class='error'>
+        #foreach($error in $status.errorMessages)
+            <li>$error</li>
+        #end
+    </ul>
+#end
+
+<form method="post" id="form">
+    <span class="glyph">
+        <img src='#springUrl("/images/key_access.png")'/><br/>
+        administrator
+    </span>
+    <table>
+        <tr>
+            <td style="width: 110px;">User ID</td>
+            <td>
+                #springFormInput("form.userId", "style='width: 150px; ' class='text'")
+            </td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td>
+                #springFormPasswordInput("form.password", "style='width: 150px; ' class='text'")
+            </td>
+        </tr>
+        <tr>
+            <td>Kode verifikasi</td>
+            <td>
+                <img src='#springUrl("/login/captcha.html")'/><br/>
+                #springFormInput("form.captcha", "style='width: 150px; ' class='text'")
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Login" class="button" name='do_login'/>
+            </td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>

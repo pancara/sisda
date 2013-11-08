@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        &nbsp;&nbsp; Data Wilayah Sungai
+    </title>
+</head>
+<body>
+
+<div id="sda_content">
+    <h3 style="display: block;  border-bottom: 1px dotted #EEE; ">
+        Wilayah Sungai
+    </h3>
+
+    <div style="text-align: center;">
+        <img src="#springUrl("/images/sda/bendung/img_1.png")"
+             style="border-radius: 4px; box-shadow: 0px 0px 6px #AACCDD;"/>
+    </div>
+
+    <br/>
+    <div class="jquery_foldertree"
+         style="border: 1px solid #EEE;  padding: 8px; width: 540px; margin: 0px auto 0px auto; border-radius: 4px;">
+        <div class="title">
+            Data Wilayah Sungai :
+        </div>
+        #foreach($entryWilayahSungai in $dasData.entrySet())
+            <div class="item">
+                <span class="label">
+                    WS $entryWilayahSungai.key.name
+                    <a href="#springUrl("/download/sda/das/${entryWilayahSungai.key.id}/${das.filename}")"
+                       style="float: right;" target="_blank">
+                        <img src="#springUrl("/images/16x16/download.png")"/>
+                    </a>
+                </span>
+
+##                <div class="children">
+##                    #foreach($das in $entryWilayahSungai.value)
+##                        <div class="item">
+##                            <span class="label">
+##                                DAS ${das.name}
+##                                <a href="#springUrl("/download/sda/das/${das.id}/${das.filename}")"
+##                                   style="float: right;" target="_blank">
+##                                    <img src="#springUrl("/images/16x16/download.png")"/>
+##                                </a>
+##                            </span>
+##                        </div>
+##                    #end
+##                    #if ( $entryWilayahSungai.value.size() == 0)
+##                        <div class="item">
+##                                        <span class="empty">
+##                                            .. data tidak tersedia ..
+##                                        </span>
+##                        </div>
+##                    #end
+##                </div>
+            </div>
+        #end
+    </div>
+</div>
+
+<script type="text/javascript">
+    //<![CDATA[
+    $(document).ready(function () {
+        $("div.jquery_foldertree div.folder > span.label").each(function () {
+            $(this).click(function () {
+                var children = $(this).siblings(".children");
+                children.slideToggle();
+            });
+        });
+
+        $("div.jquery_foldertree .children").each(function () {
+            $(this).slideUp();
+        });
+    });
+
+    // ]]>
+</script>
+
+</body>
+</html>

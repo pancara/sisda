@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <span>TKPSDA</span>
+        &raquo;
+        <a href="#springUrl("/admin/tkpsda/jadwal_sidang/view.html")">Jadwal Sidang</a>
+        &raquo;
+        <a href="#springUrl("/admin/tkpsda/jadwal_sidang/view/${wilayahSungai.id}.html")">${wilayahSungai.name}</a>
+        &raquo;
+        <a href="#springUrl("/admin/tkpsda/jadwal_sidang/view/${wilayahSungai.id}/${year.id}.html")">${year.value}</a>
+        &raquo;
+        <span>Form Jadwal Sidang</span>
+    </title>
+</head>
+<body>
+<div id="schedule">
+    <div>
+        #springBind("form")
+        #if ($status.getErrors().getErrorCount() > 0)
+            <ul class='error'>
+                #foreach($error in $status.errorMessages)
+                    <li>$error</li>
+                #end
+            </ul>
+        #end
+
+
+        <form method='post'>
+            <table style='width: 95%;'>
+                <tr>
+                    <td style="width: 140px;" class="label">Judul</td>
+                    <td>#springFormTextarea("form.title", "style='width: 700px;' class='text'")</td>
+                </tr>
+                <tr>
+                    <td style="width: 140px;" class="label">Tgl Pelaksanaan</td>
+                    <td>
+                        #form_date("form.holdDate.date", "")
+                        #form_month("form.holdDate.month", "")
+                        #form_year("form.holdDate.year", 2010, 2020, "")
+                    </td>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">Keterangan:</td>
+                    <td>#springFormTextarea("form.content", "style='width: 550px; height: 80px;' class='text'")</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="submit" name='submit_action' class="button"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("form #content").ckeditor();
+    });
+</script>
+
+</body>
+</html>

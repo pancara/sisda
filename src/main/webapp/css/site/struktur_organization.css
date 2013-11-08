@@ -1,0 +1,28 @@
+#struktur_organisasi {
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 8px 0px;
+  display: block; }
+  #struktur_organisasi div {
+    margin: 4px auto 4px auto;
+    text-align: center; }
+    #struktur_organisasi div a.item {
+      display: inline-block;
+      width: 150px;
+      padding: 8px 2px 8px 2px;
+      margin: 16px;
+      text-align: center;
+      border-radius: 3px;
+      color: #444444;
+      font-family: Signika;
+      font-size: 12px;
+      font-weight: bold;
+      background: whitesmoke;
+      border: 1px solid #eeeeee;
+      box-shadow: 0px 0px 8px #eeeeee;
+      outline: none;
+      text-shadow: -2px -1px 2px white; }
+      #struktur_organisasi div a.item:hover {
+        border: 1px solid whitesmoke;
+        text-shadow: -2px -1px 2px white;
+        background: #ededed;
+        box-shadow: 0px 0px 12px #99ccff; }

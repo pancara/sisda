@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.integrasolusi.pusda.sisda.persistence.Link" table="link">
+        <id name="id" column="UID" type="java.lang.Long" unsaved-value="null">
+            <generator class="native"/>
+        </id>
+
+        <version name="version" access="field" column="OBJ_VERSION"/>
+
+        <property name="url" type="java.lang.String">
+            <column name="URL" sql-type="VARCHAR(255)"/>
+        </property>
+
+        <property name="description" type="java.lang.String">
+            <column name="DESCRIPTION" sql-type="TEXT"/>
+        </property>
+
+        <property name="published" type="boolean">
+            <column name="IS_ACTIVE" sql-type="tinyint" default="false"/>
+        </property>
+
+        <property name="index" type="java.lang.Long">
+            <column name="IDX" sql-type="BIGINT(20)"/>
+        </property>
+
+        <many-to-one name="type" class="com.integrasolusi.pusda.sisda.persistence.LinkType" column="TYPE"
+                     lazy="false"/>
+
+        <property name="filename" type="java.lang.String">
+            <column name="FILENAME" sql-type="VARCHAR(255)"/>
+        </property>
+    </class>
+</hibernate-mapping>

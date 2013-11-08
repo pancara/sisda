@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        &nbsp;&nbsp; Data SDA
+    </title>
+</head>
+<body>
+<h3>
+    TELAGA
+</h3>
+
+<div id="sda">
+</div>
+
+<script>
+    //    <![CDATA[
+    $("#sda > .item").hover(function () {
+        $(this).addClass("highlight");
+    }, function () {
+        $(this).removeClass("highlight");
+    })
+
+
+    $("#sda").masonry({
+        // options
+        columnWidth:150
+    });
+    //    ]]>
+
+</script>
+</body>
+</html>

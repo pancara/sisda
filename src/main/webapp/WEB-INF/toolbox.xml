@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<toolbox>
+    <tool>
+        <key>collectionsTool</key>
+        <scope>application</scope>
+        <class>com.integrasolusi.velocity.CollectionsTool</class>
+    </tool>
+    
+    <tool>
+        <key>esc</key>
+        <scope>application</scope>
+        <class>org.apache.velocity.tools.generic.EscapeTool</class>
+    </tool>
+
+    <tool>
+        <key>mathTool</key>
+        <scope>application</scope>
+        <class>org.apache.velocity.tools.generic.MathTool</class>
+    </tool>
+
+    <tool>
+        <key>numberTool</key>
+        <scope>application</scope>
+        <class>org.apache.velocity.tools.generic.NumberTool</class>
+        <parameter name="format" value="#0.000"/>
+        <parameter name="locale" value="id_ID"/>
+    </tool>
+
+    <tool>
+        <key>dateTool</key>
+        <scope>application</scope>
+        <class>com.integrasolusi.velocity.VelocityDateHelper</class>
+        <parameter name="format" value="d MMM yyyy"/>
+        <parameter name="locale" value="id_ID"/>
+    </tool>
+
+    <tool>
+        <key>dateTimeTool</key>
+        <scope>application</scope>
+        <class>com.integrasolusi.velocity.VelocityDateHelper</class>
+        <parameter name="format" value="d MMM yyyy kk.mm"/>
+        <parameter name="locale" value="id_ID"/>
+    </tool>
+
+    <tool>
+        <key>emailTool</key>
+        <scope>application</scope>
+        <class>com.integrasolusi.velocity.EmailTool</class>
+        <parameter name="noise" value="_"/>
+        <parameter name="minimal_noise_count" value="3"/>
+    </tool>
+
+    <tool>
+        <key>textTool</key>
+        <scope>application</scope>
+        <class>com.integrasolusi.velocity.TextTool</class>
+    </tool>
+
+    <tool>
+        <key>roleTool</key>
+        <scope>application</scope>
+        <class>com.integrasolusi.velocity.RoleTool</class>
+    </tool>
+
+    <tool>
+        <key>fileTool</key>
+        <scope>application</scope>
+        <class>com.integrasolusi.velocity.FileTool</class>
+        <parameter name="fileTypePropertiesSource" value="toolbox/file_type.properties"/>
+        <parameter name="defaultTypeIcon" value="file.png"/>
+    </tool>
+
+</toolbox>

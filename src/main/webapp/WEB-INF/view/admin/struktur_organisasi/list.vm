@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        Struktur Organisasi
+    </title>
+</head>
+<body>
+<div id="news">
+    <table>
+        <colgroup style="width: 20px"/>
+        <colgroup style="width: 20px"/>
+        <thead>
+        <tr>
+            <th>No.</th>
+            <th></th>
+            <th>Nama</th>
+            <th></th>
+        </tr>
+        </thead>
+        #foreach ($so in $soList)
+            <tr>
+                <td style="width: 24px;">${velocityCount}.</td>
+                <td>
+                    <a href="#springUrl("/download/admin/struktur_organisasi/${so.id}/${so.filename}")" target="_blank">
+                        <img src="#springUrl("/download/admin/struktur_organisasi/thumb/${so.id}/${so.filename}?width=60")"/>
+                    </a>
+                </td>
+                <td class="short_content">
+                    <a href="#springUrl("/popup/struktur_organisasi/view/$!{so.id}.html")" class="popup item">
+                        $so.name
+                    </a>
+
+                    <p>
+                        $so.description
+                    </p>
+                </td>
+                <td>
+                    <a href='#springUrl("/admin/struktur_organisasi/edit/${so.id}.html")' class='button'>
+                        edit
+                    </a>
+                </td>
+            </tr>
+            #set($row = $row + 1)
+        #end
+    </table>
+</div>
+<script type="text/javascript">
+    //<![CDATA[
+    $(document).ready(function () {
+        $(".popup").colorbox({width:"800px", height:"95%", iframe:true});
+    });
+    // ]]>
+</script>
+</body>
+</html>

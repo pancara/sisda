@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <span>TKPSDA</span>
+    </title>
+</head>
+<body>
+<div>
+    <h4>Tentang TKPSDA</h4>
+
+    <br/>
+
+    <p>
+        Wadah koordinasi pengelolaan sumber daya air amat diperlukan, mengingat fungsi air dalam kehidupan sebagai
+        kebutuhan pokok hidup, sebagai hak dasar, lintas sektor dan lintas wilayah, dan masih terjadinya krisis air di
+        musim kemarau. Tim Koordinasi Pengelolaan Sumber Daya Air (TKPSDA) adalah wadah koordinasi yang berfungsi
+        sebagai dewan pengarah kinerja organisasi/badan/lembaga yang berada di dalam suatu wilayah sungai. Tujuan
+        Pembentukan wadah koordinasi pengelolaan SDA:
+    </p>
+    <ul>
+        <li>Membangun keterpaduan tindak untuk menjaga kelangsungan fungsi dan manfaat air dan sumber air;</li>
+        <li>Mengintegrasikan kepentingan berbagai sektor yang terkait dengan sumber daya air.</li>
+    </ul>
+    <p>
+        Sesuai dengan amanat Undang Undang No 7 tahun 2004 Tentang Sumber Daya Air dan Peraturan Menteri Pekerjaan Umum
+        No 04/PRT/M/2008 Tentang Pedoman Pembentukan Wadah Koordinasi Pengelolaan Sumber Daya Air Pada Tingkat Provinsi,
+        Kabupaten/Kota dan Wilayah Sungai, maka dibentuk Tim Koordinasi Pengelolaan Sumber Daya Air Wilayah Sungai Progo
+        Opak Serang berdasarkan SK Menteri Nomor: 303/KPTS/M/2009 tanggal 1 April 2009 Tentang Pembentukan Tim
+        Koordinasi Pengelolaan Sumber Daya Air Wilayah Sungai Progo Opak Serang, yang terdiri dari 58 Anggota,
+        masing-masing berjumlah 29 berasal dari unsur pemerintah dan 29 orang berasal dari unsur non pemerintah. Ketua
+        Tim Koordinasi Pengelolaan Sumber Daya Air Wilayah Sungai Progo Opak Serang dijabat oleh kepala Badan
+        Perencanaan Pembangunan Daerah (BAPPEDA) Provinsi Daerah Istimewa Yogyakarta sedang Ketua Harian Tim Koordinasi
+        Pengelolaan Sumber Daya Air Wilayah Sungai Progo Opak Serang dijabat oleh Kepala Dinas PUP & ESDM Provinsi
+        Daerah Istimewa Yogyakarta.
+    </p>
+
+    <p>
+        Sesuai dengan amanat Undang Undang No 7 tahun 2004 Tentang Sumber Daya Air dan Peraturan Menteri Pekerjaan Umum
+        Nomor: 04/PRT/M/2008 Tentang Pedoman Pembentukan Wadah Koordinasi Pengelolaan Sumber Daya Air Pada Tingkat
+        Provinsi, Kabupaten/Kota dan Wilayah Sungai, maka dibentuk Tim Koordinasi Pengelolaan Sumber Daya Air Wilayah
+        Sungai Serayu Bogowonto berdasarkan Surat Keputusan Menteri Pekerjaan Umum Nomor: 304/KPTS/M/2009 tanggal 1
+        April 2009 Tentang Pembentukan Tim Koordinasi Pengelolaan Sumber Daya Air Wilayah Sungai Serayu Bogowonto, yang
+        terdiri dari 40 Anggota, masing-masing berjumlah 20 anggota berasal dari unsur pemerintah dan 20 anggota berasal
+        dari unsur non pemerintah. Ketua Tim Koordinasi Pengelolaan Sumber Daya Air Wilayah Sungai Serayu Bogowonto
+        dijabat oleh kepala Badan Perencanaan Pembangunan Daerah (BAPPEDA) Provinsi Jawa Tengah dan Ketua Harian Tim
+        Koordinasi Pengelolaan Sumber Daya Air Wilayah Sungai Serayu Bogowonto dijabat oleh Kepala Dinas Pengelolaan
+        Sumber Daya Air (PSDA) Provinsi Jawa Tengah.
+    </p>
+
+    <div class="jquery_foldertree"
+         style="border: 1px solid #EEE;  padding: 8px; width: 540px; margin: 0px auto 0px auto; border-radius: 4px;">
+        <div class="title">
+            TKPSDA
+        </div>
+        #set($items = [
+            ["jadwal_sidang", "Jadwal Sidang"],
+            ["hasil_sidang", "Hasil Sidang"],
+            ["event", "Dokumentasi"],
+            ["lain_lain", "Lain-lain"]
+        ])
+
+        #foreach($ws in $wilayahSungaiList)
+            <div class="folder">
+                <span class="label">
+                    WS $ws.name
+                </span>
+
+                <div class="children">
+                    #foreach($item in $items)
+                        <div class="item_html">
+                            #set($caption =$item.get(1))
+                            #set($module =$item.get(0))
+                            
+                            <span class="label">
+                                $caption    
+                                <a href="#springUrl("/tkpsda/$module/${ws.id}/view.html")"
+                                   style="float: right;">
+                                    <img src="#springUrl("/images/16x16/view.png")"/>
+                                </a>
+                            </span>
+                        </div>
+                    #end
+                </div>
+            </div>
+        #end
+    </div>
+</div>
+<script type="text/javascript">
+    //<![CDATA[
+    $("div.jquery_foldertree div.folder > span.label").each(function () {
+        $(this).click(function () {
+            var children = $(this).siblings(".children");
+            children.slideToggle();
+        });
+    });
+    // ]]>
+</script>
+</body>
+</html>

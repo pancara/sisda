@@ -1,0 +1,19 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        &nbsp;&nbsp; Progress Pekerjaan
+    </title>
+</head>
+<body>
+<div>
+    <h5>
+        ${progressPekerjaan.name}
+    </h5>
+    <div>
+        ${progressPekerjaan.description}
+    </div>
+</div>
+
+</body>
+</html>
