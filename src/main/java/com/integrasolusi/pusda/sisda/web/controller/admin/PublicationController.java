@@ -160,15 +160,15 @@ public class PublicationController {
     }
 
 
-    @RequestMapping(value = "publicaton/manage.html")
+    @RequestMapping(value = "publication/manage.html")
     public ModelAndView manage(@RequestParam(value = "page", required = false) Long page,
                                @RequestParam(value = "keyword", required = false) String keyword,
                                @RequestParam(value = "ids", required = false) Long[] ids) {
         return new ModelAndView(String.format("redirect:/admin/publication/%d.html?keyword=%s", page, keyword));
     }
 
-    @RequestMapping(value = "publicaton/manage.html", params = "remove")
-    public ModelAndView remove(@RequestParam(value = "page", required = false) Long page,
+    @RequestMapping(value = "publication/manage.html", params = "remove")
+    public ModelAndView removePubs(@RequestParam(value = "page", required = false) Long page,
                                @RequestParam(value = "keyword", required = false) String keyword,
                                @RequestParam(value = "ids", required = false) Long[] ids) {
 

@@ -26,48 +26,30 @@
             <div class="folder">
                 <span class="label">
                     WS $ws.name
+
                 </span>
 
                 <div class="children">
                     #set($mapDas = $mapWs.get($ws))
-                    #foreach($das in $mapDas.keySet())
-                        <div class="folder">
-                            <span class="label">
-                                $das.name
-                            </span>
-
-                            <div class="children">
-                                #set($mapPos = $mapDas.get($das))
-                                #foreach($pos in $mapPos.keySet())
-                                    <div class="folder">
-                                    <span class="label">
-                                        $!{pos.name}
+                    #if ($mapDas.size() > 0)
+                        #foreach($das in $mapDas.keySet())
+                            #set($listTMA = $mapDas.get($das))
+                            #foreach($tma in $listTMA)
+                                <div class="item">
+                                    <span class="label">${tma.description}
+                                        <a href="#springUrl("/download/sda/hidrologi/tinggi_muka_air/${tma.id}/${tma.filename}")"
+                                           style="float: right;" target="_blank">
+                                            <img src="#springUrl("/images/16x16/download.png")"/>
+                                        </a>
                                     </span>
-
-                                        <div class="children">
-                                            #set($listTMA = $mapPos.get($pos))
-                                            #if ($listTMA.size() > 0)
-                                                #foreach($tma in $listTMA)
-                                                    <div class="item">
-                                                    <span class="label">${tma.description}
-                                                        <a href="#springUrl("/download/sda/hidrologi/tinggi_muka_air/TMA/${tma.id}/${tma.filename}")"
-                                                           style="float: right;" target="_blank">
-                                                            <img src="#springUrl("/images/16x16/download.png")"/>
-                                                        </a>
-                                                    </span>
-                                                    </div>
-                                                #end
-                                            #else
-                                                <div class="item">
-                                                <span class="empty">
-                                                    - data tidak tersedia -
-                                                </span>
-                                                </div>
-                                            #end
-                                        </div>
-                                    </div>
-                                #end
-                            </div>
+                                </div>
+                            #end
+                        #end
+                    #else
+                        <div class="item">
+                            <span class="empty">
+                                - data tidak tersedia -
+                            </span>
                         </div>
                     #end
                 </div>

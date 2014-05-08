@@ -8,8 +8,7 @@ import com.integrasolusi.pusda.sisda.web.form.SearchMapForm;
 import com.integrasolusi.utils.ContentTypeUtils;
 import com.integrasolusi.utils.ImageUtils;
 import com.integrasolusi.utils.PagingHelper;
-import com.sun.image.codec.jpeg.JPEGCodec;
-import com.sun.image.codec.jpeg.JPEGImageEncoder;
+import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -73,8 +73,7 @@ public class MapController {
         if (mapCategoryService.childCount(category).intValue() > 0) {
             java.util.Map<MapCategory, Object> mapCategories = new LinkedHashMap<>();
             for (MapCategory c : mapCategoryService.findByParent(category, "name")) {
-                Object maps = getMaps(c);
-                mapCategories.put(c, maps);
+                mapCategories.put(c, getMaps(c));
             }
             return mapCategories;
         } else {
@@ -202,14 +201,7 @@ public class MapController {
         String contentType = contentTypeUtils.getContentType(map.getFilename());
         response.setContentType(contentType);
 
-        try {
-            InputStream is = mapService.getPictureStream(id);
-            BufferedImage scaledImage = imageUtils.resizeImage(is, w, h);
-            JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(response.getOutputStream());
-            encoder.encode(scaledImage);
-            response.getOutputStream().flush();
-        } catch (IOException e) {
-            logger.error(e.getMessage(), e);
-        }
+        String format = StringUtils.lowerCase(FilenameUtils.getExtension(map.getFilename()));
+        mapService.getBlob(id, w, h, response.getOutputStream(), format);
     }
 }

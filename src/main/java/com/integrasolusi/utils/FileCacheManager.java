@@ -10,16 +10,11 @@ import java.io.*;
  * Time: 12:57 PM
  */
 public class FileCacheManager {
-    private StreamHelper streamHelper;
     private String root;
     private String extension = "";
 
     public void setRoot(String root) {
         this.root = root;
-    }
-
-    public void setStreamHelper(StreamHelper streamHelper) {
-        this.streamHelper = streamHelper;
     }
 
     public void setExtension(String extension) {
@@ -32,12 +27,20 @@ public class FileCacheManager {
             return null;
         return new FileInputStream(file);
     }
-    
+
+
+    public boolean exist(String path, String key) {
+        File f = generateFile(path, key);
+        return f.exists();
+    }
 
     public void store(String path, String key, InputStream is) throws IOException {
         FileOutputStream os = new FileOutputStream(generateFile(path, key));
-        streamHelper.copy(is, os);
-        StreamHelper.closeQuiet(os);
+        try {
+            StreamHelper.copy(is, os);
+        } finally {
+            StreamHelper.closeQuiet(os);
+        }
     }
 
     public void reset(String path) throws IOException {

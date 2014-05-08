@@ -10,10 +10,14 @@ import com.integrasolusi.query.filter.CompositeFilter;
 import com.integrasolusi.query.filter.QueryOperator;
 import com.integrasolusi.query.filter.ValueFilter;
 import com.integrasolusi.query.util.OrderDir;
+import com.integrasolusi.utils.ImageUtils;
+import com.integrasolusi.utils.StreamHelper;
+import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang.StringUtils;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.*;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -26,6 +30,7 @@ public class MapServiceImpl implements MapService {
     private MapDao mapDao;
     private MapCategoryDao mapCategoryDao;
     private BlobRepository blobRepository;
+    private ImageUtils imageUtils;
 
     public void setMapDao(MapDao mapDao) {
         this.mapDao = mapDao;
@@ -37,6 +42,10 @@ public class MapServiceImpl implements MapService {
 
     public void setBlobRepository(BlobRepository blobRepository) {
         this.blobRepository = blobRepository;
+    }
+
+    public void setImageUtils(ImageUtils imageUtils) {
+        this.imageUtils = imageUtils;
     }
 
     @Override
@@ -70,8 +79,17 @@ public class MapServiceImpl implements MapService {
     }
 
     @Override
-    public InputStream getPictureStream(Long id) throws IOException {
-        return blobRepository.getStream(BlobDataType.MAP, id);
+    public void getBlob(Long id, Integer w, Integer h, OutputStream os, String format) throws IOException {
+        File temp = blobRepository.getTempFile(BlobDataType.MAP, id);
+        if (temp == null) return;
+        InputStream is = new FileInputStream(temp);
+        try {
+            BufferedImage image = imageUtils.resizeImage(is, w, h);
+            ImageIO.write(image, format, os);
+        } finally {
+            StreamHelper.closeQuiet(is);
+            temp.delete();
+        }
     }
 
     @Override

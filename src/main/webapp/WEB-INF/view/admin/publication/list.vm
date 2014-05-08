@@ -59,7 +59,7 @@
                 </th>
             </tr>
             </thead>
-            #set($row = $start_row + 1)
+            #set($row = $start + 1)
             #foreach ($publication in $publicationList)
                 <tr>
 

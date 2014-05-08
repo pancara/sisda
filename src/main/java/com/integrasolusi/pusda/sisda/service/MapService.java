@@ -6,6 +6,7 @@ import com.integrasolusi.query.filter.ValueFilter;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.List;
 
 /**
@@ -26,7 +27,7 @@ public interface MapService {
 
     void getDocument(Long id, java.io.OutputStream outputStream) throws IOException;
 
-    InputStream getPictureStream(Long id) throws IOException;
+    void getBlob(Long id, Integer w, Integer h, OutputStream os, String format) throws IOException;
 
     Boolean hasPicture(Long id);
 

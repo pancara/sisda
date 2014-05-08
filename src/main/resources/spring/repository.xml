@@ -5,10 +5,8 @@
 
     <bean id="blobRepository" class="com.integrasolusi.pusda.sisda.repository.BlobRepositoryImpl"
           init-method="init">
-        <property name="streamHelper" ref="streamHelper"/>
         <property name="dataDir" value="${repository.dataDir}"/>
         <property name="bufferDir" value="${repository.bufferDir}"/>
-
         <property name="extension" value="${repository.extension}"/>
     </bean>
 </beans>

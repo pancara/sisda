@@ -14,6 +14,7 @@ import com.integrasolusi.query.util.OrderDir;
 import com.integrasolusi.utils.FileCacheManager;
 import com.integrasolusi.utils.ImageUtils;
 import com.integrasolusi.utils.StreamHelper;
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang.StringUtils;
 
@@ -214,19 +215,31 @@ public class NewsServiceImpl implements NewsService {
         String path = getCachePath(id);
         String key = getCacheKey(width, height);
 
-        InputStream is = fileCacheManager.getStream(path, key);
-        if (is != null) {
-
-
-            return;
-        }
-
-        is = blobRepository.getStream(BlobDataType.NEWS_PHOTO, id);
-        BufferedImage image = imageUtils.resizeImage(is, width, height);
-
         News news = newsDao.findById(id);
         String format = StringUtils.lowerCase(FilenameUtils.getExtension(news.getPhotoFilename()));
-        imageUtils.writeImage(image, format, outputStream);
+
+
+        if (fileCacheManager.exist(path, key)) {
+            InputStream is = fileCacheManager.getStream(path, key);
+            try {
+                StreamHelper.copy(is, outputStream);
+            } finally {
+                StreamHelper.closeQuiet(is);
+            }
+        } else {
+
+            File temp = blobRepository.getTempFile(BlobDataType.NEWS_PHOTO, id);
+            InputStream is = new FileInputStream(temp);
+            try {
+                BufferedImage image = imageUtils.resizeImage(is, width, height);
+                imageUtils.writeImage(image, format, outputStream);
+                storeImageToFileCache(path, key, image, format);
+            } finally {
+                StreamHelper.closeQuiet(is);
+                FileUtils.deleteQuietly(temp);
+            }
+        }
+
     }
 
     private String getCacheKey(Integer w, Integer h) {
@@ -241,10 +254,12 @@ public class NewsServiceImpl implements NewsService {
         ByteArrayOutputStream os = new ByteArrayOutputStream();
         ImageIO.write(resized, format, os);
         InputStream is = new ByteArrayInputStream(os.toByteArray());
-        fileCacheManager.store(path, key, is);
-
-        StreamHelper.closeQuiet(is);
-        StreamHelper.closeQuiet(os);
+        try {
+            fileCacheManager.store(path, key, is);
+        } finally {
+            StreamHelper.closeQuiet(is);
+            StreamHelper.closeQuiet(os);
+        }
     }
 
     @Override

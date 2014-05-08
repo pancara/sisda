@@ -1,6 +1,7 @@
 package com.integrasolusi.pusda.sisda.persistence.sda.hidrologi;
 
 import com.integrasolusi.pusda.sisda.persistence.Year;
+import com.integrasolusi.pusda.sisda.persistence.region.Das;
 
 import java.io.Serializable;
 
@@ -13,7 +14,7 @@ public class TinggiMukaAir implements Serializable {
     private Long id;
     private Integer version;
     private String description;
-    private PosTMA pos;
+    private Das das;
     private Year year;
 
     private String filename;
@@ -62,11 +63,11 @@ public class TinggiMukaAir implements Serializable {
         this.description = description;
     }
 
-    public PosTMA getPos() {
-        return pos;
+    public Das getDas() {
+        return das;
     }
 
-    public void setPos(PosTMA pos) {
-        this.pos = pos;
+    public void setDas(Das das) {
+        this.das = das;
     }
 }

@@ -29,9 +29,6 @@ public class SungaiSabodamController {
     private static Logger logger = LoggerFactory.getLogger(SungaiSabodamController.class);
 
     @Autowired
-    private StreamHelper streamHelper;
-
-    @Autowired
     private ImageUtils imageUtils;
 
     @Autowired

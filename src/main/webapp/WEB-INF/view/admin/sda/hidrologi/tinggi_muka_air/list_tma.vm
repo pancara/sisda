@@ -8,15 +8,13 @@
         &#187;
         <a href="#springUrl("/admin/sda/hidrologi/tinggi_muka_air/list/${ws.id}/${das.id}.html")">${das.name}</a>
         &#187;
-        <a href="#springUrl("/admin/sda/hidrologi/tinggi_muka_air/list/${ws.id}/${das.id}/${pos.id}.html")">${pos.name}</a>
-        &#187;
         <span>Data Tinggi Muka Air</span>
     </title>
 </head>
 <body>
 <div id="curah_hujan">
     <div>
-        <form action="#springUrl("/admin/sda/hidrologi/tinggi_muka_air/${ws.id}/${das.id}/${pos.id}/remove.html")" method="post">
+        <form action="#springUrl("/admin/sda/hidrologi/tinggi_muka_air/${ws.id}/${das.id}/remove.html")" method="post">
             <table class="no_border">
                 <col style="width: 20px"/>
                 <col style="width: 20px"/>
@@ -36,7 +34,7 @@
                     <th>Tahun</th>
                     <th></th>
                     <th>
-                        <a href='#springUrl("/admin/sda/hidrologi/tinggi_muka_air/${ws.id}/${das.id}/${pos.id}/add.html")' class='button'>
+                        <a href='#springUrl("/admin/sda/hidrologi/tinggi_muka_air/${ws.id}/${das.id}/add.html")' class='button'>
                             baru
                         </a>
                     </th>
@@ -69,7 +67,7 @@
                             #end
                         </td>
                         <td>
-                            <a href='#springUrl("/admin/sda/hidrologi/tinggi_muka_air/${ws.id}/${das.id}/${pos.id}/edit/${tma.id}.html")' class='button'>
+                            <a href='#springUrl("/admin/sda/hidrologi/tinggi_muka_air/${ws.id}/${das.id}/edit/${tma.id}.html")' class='button'>
                                 edit
                             </a>
                         </td>

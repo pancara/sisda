@@ -1,14 +1,14 @@
-#macro(renderMap $renderData)
-    #foreach($c in $renderData.keySet())
+#macro(renderMap $stack)
+    #set ($context = $stack.pop())
+    #foreach($c in $context.get("data").keySet())
     <div class="folder">
         <span class="label">
             $c.name
         </span>
 
         <div class="children">
-            #set($children = $renderData.get($c))
-            #if ($collectionsTool.isList($children))
-                #foreach($map in $children)
+            #if ($collectionsTool.isList($context.get("data").get($c)))
+                #foreach($map in $context.get("data").get($c))
                     <div class="item_empty">
                     <span class="label">
                         <img src="#springUrl("/download/map/thumb/${map.id}/${map.filename}?width=40")"
@@ -23,8 +23,14 @@
                 #end
             #end
 
-            #if ($collectionsTool.isMap($children))
-                #renderMap($children)
+            #if ($collectionsTool.isMap($context.get("data").get($c)))
+                #set($temp = $context.get("data").get($c))
+                #set ($context.data = $temp)
+
+                $stack.push($context)
+                $stack.push($newContext)
+                #renderMap($stack)
+                #set($context = $stack.pop())
             #end
         </div>
     </div>
@@ -62,9 +68,12 @@
         </form>
     </div>
     <div class="clear">&nbsp;</div>
-    <div class="jquery_foldertree"
-         style="border: 1px solid #EEE;  padding: 8px; width: 540px; margin: 0px auto 0px auto; border-radius: 4px;">
-        #renderMap($mapCategories)
+    <div class="jquery_foldertree" style="border: 1px solid #EEE;  padding: 8px; width: 540px; margin: 0px auto 0px auto; border-radius: 4px;">
+        #set($stack = $collectionsTool.newList())
+        #set ($context = {})
+        #set($context.data = $mapCategories)
+        $stack.push($context)
+        #renderMap($stack)
     </div>
 </div>
 
@@ -81,12 +90,12 @@
             }
         });
 
-        $("input[type=checkbox].select_all").click(function () {
+        jQuery("input[type=checkbox].select_all").click(function () {
             var checked = $(this).prop("checked");
             $("#map table input[type=checkbox]").attr("checked", checked);
         });
 
-        $("div.jquery_foldertree div.folder > span.label").each(function () {
+        jQuery("div.jquery_foldertree div.folder > span.label").each(function () {
             $(this).click(function () {
                 var children = $(this).siblings(".children");
                 children.slideToggle();

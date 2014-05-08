@@ -8,10 +8,10 @@ import java.io.*;
  * Time         : 3:59 PM
  */
 public class StreamHelper {
-    private int bufferSize = 1024 * 16;
+    private static int bufferSize = 1024 * 16;
 
 
-    public void copy(InputStream source, OutputStream target, int bufferSize) throws IOException {
+    public static void copy(InputStream source, OutputStream target, int bufferSize) throws IOException {
         byte[] buffer = new byte[bufferSize];
         while (source.available() > 0) {
             int readCount = source.read(buffer);
@@ -19,11 +19,11 @@ public class StreamHelper {
         }
     }
 
-    public void copy(InputStream source, OutputStream target) throws IOException {
+    public static void copy(InputStream source, OutputStream target) throws IOException {
         copy(source, target, bufferSize);
     }
 
-    public void copyFile(File source, File target) throws IOException {
+    public static void copyFile(File source, File target) throws IOException {
         InputStream is = new FileInputStream(source);
         OutputStream os = new FileOutputStream(target);
         try {

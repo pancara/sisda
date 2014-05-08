@@ -12,6 +12,9 @@ import com.integrasolusi.pusda.sisda.repository.BlobRepository;
 import com.integrasolusi.utils.FileCacheManager;
 import com.integrasolusi.utils.ImageUtils;
 import com.integrasolusi.utils.StreamHelper;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.math.RandomUtils;
 
 import javax.imageio.ImageIO;
@@ -31,7 +34,6 @@ public class SlideServiceImpl implements SlideService {
     private BlobRepository blobRepository;
     private FileCacheManager fileCacheManager;
     private ImageUtils imageUtils;
-    private StreamHelper streamHelper;
 
     public void setSlideDao(SlideDao slideDao) {
         this.slideDao = slideDao;
@@ -49,9 +51,6 @@ public class SlideServiceImpl implements SlideService {
         this.imageUtils = imageUtils;
     }
 
-    public void setStreamHelper(StreamHelper streamHelper) {
-        this.streamHelper = streamHelper;
-    }
 
     @Override
     public List<Slide> getPublished() {
@@ -190,20 +189,28 @@ public class SlideServiceImpl implements SlideService {
         String path = getCachePath(id);
         String key = getCacheKey(w, h);
 
-        InputStream is = fileCacheManager.getStream(path, key);
-        if (is == null) {
-            is = blobRepository.getStream(BlobDataType.SLIDE, id);
-            if (is != null) {
-                BufferedImage resized = imageUtils.resizeImage(is, w, h);
-                storeImageToFileCache(path, key, resized);
+        if (fileCacheManager.exist(path, key)) {
+            InputStream is = fileCacheManager.getStream(path, key);
+            try {
+                StreamHelper.copy(is, os);
+            } finally {
                 StreamHelper.closeQuiet(is);
             }
-        }
-
-        is = fileCacheManager.getStream(path, key);
-        if (is != null) {
-            streamHelper.copy(is, os);
-            StreamHelper.closeQuiet(is);
+        } else {
+            File tempFile = blobRepository.getTempFile(BlobDataType.SLIDE, id);
+            if (tempFile != null) {
+                InputStream is = new FileInputStream(tempFile);
+                Slide slide = slideDao.findById(id);
+                try {
+                    BufferedImage resized = imageUtils.resizeImage(is, w, h);
+                    String format = StringUtils.lowerCase(FilenameUtils.getExtension(slide.getFilename()));
+                    ImageIO.write(resized, format, os);
+                    storeImageToFileCache(path, key, resized, format);
+                } finally {
+                    StreamHelper.closeQuiet(is);
+                    FileUtils.deleteQuietly(tempFile);
+                }
+            }
         }
     }
 
@@ -242,13 +249,19 @@ public class SlideServiceImpl implements SlideService {
         return String.format("%s/%d", Slide.class.getSimpleName(), id);
     }
 
-    private void storeImageToFileCache(String path, String key, BufferedImage resized) throws IOException {
-        ByteArrayOutputStream os = new ByteArrayOutputStream();
-        ImageIO.write(resized, "PNG", os);
-        InputStream is = new ByteArrayInputStream(os.toByteArray());
-        fileCacheManager.store(path, key, is);
+    private void storeImageToFileCache(String path, String key, BufferedImage resized, String format) throws IOException {
+        ByteArrayOutputStream os = null;
+        InputStream is = null;
+        try {
+            os = new ByteArrayOutputStream();
+            ImageIO.write(resized, format, os);
+            is = new ByteArrayInputStream(os.toByteArray());
+            fileCacheManager.store(path, key, is);
+        } finally {
+            StreamHelper.closeQuiet(is);
+            StreamHelper.closeQuiet(os);
+        }
 
-        StreamHelper.closeQuiet(is);
-        StreamHelper.closeQuiet(os);
+
     }
 }

@@ -10,7 +10,9 @@
     <meta name="keywords"
           content="sisda, sistem informasi sumber daya air, BBWSSO, hidrologi, waduk, embung, yogyakarta"/>
     <meta name="description" content="sistem informasi sumber daya air, BBWSSO, hidrologi, waduk, embung, yogyakarta"/>
+
     <link rel="shortcut icon" href='<c:url value="/images/logo.png"/>' type="image/png"/>
+
     <decorator:head/>
 
     <link href='<c:url value="/css/site/font.css"/>' rel="stylesheet" type="text/css"/>
@@ -32,6 +34,7 @@
     <%--<script src='<c:url value="/js/jquery.vticker.js"/>' type="text/javascript"></script>--%>
     <script src='<c:url value="/js/jquery.center.js"/>' type="text/javascript"></script>
     <script src='<c:url value="/js/jquery.wj_progress_indicator.js"/>' type="text/javascript"></script>
+
     <script type="text/javascript">
         $(document).ready(function () {
             $("#btn_to_top").click(function () {
@@ -55,7 +58,6 @@
         <div id="sidebar-left">
             <page:apply-decorator name="body_only" page="/menu.html"/>
             <page:apply-decorator name="body_only" page="/side_panel/leaflet.html"/>
-            <page:apply-decorator name="body_only" page="/side_panel/publication.html"/>
             <page:apply-decorator name="body_only" page="/side_panel/calendar.html"/>
             <page:apply-decorator name="body_only" page="/side_panel/guest_book_form.html"/>
         </div>
@@ -72,9 +74,11 @@
         </div>
         <div id="sidebar-right">
             <page:apply-decorator name="body_only" page="/side_panel/ffws.html"/>
+            <page:apply-decorator name="body_only" page="/side_panel/publication.html"/>
             <page:apply-decorator name="body_only" page="/side_panel/presentation/meeting.html"/>
             <page:apply-decorator name="body_only" page="/side_panel/application.html"/>
             <page:apply-decorator name="body_only" page="/side_panel/institution.html"/>
+
             <%--<page:apply-decorator name="body_only" page="/side_panel/media.html"/>--%>
 
         </div>
@@ -83,7 +87,9 @@
             &nbsp;
         </div>
     </div>
+
     <%@include file="includes/footer.jsp" %>
+
     <div class="clear"></div>
 </div>
 </body>

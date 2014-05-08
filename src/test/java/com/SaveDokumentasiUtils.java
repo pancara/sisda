@@ -4,6 +4,7 @@ import com.integrasolusi.pusda.sisda.persistence.Dokumentasi;
 import com.integrasolusi.pusda.sisda.persistence.DokumentasiPhoto;
 import com.integrasolusi.pusda.sisda.service.DokumentasiService;
 import com.integrasolusi.pusda.sisda.service.DokumentasiPhotoService;
+import com.integrasolusi.utils.StreamHelper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,7 +76,7 @@ public class SaveDokumentasiUtils {
                 } catch (Exception e) {
                     e.printStackTrace();
                 } finally {
-                    is.close();
+                    StreamHelper.closeQuiet(is);
                 }
             }
         }

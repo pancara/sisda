@@ -22,7 +22,6 @@ import java.io.IOException;
 @Controller
 public class PersonController {
     private PersonService personService;
-    private StreamHelper streamHelper;
     private ContentTypeUtils contentTypeUtils;
 
 
@@ -34,11 +33,6 @@ public class PersonController {
     @Autowired
     public void setPersonService(PersonService personService) {
         this.personService = personService;
-    }
-
-    @Autowired
-    public void setStreamHelper(StreamHelper streamHelper) {
-        this.streamHelper = streamHelper;
     }
 
     @RequestMapping("/person/photo/{id}.html")
@@ -65,7 +59,7 @@ public class PersonController {
         String contentType = contentTypeUtils.getContentType(unavailablePhoto);
         response.setContentType(contentType);
 
-        streamHelper.copy(source, response.getOutputStream());
+        StreamHelper.copy(source, response.getOutputStream());
         response.flushBuffer();
         source.close();
 

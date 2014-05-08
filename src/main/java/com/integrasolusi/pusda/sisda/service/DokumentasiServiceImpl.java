@@ -10,9 +10,11 @@ import com.integrasolusi.pusda.sisda.persistence.Dokumentasi;
 import com.integrasolusi.pusda.sisda.persistence.DokumentasiPhoto;
 import com.integrasolusi.pusda.sisda.repository.BlobDataType;
 import com.integrasolusi.pusda.sisda.repository.BlobRepository;
+import com.integrasolusi.utils.ImageUtils;
 
-import java.io.IOException;
-import java.io.InputStream;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.*;
 import java.util.List;
 
 /**
@@ -25,6 +27,8 @@ public class DokumentasiServiceImpl implements DokumentasiService {
     private DokumentasiPhotoDao dokumentasiPhotoDao;
     private BlobRepository blobRepository;
 
+    private ImageUtils imageUtils;
+
     public void setDokumentasiDao(DokumentasiDao dokumentasiDao) {
         this.dokumentasiDao = dokumentasiDao;
     }
@@ -35,6 +39,10 @@ public class DokumentasiServiceImpl implements DokumentasiService {
 
     public void setBlobRepository(BlobRepository blobRepository) {
         this.blobRepository = blobRepository;
+    }
+
+    public void setImageUtils(ImageUtils imageUtils) {
+        this.imageUtils = imageUtils;
     }
 
     @Override
@@ -70,10 +78,10 @@ public class DokumentasiServiceImpl implements DokumentasiService {
         blobRepository.store(BlobDataType.DOKUMENTASI_HEADLINE, galleryId, is);
     }
 
-    @Override
-    public InputStream getTitlePictureStream(Long galleryId) throws IOException {
-        return blobRepository.getStream(BlobDataType.DOKUMENTASI_HEADLINE, galleryId);
-    }
+//    @Override
+//    public InputStream getTitlePictureStream(Long galleryId) throws IOException {
+//        return blobRepository.getTempFile(BlobDataType.DOKUMENTASI_HEADLINE, galleryId);
+//    }
 
     @Override
     public Boolean hasTitlePicture(Long galleryId) {
@@ -161,6 +169,18 @@ public class DokumentasiServiceImpl implements DokumentasiService {
             Dokumentasi doc = dokumentasiDao.findById(id);
             doc.setPublished(false);
             dokumentasiDao.save(doc);
+        }
+    }
+
+    @Override
+    public void getResizedTitlePicture(Long id, Integer width, Integer height, OutputStream outputStream) throws IOException {
+        File file = blobRepository.getTempFile(BlobDataType.DOKUMENTASI_HEADLINE, id);
+        try {
+            InputStream is = new FileInputStream(file);
+            BufferedImage image = imageUtils.resizeImage(is, width, height);
+            ImageIO.write(image, "jpeg", outputStream);
+        } finally {
+            file.delete();
         }
     }
 }

@@ -43,7 +43,6 @@ public class PopulatorManager {
     }
 
     public synchronized void start() {
-        logger.info("starting data populator");
         ensureShutdown();
         scheduler = Executors.newScheduledThreadPool(1);
         scheduler.scheduleWithFixedDelay(dataPopulator, 0, delay, TimeUnit.SECONDS);
@@ -64,7 +63,6 @@ public class PopulatorManager {
     }
 
     public synchronized void stop() {
-        logger.info("stopping data populator");
 
         dataPopulator.stop();
         scheduler.shutdown();

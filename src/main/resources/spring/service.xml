@@ -22,6 +22,7 @@
         <property name="blobRepository" ref="blobRepository"/>
         <property name="dokumentasiDao" ref="dokumentasiDao"/>
         <property name="dokumentasiPhotoDao" ref="dokumentasiPhotoDao"/>
+        <property name="imageUtils" ref="imageUtils"/>
     </bean>
 
     <bean id="dokumentasiPhotoService" class="com.integrasolusi.pusda.sisda.service.DokumentasiPhotoServiceImpl">
@@ -29,7 +30,6 @@
         <property name="blobRepository" ref="blobRepository"/>
         <property name="fileCacheManager" ref="fileCacheManager"/>
         <property name="imageUtils" ref="imageUtils"/>
-        <property name="streamHelper" ref="streamHelper"/>
     </bean>
 
     <!--<bean id="galleryService" class="com.integrasolusi.pusda.sisda.service.DokumentasiServiceImpl">-->
@@ -47,7 +47,6 @@
     <bean id="photoService" class="com.integrasolusi.pusda.sisda.service.PhotoServiceImpl">
         <property name="photoDao" ref="photoDao"/>
         <property name="blobRepository" ref="blobRepository"/>
-        <property name="streamHelper" ref="streamHelper"/>
         <property name="fileCacheManager" ref="fileCacheManager"/>
         <property name="imageUtils" ref="imageUtils"/>
     </bean>
@@ -103,7 +102,6 @@
         <property name="blobRepository" ref="blobRepository"/>
         <property name="fileCacheManager" ref="fileCacheManager"/>
         <property name="imageUtils" ref="imageUtils"/>
-        <property name="streamHelper" ref="streamHelper"/>
     </bean>
 
     <bean id="bookService" class="com.integrasolusi.pusda.sisda.service.BookServiceImpl">
@@ -142,6 +140,7 @@
         <property name="mapDao" ref="mapDao"/>
         <property name="mapCategoryDao" ref="mapCategoryDao"/>
         <property name="blobRepository" ref="blobRepository"/>
+        <property name="imageUtils" ref="imageUtils"/>
     </bean>
 
     <bean id="mapCategoryService" class="com.integrasolusi.pusda.sisda.service.MapCategoryServiceImpl">
@@ -259,11 +258,6 @@
         <property name="blobRepository" ref="blobRepository"/>
     </bean>
 
-    <bean id="posTMAService" class="com.integrasolusi.pusda.sisda.service.sda.hidrologi.PosTMAServiceImpl">
-        <property name="posTMADao" ref="posTMADao"/>
-        <property name="blobRepository" ref="blobRepository"/>
-    </bean>
-
     <bean id="kualitasAirService" class="com.integrasolusi.pusda.sisda.service.sda.hidrologi.KualitasAirServiceImpl">
         <property name="kualitasAirDao" ref="kualitasAirDao"/>
         <property name="blobRepository" ref="blobRepository"/>
@@ -298,7 +292,6 @@
         <property name="blobRepository" ref="blobRepository"/>
         <property name="fileCacheManager" ref="fileCacheManager"/>
         <property name="imageUtils" ref="imageUtils"/>
-        <property name="streamHelper" ref="streamHelper"/>
     </bean>
 
     <!-- TKPSDA -->
@@ -326,7 +319,6 @@
         <property name="blobRepository" ref="blobRepository"/>
         <property name="eventPictureDao" ref="eventPictureDao"/>
         <property name="fileCacheManager" ref="fileCacheManager"/>
-        <property name="streamHelper" ref="streamHelper"/>
         <property name="imageUtils" ref="imageUtils"/>
     </bean>
 
@@ -363,7 +355,6 @@
         <property name="blobRepository" ref="blobRepository"/>
         <property name="fileCacheManager" ref="fileCacheManager"/>
         <property name="imageUtils" ref="imageUtils"/>
-        <property name="streamHelper" ref="streamHelper"/>
     </bean>
 
     <bean id="tickerService" class="com.integrasolusi.pusda.sisda.service.TickerServiceImpl">

@@ -20,8 +20,6 @@ public interface DokumentasiPhotoService {
 
     List<DokumentasiPhoto> findByDokumentasi(Dokumentasi dokumentasi, Long start, Long count);
 
-    InputStream getStream(Long id) throws IOException;
-
     void getBlob(Long id, OutputStream os) throws IOException;
 
     void getBlob(Long id, Integer w, Integer h, OutputStream os) throws IOException;

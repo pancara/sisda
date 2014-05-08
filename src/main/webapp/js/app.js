@@ -264,8 +264,6 @@ function get_ffws_chart_options() {
 
 function ffws_update_side_panel() {
     var url = site + "ajax/side_panel/ffws.html";
-    console.log(url);
-    
     $.get(url, function (data) {
         $("#sidebar-right > .ffws").replaceWith($(data));
     });

@@ -8,8 +8,6 @@ package com.integrasolusi.pusda.sisda.web.controller.site;
 
 import com.integrasolusi.pusda.sisda.persistence.Slide;
 import com.integrasolusi.pusda.sisda.service.SlideService;
-import com.sun.image.codec.jpeg.JPEGCodec;
-import com.sun.image.codec.jpeg.JPEGImageEncoder;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.json.MappingJacksonJsonView;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -43,8 +42,7 @@ public class SlideController {
         try {
             BufferedImage image = slideService.getPicture(id);
             response.setContentType("image/jpg");
-            JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(response.getOutputStream());
-            encoder.encode(image);
+            ImageIO.write(image, "jpeg", response.getOutputStream());
             response.getOutputStream().flush();
         } catch (IOException e) {
             logger.error(e);

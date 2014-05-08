@@ -4,6 +4,7 @@ import com.integrasolusi.pusda.sisda.persistence.regulation.Folder;
 import com.integrasolusi.pusda.sisda.persistence.regulation.Regulation;
 import com.integrasolusi.pusda.sisda.service.RegulationFolderService;
 import com.integrasolusi.pusda.sisda.service.RegulationService;
+import com.integrasolusi.utils.StreamHelper;
 import org.apache.commons.io.FilenameUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -64,7 +65,7 @@ public class RegulationDataPopulator {
                 } catch (Exception e) {
                     e.printStackTrace();
                 } finally {
-                    is.close();
+                    StreamHelper.closeQuiet(is);
                 }
             }
             idx++;

@@ -2,10 +2,8 @@ package com.integrasolusi.pusda.sisda.web.controller.site.sda.hidrologi;
 
 import com.integrasolusi.pusda.sisda.persistence.region.Das;
 import com.integrasolusi.pusda.sisda.persistence.region.WilayahSungai;
-import com.integrasolusi.pusda.sisda.persistence.sda.hidrologi.PosTMA;
 import com.integrasolusi.pusda.sisda.persistence.sda.hidrologi.TinggiMukaAir;
 import com.integrasolusi.pusda.sisda.service.sda.*;
-import com.integrasolusi.pusda.sisda.service.sda.hidrologi.PosTMAService;
 import com.integrasolusi.pusda.sisda.service.sda.hidrologi.TinggiMukaAirService;
 import com.integrasolusi.utils.ContentTypeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +26,6 @@ import java.util.Map;
 
 @Controller
 public class TinggiMukaAirController {
-    @Autowired
-    private PosTMAService posTMAService;
 
     @Autowired
     private TinggiMukaAirService tinggiMukaAirService;
@@ -51,14 +47,9 @@ public class TinggiMukaAirController {
 
         List<WilayahSungai> listWs = wilayahSungaiService.findAlls();
         for (WilayahSungai ws : listWs) {
-            List<Das> listDas = dasService.findByWilayahSungai(ws);
-            Map<Das, Map> mapDas = new LinkedHashMap<>();
-            for (Das das : listDas) {
-                Map<PosTMA, List> mapPos = new LinkedHashMap<>();
-                for (PosTMA pos : posTMAService.findByDas(das)) {
-                    mapPos.put(pos, tinggiMukaAirService.findByPos(pos));
-                }
-                mapDas.put(das, mapPos);
+            Map<Das, List> mapDas = new LinkedHashMap<>();
+            for (Das das : dasService.findByWilayahSungai(ws)) {
+                mapDas.put(das, tinggiMukaAirService.findByDas(das));
             }
 
             mapWs.put(ws, mapDas);
@@ -69,7 +60,7 @@ public class TinggiMukaAirController {
         return mav;
     }
 
-    @RequestMapping("/sda/hidrologi/tinggi_muka_air/TMA/{id}/**")
+    @RequestMapping("/sda/hidrologi/tinggi_muka_air/{id}/**")
     public void downloadTMA(@PathVariable("id") Long id, HttpServletResponse response) throws IOException {
         TinggiMukaAir tma = tinggiMukaAirService.findById(id);
         if (tma == null)
@@ -79,14 +70,5 @@ public class TinggiMukaAirController {
         tinggiMukaAirService.getBlob(id, response.getOutputStream());
     }
 
-    @RequestMapping("/sda/hidrologi/tinggi_muka_air/pos/{id}/**")
-    public void downloadPos(@PathVariable("id") Long id, HttpServletResponse response) throws IOException {
-        PosTMA pos = posTMAService.findById(id);
-        if (pos == null)
-            return;
-
-        response.setContentType(contentTypeUtils.getContentType(pos.getFilename()));
-        posTMAService.getBlob(id, response.getOutputStream());
-    }
 
 }

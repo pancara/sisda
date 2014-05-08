@@ -121,8 +121,6 @@
     <bean id="tinggiMukaAirDao" class="com.integrasolusi.pusda.sisda.dao.sda.hidrologi.TinggiMukaAirDaoImpl"
           parent="daoTemplate"/>
 
-    <bean id="posTMADao" class="com.integrasolusi.pusda.sisda.dao.sda.hidrologi.PosTMADaoImpl" parent="daoTemplate"/>
-
     <bean id="kualitasAirDao" class="com.integrasolusi.pusda.sisda.dao.sda.hidrologi.KualitasAirDaoImpl"
           parent="daoTemplate"/>
 

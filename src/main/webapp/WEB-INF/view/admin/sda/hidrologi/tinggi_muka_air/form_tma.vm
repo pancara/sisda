@@ -8,8 +8,6 @@
         &raquo;
         <a href="#springUrl("/admin/sda/hidrologi/tinggi_muka_air/list/${ws.id}/${das.id}.html")">${das.name}</a>
         &raquo;
-        <a href="#springUrl("/admin/sda/hidrologi/tinggi_muka_air/list/${ws.id}/${das.id}/${pos.id}.html")">${pos.name}</a>
-        &raquo;
         <span>Form Tinggi Muka Air</span>
 
     </title>

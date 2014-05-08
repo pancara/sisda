@@ -3,8 +3,10 @@ package com.integrasolusi.pusda.sisda.service;
 import com.integrasolusi.pusda.sisda.persistence.Dokumentasi;
 import com.integrasolusi.pusda.sisda.persistence.DokumentasiPhoto;
 
+import javax.servlet.ServletOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.List;
 
 /**
@@ -25,7 +27,7 @@ public interface DokumentasiService {
 
     void saveTitlePicture(Long galleryId, java.io.InputStream is) throws IOException;
 
-    InputStream getTitlePictureStream(Long galleryId) throws IOException;
+//    InputStream getTitlePictureStream(Long galleryId) throws IOException;
 
     Boolean hasTitlePicture(Long galleryId);
 
@@ -48,4 +50,6 @@ public interface DokumentasiService {
     void publishByIds(Long[] ids);
 
     void unpublishByIds(Long[] ids);
+
+    void getResizedTitlePicture(Long id, Integer width, Integer height, OutputStream outputStream) throws IOException;
 }

@@ -18,18 +18,23 @@
     <div class="content">
         <div class="items">
             #foreach($publication in $publicationList)
-                <div>
+                <div class="item">
                 <span class='date'>
                     $dateTimeTool.format("EEEE, d MMM yyyy kk.mm" , $publication.publishedDate) WIB
-                </span>
-                <a href="#springUrl("/publication/full/${publication.id}.html")">
-                    #if ($titlePictures.get($publication))
-                        <img src='#springUrl("/download/publication/picture/${publication.id}/${publication.picture}?width=35")'
-                             class="thumb"/>
+                    #if (${velocityCount} == 1)
+                        <img src='#springUrl("/images/16x16/star.png")' style="float: right;"/>
                     #end
-                    $publication.title
-                </a>
+
+                </span>
+                    <a href="#springUrl("/publication/full/${publication.id}.html")">
+                        #if ($titlePictures.get($publication))
+                            <img src='#springUrl("/download/publication/picture/${publication.id}/${publication.picture}?width=35")'
+                                 class="thumb"/>
+                        #end
+                        $publication.title
+                    </a>
                 </div>
+
             #end
         </div>
     </div>

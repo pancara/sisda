@@ -13,6 +13,8 @@ import com.integrasolusi.pusda.sisda.repository.BlobRepository;
 import com.integrasolusi.utils.FileCacheManager;
 import com.integrasolusi.utils.ImageUtils;
 import com.integrasolusi.utils.StreamHelper;
+import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang.StringUtils;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -30,7 +32,6 @@ public class SungaiSaboDamServiceImpl implements SungaiSaboDamService {
     private BlobRepository blobRepository;
     private FileCacheManager fileCacheManager;
     private ImageUtils imageUtils;
-    private StreamHelper streamHelper;
 
     public void setSaboDamDao(SaboDamDao saboDamDao) {
         this.saboDamDao = saboDamDao;
@@ -50,10 +51,6 @@ public class SungaiSaboDamServiceImpl implements SungaiSaboDamService {
 
     public void setImageUtils(ImageUtils imageUtils) {
         this.imageUtils = imageUtils;
-    }
-
-    public void setStreamHelper(StreamHelper streamHelper) {
-        this.streamHelper = streamHelper;
     }
 
     @Override
@@ -82,20 +79,29 @@ public class SungaiSaboDamServiceImpl implements SungaiSaboDamService {
         String path = getCachePath(id);
         String key = getCacheKey(w, h);
 
-        InputStream is = fileCacheManager.getStream(path, key);
-        if (is == null) {
-            is = blobRepository.getStream(BlobDataType.SDA_SABO_DAM_MAP_SUNGAI, id);
-            if (is != null) {
-                BufferedImage resized = imageUtils.resizeImage(is, w, h);
-                storeImageToFileCache(path, key, resized);
+        if (fileCacheManager.exist(path, key)) {
+            InputStream is = fileCacheManager.getStream(path, key);
+            try {
+                StreamHelper.copy(is, os);
+            } finally {
                 StreamHelper.closeQuiet(is);
             }
-        }
+        } else {
+            SungaiSaboDam sungai = sungaiSaboDamDao.findById(id);
+            if (sungai == null)
+                return;
+            String format = StringUtils.lowerCase(FilenameUtils.getExtension(sungai.getFilename()));
 
-        is = fileCacheManager.getStream(path, key);
-        if (is != null) {
-            streamHelper.copy(is, os);
-            StreamHelper.closeQuiet(is);
+            File temp = blobRepository.getTempFile(BlobDataType.SDA_SABO_DAM_MAP_SUNGAI, id);
+            InputStream is = new FileInputStream(temp);
+            try {
+                BufferedImage image = imageUtils.resizeImage(is, w, h);
+                ImageIO.write(image, format, os);
+                storeImageToFileCache(path, key, image, format);
+            } finally {
+                StreamHelper.closeQuiet(is);
+                temp.delete();
+            }
         }
     }
 
@@ -107,13 +113,17 @@ public class SungaiSaboDamServiceImpl implements SungaiSaboDamService {
         return String.format("%s/%d", SungaiSaboDam.class.getSimpleName(), id);
     }
 
-    private void storeImageToFileCache(String path, String key, BufferedImage resized) throws IOException {
+    private void storeImageToFileCache(String path, String key, BufferedImage resized, String format) throws IOException {
         ByteArrayOutputStream os = new ByteArrayOutputStream();
-        ImageIO.write(resized, "PNG", os);
         InputStream is = new ByteArrayInputStream(os.toByteArray());
-        fileCacheManager.store(path, key, is);
-        is.close();
-        os.close();
+        try {
+            ImageIO.write(resized, format, os);
+            fileCacheManager.store(path, key, is);
+        } finally {
+            StreamHelper.closeQuiet(is);
+            StreamHelper.closeQuiet(os);
+        }
+
     }
 
     @Override

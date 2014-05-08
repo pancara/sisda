@@ -9,13 +9,12 @@ import com.integrasolusi.query.filter.QueryOperator;
 import com.integrasolusi.query.filter.ValueFilter;
 import com.integrasolusi.query.util.OrderDir;
 import com.integrasolusi.utils.ImageUtils;
+import com.integrasolusi.utils.StreamHelper;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang.StringUtils;
 
 import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.util.List;
 
 /**
@@ -57,12 +56,18 @@ public class LeafletServiceImpl implements LeafletService {
 
     @Override
     public void getThumbfileBlob(Long id, OutputStream outputStream, Integer width, Integer height) throws Exception {
-        InputStream is = blobRepository.getStream(BlobDataType.LEAFLET_THUMB, id);
-        BufferedImage image = imageUtils.resizeImage(is, width, height);
+        File temp = blobRepository.getTempFile(BlobDataType.LEAFLET_THUMB, id);
 
-        Leaflet leaflet = leafletDao.findById(id);
-        String format = StringUtils.lowerCase(FilenameUtils.getExtension(leaflet.getThumbFilename()));
-        imageUtils.writeImage(image, format, outputStream);
+        InputStream is = new FileInputStream(temp);
+        try {
+            Leaflet leaflet = leafletDao.findById(id);
+            String format = StringUtils.lowerCase(FilenameUtils.getExtension(leaflet.getThumbFilename()));
+            BufferedImage image = imageUtils.resizeImage(is, width, height);
+            imageUtils.writeImage(image, format, outputStream);
+        } finally {
+            StreamHelper.closeQuiet(is);
+            temp.delete();
+        }
     }
 
     @Override

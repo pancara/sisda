@@ -1,6 +1,7 @@
 package com.integrasolusi.pusda.sisda.service.sda.hidrologi;
 
-import com.integrasolusi.pusda.sisda.persistence.sda.hidrologi.PosTMA;
+import com.integrasolusi.pusda.sisda.persistence.region.Das;
+import com.integrasolusi.pusda.sisda.persistence.region.WilayahSungai;
 import com.integrasolusi.pusda.sisda.persistence.sda.hidrologi.TinggiMukaAir;
 
 import java.io.IOException;
@@ -33,5 +34,6 @@ public interface TinggiMukaAirService {
 
     void save(TinggiMukaAir tinggiMukaAir, InputStream inputStream) throws IOException;
 
-    List<TinggiMukaAir> findByPos(PosTMA pos);
+    List<TinggiMukaAir> findByDas(Das das);
+
 }

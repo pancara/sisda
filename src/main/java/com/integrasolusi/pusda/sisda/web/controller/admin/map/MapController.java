@@ -9,8 +9,7 @@ import com.integrasolusi.pusda.sisda.web.form.SearchMapForm;
 import com.integrasolusi.utils.ContentTypeUtils;
 import com.integrasolusi.utils.ImageUtils;
 import com.integrasolusi.utils.PagingHelper;
-import com.sun.image.codec.jpeg.JPEGCodec;
-import com.sun.image.codec.jpeg.JPEGImageEncoder;
+import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +18,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -148,15 +148,10 @@ public class MapController {
         Map map = mapService.findById(id);
         String contentType = contentTypeUtils.getContentType(map.getFilename());
         response.setContentType(contentType);
-        try {
-            InputStream is = mapService.getPictureStream(id);
-            BufferedImage scaledImage = imageUtils.resizeImage(is, w, h);
-            JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(response.getOutputStream());
-            encoder.encode(scaledImage);
-            response.getOutputStream().flush();
-        } catch (IOException e) {
-            logger.error(e);
-        }
+
+        String format = StringUtils.lowerCase(FilenameUtils.getExtension(map.getFilename()));
+
+        mapService.getBlob(id, w, h, response.getOutputStream(), format);
     }
 
     @RequestMapping(value = "map/add.html", method = RequestMethod.GET)
@@ -177,7 +172,7 @@ public class MapController {
             map.setPublished(false);
             MapCategory category = mapCategoryService.findById(form.getCategory());
             map.setCategory(category);
-            
+
             map.setFilename(form.getFile().getOriginalFilename());
             map.setSize(form.getFile().getSize());
 

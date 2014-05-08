@@ -4,6 +4,7 @@ import com.integrasolusi.pusda.sisda.persistence.Map;
 import com.integrasolusi.pusda.sisda.persistence.MapCategory;
 import com.integrasolusi.pusda.sisda.service.MapCategoryService;
 import com.integrasolusi.pusda.sisda.service.MapService;
+import com.integrasolusi.utils.StreamHelper;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.velocity.util.StringUtils;
 import org.junit.Test;
@@ -78,7 +79,7 @@ public class SavePetaUtils {
                 } catch (Exception e) {
                     e.printStackTrace();
                 } finally {
-                    is.close();
+                    StreamHelper.closeQuiet(is);
                 }
             }
         }

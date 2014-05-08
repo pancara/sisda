@@ -24,13 +24,7 @@ public class WaterLevelServiceImplTest {
 
     @Test
     public void testGetLatest() throws Exception {
-
         List<WaterLevel> levels = waterLevelService.getLatest(5);
-        System.out.println(levels.size());
-        for (WaterLevel level : levels) {
-            System.out.println(level.getStation().getId() + " : " + level.getStation().getName());
-            System.out.println(level.getSamplingAt());
-            System.out.println("=============================");
-        }
+
     }
 }

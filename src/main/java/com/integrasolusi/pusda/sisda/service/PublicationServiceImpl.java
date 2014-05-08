@@ -14,13 +14,12 @@ import com.integrasolusi.query.filter.QueryOperator;
 import com.integrasolusi.query.filter.ValueFilter;
 import com.integrasolusi.query.util.OrderDir;
 import com.integrasolusi.utils.ImageUtils;
+import com.integrasolusi.utils.StreamHelper;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang.StringUtils;
 
 import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -231,13 +230,19 @@ public class PublicationServiceImpl implements PublicationService {
 
     @Override
     public void getPicture(Long id, OutputStream outputStream, Integer width, Integer height) throws Exception {
-        InputStream is = blobRepository.getStream(BlobDataType.PUBLICATION_PICTURE, id);
-        BufferedImage image = imageUtils.resizeImage(is, width, height);
-        
         Publication publication = publicationDao.findById(id);
+        if (publication == null)
+            return;
         String format = StringUtils.lowerCase(FilenameUtils.getExtension(publication.getPicture()));
-        
-        imageUtils.writeImage(image, format, outputStream);
 
+        File temp = blobRepository.getTempFile(BlobDataType.PUBLICATION_PICTURE, id);
+        InputStream is = new FileInputStream(temp);
+        try {
+            BufferedImage image = imageUtils.resizeImage(is, width, height);
+            imageUtils.writeImage(image, format, outputStream);
+        } finally {
+            StreamHelper.closeQuiet(is);
+            temp.delete();
+        }
     }
 }

@@ -21,7 +21,6 @@ public class BlobRepositoryImpl implements BlobRepository {
     private String extension = "dat";
     private File root;
     private Logger logger = Logger.getLogger(BlobRepositoryImpl.class);
-    private StreamHelper streamHelper;
 
     public static String getPath(String folder, Long id) {
         return String.format("%s/%d", folder, id);
@@ -43,17 +42,24 @@ public class BlobRepositoryImpl implements BlobRepository {
 
     @Override
     public void store(BlobDataType dataType, Long id, InputStream source) throws IOException {
-        File bufferFile = storeToBuffer(source);
+        File bufferFile = null;
+        try {
+            bufferFile = storeToBuffer(source);
+            if (!isDocumentDirExist(dataType)) {
+                createDocumentDir(dataType);
+            }
 
-        if (!isDocumentDirExist(dataType))
-            createDocumentDir(dataType);
-
-        File file = getDocumentFile(dataType, id);
-        if (file.exists()) {
-            file.delete();
+            File file = getDocumentFile(dataType, id);
+            if (file.exists()) {
+                file.delete();
+            }
+            StreamHelper.copyFile(bufferFile, file);
+        } finally {
+            if (bufferFile != null) {
+                bufferFile.delete();
+            }
         }
-        streamHelper.copyFile(bufferFile, file);
-        bufferFile.delete();
+
     }
 
     @Override
@@ -64,12 +70,12 @@ public class BlobRepositoryImpl implements BlobRepository {
         }
 
         File bufferFile = createBufferFile();
-        streamHelper.copyFile(file, bufferFile);
+        StreamHelper.copyFile(file, bufferFile);
         FileInputStream is = new FileInputStream(bufferFile);
         try {
-            streamHelper.copy(is, target);
+            StreamHelper.copy(is, target);
         } finally {
-            is.close();
+            StreamHelper.closeQuiet(is);
             bufferFile.delete();
         }
     }
@@ -84,31 +90,36 @@ public class BlobRepositoryImpl implements BlobRepository {
 
     @Override
     public BufferedImage createImage(BlobDataType dataType, Long id) throws IOException {
-        File bufferFile = createBufferFile();
         File file = getDocumentFile(dataType, id);
-        streamHelper.copyFile(file, bufferFile);
+        if (!file.exists()) {
+            return null;
+        }
 
+        File bufferFile = createBufferFile();
+        StreamHelper.copyFile(file, bufferFile);
         BufferedImage image = null;
-        if (file.exists()) {
-            InputStream is = new FileInputStream(bufferFile);
-            try {
-                image = ImageIO.read(is);
-            } finally {
-                is.close();
-                bufferFile.delete();
+        InputStream is = null;
+        try {
+            is = new FileInputStream(bufferFile);
+            image = ImageIO.read(is);
+        } finally {
+            if (is != null) {
+                StreamHelper.closeQuiet(is);
             }
+            bufferFile.delete();
         }
         return image;
     }
 
     @Override
-    public InputStream getStream(BlobDataType dataType, Long id) throws IOException {
+    public File getTempFile(BlobDataType dataType, Long id) throws IOException {
         File source = getDocumentFile(dataType, id);
-        if (!source.exists()) return null;
-        File buffer = createBufferFile();
-        streamHelper.copyFile(source, buffer);
+        if (!source.exists())
+            throw new FileNotFoundException();
 
-        return source.exists() ? new FileInputStream(buffer) : null;
+        File buffer = createBufferFile();
+        StreamHelper.copyFile(source, buffer);
+        return buffer;
     }
 
     private File createBufferFile() {
@@ -124,9 +135,9 @@ public class BlobRepositoryImpl implements BlobRepository {
         File bufferFile = createBufferFile();
         OutputStream os = new FileOutputStream(bufferFile);
         try {
-            streamHelper.copy(is, os);
+            StreamHelper.copy(is, os);
         } finally {
-            os.close();
+            StreamHelper.closeQuiet(os);
         }
         return bufferFile;
     }
@@ -134,10 +145,6 @@ public class BlobRepositoryImpl implements BlobRepository {
     @Override
     public Boolean isExist(BlobDataType dataType, Long id) {
         return getDocumentFile(dataType, id).exists();
-    }
-
-    public void setStreamHelper(StreamHelper streamHelper) {
-        this.streamHelper = streamHelper;
     }
 
     public void setDataDir(String dataDir) {

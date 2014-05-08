@@ -36,8 +36,6 @@
         </property>
     </bean>
 
-    <bean id="streamHelper" class="com.integrasolusi.utils.StreamHelper"/>
-
     <bean id="garbageCollector" class="com.integrasolusi.utils.GarbageCollector"
           init-method="start" destroy-method="stop"/>
 
@@ -46,7 +44,6 @@
     <bean id="fileCacheManager" class="com.integrasolusi.utils.FileCacheManager">
         <property name="root" value="${cache.root}"/>
         <property name="extension" value="${cache.fileExtension}"/>
-        <property name="streamHelper" ref="streamHelper"/>
     </bean>
 
     <bean id="javaMailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">

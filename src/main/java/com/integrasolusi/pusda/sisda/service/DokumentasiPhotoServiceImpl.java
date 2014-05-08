@@ -12,6 +12,8 @@ import com.integrasolusi.pusda.sisda.repository.BlobRepository;
 import com.integrasolusi.utils.FileCacheManager;
 import com.integrasolusi.utils.ImageUtils;
 import com.integrasolusi.utils.StreamHelper;
+import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang.StringUtils;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -28,7 +30,6 @@ public class DokumentasiPhotoServiceImpl implements DokumentasiPhotoService {
     private BlobRepository blobRepository;
     private FileCacheManager fileCacheManager;
     private ImageUtils imageUtils;
-    private StreamHelper streamHelper;
 
     public void setDokumentasiPhotoDao(DokumentasiPhotoDao dokumentasiPhotoDao) {
         this.dokumentasiPhotoDao = dokumentasiPhotoDao;
@@ -44,10 +45,6 @@ public class DokumentasiPhotoServiceImpl implements DokumentasiPhotoService {
 
     public void setImageUtils(ImageUtils imageUtils) {
         this.imageUtils = imageUtils;
-    }
-
-    public void setStreamHelper(StreamHelper streamHelper) {
-        this.streamHelper = streamHelper;
     }
 
     @Override
@@ -82,11 +79,6 @@ public class DokumentasiPhotoServiceImpl implements DokumentasiPhotoService {
     }
 
     @Override
-    public InputStream getStream(Long id) throws IOException {
-        return blobRepository.getStream(BlobDataType.DOKUMENTASI_PHOTO, id);
-    }
-
-    @Override
     public void getBlob(Long id, OutputStream os) throws IOException {
         getBlob(id, null, null, os);
     }
@@ -102,21 +94,31 @@ public class DokumentasiPhotoServiceImpl implements DokumentasiPhotoService {
         String path = getCachePath(id);
         String key = getCacheKey(w, h);
 
-        InputStream is = fileCacheManager.getStream(path, key);
-        if (is == null) {
-            is = blobRepository.getStream(BlobDataType.DOKUMENTASI_PHOTO, id);
-            if (is != null) {
-                BufferedImage resized = imageUtils.resizeImage(is, w, h);
-                storeImageToFileCache(path, key, resized);
+
+        if (fileCacheManager.exist(path, key)) {
+            InputStream is = fileCacheManager.getStream(path, key);
+            try {
+                StreamHelper.copy(is, os);
+            } finally {
                 StreamHelper.closeQuiet(is);
             }
-        }
+        } else {
+            DokumentasiPhoto photo = dokumentasiPhotoDao.findById(id);
+            if (photo == null)
+                return;
+            String format = StringUtils.lowerCase(FilenameUtils.getExtension(photo.getFilename()));
 
-        is = fileCacheManager.getStream(path, key);
-        if (is != null) {
-            streamHelper.copy(is, os);
-            StreamHelper.closeQuiet(is);
-            
+            File temp = blobRepository.getTempFile(BlobDataType.DOKUMENTASI_PHOTO, id);
+            InputStream is = new FileInputStream(temp);
+            try {
+                BufferedImage image = imageUtils.resizeImage(is, w, h);
+                ImageIO.write(image, format, os);
+                storeImageToFileCache(path, key, image, format);
+            } finally {
+                StreamHelper.closeQuiet(is);
+                temp.delete();
+            }
+
         }
     }
 
@@ -128,14 +130,18 @@ public class DokumentasiPhotoServiceImpl implements DokumentasiPhotoService {
         return String.format("%s/%d", DokumentasiPhoto.class.getSimpleName(), id);
     }
 
-    private void storeImageToFileCache(String path, String key, BufferedImage resized) throws IOException {
-        ByteArrayOutputStream os = new ByteArrayOutputStream();
-        ImageIO.write(resized, "PNG", os);
-        InputStream is = new ByteArrayInputStream(os.toByteArray());
-        fileCacheManager.store(path, key, is);
-
-        StreamHelper.closeQuiet(is);
-        StreamHelper.closeQuiet(os);
+    private void storeImageToFileCache(String path, String key, BufferedImage resized, String format) throws IOException {
+        InputStream is = null;
+        ByteArrayOutputStream os = null;
+        try {
+            os = new ByteArrayOutputStream();
+            ImageIO.write(resized, format, os);
+            is = new ByteArrayInputStream(os.toByteArray());
+            fileCacheManager.store(path, key, is);
+        } finally {
+            StreamHelper.closeQuiet(is);
+            StreamHelper.closeQuiet(os);
+        }
     }
 
     @Override

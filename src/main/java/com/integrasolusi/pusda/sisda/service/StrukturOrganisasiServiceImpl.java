@@ -8,6 +8,8 @@ import com.integrasolusi.pusda.sisda.repository.BlobRepository;
 import com.integrasolusi.utils.FileCacheManager;
 import com.integrasolusi.utils.ImageUtils;
 import com.integrasolusi.utils.StreamHelper;
+import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang.StringUtils;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -24,7 +26,6 @@ public class StrukturOrganisasiServiceImpl implements StrukturOrganisasiService 
     private BlobRepository blobRepository;
     private FileCacheManager fileCacheManager;
     private ImageUtils imageUtils;
-    private StreamHelper streamHelper;
 
     public void setStrukturOrganisasiDao(StrukturOrganisasiDao strukturOrganisasiDao) {
         this.strukturOrganisasiDao = strukturOrganisasiDao;
@@ -40,10 +41,6 @@ public class StrukturOrganisasiServiceImpl implements StrukturOrganisasiService 
 
     public void setImageUtils(ImageUtils imageUtils) {
         this.imageUtils = imageUtils;
-    }
-
-    public void setStreamHelper(StreamHelper streamHelper) {
-        this.streamHelper = streamHelper;
     }
 
     @Override
@@ -72,20 +69,30 @@ public class StrukturOrganisasiServiceImpl implements StrukturOrganisasiService 
         String path = getCachePath(id);
         String key = getCacheKey(w, h);
 
-        InputStream is = fileCacheManager.getStream(path, key);
-        if (is == null) {
-            is = blobRepository.getStream(BlobDataType.STRUKTUR_ORGANISASI, id);
-            if (is != null) {
-                BufferedImage resized = imageUtils.resizeImage(is, w, h);
-                storeImageToFileCache(path, key, resized);
+        if (fileCacheManager.exist(path, key)) {
+            InputStream is = fileCacheManager.getStream(path, key);
+            try {
+                StreamHelper.copy(is, os);
+            } finally {
                 StreamHelper.closeQuiet(is);
             }
-        }
 
-        is = fileCacheManager.getStream(path, key);
-        if (is != null) {
-            streamHelper.copy(is, os);
-            StreamHelper.closeQuiet(is);
+        } else {
+            StrukturOrganisasi so = strukturOrganisasiDao.findById(id);
+            if (so == null)
+                return;
+            String format = StringUtils.lowerCase(FilenameUtils.getExtension(so.getFilename()));
+
+            File temp = blobRepository.getTempFile(BlobDataType.STRUKTUR_ORGANISASI, id);
+            InputStream is = new FileInputStream(temp);
+            try {
+                BufferedImage resized = imageUtils.resizeImage(is, w, h);
+                ImageIO.write(resized, format, os);
+                storeImageToFileCache(path, key, resized, format);
+            } finally {
+                StreamHelper.closeQuiet(is);
+                temp.delete();
+            }
         }
     }
 
@@ -97,14 +104,18 @@ public class StrukturOrganisasiServiceImpl implements StrukturOrganisasiService 
         return String.format("%s/%d", StrukturOrganisasi.class.getSimpleName(), id);
     }
 
-    private void storeImageToFileCache(String path, String key, BufferedImage resized) throws IOException {
-        ByteArrayOutputStream os = new ByteArrayOutputStream();
-        ImageIO.write(resized, "PNG", os);
-        InputStream is = new ByteArrayInputStream(os.toByteArray());
-        fileCacheManager.store(path, key, is);
-
-        StreamHelper.closeQuiet(is);
-        StreamHelper.closeQuiet(os);
+    private void storeImageToFileCache(String path, String key, BufferedImage resized, String format) throws IOException {
+        ByteArrayOutputStream os = null;
+        InputStream is = null;
+        try {
+            os = new ByteArrayOutputStream();
+            ImageIO.write(resized, format, os);
+            is = new ByteArrayInputStream(os.toByteArray());
+            fileCacheManager.store(path, key, is);
+        } finally {
+            StreamHelper.closeQuiet(is);
+            StreamHelper.closeQuiet(os);
+        }
     }
 
     @Override

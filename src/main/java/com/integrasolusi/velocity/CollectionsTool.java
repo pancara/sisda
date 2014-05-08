@@ -1,5 +1,6 @@
 package com.integrasolusi.velocity;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -20,5 +21,9 @@ public class CollectionsTool {
 
     public boolean isList(Object obj) {
         return obj instanceof List;
+    }
+
+    public List newList() {
+        return new LinkedList();
     }
 }

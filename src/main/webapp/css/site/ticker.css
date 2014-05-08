@@ -79,33 +79,36 @@
     width: 16px;
     display: block; }
     .ticker-controls li.jnt-play-pause {
-      background-image: url("../../images/controls.png");
+      background-image: url("../images/controls.png");
       background-position: 32px 16px; }
     .ticker-controls li.jnt-play-pause.over {
       background-position: 32px 32px; }
     .ticker-controls li.jnt-play-pause.down {
       background-position: 32px 0px; }
     .ticker-controls li.jnt-play-pause.paused {
-      background-image: url("../../images/controls.png");
+      background-image: url("../images/controls.png");
       background-position: 48px 16px; }
     .ticker-controls li.jnt-play-pause.paused.over {
       background-position: 48px 32px; }
     .ticker-controls li.jnt-play-pause.paused.down {
       background-position: 48px 0px; }
     .ticker-controls li.jnt-prev {
-      background-image: url("../../images/controls.png");
+      background-image: url("../images/controls.png");
       background-position: 0px 16px; }
     .ticker-controls li.jnt-prev.over {
       background-position: 0px 32px; }
     .ticker-controls li.jnt-prev.down {
       background-position: 0px 0px; }
     .ticker-controls li.jnt-next {
-      background-image: url("../../images/controls.png");
+      background-image: url("../images/controls.png");
       background-position: 16px 16px; }
     .ticker-controls li.jnt-next.over {
       background-position: 16px 32px; }
     .ticker-controls li.jnt-next.down {
       background-position: 16px 0px; }
+
+.js-hidden {
+  display: none; }
 
 .no-js-news {
   padding: 10px 0px 0px 45px;

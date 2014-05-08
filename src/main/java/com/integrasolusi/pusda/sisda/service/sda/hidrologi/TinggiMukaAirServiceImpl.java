@@ -2,7 +2,7 @@ package com.integrasolusi.pusda.sisda.service.sda.hidrologi;
 
 import com.integrasolusi.pusda.sisda.dao.sda.hidrologi.TinggiMukaAirDao;
 import com.integrasolusi.pusda.sisda.persistence.region.Das;
-import com.integrasolusi.pusda.sisda.persistence.sda.hidrologi.PosTMA;
+import com.integrasolusi.pusda.sisda.persistence.region.WilayahSungai;
 import com.integrasolusi.pusda.sisda.persistence.sda.hidrologi.TinggiMukaAir;
 import com.integrasolusi.pusda.sisda.repository.BlobDataType;
 import com.integrasolusi.pusda.sisda.repository.BlobRepository;
@@ -22,11 +22,11 @@ import java.util.List;
  * Time: 11:02 AM
  */
 public class TinggiMukaAirServiceImpl implements TinggiMukaAirService {
-    
+
     private TinggiMukaAirDao tinggiMukaAirDao;
     private BlobRepository blobRepository;
 
-    
+
     public void setTinggiMukaAirDao(TinggiMukaAirDao tinggiMukaAirDao) {
         this.tinggiMukaAirDao = tinggiMukaAirDao;
     }
@@ -89,7 +89,8 @@ public class TinggiMukaAirServiceImpl implements TinggiMukaAirService {
     }
 
     @Override
-    public List<TinggiMukaAir> findByPos(PosTMA pos) {
-        return tinggiMukaAirDao.findByFilter(new ValueFilter("pos", QueryOperator.EQUALS, pos, "pos"), "description", OrderDir.ASC);
+    public List<TinggiMukaAir> findByDas(Das das) {
+        return tinggiMukaAirDao.findByFilter(new ValueFilter("das", QueryOperator.EQUALS, das, "das"), "description", OrderDir.ASC);
     }
+
 }

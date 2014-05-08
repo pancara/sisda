@@ -1,6 +1,7 @@
 package com.integrasolusi.pusda.sisda.repository;
 
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -20,7 +21,7 @@ public interface BlobRepository {
 
     BufferedImage createImage(BlobDataType dataType, Long id) throws IOException;
 
-    InputStream getStream(BlobDataType dataType, Long id) throws IOException;
+    File getTempFile(BlobDataType dataType, Long id) throws IOException;
 
     Boolean isExist(BlobDataType dataType, Long id);
 

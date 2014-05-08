@@ -11,6 +11,8 @@ import com.integrasolusi.pusda.sisda.repository.BlobRepository;
 import com.integrasolusi.utils.FileCacheManager;
 import com.integrasolusi.utils.ImageUtils;
 import com.integrasolusi.utils.StreamHelper;
+import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang.StringUtils;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -25,7 +27,6 @@ import java.util.List;
 public class PhotoServiceImpl implements PhotoService {
     private PhotoDao photoDao;
     private BlobRepository blobRepository;
-    private StreamHelper streamHelper;
     private FileCacheManager fileCacheManager;
     private ImageUtils imageUtils;
 
@@ -35,10 +36,6 @@ public class PhotoServiceImpl implements PhotoService {
 
     public void setBlobRepository(BlobRepository blobRepository) {
         this.blobRepository = blobRepository;
-    }
-
-    public void setStreamHelper(StreamHelper streamHelper) {
-        this.streamHelper = streamHelper;
     }
 
     public void setFileCacheManager(FileCacheManager fileCacheManager) {
@@ -116,21 +113,31 @@ public class PhotoServiceImpl implements PhotoService {
         String path = getCachePath(id);
         String key = getCacheKey(w, h);
 
-        InputStream is = fileCacheManager.getStream(path, key);
-        if (is == null) {
-            is = blobRepository.getStream(BlobDataType.REPOSITORY_PHOTO, id);
-            if (is != null) {
-                BufferedImage resized = imageUtils.resizeImage(is, w, h);
-                storeImageToFileCache(path, key, resized);
+        if (fileCacheManager.exist(path, key)) {
+            InputStream is = fileCacheManager.getStream(path, key);
+            try {
+                StreamHelper.copy(is, os);
+            } finally {
                 StreamHelper.closeQuiet(is);
+            }
+
+        } else {
+            Photo photo = photoDao.findById(id);
+            if (photo == null)
+                return;
+            String format = StringUtils.lowerCase(FilenameUtils.getExtension(photo.getFilename()));
+            File file = blobRepository.getTempFile(BlobDataType.REPOSITORY_PHOTO, id);
+            InputStream is = new FileInputStream(file);
+            try {
+                BufferedImage image = imageUtils.resizeImage(is, w, h);
+                ImageIO.write(image, format, os);
+                storeImageToFileCache(path, key, image, format);
+            } finally {
+                StreamHelper.closeQuiet(is);
+                file.delete();
             }
         }
 
-        is = fileCacheManager.getStream(path, key);
-        if (is != null) {
-            streamHelper.copy(is, os);
-            StreamHelper.closeQuiet(is);
-        }
     }
 
     @Override
@@ -168,9 +175,9 @@ public class PhotoServiceImpl implements PhotoService {
         return String.format("%s/%d", Photo.class.getSimpleName(), id);
     }
 
-    private void storeImageToFileCache(String path, String key, BufferedImage resized) throws IOException {
+    private void storeImageToFileCache(String path, String key, BufferedImage resized, String format) throws IOException {
         ByteArrayOutputStream os = new ByteArrayOutputStream();
-        ImageIO.write(resized, "PNG", os);
+        ImageIO.write(resized, format, os);
         InputStream is = new ByteArrayInputStream(os.toByteArray());
         fileCacheManager.store(path, key, is);
 

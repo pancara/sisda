@@ -7,8 +7,6 @@ import com.integrasolusi.pusda.sisda.service.DokumentasiService;
 import com.integrasolusi.utils.ContentTypeUtils;
 import com.integrasolusi.utils.ImageUtils;
 import com.integrasolusi.utils.PagingHelper;
-import com.sun.image.codec.jpeg.JPEGCodec;
-import com.sun.image.codec.jpeg.JPEGImageEncoder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -99,18 +97,14 @@ public class DokumentasiController {
     }
 
     @RequestMapping("/dokumentasi/thumb/{id}/**")
-    public void thumb(HttpServletRequest request,
-                      HttpServletResponse response,
+    public void thumb(HttpServletResponse response,
                       @PathVariable("id") Long id,
                       @RequestParam(value = "width", required = false, defaultValue = "100") Integer width,
                       @RequestParam(value = "height", required = false, defaultValue = "0") Integer height) throws IOException {
 
         try {
-            InputStream is = dokumentasiService.getTitlePictureStream(id);
-            BufferedImage image = imageUtils.resizeImage(is, width, height);
             response.setContentType("image/jpg");
-            JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(response.getOutputStream());
-            encoder.encode(image);
+            dokumentasiService.getResizedTitlePicture(id, width, height, response.getOutputStream());
             response.getOutputStream().flush();
         } catch (IOException e) {
             logger.error(e.getMessage(), e);

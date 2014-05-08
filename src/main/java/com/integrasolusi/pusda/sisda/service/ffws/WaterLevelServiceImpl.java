@@ -44,8 +44,9 @@ public class WaterLevelServiceImpl implements WaterLevelService {
 
     @Override
     public List<WaterLevel> getLatest(int count) {
-
         List<Station> stationList = stationDao.findAlls();
+        count = stationList.size() < count ? stationList.size() : count;
+
         List<WaterLevel> levels = new ArrayList<>();
         for (Station station : stationList) {
             WaterLevel w = waterLevelDao.getLatest(station);
@@ -55,6 +56,9 @@ public class WaterLevelServiceImpl implements WaterLevelService {
         Collections.sort(levels, new Comparator<WaterLevel>() {
             @Override
             public int compare(WaterLevel w1, WaterLevel w2) {
+                if (w1 == null) return -1;
+                if (w2 == null) return 1;
+
                 if (w1.getSamplingAt().after(w2.getSamplingAt()))
                     return -1;
 
@@ -73,5 +77,5 @@ public class WaterLevelServiceImpl implements WaterLevelService {
     public List<WaterLevel> findByStation(Station station, Long start, Long count) {
         return waterLevelDao.findByFilter(new ValueFilter("station", QueryOperator.EQUALS, station), start, count, "samplingAt", OrderDir.DESC);
     }
-    
+
 }

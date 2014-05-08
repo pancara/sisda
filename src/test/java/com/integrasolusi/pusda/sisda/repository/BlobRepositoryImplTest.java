@@ -6,9 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Programmer   : pancara
@@ -24,10 +27,18 @@ public class BlobRepositoryImplTest {
 
     @Test
     public void testStoreDocument() throws Exception {
-        FileInputStream is = new FileInputStream("E:/test/sisda/winter.jpg");
+        FileInputStream is = new FileInputStream("E:/test/sisda/Jellyfish.jpg");
         blobRepository.store(BlobDataType.DOKUMENTASI_HEADLINE, 1L, is);
         is.close();
     }
+
+    @Test
+    public void createImage() throws IOException {
+        FileInputStream is = new FileInputStream("E:/test/sisda/Jellyfish.jpg");
+        BufferedImage image = ImageIO.read(is);
+        is.close();
+    }
+
 
     @Test
     public void testReadDocument() throws IOException {
@@ -35,6 +46,7 @@ public class BlobRepositoryImplTest {
         blobRepository.copyContent(BlobDataType.DOKUMENTASI_HEADLINE, 1L, os);
         os.close();
     }
+
     @Test
     public void testRemoveDocument() {
         blobRepository.remove(BlobDataType.DOKUMENTASI_HEADLINE, 1L);

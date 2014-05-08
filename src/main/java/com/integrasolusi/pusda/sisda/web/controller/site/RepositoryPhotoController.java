@@ -31,9 +31,6 @@ public class RepositoryPhotoController {
     private ImageUtils imageUtils;
 
     @Autowired
-    private StreamHelper streamHelper;
-
-    @Autowired
     private ContentTypeUtils contentTypeUtils;
 
     @RequestMapping("/repo/photo/{id}/**")

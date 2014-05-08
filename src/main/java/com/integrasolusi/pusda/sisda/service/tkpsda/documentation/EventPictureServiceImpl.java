@@ -11,6 +11,8 @@ import com.integrasolusi.pusda.sisda.repository.BlobRepository;
 import com.integrasolusi.utils.FileCacheManager;
 import com.integrasolusi.utils.ImageUtils;
 import com.integrasolusi.utils.StreamHelper;
+import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang.StringUtils;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -26,7 +28,6 @@ public class EventPictureServiceImpl implements EventPictureService {
     private BlobRepository blobRepository;
     private EventPictureDao eventPictureDao;
     private FileCacheManager fileCacheManager;
-    private StreamHelper streamHelper;
     private ImageUtils imageUtils;
 
     public void setBlobRepository(BlobRepository blobRepository) {
@@ -39,10 +40,6 @@ public class EventPictureServiceImpl implements EventPictureService {
 
     public void setFileCacheManager(FileCacheManager fileCacheManager) {
         this.fileCacheManager = fileCacheManager;
-    }
-
-    public void setStreamHelper(StreamHelper streamHelper) {
-        this.streamHelper = streamHelper;
     }
 
     public void setImageUtils(ImageUtils imageUtils) {
@@ -70,17 +67,31 @@ public class EventPictureServiceImpl implements EventPictureService {
         String path = getCachePath(id);
         String key = getCacheKey(w, h);
 
-        InputStream is = fileCacheManager.getStream(path, key);
-        if (is == null) {
-            is = blobRepository.getStream(BlobDataType.TKPSDA_EVENT_PICTURE, id);
-            BufferedImage resized = imageUtils.resizeImage(is, w, h);
-            storeImageToFileCache(path, key, resized);
-            StreamHelper.closeQuiet(is);
-        }
+        if (fileCacheManager.exist(path, key)) {
+            InputStream is = fileCacheManager.getStream(path, key);
+            try {
+                StreamHelper.copy(is, os);
+            } finally {
+                StreamHelper.closeQuiet(is);
+            }
+        } else {
+            EventPicture picture = eventPictureDao.findById(id);
+            if (picture == null)
+                return;
 
-        is = fileCacheManager.getStream(path, key);
-        streamHelper.copy(is, os);
-        StreamHelper.closeQuiet(is);
+            String format = StringUtils.lowerCase(FilenameUtils.getExtension(picture.getFilename()));
+
+            File temp = blobRepository.getTempFile(BlobDataType.TKPSDA_EVENT_PICTURE, id);
+            InputStream is = new FileInputStream(temp);
+            try {
+                BufferedImage image = imageUtils.resizeImage(is, w, h);
+                ImageIO.write(image, format, os);
+                storeImageToFileCache(path, key, image, format);
+            } finally {
+                StreamHelper.closeQuiet(is);
+                temp.delete();
+            }
+        }
     }
 
     private String getCacheKey(Integer w, Integer h) {
@@ -91,9 +102,9 @@ public class EventPictureServiceImpl implements EventPictureService {
         return String.format("%s/%d", EventPicture.class.getSimpleName(), id);
     }
 
-    private void storeImageToFileCache(String path, String key, BufferedImage resized) throws IOException {
+    private void storeImageToFileCache(String path, String key, BufferedImage resized, String format) throws IOException {
         ByteArrayOutputStream os = new ByteArrayOutputStream();
-        ImageIO.write(resized, "PNG", os);
+        ImageIO.write(resized, format, os);
         InputStream is = new ByteArrayInputStream(os.toByteArray());
         fileCacheManager.store(path, key, is);
 
