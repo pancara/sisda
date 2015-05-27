@@ -16,11 +16,11 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.HashMap;
 import java.util.Map;
 
-@Controller
-@RequestMapping("/admin/ffws/populator")
+//@Controller
+//@RequestMapping("/admin/ffws/populator")
 public class PopulatorController {
 
-    @Autowired
+//    @Autowired
     private PopulatorManager populatorManager;
 
     @RequestMapping("manager.html")

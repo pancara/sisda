@@ -12,7 +12,7 @@
 
     <jee:jndi-lookup id="sisdaDS" jndi-name="${jndi.sisdaDS}"/>
 
-    <jee:jndi-lookup id="ffwsDS" jndi-name="${jndi.ffwsDS}"/>
+    <!--<jee:jndi-lookup id="ffwsDS" jndi-name="${jndi.ffwsDS}"/>-->
 
 
     <!--<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">-->

@@ -1,8 +1,8 @@
 package com.integrasolusi.velocity;
 
 import com.integrasolusi.utils.StringHelper;
-import com.opensymphony.util.TextUtils;
 import org.apache.commons.lang.StringUtils;
+import org.clapper.util.html.HTMLUtil;
 
 /**
  * Programmer   : pancara
@@ -16,7 +16,7 @@ public class TextTool {
     }
 
     public String toHtml(String text) {
-        return TextUtils.plainTextToHtml(text, true);
+        return HTMLUtil.textFromHTML(text);
     }
 
     public String substring(String text, int length) {
@@ -24,7 +24,8 @@ public class TextTool {
     }
 
     public String removeHtmlTag(String text) {
-        return StringHelper.removeHtmlTag(text);
+        return HTMLUtil.stripHTMLTags(text);
+//        return StringHelper.removeHtmlTag(text);
     }
 
     public String[] toLines(String text) {
