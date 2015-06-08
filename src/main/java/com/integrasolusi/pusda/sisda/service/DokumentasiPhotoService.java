@@ -22,7 +22,7 @@ public interface DokumentasiPhotoService {
 
     void getBlob(Long id, OutputStream os) throws IOException;
 
-    void getBlob(Long id, Integer w, Integer h, OutputStream os) throws IOException;
+    void getBlob(Long id, OutputStream os, Integer w, Integer h) throws IOException;
 
     void save(DokumentasiPhoto photo);
 

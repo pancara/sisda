@@ -7,7 +7,7 @@
   /*background-color: #f8f0db; */
   background-color: transparent;
   font-size: 0.75em;
-  box-shadow: 0px 0px 3px #999999; }
+  box-shadow: 0px 0px 3px #999; }
 
 .ticker {
   width: 840px;
@@ -24,17 +24,17 @@
   color: #990000;
   font-weight: bold;
   /*background-color: #f8f0db; */
-  background-color: white;
+  background-color: #FFF;
   font-size: 12px; }
 
 .ticker-content {
   margin: 0px;
   padding-top: 6px;
   position: absolute;
-  color: #1f527b;
+  color: #1F527B;
   font-weight: bold;
   /*background-color: #f8f0db; */
-  background-color: white;
+  background-color: #FFF;
   overflow: hidden;
   white-space: nowrap;
   line-height: 18px; }
@@ -46,22 +46,22 @@
     text-shadow: none;
     font-size: 12px; }
     .ticker-content a:hover {
-      color: #1f527b;
-      text-shadow: 0px 0px 4px #cccccc; }
+      color: #1F527B;
+      text-shadow: 0px 0px 4px #CCC; }
 
 .ticker-swipe {
   padding-top: 9px;
   position: absolute;
   top: 0px;
-  background-color: white;
+  background-color: #FFF;
   display: block;
   width: 915px;
   height: 23px; }
   .ticker-swipe span {
     margin-left: 1px;
     /*background-color: #f8f0db; */
-    background-color: white;
-    border-bottom: 1px solid #1f527b;
+    background-color: #FFF;
+    border-bottom: 1px solid #1F527B;
     height: 12px;
     width: 7px;
     display: block; }
@@ -79,28 +79,28 @@
     width: 16px;
     display: block; }
     .ticker-controls li.jnt-play-pause {
-      background-image: url("../images/controls.png");
+      background-image: url("images/controls.png");
       background-position: 32px 16px; }
     .ticker-controls li.jnt-play-pause.over {
       background-position: 32px 32px; }
     .ticker-controls li.jnt-play-pause.down {
       background-position: 32px 0px; }
     .ticker-controls li.jnt-play-pause.paused {
-      background-image: url("../images/controls.png");
+      background-image: url("images/controls.png");
       background-position: 48px 16px; }
     .ticker-controls li.jnt-play-pause.paused.over {
       background-position: 48px 32px; }
     .ticker-controls li.jnt-play-pause.paused.down {
       background-position: 48px 0px; }
     .ticker-controls li.jnt-prev {
-      background-image: url("../images/controls.png");
+      background-image: url("images/controls.png");
       background-position: 0px 16px; }
     .ticker-controls li.jnt-prev.over {
       background-position: 0px 32px; }
     .ticker-controls li.jnt-prev.down {
       background-position: 0px 0px; }
     .ticker-controls li.jnt-next {
-      background-image: url("../images/controls.png");
+      background-image: url("images/controls.png");
       background-position: 16px 16px; }
     .ticker-controls li.jnt-next.over {
       background-position: 16px 32px; }
@@ -112,7 +112,7 @@
 
 .no-js-news {
   padding: 10px 0px 0px 45px;
-  color: #f8f0db; }
+  color: #F8F0DB; }
 
 .left .ticker-controls, .left .ticker-content, .left .ticker-title, .left .ticker {
   float: left; }
@@ -123,3 +123,5 @@
   float: right; }
 .right .ticker-controls {
   padding-right: 0px; }
+
+/*# sourceMappingURL=ticker.css.map */

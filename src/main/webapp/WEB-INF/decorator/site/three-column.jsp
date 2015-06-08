@@ -31,7 +31,6 @@
     <script src='<c:url value="/js/piroBox.1_2.js"/>' type="text/javascript"></script>
     <script src='<c:url value="/js/jquery.colorbox-min.js"/>' type="text/javascript"></script>
     <script src='<c:url value="/js/jquery.ticker.js"/>' type="text/javascript"></script>
-    <%--<script src='<c:url value="/js/jquery.vticker.js"/>' type="text/javascript"></script>--%>
     <script src='<c:url value="/js/jquery.center.js"/>' type="text/javascript"></script>
     <script src='<c:url value="/js/jquery.wj_progress_indicator.js"/>' type="text/javascript"></script>
 
@@ -42,7 +41,6 @@
             });
 
             ticker_init();
-            start_ffws_side_panel_updater();
         });
     </script>
 </head>
@@ -73,8 +71,9 @@
             <div class="clear">&nbsp;</div>
         </div>
         <div id="sidebar-right">
-            <page:apply-decorator name="body_only" page="/side_panel/ffws.html"/>
-            <page:apply-decorator name="body_only" page="/side_panel/publication.html"/>
+
+            <%--<page:apply-decorator name="body_only" page="/side_panel/ffws.html"/>--%>
+            <%--<page:apply-decorator name="body_only" page="/side_panel/publication.html"/>--%>
             <page:apply-decorator name="body_only" page="/side_panel/presentation/meeting.html"/>
             <page:apply-decorator name="body_only" page="/side_panel/application.html"/>
             <page:apply-decorator name="body_only" page="/side_panel/institution.html"/>

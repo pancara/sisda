@@ -4,6 +4,7 @@ import com.integrasolusi.pusda.sisda.persistence.Map;
 import com.integrasolusi.pusda.sisda.persistence.MapCategory;
 import com.integrasolusi.pusda.sisda.service.MapCategoryService;
 import com.integrasolusi.pusda.sisda.service.MapService;
+import com.integrasolusi.pusda.sisda.web.dto.MapCategoryDto;
 import com.integrasolusi.pusda.sisda.web.form.SearchMapForm;
 import com.integrasolusi.utils.ContentTypeUtils;
 import com.integrasolusi.utils.ImageUtils;
@@ -20,12 +21,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletResponse;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -85,19 +84,30 @@ public class MapController {
     @RequestMapping("index.html")
     public ModelAndView index() {
         ModelAndView mav = new ModelAndView("site/map/index");
-        mav.addObject("categoryList", createCategoryList());
+        List<MapCategory> categoryList = createCategoryList();
+        mav.addObject("categoryList", categoryList);
 
-        java.util.Map<MapCategory, Object> mapCategories = new LinkedHashMap<>();
-
-        for (MapCategory category : mapCategoryService.findByParent(null, "name")) {
-            Object data = getMaps(category);
-            mapCategories.put(category, data);
+        List<MapCategoryDto> mapDto = new LinkedList<>();
+        for (MapCategory cat : mapCategoryService.findByParent(null, "name")) {
+            mapDto.add(entityToDto(cat));
         }
 
-        mav.addObject("mapCategories", mapCategories);
-
-
+        mav.addObject("mapDto", mapDto);
         return mav;
+    }
+
+    private MapCategoryDto entityToDto(MapCategory category) {
+        MapCategoryDto dto = new MapCategoryDto();
+        dto.setCategory(category);
+
+        List<Map> maps = mapService.findByCategory(category);
+        dto.setMaps(maps);
+
+        for (MapCategory c : mapCategoryService.findByParent(category, "name")) {
+            dto.getChildren().add(this.entityToDto(c));
+        }
+        return dto;
+
     }
 
     @RequestMapping("search.html")

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.integrasolusi.pusda.sisda.persistence.patternplanning.PatternPlanSdaFile"
+           table="patternplanningsda_file">
+
+        <id name="id" column="UID" type="java.lang.Long" unsaved-value="null">
+            <generator class="native"/>
+        </id>
+
+        <version name="version" access="field" column="OBJ_VERSION"/>
+
+        <property name="title" type="java.lang.String">
+            <column name="TITLE" sql-type="TEXT"/>
+        </property>
+
+        <property name="description" type="java.lang.String">
+            <column name="DESCRIPTION" sql-type="TEXT"/>
+        </property>
+
+        <property name="filename" type="java.lang.String">
+            <column name="FILENAME" sql-type="VARCHAR(255)"/>
+        </property>
+
+        <property name="index" type="java.lang.Integer" column="IDX"/>
+
+        <many-to-one name="folder"
+                     class="com.integrasolusi.pusda.sisda.persistence.patternplanning.PatternPlanSdaFolder"
+                     column="FOLDER" lazy="false" not-null="true"/>
+    </class>
+</hibernate-mapping>

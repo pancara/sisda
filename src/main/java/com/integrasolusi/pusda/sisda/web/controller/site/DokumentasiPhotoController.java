@@ -25,7 +25,7 @@ import java.io.IOException;
 @Controller("dokumentasiPhotoController")
 public class DokumentasiPhotoController {
     private static Logger logger = LoggerFactory.getLogger(DokumentasiPhotoController.class);
-    
+
     @Autowired
     private PagingHelper pagingHelper;
 
@@ -46,13 +46,30 @@ public class DokumentasiPhotoController {
 
 
         DokumentasiPhoto photo = dokumentasiPhotoService.findById(id);
-        if (photo == null)
+        if (photo == null) {
             return;
+        }
 
         try {
-            dokumentasiPhotoService.getBlob(id, width, height, response.getOutputStream());
+            dokumentasiPhotoService.getBlob(id, response.getOutputStream(), width, height);
         } catch (IOException e) {
             logger.error(e.getMessage(), e);
+        }
+
+        if (photo == null) {
+            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+            return;
+        }
+
+        if (width == null && height == null) {
+            response.setContentType(contentTypeUtils.getContentType(photo.getFilename()));
+            dokumentasiPhotoService.getBlob(id, response.getOutputStream());
+        } else {
+
+            int w = width == null ? 0 : width;
+            int h = height == null ? 0 : height;
+            response.setContentType(contentTypeUtils.getContentType("thumb.jpg"));
+            dokumentasiPhotoService.getBlob(id, response.getOutputStream(), w, h);
         }
 
     }

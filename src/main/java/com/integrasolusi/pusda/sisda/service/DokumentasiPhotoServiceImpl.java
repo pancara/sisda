@@ -80,11 +80,11 @@ public class DokumentasiPhotoServiceImpl implements DokumentasiPhotoService {
 
     @Override
     public void getBlob(Long id, OutputStream os) throws IOException {
-        getBlob(id, null, null, os);
+        getBlob(id, os, null, null);
     }
 
     @Override
-    public void getBlob(Long id, Integer w, Integer h, OutputStream os) throws IOException {
+    public void getBlob(Long id, OutputStream os, Integer w, Integer h) throws IOException {
         if (w == null && h == null) {
             blobRepository.copyContent(BlobDataType.DOKUMENTASI_PHOTO, id, os);
             return;

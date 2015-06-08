@@ -1,37 +1,27 @@
 #macro(renderMap $stack)
-    #set ($context = $stack.pop())
-    #foreach($c in $context.get("data").keySet())
+    #set ($list = $stack.pop())
+    #foreach($c in $list)
     <div class="folder">
         <span class="label">
-            $c.name
+            $!{c.category.name}
         </span>
 
         <div class="children">
-            #if ($collectionsTool.isList($context.get("data").get($c)))
-                #foreach($map in $context.get("data").get($c))
-                    <div class="item_empty">
-                    <span class="label">
-                        <img src="#springUrl("/download/map/thumb/${map.id}/${map.filename}?width=40")"
-                             data-thumbURL='#springUrl("/download/map/thumb/${map.id}/${map.filename}?width=240")'/>
-                        $map.name
-                        <a href='#springUrl("/download/map/${map.id}/${map.filename}")'
-                           style="float: right; margin-left: 10px;" target="_blank">
-                            <img src="#springUrl("/images/filetype/$fileTool.getFileTypeIcon($!{map.filename})")"/>
-                        </a>
-                     </span>
-                    </div>
-                #end
+            #foreach($map in $c.maps)
+                <div class="item_empty">
+                <span class="label">
+                    <img src="#springUrl("/download/map/thumb/${map.id}/${map.filename}?width=40")"
+                         data-thumbURL='#springUrl("/download/map/thumb/${map.id}/${map.filename}?width=240")'/>
+                    $map.name
+                    <a href='#springUrl("/download/map/${map.id}/${map.filename}")'
+                       style="float: right; margin-left: 10px;" target="_blank">
+                        <img src="#springUrl("/images/filetype/$fileTool.getFileTypeIcon($!{map.filename})")"/>
+                    </a>
+                 </span>
+                </div>
             #end
-
-            #if ($collectionsTool.isMap($context.get("data").get($c)))
-                #set($temp = $context.get("data").get($c))
-                #set ($context.data = $temp)
-
-                $stack.push($context)
-                $stack.push($newContext)
-                #renderMap($stack)
-                #set($context = $stack.pop())
-            #end
+            $stack.push($c.children)
+            #renderMap($stack)
         </div>
     </div>
     #end
@@ -48,31 +38,41 @@
 
 <div id="map">
     <div>
-        <form action='#springUrl("/map/search.html")' style=" text-align: right;" class="search">
-            Pencarian :
-            <input type='text' name='keyword' value='$!{form.keyword}' style="width: 100px;"
-                   placeholder=" ..kata kunci.. "/>
-            &nbsp;
-            &nbsp;
-            Kategori :
-            <select id="category" name="category" style="">
-                #foreach($category in ${categoryList})
-                    #if ($category.id && $form.category == $category.id)
-                        <option value="$!{category.id}" selected="selected">${category.name}</option>
-                    #else
-                        <option value="$!{category.id}">${category.name}</option>
-                    #end
-                #end
-            </select>
-            <input type='submit' value='cari' class="btn"/>
+        <form action='#springUrl("/map/search.html")' class="search">
+            <table>
+                <tr>
+                    <td>
+                        Kategori
+                    </td>
+                    <td>
+                        <select id="category" name="category" style="">
+                            #foreach($category in ${categoryList})
+                                #if ($category.id && $form.category == $category.id)
+                                    <option value="$!{category.id}" selected="selected">${category.name}</option>
+                                #else
+                                    <option value="$!{category.id}">${category.name}</option>
+                                #end
+                            #end
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Kata kunci </td>
+                    <td>
+                        <input type='text' name='keyword' value='$!{form.keyword}' style="width: 100px;"
+                               placeholder=" ..kata kunci.. "/>
+
+                        <input type='submit' value='cari' class="btn"/>
+                    </td>
+                </tr>
+            </table>
         </form>
     </div>
     <div class="clear">&nbsp;</div>
-    <div class="jquery_foldertree" style="border: 1px solid #EEE;  padding: 8px; width: 540px; margin: 0px auto 0px auto; border-radius: 4px;">
+    <div class="jquery_foldertree"
+         style="border: 1px solid #EEE;  padding: 8px; width: 540px; margin: 0px auto 0px auto; border-radius: 4px;">
         #set($stack = $collectionsTool.newList())
-        #set ($context = {})
-        #set($context.data = $mapCategories)
-        $stack.push($context)
+        $stack.push($mapDto)
         #renderMap($stack)
     </div>
 </div>

@@ -6,5 +6,5 @@ package com.integrasolusi.query.util;
  * Time         : 2:56 PM
  */
 public enum OrderDir {
-    ASC, DESC;
+    ASC, DESC
 }

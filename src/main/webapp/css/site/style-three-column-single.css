@@ -3,7 +3,7 @@ body {
   padding: 0px 0px 2px 0px;
   font-family: "Signika", Helvetica, Arial;
   font-size: 13px;
-  color: #444444;
+  color: #444;
   background-color: #002233;
   background-image: url(../../images/bg.png);
   background-repeat: repeat; }
@@ -20,11 +20,11 @@ h2 {
   line-height: 14px;
   font-weight: bold;
   margin: 0px 0px 0px 0px;
-  color: white; }
+  color: #FFF; }
 
 h3 {
   margin: 0px 0px 0px 0px;
-  color: white; }
+  color: #FFF; }
 
 p, ul, ol {
   margin: 0 0 2em 0;
@@ -34,12 +34,12 @@ p, ul, ol {
 a {
   text-decoration: none; }
   a:link {
-    color: #3366cc; }
+    color: #3366CC; }
   a:hover, a a:active {
     text-decoration: none;
-    color: #3366cc; }
+    color: #3366CC; }
   a:visited {
-    color: #3366cc; }
+    color: #3366CC; }
 
 img {
   border: none; }
@@ -61,7 +61,7 @@ a.btn {
   font-size: 10px;
   font-weight: normal;
   font-family: Signika;
-  color: white;
+  color: #fff;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
   text-decoration: none;
   white-space: nowrap;
@@ -95,24 +95,24 @@ a.btn {
   width: 925px;
   margin: 0px auto 12px auto;
   padding: 40px 5px 5px 5px;
-  border: 1px solid #999999;
+  border: 1px solid #999;
   border-top: none;
-  background: white;
-  box-shadow: 0px 0px 8px #999999;
+  background: #FFF;
+  box-shadow: 0px 0px 8px #999;
   border-radius: 2px; }
 
 #ticker {
   z-index: 9999;
   position: fixed;
   top: -1px;
-  box-shadow: 0px 2px 6px #cccccc;
+  box-shadow: 0px 2px 6px #CCC;
   width: 900px;
   height: 30px;
   margin: 0px auto 0px auto;
-  border: 1px solid #cccccc;
+  border: 1px solid #CCC;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
-  background: white;
+  background: #FFF;
   visibility: hidden; }
 
 #main {
@@ -121,7 +121,7 @@ a.btn {
   border: none;
   padding: 0px 0px 0px 0px;
   width: 925px;
-  background: white; }
+  background: #FFF; }
 
 #content {
   margin: 0px 0px 32px 0px;
@@ -135,15 +135,15 @@ a.btn {
     margin: 0px 0px 0px 0px;
     padding: 6px 4px 6px 8px;
     display: block;
-    border: 0px solid white;
+    border: 0px solid #FFF;
     background: #295876;
     border-radius: 3px;
-    color: #666666;
+    color: #666;
     font-family: "Signika", "Trebuchet MS", Helvetica, Arial;
     font-size: 14px;
     font-weight: normal;
-    color: white;
-    text-shadow: 3px 2px 2px #333333; }
+    color: #FFF;
+    text-shadow: 3px 2px 2px #333; }
     #content > h1 img {
       float: left;
       padding: 2px; }
@@ -152,20 +152,20 @@ a.btn {
       font-family: "Trebuchet MS", Verdana;
       font-size: 14px;
       font-weight: normal;
-      color: #eeeeee;
+      color: #EEEEEE;
       letter-spacing: 0px;
       padding: 2px 4px 2px 4px; }
     #content > h1 a {
       font-family: "Trebuchet MS", Verdana;
       font-size: 14px;
       font-weight: normal;
-      color: #eeeeee;
+      color: #EEEEEE;
       background: #496886;
       padding: 2px 4px 2px 4px;
       border-radius: 6px;
       letter-spacing: 0px; }
     #content > h1 a:hover {
-      color: white;
+      color: #FFF;
       background: #597896;
       text-decoration: none; }
   #content > div {
@@ -185,8 +185,8 @@ a.btn {
     margin: 12px 0px 8px 0px;
     padding: 2px 0px 2px 0px;
     text-align: center;
-    color: black;
-    text-shadow: 0px 2px 2px #eeeeee; }
+    color: #000;
+    text-shadow: 0px 2px 2px #EEE; }
   #content table {
     margin-left: 0px; }
     #content table th {
@@ -202,7 +202,7 @@ a.btn {
     font-weight: bold;
     color: #f29e0c; }
   #content em {
-    color: red;
+    color: #FF0000;
     font-style: normal; }
   #content form {
     font-family: "Trebuchet MS", "Helvetica", sans-serif;
@@ -213,10 +213,10 @@ a.btn {
       font-family: "Trebuchet MS", "Helvetica", sans-serif;
       font-size: 12px;
       margin: 0px 2px 0px 2px;
-      border: 1px solid #dddddd; }
+      border: 1px solid #DDD; }
     #content form input[type=text]:focus {
-      border: 1px solid #3399cc;
-      box-shadow: 0px 0px 2px #66aacc; }
+      border: 1px solid #3399CC;
+      box-shadow: 0px 0px 2px #66AACC; }
     #content form input.button {
       font-family: "Trebuchet MS", "Helvetica", sans-serif;
       font-size: 12px;
@@ -225,14 +225,14 @@ a.btn {
       padding: 2px 4px 2px 4px;
       font-family: "Trebuchet MS";
       font-size: 12px;
-      border: 1px solid #dddddd;
-      background: whitesmoke;
-      background: -moz-linear-gradient(top, #dddddd, whitesmoke);
-      background: -webkit-gradient(linear, left top, left bottom, from(#dddddd), to(whitesmoke));
+      border: 1px solid #DDD;
+      background: #F5F5F5;
+      background: -moz-linear-gradient(top, #dddddd, #f5f5f5);
+      background: -webkit-gradient(linear, left top, left bottom, from(#dddddd), to(#f5f5f5));
       filter: progid:dximagetransform.microsoft.gradient(StartColorStr = '#DDD', EndColorStr = '#F5F5F5', GradientType = 0);
       border-radius: 4px;
       outline: none;
-      color: black;
+      color: #000;
       min-width: 70px; }
     #content form textarea {
       font-family: "Trebuchet MS", "Helvetica", sans-serif;
@@ -244,7 +244,7 @@ a.btn {
       font-family: "Trebuchet MS", "Helvetica", sans-serif;
       font-size: 12px;
       margin: 0px 2px 0px 2px;
-      border: 1px solid #dddddd;
+      border: 1px solid #DDD;
       min-width: 40px; }
     #content form input[type=file] {
       font-family: "Trebuchet MS", "Helvetica", sans-serif;
@@ -272,14 +272,14 @@ a.btn {
       font-size: 11px;
       line-height: 16px;
       font-weight: bold;
-      color: white;
+      color: #FFF;
       letter-spacing: 0px;
       outline: none;
       display: inline-block;
       vertical-align: top; }
       #header .menubar a:hover {
         text-decoration: none;
-        color: white;
+        color: #FFF;
         background: #30698c;
         background-image: linear-gradient(to top, #2c6081, #3d85b2);
         background-repeat: repeat-x;
@@ -303,9 +303,9 @@ a.btn {
       margin-bottom: 2px;
       font-family: Signika;
       font-size: 16px;
-      color: white;
+      color: #FFF;
       font-weight: lighter;
-      text-shadow: 1px 1px 2px black;
+      text-shadow: 1px 1px 2px #000;
       letter-spacing: 1px; }
     #header .banner h2 {
       display: block;
@@ -314,7 +314,7 @@ a.btn {
       font-size: 12px;
       line-height: 14px;
       font-weight: normal;
-      text-shadow: 1px 1px 2px black; }
+      text-shadow: 1px 1px 2px #000; }
     #header .banner h3 {
       display: block;
       margin: 0px 0px 0px 0px;
@@ -323,7 +323,7 @@ a.btn {
       font-weight: normal;
       line-height: 14px;
       letter-spacing: 1px;
-      text-shadow: 1px 1px 2px black; }
+      text-shadow: 1px 1px 2px #000; }
     #header .banner form.search {
       border: 1px solid #999999;
       border-radius: 5px;
@@ -387,14 +387,14 @@ a.btn {
       font-size: 11px;
       line-height: 16px;
       font-weight: bold;
-      color: white;
+      color: #FFF;
       letter-spacing: 0px;
       outline: none;
       display: inline-block;
       vertical-align: top; }
       #header .menubar a:hover {
         text-decoration: none;
-        color: white;
+        color: #FFF;
         background: #30698c;
         background-image: linear-gradient(to top, #2c6081, #3d85b2);
         background-repeat: repeat-x;
@@ -418,9 +418,9 @@ a.btn {
       margin-bottom: 2px;
       font-family: Signika;
       font-size: 16px;
-      color: white;
+      color: #FFF;
       font-weight: lighter;
-      text-shadow: 1px 1px 2px black;
+      text-shadow: 1px 1px 2px #000;
       letter-spacing: 1px; }
     #header .banner h2 {
       display: block;
@@ -429,7 +429,7 @@ a.btn {
       font-size: 12px;
       line-height: 14px;
       font-weight: normal;
-      text-shadow: 1px 1px 2px black; }
+      text-shadow: 1px 1px 2px #000; }
     #header .banner h3 {
       display: block;
       margin: 0px 0px 0px 0px;
@@ -438,7 +438,7 @@ a.btn {
       font-weight: normal;
       line-height: 14px;
       letter-spacing: 1px;
-      text-shadow: 1px 1px 2px black; }
+      text-shadow: 1px 1px 2px #000; }
     #header .banner form.search {
       border: 1px solid #999999;
       border-radius: 5px;
@@ -499,21 +499,21 @@ a.btn {
       font-weight: lighter;
       text-decoration: none;
       padding: 4px 0px 5px 4px;
-      color: white;
+      color: #FFF;
       background: #295876;
       border-radius: 2px;
       border: 1px solid #306689;
       outline: none;
       margin-top: 3px;
-      text-shadow: -2px 2px 2px #555555;
+      text-shadow: -2px 2px 2px #555;
       letter-spacing: 0px; }
       #sidebar-left .main_menu a:hover {
-        color: white;
+        color: #FFF;
         background: #396580;
         background-image: url("../../images/menu/arrow-orange.png");
         background-repeat: no-repeat;
         background-position: right center;
-        text-shadow: -2px 2px 2px #333333; }
+        text-shadow: -2px 2px 2px #333; }
       #sidebar-left .main_menu a span.small {
         font-size: 9px; }
       #sidebar-left .main_menu a img {
@@ -523,7 +523,7 @@ a.btn {
     background: transparent;
     padding: 2px 0px 2px 0px;
     margin: 5px 0px 0px 0px;
-    color: #666666;
+    color: #666;
     font-weight: normal;
     border: none;
     font-size: 12px;
@@ -541,7 +541,7 @@ a.btn {
         float: left;
         margin: 0px 6px 0px 2px;
         border-radius: 3px;
-        background: black;
+        background: #000;
         padding: 3px 3px 2px 3px; }
       #sidebar-left .leaflet h1 span {
         padding-top: 2px;
@@ -550,14 +550,14 @@ a.btn {
         font-family: "Signika";
         text-align: left;
         font-weight: bold;
-        color: white;
+        color: #FFF;
         letter-spacing: 1px;
-        text-shadow: 0px 0px 4px #333333;
+        text-shadow: 0px 0px 4px #333;
         display: inline-block; }
     #sidebar-left .leaflet .content {
       margin: 4px 2px 2px 2px;
       padding: 4px 3px 4px 3px;
-      background: white;
+      background: #FFF;
       border-top-left-radius: 2px;
       border-top-right-radius: 2px;
       border-bottom-left-radius: 4px;
@@ -575,15 +575,15 @@ a.btn {
           font-size: 12px;
           font-weight: normal;
           line-height: 14px;
-          color: #333333;
+          color: #333;
           background: #f4f8ff;
           border: 1px solid #eff5ff;
           border-radius: 4px;
-          text-shadow: 0px 0px 2px #dddddd; }
+          text-shadow: 0px 0px 2px #DDD; }
           #sidebar-left .leaflet .content .items a:hover {
             background: #eff5ff;
             border: 1px solid #eaf2ff;
-            text-shadow: 0px 0px 3px #bbbbbb; }
+            text-shadow: 0px 0px 3px #BBB; }
           #sidebar-left .leaflet .content .items a img {
             float: left;
             margin-right: 5px;
@@ -602,7 +602,7 @@ a.btn {
     background: transparent;
     padding: 2px 0px 2px 0px;
     margin: 5px 0px 0px 0px;
-    color: #666666;
+    color: #666;
     font-weight: normal;
     border: none;
     font-size: 12px;
@@ -620,7 +620,7 @@ a.btn {
         float: left;
         margin: 0px 6px 0px 2px;
         border-radius: 3px;
-        background: black;
+        background: #000;
         padding: 3px 3px 2px 3px; }
       #sidebar-left .calendar h1 span {
         padding-top: 2px;
@@ -629,14 +629,14 @@ a.btn {
         font-family: "Signika";
         text-align: left;
         font-weight: bold;
-        color: white;
+        color: #FFF;
         letter-spacing: 0px;
-        text-shadow: 0px 0px 4px #333333;
+        text-shadow: 0px 0px 4px #333;
         display: inline-block; }
     #sidebar-left .calendar .content {
       margin: 4px 2px 2px 2px;
       padding: 4px 3px 4px 3px;
-      background: white;
+      background: #FFF;
       border-top-left-radius: 2px;
       border-top-right-radius: 2px;
       border-bottom-left-radius: 4px;
@@ -651,7 +651,7 @@ a.btn {
         background: #306689;
         display: block;
         height: 22px;
-        color: white;
+        color: #FFF;
         text-align: center;
         font-family: Verdana;
         font-size: 8px;
@@ -663,7 +663,7 @@ a.btn {
           padding: 0px;
           margin: 0px; }
           #sidebar-left .calendar .content .month_year img:hover {
-            box-shadow: 0px 0px 5px #cccccc; }
+            box-shadow: 0px 0px 5px #CCC; }
         #sidebar-left .calendar .content .month_year span {
           padding-top: 4px;
           font-size: 10px; }
@@ -671,13 +671,13 @@ a.btn {
         margin-top: 4px;
         padding: 2px;
         border-radius: 2px;
-        background: white;
+        background: #FFF;
         color: #eb6110;
         font-size: 10px; }
       #sidebar-left .calendar .content .calendar_view {
         width: 100%; }
         #sidebar-left .calendar .content .calendar_view td {
-          background: #cccccc;
+          background: #CCC;
           padding: 4px 0px 4px 0px;
           width: 25px;
           margin: 0px;
@@ -688,33 +688,33 @@ a.btn {
           /*border: 1px solid #bbcfda; */
           /*border: 1px solid #CCC; */ }
           #sidebar-left .calendar .content .calendar_view td a {
-            color: white;
+            color: #FFF;
             font-size: 11px;
             line-height: 11px;
             font-weight: bold;
             text-decoration: none;
             display: block; }
           #sidebar-left .calendar .content .calendar_view td.activity {
-            color: white !important;
+            color: #FFF !important;
             background: #f0c425 !important;
             border: 0px solid #c2dcfd !important; }
             #sidebar-left .calendar .content .calendar_view td.activity:hover {
-              color: white;
+              color: #FFF;
               background: #f09b25 !important; }
           #sidebar-left .calendar .content .calendar_view td.nameday {
             background: #306689;
-            color: white; }
+            color: #FFF; }
           #sidebar-left .calendar .content .calendar_view td.sunday {
-            color: red;
+            color: #FF0000;
             background: #fccacb; }
           #sidebar-left .calendar .content .calendar_view td.saturday {
             background: #e2f2fd;
             color: #37749c; }
           #sidebar-left .calendar .content .calendar_view td.workday {
-            background: white;
-            color: #333333; }
+            background: #FFF;
+            color: #333; }
           #sidebar-left .calendar .content .calendar_view td span {
-            color: black;
+            color: #000;
             font-size: 11px;
             cursor: default; }
             #sidebar-left .calendar .content .calendar_view td span.today {
@@ -732,7 +732,7 @@ a.btn {
     background: transparent;
     padding: 2px 0px 2px 0px;
     margin: 5px 0px 0px 0px;
-    color: #666666;
+    color: #666;
     font-weight: normal;
     border: none;
     font-size: 12px;
@@ -750,7 +750,7 @@ a.btn {
         float: left;
         margin: 0px 6px 0px 2px;
         border-radius: 3px;
-        background: black;
+        background: #000;
         padding: 3px 3px 2px 3px; }
       #sidebar-left .publication h1 span {
         padding-top: 2px;
@@ -759,14 +759,14 @@ a.btn {
         font-family: "Signika";
         text-align: left;
         font-weight: bold;
-        color: white;
+        color: #FFF;
         letter-spacing: 0px;
-        text-shadow: 0px 0px 4px #333333;
+        text-shadow: 0px 0px 4px #333;
         display: inline-block; }
     #sidebar-left .publication .content {
       margin: 4px 2px 2px 2px;
       padding: 4px 3px 4px 3px;
-      background: white;
+      background: #FFF;
       border-top-left-radius: 2px;
       border-top-right-radius: 2px;
       border-bottom-left-radius: 4px;
@@ -778,7 +778,7 @@ a.btn {
         #sidebar-left .publication .content .items div {
           padding: 5px 4px 5px 4px;
           margin: 0px 4px 0px 4px;
-          border-bottom: 1px dotted #cccccc; }
+          border-bottom: 1px dotted #CCC; }
           #sidebar-left .publication .content .items div:last-child {
             border: none;
             margin-top: 4px; }
@@ -795,9 +795,9 @@ a.btn {
             font-size: 12px;
             font-weight: normal;
             line-height: 14px;
-            color: #333333;
-            background: white;
-            text-shadow: 0px 0px 2px white; }
+            color: #333;
+            background: #FFF;
+            text-shadow: 0px 0px 2px #FFF; }
             #sidebar-left .publication .content .items div a:hover {
               color: #376ea6; }
             #sidebar-left .publication .content .items div a img {
@@ -809,7 +809,7 @@ a.btn {
     background: transparent;
     padding: 2px 0px 2px 0px;
     margin: 5px 0px 0px 0px;
-    color: #666666;
+    color: #666;
     font-weight: normal;
     border: none;
     font-size: 12px;
@@ -827,7 +827,7 @@ a.btn {
         float: left;
         margin: 0px 6px 0px 2px;
         border-radius: 3px;
-        background: black;
+        background: #000;
         padding: 3px 3px 2px 3px; }
       #sidebar-left .guest_book_form h1 span {
         padding-top: 2px;
@@ -836,14 +836,14 @@ a.btn {
         font-family: "Signika";
         text-align: left;
         font-weight: bold;
-        color: white;
+        color: #FFF;
         letter-spacing: 0px;
-        text-shadow: 0px 0px 4px #333333;
+        text-shadow: 0px 0px 4px #333;
         display: inline-block; }
     #sidebar-left .guest_book_form .content {
       margin: 4px 2px 2px 2px;
       padding: 4px 3px 4px 3px;
-      background: white;
+      background: #FFF;
       border-top-left-radius: 2px;
       border-top-right-radius: 2px;
       border-bottom-left-radius: 4px;
@@ -858,16 +858,16 @@ a.btn {
           width: 154px;
           margin-left: 0px;
           border-radius: 1px;
-          border: 1px solid #cccccc;
+          border: 1px solid #CCC;
           padding: 4px 2px 2px 2px;
           font-family: Signika; }
           #sidebar-left .guest_book_form .content form input[type="text"]:focus, #sidebar-left .guest_book_form .content form textarea:focus {
-            box-shadow: 0px 0px 5px #aaaaaa;
+            box-shadow: 0px 0px 5px #AAA;
             outline: none; }
         #sidebar-left .guest_book_form .content form textarea {
           height: 40px; }
         #sidebar-left .guest_book_form .content form input[type="submit"] {
-          color: white;
+          color: #FFF;
           font-family: Signika;
           font-size: 11px;
           border-radius: 3px;
@@ -876,7 +876,7 @@ a.btn {
           background: #599bc5;
           background-image: linear-gradient(to top, #599bc5, #7fb2d3); }
           #sidebar-left .guest_book_form .content form input[type="submit"]:focused {
-            box-shadow: 0px 0px 8px #aaaaaa; }
+            box-shadow: 0px 0px 8px #AAA; }
         #sidebar-left .guest_book_form .content form img {
           margin-left: 4px; }
 
@@ -886,14 +886,14 @@ a.btn {
   width: 164px;
   margin: 4px 0px 0px 0px;
   padding: 0px 0px 0px 0px;
-  background: white;
+  background: #FFF;
   float: right; }
   #sidebar-right .ffws {
     font-weight: bold;
     background: transparent;
     padding: 0px 0px 0px 0px;
     margin: 0px 0px 0px 0px;
-    color: #666666;
+    color: #666;
     font-weight: normal;
     border: none;
     font-size: 12px;
@@ -912,7 +912,7 @@ a.btn {
         float: right;
         margin: 0px 0px 0px 0px;
         border-radius: 3px;
-        background: white;
+        background: #FFF;
         padding: 3px 3px 2px 3px; }
       #sidebar-right .ffws h1 span {
         margin-left: 6px;
@@ -922,14 +922,14 @@ a.btn {
         font-family: "Signika";
         text-align: left;
         font-weight: bold;
-        color: white;
+        color: #FFF;
         letter-spacing: 0px;
-        text-shadow: 0px 0px 4px #333333;
+        text-shadow: 0px 0px 4px #333;
         display: inline-block; }
     #sidebar-right .ffws .content {
       margin: 4px 2px 2px 2px;
       padding: 0px 0px 0px 0px;
-      background: white;
+      background: #FFF;
       border-top-left-radius: 2px;
       border-top-right-radius: 2px;
       border-bottom-left-radius: 4px;
@@ -948,11 +948,11 @@ a.btn {
           font-size: 12px;
           font-weight: normal;
           line-height: 14px;
-          color: #333333;
-          background: whitesmoke;
+          color: #333;
+          background: #F5F5F5;
           border: 1px solid #eff5ff;
           border-radius: 4px;
-          text-shadow: 0px 0px 2px #dddddd; }
+          text-shadow: 0px 0px 2px #DDD; }
           #sidebar-right .ffws .content .items .item td {
             margin: 0px 0px 0px 0px;
             border-collapse: collapse; }
@@ -962,20 +962,20 @@ a.btn {
               display: block;
               padding: 4px 0px 4px 0px; }
             #sidebar-right .ffws .content .items .item td.time {
-              color: #555555;
+              color: #555;
               padding: 4px 0px 2px 0px;
               width: 110px;
-              color: #666666;
+              color: #666;
               font-family: Signika;
               font-size: 10px;
-              border-top: 1px solid white; }
+              border-top: 1px solid #FFF; }
             #sidebar-right .ffws .content .items .item td.value {
-              background: white;
-              color: #cc0000;
+              background: #FFF;
+              color: #CC0000;
               font-size: 14px;
               padding: 4px;
               border-radius: 6px;
-              border: 1px solid whitesmoke; }
+              border: 1px solid #F5F5F5; }
               #sidebar-right .ffws .content .items .item td.value .unit {
                 font-size: 12px; }
       #sidebar-right .ffws .content .footer {
@@ -987,7 +987,7 @@ a.btn {
     background: transparent;
     padding: 0px 0px 0px 0px;
     margin: 8px 0px 0px 0px;
-    color: #666666;
+    color: #666;
     font-weight: normal;
     border: none;
     font-size: 12px;
@@ -1006,7 +1006,7 @@ a.btn {
         float: right;
         margin: 0px 0px 0px 0px;
         border-radius: 3px;
-        background: white;
+        background: #FFF;
         padding: 3px 3px 2px 3px; }
       #sidebar-right .application h1 span, #sidebar-right .institution h1 span, #sidebar-right .media h1 span {
         margin-left: 6px;
@@ -1016,14 +1016,14 @@ a.btn {
         font-family: "Signika";
         text-align: left;
         font-weight: bold;
-        color: white;
+        color: #FFF;
         letter-spacing: 1px;
-        text-shadow: 0px 0px 4px #333333;
+        text-shadow: 0px 0px 4px #333;
         display: inline-block; }
     #sidebar-right .application .content, #sidebar-right .institution .content, #sidebar-right .media .content {
       margin: 4px 2px 2px 2px;
       padding: 0px 0px 0px 0px;
-      background: white;
+      background: #FFF;
       border-top-left-radius: 2px;
       border-top-right-radius: 2px;
       border-bottom-left-radius: 4px;
@@ -1032,7 +1032,7 @@ a.btn {
       #sidebar-right .application .content .item, #sidebar-right .institution .content .item, #sidebar-right .media .content .item {
         margin-bottom: 3px;
         padding: 0px 0px 0px 0px;
-        background: whitesmoke; }
+        background: #F5F5F5; }
         #sidebar-right .application .content .item:last-child, #sidebar-right .institution .content .item:last-child, #sidebar-right .media .content .item:last-child {
           margin-bottom: 0px; }
         #sidebar-right .application .content .item a, #sidebar-right .institution .content .item a, #sidebar-right .media .content .item a {
@@ -1041,20 +1041,20 @@ a.btn {
           margin: 0px;
           padding: 4px 6px 4px 2px;
           color: #37749c;
-          text-shadow: 2px -1px 2px red;
+          text-shadow: 2px -1px 2px #FF0000;
           border-radius: 4px; }
           #sidebar-right .application .content .item a:hover, #sidebar-right .institution .content .item a:hover, #sidebar-right .media .content .item a:hover {
             color: #488fbe;
             background: #ededed; }
           #sidebar-right .application .content .item a img, #sidebar-right .institution .content .item a img, #sidebar-right .media .content .item a img {
             float: right;
-            background: white;
-            border: 1px solid #f0f0f0;
+            background: #FFF;
+            border: 1px solid #F0F0F0;
             padding: 4px;
             border-radius: 5px; }
           #sidebar-right .application .content .item a span, #sidebar-right .institution .content .item a span, #sidebar-right .media .content .item a span {
             font-weight: normal;
-            text-shadow: -2px -2px 2px white, 1px 1px 2px #bbbbbb;
+            text-shadow: -2px -2px 2px white, 1px 1px 2px #BBB;
             display: inline-block;
             max-width: 90px;
             margin: 6px 12px 0px 4px; }
@@ -1062,8 +1062,8 @@ a.btn {
     font-weight: bold;
     background: transparent;
     padding: 0px 0px 0px 0px;
-    margin: 8px 0px 0px 0px;
-    color: #666666;
+    margin: 0px 0px 0px 0px;
+    color: #666;
     font-weight: normal;
     border: none;
     font-size: 12px;
@@ -1082,7 +1082,7 @@ a.btn {
         float: right;
         margin: 0px 0px 0px 0px;
         border-radius: 3px;
-        background: white;
+        background: #FFF;
         padding: 3px 3px 2px 3px; }
       #sidebar-right .presentation_meeting h1 span {
         margin-left: 6px;
@@ -1092,14 +1092,14 @@ a.btn {
         font-family: "Signika";
         text-align: left;
         font-weight: bold;
-        color: white;
+        color: #FFF;
         letter-spacing: 0px;
-        text-shadow: 0px 0px 4px #333333;
+        text-shadow: 0px 0px 4px #333;
         display: inline-block; }
     #sidebar-right .presentation_meeting .content {
       margin: 4px 2px 2px 2px;
       padding: 0px 0px 0px 0px;
-      background: white;
+      background: #FFF;
       border-top-left-radius: 2px;
       border-top-right-radius: 2px;
       border-bottom-left-radius: 4px;
@@ -1118,18 +1118,18 @@ a.btn {
           line-height: 15px;
           font-weight: normal;
           margin-left: 6px;
-          color: black;
+          color: #000;
           letter-spacing: 0px;
-          text-shadow: -2px -2px 2px white, 1px 1px 2px #bbbbbb;
-          background: whitesmoke;
+          text-shadow: -2px -2px 2px white, 1px 1px 2px #BBB;
+          background: #F5F5F5;
           padding: 6px 6px 6px 6px; }
           #sidebar-right .presentation_meeting .content .item a:hover {
             color: #488fbe;
             background: #f0f0f0; }
           #sidebar-right .presentation_meeting .content .item a img {
             float: left;
-            background: white;
-            border: 1px solid #f0f0f0;
+            background: #FFF;
+            border: 1px solid #F0F0F0;
             margin: 0px 4px 2px 0px;
             padding: 0px; }
     #sidebar-right .presentation_meeting .footer {
@@ -1140,7 +1140,7 @@ a.btn {
     background: transparent;
     padding: 0px 0px 0px 0px;
     margin: 0px 0px 0px 0px;
-    color: #666666;
+    color: #666;
     font-weight: normal;
     border: none;
     font-size: 12px;
@@ -1159,7 +1159,7 @@ a.btn {
         float: right;
         margin: 0px 0px 0px 0px;
         border-radius: 3px;
-        background: white;
+        background: #FFF;
         padding: 3px 3px 2px 3px; }
       #sidebar-right .publication h1 span {
         margin-left: 6px;
@@ -1169,14 +1169,14 @@ a.btn {
         font-family: "Signika";
         text-align: left;
         font-weight: bold;
-        color: white;
+        color: #FFF;
         letter-spacing: 0px;
-        text-shadow: 0px 0px 4px #333333;
+        text-shadow: 0px 0px 4px #333;
         display: inline-block; }
     #sidebar-right .publication .content {
       margin: 4px 2px 2px 2px;
       padding: 0px 0px 0px 0px;
-      background: white;
+      background: #FFF;
       border-top-left-radius: 2px;
       border-top-right-radius: 2px;
       border-bottom-left-radius: 4px;
@@ -1186,16 +1186,16 @@ a.btn {
         margin-bottom: 6px;
         margin-left: 0px;
         padding: 0px 0px 0px 0px;
-        border-bottom: 1px solid #dddddd; }
+        border-bottom: 1px solid #DDD; }
         #sidebar-right .publication .content .item:last-child {
           margin-bottom: 3px;
           border-bottom: none; }
         #sidebar-right .publication .content .item span.date {
-          color: #666666;
+          color: #666;
           font-size: 10px;
           font-weight: normal;
           display: block;
-          background: #eeeeee; }
+          background: #EEE; }
         #sidebar-right .publication .content .item a {
           font-family: Signika;
           display: block;
@@ -1204,18 +1204,18 @@ a.btn {
           line-height: 15px;
           font-weight: normal;
           margin-left: 6px;
-          color: black;
+          color: #000;
           letter-spacing: 0px;
-          text-shadow: -2px -2px 2px white, 1px 1px 2px #bbbbbb;
-          background: whitesmoke;
+          text-shadow: -2px -2px 2px white, 1px 1px 2px #BBB;
+          background: #F5F5F5;
           padding: 6px 6px 6px 6px; }
           #sidebar-right .publication .content .item a:hover {
             color: #488fbe;
             background: #f0f0f0; }
           #sidebar-right .publication .content .item a img {
             float: left;
-            background: white;
-            border: 1px solid #f0f0f0;
+            background: #FFF;
+            border: 1px solid #F0F0F0;
             margin: 0px 4px 2px 0px;
             padding: 0px; }
     #sidebar-right .publication .footer {
@@ -1233,7 +1233,7 @@ a.btn {
     margin: 0px 0px 0px 0px;
     background: #224a63;
     display: inline-block;
-    color: white;
+    color: #FFF;
     border: none;
     float: left; }
     #footer .statistic h1 {
@@ -1248,7 +1248,7 @@ a.btn {
         margin-right: 4px; }
     #footer .statistic .content {
       margin: 5px 0px 0px 0px;
-      color: white;
+      color: #FFF;
       padding: 0px 0px 0px 0px; }
       #footer .statistic .content th {
         padding: 2px 4px 2px 0px;
@@ -1272,7 +1272,7 @@ a.btn {
     width: 610px;
     margin: 0px 0px 0px 0px;
     padding: 5px 5px 0px 0px;
-    color: white;
+    color: #FFF;
     display: inline-block;
     border: none;
     float: right; }
@@ -1286,7 +1286,7 @@ a.btn {
       text-align: right; }
     #footer .dev_team .content {
       margin: 5px 0px 0px 0px;
-      color: white;
+      color: #FFF;
       padding: 0px 0px 0px 0px;
       text-align: right;
       font-family: Inconsolata; }
@@ -1319,7 +1319,7 @@ a.btn {
 #home {
   margin: 0px 0px 0px 0px; }
   #home .slide {
-    border: 6px solid white;
+    border: 6px solid #FFF;
     box-shadow: 0px 0px 4px 4px #dce7ec;
     border-radius: 6px;
     height: 280px;
@@ -1345,10 +1345,10 @@ a.btn {
       z-index: 100;
       background: transparent;
       text-align: left;
-      color: black; }
+      color: #000; }
     #home .slide div.overlay {
       opacity: 0.4;
-      background: black;
+      background: #000;
       z-index: 99; }
     #home .slide div.info span {
       /*border-bottom: 1px solid #a24837; */ }
@@ -1358,15 +1358,15 @@ a.btn {
         padding: 0px 0px 2px 0px;
         font-size: 16px;
         font-weight: normal;
-        text-shadow: 0px 0px 3px #cccccc;
-        color: white;
+        text-shadow: 0px 0px 3px #CCC;
+        color: #FFF;
         font-family: "Trebuchet MS";
         display: inline-block; }
       #home .slide div.info span.desc {
         font-family: "Trebuchet MS";
         font-size: 12px;
         font-weight: normal;
-        color: white; }
+        color: #FFF; }
   #home .news {
     display: block;
     margin-top: 0px;
@@ -1381,11 +1381,11 @@ a.btn {
       background: #426178;
       border: none;
       border-radius: 3px;
-      text-shadow: 2px 1px 1px #333333; }
+      text-shadow: 2px 1px 1px #333; }
     #home .news > div {
       margin: 8px 0px 8px 0px;
       padding: 8px 0px 8px 0px;
-      border-bottom: 1px dashed #dddddd; }
+      border-bottom: 1px dashed #DDD; }
       #home .news > div:last-child {
         border: none; }
       #home .news > div h3 {
@@ -1398,38 +1398,37 @@ a.btn {
         letter-spacing: 1px;
         display: block;
         text-align: left;
-        text-shadow: 2px 1px 1px #dddddd; }
+        text-shadow: 2px 1px 1px #DDD; }
       #home .news > div .date {
         margin: 8px 0px 0px 0px;
         padding: 2px 5px 2px 5px;
         border-radius: 4px;
-        color: #444444;
-        background: #eeeeee;
+        color: #444;
+        background: #EEE;
         font-size: 11px;
         font-weight: bold;
         font-family: Signika;
         margin-top: 8px;
         margin-bottom: 8px;
-        text-shadow: 1px 2px 2px white; }
+        text-shadow: 1px 2px 2px #FFF; }
       #home .news > div .thumb {
         float: left;
         padding: 0px 0px 0px 0px;
         margin: 0px 8px 0px 0px;
-        border: 3px solid white;
-        box-shadow: 0px 0px 2px 2px #eeeeee;
-        transform: rotate(20deg); }
+        border: 3px solid #FFF;
+        box-shadow: 0px 0px 2px 2px #EEE; }
       #home .news > div p {
         font-family: Signika;
         font-style: normal;
         font-weight: 500;
-        font-size: 12px;
-        color: #333333;
+        font-size: 13px;
+        color: #333;
         text-transform: none;
         text-decoration: none;
         letter-spacing: 0em;
         word-spacing: 0em;
         line-height: 22px;
-        text-shadow: 2px 0px 0px #eeeeee;
+        text-shadow: 2px 0px 0px #EEE;
         margin: 0px; }
       #home .news > div div.panel {
         margin: 0px;
@@ -1441,7 +1440,7 @@ a.btn {
           font-size: 11px;
           font-weight: normal;
           line-height: 18px;
-          color: #444444;
+          color: #444;
           vertical-align: top;
           border-radius: 4px;
           border: none;
@@ -1468,7 +1467,7 @@ a.btn {
       background: #426178;
       border: none;
       border-radius: 3px;
-      text-shadow: 2px 1px 1px #333333; }
+      text-shadow: 2px 1px 1px #333; }
     #home .agenda div {
       margin: 0px 0px 0px 0px;
       padding: 0px;
@@ -1476,10 +1475,10 @@ a.btn {
       #home .agenda div div.item {
         display: inline-block;
         width: 262px;
-        background: #f9f9f9;
+        background: #F9F9F9;
         margin-bottom: 4px;
         padding: 0px 4px 0px 4px;
-        border: 1px solid whitesmoke; }
+        border: 1px solid #F5F5F5; }
         #home .agenda div div.item h3 {
           padding: 0px 0px 0px 0px;
           margin: 4px 0px 0px 0px;
@@ -1494,18 +1493,18 @@ a.btn {
             color: #376ea6;
             letter-spacing: 0px;
             display: inline;
-            text-shadow: 2px 0px 0px #eeeeee; }
+            text-shadow: 2px 0px 0px #EEE; }
             #home .agenda div div.item h3 a:hover {
-              color: #3366cc;
+              color: #3366CC;
               text-decoration: underline; }
         #home .agenda div div.item .date {
           display: inline-block;
-          background: white;
-          color: #a62b53;
+          background: #FFF;
+          color: #A62B53;
           padding: 2px 4px 2px 4px;
           margin: 2px 2px 4px 2px;
-          border-right: 1px solid whitesmoke;
-          border-bottom: 1px solid whitesmoke;
+          border-right: 1px solid #F5F5F5;
+          border-bottom: 1px solid #F5F5F5;
           float: right; }
           #home .agenda div div.item .date .day {
             display: inline-block;
@@ -1517,7 +1516,7 @@ a.btn {
             text-align: center;
             padding: 0px 2px 0px 0px;
             margin-right: 4px;
-            border-right: 1px solid #f0f0f0; }
+            border-right: 1px solid #F0F0F0; }
           #home .agenda div div.item .date div {
             display: inline-block; }
             #home .agenda div div.item .date div .month, #home .agenda div div.item .date div .year {
@@ -1526,7 +1525,7 @@ a.btn {
               display: block;
               line-height: 14px; }
             #home .agenda div div.item .date div .year {
-              border-top: 1px solid #f0f0f0; }
+              border-top: 1px solid #F0F0F0; }
         #home .agenda div div.item p {
           font-family: "Telex", sans-serif;
           font-style: normal;
@@ -1538,7 +1537,7 @@ a.btn {
           letter-spacing: 0em;
           word-spacing: 0em;
           line-height: 18px;
-          text-shadow: 1px 1px 1px #eeeeee;
+          text-shadow: 1px 1px 1px #EEEEEE;
           margin-top: 8px; }
   #home .guest_book ul {
     list-style-type: none;
@@ -1549,14 +1548,14 @@ a.btn {
       padding: 4px 4px 4px 4px;
       border-left: 2px solid #dceafd; }
   #home .guest_book div.response {
-    border: 1px solid #f0f0f0;
+    border: 1px solid #F0F0F0;
     border-radius: 4px;
-    background: whitesmoke;
+    background: #F5F5F5;
     margin-left: 16px;
     margin-bottom: 5px;
     padding: 4px 4px 2px 4px; }
     #home .guest_book div.response div.footer {
-      background: #f0f0f0;
+      background: #F0F0F0;
       color: #336699; }
       #home .guest_book div.response div.footer img {
         float: left;
@@ -1565,7 +1564,7 @@ a.btn {
         margin-right: 8px; }
 
 #profile img.profile {
-  border: 4px solid white;
+  border: 4px solid #FFF;
   border-radius: 4px;
   box-shadow: 0px 0px 4px 4px #dce7ec; }
 #profile div.panel {
@@ -1578,7 +1577,7 @@ a.btn {
     font-size: 11px;
     font-weight: normal;
     line-height: 18px;
-    color: #444444;
+    color: #444;
     vertical-align: top;
     border-radius: 4px;
     border: none;
@@ -1606,20 +1605,20 @@ a.btn {
       margin: 16px;
       text-align: center;
       border-radius: 3px;
-      color: #444444;
+      color: #444;
       font-family: Signika;
       font-size: 12px;
       font-weight: bold;
-      background: whitesmoke;
-      border: 1px solid #eeeeee;
-      box-shadow: 0px 0px 8px #eeeeee;
+      background: #F5F5F5;
+      border: 1px solid #EEE;
+      box-shadow: 0px 0px 8px #EEE;
       outline: none;
-      text-shadow: -2px -1px 2px white; }
+      text-shadow: -2px -1px 2px #FFF; }
       #struktur_organisasi div a.item:hover {
-        border: 1px solid whitesmoke;
-        text-shadow: -2px -1px 2px white;
+        border: 1px solid #F5F5F5;
+        text-shadow: -2px -1px 2px #FFF;
         background: #ededed;
-        box-shadow: 0px 0px 12px #99ccff; }
+        box-shadow: 0px 0px 12px #99CCFF; }
 
 #sda {
   margin: 12px auto 12px auto; }
@@ -1629,27 +1628,27 @@ a.btn {
     margin: 4px;
     width: 130px;
     display: block;
-    border: 1px solid white;
+    border: 1px solid #FFF;
     border-radius: 0px; }
     #sda a.item:hover {
       text-decoration: none;
-      background: #f2f2f2;
+      background: #F2F2F2;
       /*background: #ebf7fe; */
-      border: 1px solid #eeeeee;
+      border: 1px solid #EEE;
       border-radius: 0px; }
     #sda a.item .img {
-      color: #cccccc;
+      color: #CCC;
       height: 95px; }
   #sda .item .title {
-    color: #333333;
+    color: #333;
     padding: 4px 2px 2px 2px;
     margin: 2px 4px 2px 4px;
     font-size: 11px;
-    text-shadow: 2px 2px 4px #cccccc;
+    text-shadow: 2px 2px 4px #CCC;
     font-family: Tahoma, Arial, "Trebuchet MS", Arial, sans-serif;
     height: 30px;
     text-align: center;
-    text-shadow: 2px 2px 3px white; }
+    text-shadow: 2px 2px 3px #FFF; }
 
 #sda_content {
   margin: 12px auto 12px auto; }
@@ -1660,13 +1659,13 @@ a.btn {
       font-size: 12px;
       font-weight: normal;
       padding: 2px 4px 2px 4px;
-      background: whitesmoke;
+      background: #F5F5F5;
       border-radius: 2px; }
       #sda_content div.menu a:hover {
-        color: white;
+        color: #FFF;
         background: #336699; }
   #sda_content div.main {
-    background: white;
+    background: #FFF;
     padding: 4px; }
     #sda_content div.main ol {
       border: none;
@@ -1687,7 +1686,7 @@ a.btn {
       #sda_content div.main ol > li:last-child {
         border: none; }
   #sda_content table {
-    border: 1px solid #eeeeee;
+    border: 1px solid #EEE;
     border-collapse: collapse; }
     #sda_content table.noborder {
       border: none; }
@@ -1696,15 +1695,15 @@ a.btn {
     #sda_content table tr th {
       border-spacing: 3px;
       border: none;
-      background: whitesmoke;
-      color: black;
+      background: #F5F5F5;
+      color: #000;
       padding: 4px 4px 4px 5px;
       font-size: 11px;
       font-weight: normal;
       border-radius: 0px; }
     #sda_content table tr td {
-      border-top: 1px solid #eeeeee;
-      border-bottom: 1px solid #eeeeee;
+      border-top: 1px solid #EEE;
+      border-bottom: 1px solid #EEE;
       border-left: none;
       border-right: none;
       padding: 5px 4px 4px 4px; }
@@ -1712,29 +1711,29 @@ a.btn {
       font-family: "Trebuchet MS";
       font-size: 12px;
       font-weight: normal;
-      color: black;
+      color: #000;
       line-height: 16px;
       letter-spacing: 0px;
       outline: none; }
       #sda_content table td a:hover {
-        color: #3366aa; }
+        color: #3366AA; }
   #sda_content .pnl_bottom {
     margin-top: 4px;
     text-align: right; }
     #sda_content .pnl_bottom a {
       display: inline-block;
-      border: 1px solid #f0f0f0;
+      border: 1px solid #F0F0F0;
       border-radius: 3px;
       padding: 2px 6px 2px 4px;
-      color: #3366cc;
-      background: whitesmoke; }
+      color: #3366CC;
+      background: #F5F5F5; }
       #sda_content .pnl_bottom a:hover {
         display: inline-block;
-        border: 1px solid #f0f0f0;
+        border: 1px solid #F0F0F0;
         border-radius: 3px;
         padding: 2px 6px 2px 4px;
         color: #990000;
-        background: #eeeeee; }
+        background: #EEE; }
       #sda_content .pnl_bottom a img {
         float: left; }
       #sda_content .pnl_bottom a span {
@@ -1756,19 +1755,19 @@ a.btn {
           margin-top: 3px;
           font-size: 14px;
           display: block;
-          color: #3366aa;
+          color: #3366AA;
           line-height: 18px;
           text-align: left; }
           #sda_content ol.list li > div a.title:hover {
             text-decoration: underline;
-            text-decoration-color: red; }
+            text-decoration-color: #FF0000; }
 
 #project ol {
   padding: 0px 2px 0px 12px; }
   #project ol li {
     padding: 0px 0px 0px 0px;
     margin: 8px 0px 8px 0px;
-    border-bottom: 1px dotted #eeeeee; }
+    border-bottom: 1px dotted #EEE; }
     #project ol li:last-child {
       border-bottom: none; }
     #project ol li a.title {
@@ -1777,7 +1776,7 @@ a.btn {
       line-height: 18px;
       padding: 0px 0px 0px 0px;
       margin: 0px 0px 0px 0px;
-      color: #3366dd;
+      color: #3366DD;
       outline: none; }
       #project ol li a.title:hover {
         color: #1c46a8; }
@@ -1785,7 +1784,7 @@ a.btn {
       margin-top: 12px;
       font-size: 12px;
       line-height: 18px;
-      color: #333333; }
+      color: #333; }
       #project ol li p.description img {
         max-width: 100px;
         float: left;
@@ -1795,9 +1794,9 @@ a.btn {
   margin: 0px 0px 0px 0px;
   padding: 0px 0px 0px 0px; }
   #map form.search {
-    background: whitesmoke;
+    background: #F5F5F5;
     padding: 2px 4px 2px 4px;
-    border: 1px solid #eeeeee;
+    border: 1px solid #EEE;
     border-radius: 4px;
     margin-bottom: 8px; }
   #map table {
@@ -1809,22 +1808,22 @@ a.btn {
     #map table td {
       margin: 0px 0px 4px 0px;
       padding: 4px 2px 4px 2px;
-      border-bottom: 1px dotted whitesmoke; }
+      border-bottom: 1px dotted #F5F5F5; }
       #map table td .list_category {
         margin-top: 8px; }
         #map table td .list_category span {
           padding: 2px 4px 2px 4px;
-          background: whitesmoke;
-          color: #888888;
+          background: #F5F5F5;
+          color: #888;
           border-radius: 4px; }
           #map table td .list_category span img {
             position: relative;
             vertical-align: top; }
   #map img.thumb {
-    border: 1px solid whitesmoke;
+    border: 1px solid #F5F5F5;
     padding: 4px;
-    background: white;
-    box-shadow: 0px 0px 5px whitesmoke; }
+    background: #FFF;
+    box-shadow: 0px 0px 5px #F5F5F5; }
   #map span.title {
     padding: 0px 0px 0px 0px;
     margin: 0px 0px 8px 0px;
@@ -1846,26 +1845,26 @@ a.btn {
     margin: 4px;
     width: 130px;
     display: block;
-    border: 1px solid white;
+    border: 1px solid #FFF;
     border-radius: 0px; }
     #tkpsda a.item:hover {
       text-decoration: none;
-      background: #f2f2f2;
-      border: 1px solid #eeeeee;
+      background: #F2F2F2;
+      border: 1px solid #EEE;
       border-radius: 0px; }
     #tkpsda a.item .img {
-      color: #cccccc;
+      color: #CCC;
       height: 95px; }
   #tkpsda .item .title {
-    color: #333333;
+    color: #333;
     padding: 4px 2px 2px 2px;
     margin: 2px 4px 2px 4px;
     font-size: 11px;
-    text-shadow: 2px 2px 4px #cccccc;
+    text-shadow: 2px 2px 4px #CCC;
     font-family: Tahoma, Arial, "Trebuchet MS", Arial, sans-serif;
     height: 30px;
     text-align: center;
-    text-shadow: 2px 2px 3px white; }
+    text-shadow: 2px 2px 3px #FFF; }
   #tkpsda div.menu {
     text-align: center;
     font-size: 12px; }
@@ -1873,13 +1872,13 @@ a.btn {
       font-size: 12px;
       font-weight: normal;
       padding: 2px 4px 2px 4px;
-      background: whitesmoke;
+      background: #F5F5F5;
       border-radius: 2px; }
       #tkpsda div.menu a:hover {
-        color: white;
+        color: #FFF;
         background: #336699; }
   #tkpsda table {
-    border: 1px solid #eeeeee;
+    border: 1px solid #EEE;
     border-collapse: collapse; }
     #tkpsda table.noborder {
       border: none; }
@@ -1888,46 +1887,46 @@ a.btn {
     #tkpsda table tr th {
       border-spacing: 3px;
       border: none;
-      background: whitesmoke;
-      color: black;
+      background: #F5F5F5;
+      color: #000;
       padding: 4px 4px 4px 5px;
       font-size: 11px;
       font-weight: normal;
       border-radius: 0px; }
     #tkpsda table tr td {
-      border-top: 1px solid #eeeeee;
-      border-bottom: 1px solid #eeeeee;
+      border-top: 1px solid #EEE;
+      border-bottom: 1px solid #EEE;
       border-left: none;
       border-right: none;
       padding: 5px 4px 4px 4px;
-      background: white; }
+      background: #FFF; }
     #tkpsda table td a {
       font-family: "Trebuchet MS";
       font-size: 12px;
       font-weight: normal;
-      color: black;
+      color: #000;
       line-height: 16px;
       letter-spacing: 0px;
       outline: none; }
       #tkpsda table td a:hover {
-        color: #3366aa; }
+        color: #3366AA; }
   #tkpsda .pnl_bottom {
     margin-top: 4px;
     text-align: right; }
     #tkpsda .pnl_bottom a {
       display: inline-block;
-      border: 1px solid #f0f0f0;
+      border: 1px solid #F0F0F0;
       border-radius: 3px;
       padding: 2px 6px 2px 4px;
-      color: #3366cc;
-      background: whitesmoke; }
+      color: #3366CC;
+      background: #F5F5F5; }
       #tkpsda .pnl_bottom a:hover {
         display: inline-block;
-        border: 1px solid #f0f0f0;
+        border: 1px solid #F0F0F0;
         border-radius: 3px;
         padding: 2px 6px 2px 4px;
         color: #990000;
-        background: #eeeeee; }
+        background: #EEE; }
       #tkpsda .pnl_bottom a img {
         float: left; }
       #tkpsda .pnl_bottom a span {
@@ -1949,19 +1948,19 @@ a.btn {
           margin-top: 3px;
           font-size: 14px;
           display: block;
-          color: #3366aa;
+          color: #3366AA;
           line-height: 18px;
           text-align: left; }
           #tkpsda ol.list li > div a.title:hover {
             text-decoration: underline;
-            text-decoration-color: red; }
+            text-decoration-color: #FF0000; }
 
 #tkpsda_dokumentasi div.item {
   padding: 0px;
   margin: 0px 0px 8px 0px;
   border: 1px solid #e4ebf5;
   border-radius: 4px;
-  box-shadow: 0px 0px 2px #eeeeee; }
+  box-shadow: 0px 0px 2px #EEE; }
 #tkpsda_dokumentasi div.title {
   padding: 4px 8px 4px 8px;
   font-family: "Trebuchet MS", serif;
@@ -1969,22 +1968,22 @@ a.btn {
   font-weight: bold;
   display: block;
   color: #336699;
-  background: #f9f9f9;
-  border-bottom: 1px solid whitesmoke; }
+  background: #F9F9F9;
+  border-bottom: 1px solid #F5F5F5; }
 #tkpsda_dokumentasi .picture_list {
   padding: 8px;
   margin-bottom: 16px; }
   #tkpsda_dokumentasi .picture_list img.thumb {
     padding: 4px 4px 4px 4px;
     margin: 4px 4px 4px 4px;
-    box-shadow: 0px 0px 1px 1px #eeeeee; }
+    box-shadow: 0px 0px 1px 1px #EEE; }
 #tkpsda_dokumentasi div.footer {
   padding: 4px 8px 4px 8px;
   font-family: "Trebuchet MS", serif;
   font-size: 12px;
   color: #336699;
   border-top: 1px dashed #e4ebf5;
-  background: #fcfcfc;
+  background: #FCFCFC;
   text-align: right; }
 
 #news {
@@ -1995,7 +1994,7 @@ a.btn {
   #news .item {
     margin: 8px 0px 8px 0px;
     padding: 8px 0px 8px 0px;
-    border-bottom: 1px dashed #dddddd; }
+    border-bottom: 1px dashed #DDD; }
     #news .item:last-child {
       border: none; }
     #news .item h3 {
@@ -2008,38 +2007,38 @@ a.btn {
       letter-spacing: 1px;
       display: block;
       text-align: left;
-      text-shadow: 2px 1px 1px #dddddd; }
+      text-shadow: 2px 1px 1px #DDD; }
     #news .item .thumb {
       float: left;
       padding: 0px 0px 0px 0px;
       margin: 0px 8px 0px 0px;
-      border: 3px solid white;
-      box-shadow: 0px 0px 4px 4px #eeeeee;
+      border: 3px solid #FFF;
+      box-shadow: 0px 0px 4px 4px #EEE;
       max-width: 400px; }
     #news .item .date {
       margin: 8px 0px 0px 0px;
       padding: 2px 5px 2px 5px;
       border-radius: 4px;
-      color: #444444;
-      background: #eeeeee;
+      color: #444;
+      background: #EEE;
       font-size: 11px;
       font-weight: bold;
       font-family: Signika;
       margin-top: 8px;
       margin-bottom: 8px;
-      text-shadow: 1px 2px 2px white; }
+      text-shadow: 1px 2px 2px #FFF; }
     #news .item p {
       font-family: Signika;
       font-style: normal;
       font-weight: 500;
       font-size: 12px;
-      color: #333333;
+      color: #333;
       text-transform: none;
       text-decoration: none;
       letter-spacing: 0em;
       word-spacing: 0em;
       line-height: 22px;
-      text-shadow: 2px 0px 0px #eeeeee;
+      text-shadow: 2px 0px 0px #EEE;
       margin: 0px; }
     #news .item br {
       margin-bottom: 8px;
@@ -2054,7 +2053,7 @@ a.btn {
         font-size: 11px;
         font-weight: normal;
         line-height: 18px;
-        color: #444444;
+        color: #444;
         vertical-align: top;
         border-radius: 4px;
         border: none;
@@ -2089,17 +2088,17 @@ a.btn {
     padding: 0px 0px 0px;
     margin: 0px 0px 0px; }
     #presentation .items .detail h4 {
-      color: #3366cc;
+      color: #3366CC;
       font-size: 12px;
       text-align: left;
-      border-bottom: 1px solid whitesmoke; }
+      border-bottom: 1px solid #F5F5F5; }
       #presentation .items .detail h4 img {
         float: left;
         margin-right: 3px; }
     #presentation .items .item, #presentation .items .detail {
       margin: 8px 0px 8px 0px;
       padding: 8px 0px 8px 0px;
-      border-bottom: 1px dashed #dddddd; }
+      border-bottom: 1px dashed #DDD; }
       #presentation .items .item:last-child, #presentation .items .detail:last-child {
         border: none; }
       #presentation .items .item table, #presentation .items .detail table {
@@ -2116,31 +2115,31 @@ a.btn {
         letter-spacing: 0px;
         display: block;
         text-align: left;
-        text-shadow: 2px 1px 1px #eeeeee; }
+        text-shadow: 2px 1px 1px #EEE; }
       #presentation .items .item .date, #presentation .items .detail .date {
         margin: 8px 0px 0px 0px;
         padding: 2px 5px 2px 5px;
         border-radius: 4px;
-        color: #444444;
-        background: #eeeeee;
+        color: #444;
+        background: #EEE;
         font-size: 11px;
         font-weight: bold;
         font-family: Signika;
         margin-top: 8px;
         margin-bottom: 8px;
-        text-shadow: 1px 2px 2px white; }
+        text-shadow: 1px 2px 2px #FFF; }
       #presentation .items .item p, #presentation .items .detail p {
         font-family: Signika;
         font-style: normal;
         font-weight: 500;
         font-size: 12px;
-        color: #333333;
+        color: #333;
         text-transform: none;
         text-decoration: none;
         letter-spacing: 0em;
         word-spacing: 0em;
         line-height: 22px;
-        text-shadow: 2px 0px 0px #eeeeee;
+        text-shadow: 2px 0px 0px #EEE;
         margin: 0px; }
       #presentation .items .item div.panel, #presentation .items .detail div.panel {
         margin: 0px;
@@ -2152,7 +2151,7 @@ a.btn {
           font-size: 11px;
           font-weight: normal;
           line-height: 18px;
-          color: #444444;
+          color: #444;
           vertical-align: top;
           border-radius: 4px;
           border: none;
@@ -2171,7 +2170,7 @@ a.btn {
   #leaflet .item {
     margin: 8px 0px 8px 0px;
     padding: 8px 0px 8px 0px;
-    border-bottom: 1px dashed #dddddd; }
+    border-bottom: 1px dashed #DDD; }
     #leaflet .item:last-child {
       border: none; }
     #leaflet .item h3 {
@@ -2184,38 +2183,38 @@ a.btn {
       letter-spacing: 1px;
       display: block;
       text-align: left;
-      text-shadow: 2px 1px 1px #dddddd; }
+      text-shadow: 2px 1px 1px #DDD; }
     #leaflet .item .thumb {
       float: left;
       padding: 0px 0px 0px 0px;
       margin: 0px 8px 0px 0px;
-      border: 3px solid white;
-      box-shadow: 0px 0px 4px 4px #eeeeee;
+      border: 3px solid #FFF;
+      box-shadow: 0px 0px 4px 4px #EEE;
       max-width: 400px; }
     #leaflet .item .date {
       margin: 8px 0px 0px 0px;
       padding: 2px 5px 2px 5px;
       border-radius: 4px;
-      color: #444444;
-      background: #eeeeee;
+      color: #444;
+      background: #EEE;
       font-size: 11px;
       font-weight: bold;
       font-family: Signika;
       margin-top: 8px;
       margin-bottom: 8px;
-      text-shadow: 1px 2px 2px white; }
+      text-shadow: 1px 2px 2px #FFF; }
     #leaflet .item p {
       font-family: Signika;
       font-style: normal;
       font-weight: 500;
       font-size: 12px;
-      color: #333333;
+      color: #333;
       text-transform: none;
       text-decoration: none;
       letter-spacing: 0em;
       word-spacing: 0em;
       line-height: 22px;
-      text-shadow: 2px 0px 0px #eeeeee;
+      text-shadow: 2px 0px 0px #EEE;
       margin: 0px; }
     #leaflet .item br {
       margin-bottom: 8px;
@@ -2230,7 +2229,7 @@ a.btn {
         font-size: 11px;
         font-weight: normal;
         line-height: 18px;
-        color: #444444;
+        color: #444;
         vertical-align: top;
         border-radius: 4px;
         border: none;
@@ -2271,7 +2270,7 @@ a.btn {
   #publication .item {
     margin: 8px 0px 8px 0px;
     padding: 8px 0px 8px 0px;
-    border-bottom: 1px dashed #dddddd; }
+    border-bottom: 1px dashed #DDD; }
     #publication .item:last-child {
       border: none; }
     #publication .item h3 {
@@ -2284,38 +2283,38 @@ a.btn {
       letter-spacing: 1px;
       display: block;
       text-align: left;
-      text-shadow: 2px 1px 1px #dddddd; }
+      text-shadow: 2px 1px 1px #DDD; }
     #publication .item .thumb {
       float: left;
       padding: 0px 0px 0px 0px;
       margin: 0px 8px 0px 0px;
-      border: 3px solid white;
-      box-shadow: 0px 0px 4px 4px #eeeeee;
+      border: 3px solid #FFF;
+      box-shadow: 0px 0px 4px 4px #EEE;
       max-width: 400px; }
     #publication .item .date {
       margin: 8px 0px 0px 0px;
       padding: 2px 5px 2px 5px;
       border-radius: 4px;
-      color: #444444;
-      background: #eeeeee;
+      color: #444;
+      background: #EEE;
       font-size: 11px;
       font-weight: bold;
       font-family: Signika;
       margin-top: 8px;
       margin-bottom: 8px;
-      text-shadow: 1px 2px 2px white; }
+      text-shadow: 1px 2px 2px #FFF; }
     #publication .item p {
       font-family: Signika;
       font-style: normal;
       font-weight: 500;
       font-size: 12px;
-      color: #333333;
+      color: #333;
       text-transform: none;
       text-decoration: none;
       letter-spacing: 0em;
       word-spacing: 0em;
       line-height: 22px;
-      text-shadow: 2px 0px 0px #eeeeee;
+      text-shadow: 2px 0px 0px #EEE;
       margin: 0px; }
     #publication .item br {
       margin-bottom: 8px;
@@ -2330,7 +2329,7 @@ a.btn {
         font-size: 11px;
         font-weight: normal;
         line-height: 18px;
-        color: #444444;
+        color: #444;
         vertical-align: top;
         border-radius: 4px;
         border: none;
@@ -2364,11 +2363,11 @@ a.btn {
       font-family: Signika;
       font-size: 12px;
       font-weight: normal;
-      color: blue;
+      color: #0000FF;
       letter-spacing: 1px;
       display: block;
       text-align: left;
-      text-shadow: 2px 1px 1px #dddddd; }
+      text-shadow: 2px 1px 1px #DDD; }
     #publication .attachments table {
       border-collapse: collapse; }
       #publication .attachments table td {
@@ -2378,7 +2377,7 @@ a.btn {
 #agenda div.item {
   margin: 8px 0px 8px 0px;
   padding: 8px 0px 8px 0px;
-  border-bottom: 1px dashed #dddddd; }
+  border-bottom: 1px dashed #DDD; }
   #agenda div.item:last-child {
     border: none; }
   #agenda div.item h3 {
@@ -2391,7 +2390,7 @@ a.btn {
     letter-spacing: 1px;
     display: block;
     text-align: left;
-    text-shadow: 2px 1px 1px #dddddd; }
+    text-shadow: 2px 1px 1px #DDD; }
   #agenda div.item div.panel {
     margin: 0px;
     background: transparent;
@@ -2402,7 +2401,7 @@ a.btn {
       font-size: 11px;
       font-weight: normal;
       line-height: 18px;
-      color: #444444;
+      color: #444;
       vertical-align: top;
       border-radius: 4px;
       border: none;
@@ -2414,8 +2413,8 @@ a.btn {
         background: #cde4ff; }
   #agenda div.item .date {
     display: inline-block;
-    background: white;
-    color: #a62b53;
+    background: #FFF;
+    color: #A62B53;
     padding: 1px 2px 1px 2px;
     margin: 2px 2px 4px 2px;
     border-radius: 5px;
@@ -2430,16 +2429,16 @@ a.btn {
       text-align: center;
       padding: 0px 2px 0px 0px;
       margin-right: 4px;
-      border-right: 1px solid #f0f0f0; }
+      border-right: 1px solid #F0F0F0; }
     #agenda div.item .date div {
       display: inline-block; }
-      #agenda div.item .date div .month, #agenda div.item .date div .year {
+      #agenda div.item .date div .month, #agenda #home .agenda div.item div.item .date div .year, #home .agenda #agenda div.item div.item .date div .year, #agenda div.item .date div .year {
         font-size: 12px;
         font-weight: normal;
         display: block;
         line-height: 14px; }
       #agenda div.item .date div .year {
-        border-top: 1px solid #f0f0f0; }
+        border-top: 1px solid #F0F0F0; }
 
 #contact {
   margin: 16px;
@@ -2483,7 +2482,7 @@ a.btn {
 #dokumentasi div.title {
   padding: 4px 8px 4px 8px;
   margin: 0px 0px 0px 0px;
-  background: whitesmoke;
+  background: #F5F5F5;
   border-bottom: 1px solid #e4ebf5; }
   #dokumentasi div.title span.title {
     font-family: "Trebuchet MS", serif;
@@ -2498,13 +2497,13 @@ a.btn {
     font-weight: bold;
     line-height: 20px;
     color: #336699;
-    background: white;
+    background: #FFF;
     padding: 0px 4px 0px 4px;
     border-radius: 2px; }
 #dokumentasi div.photo_list {
   border: none; }
 #dokumentasi .dokumentasi_id {
-  color: #cc0000;
+  color: #CC0000;
   font-size: 14px;
   font-weight: bold; }
 #dokumentasi td {
@@ -2513,13 +2512,13 @@ a.btn {
   float: left;
   padding: 0px 0px 0px 0px;
   margin: 0px 8px 0px 0px;
-  border: 2px solid white;
-  box-shadow: 0px 0px 3px 3px #eeeeee; }
+  border: 2px solid #FFF;
+  box-shadow: 0px 0px 3px 3px #EEE; }
 #dokumentasi .photo_list img.thumb {
   padding: 2px 2px 2px 2px;
   margin: 8px 8px 8px 8px;
-  border: 3px solid white;
-  box-shadow: 0px 0px 3px 3px #eeeeee; }
+  border: 3px solid #FFF;
+  box-shadow: 0px 0px 3px 3px #EEE; }
 #dokumentasi .photo_list a.button_remove {
   clear: both;
   margin-top: 12px;
@@ -2532,12 +2531,12 @@ a.btn {
     margin: 0px 0px 0px 0px; }
 
 .paging {
-  background: white;
+  background: #FFF;
   margin-bottom: 4px;
   text-align: right; }
   .paging a {
-    color: white;
-    background: #dddddd;
+    color: #FFF;
+    background: #DDD;
     border-radius: 4px;
     padding: 1px 1px 1px 1px;
     min-width: 18px;
@@ -2545,17 +2544,19 @@ a.btn {
     display: inline-block;
     line-height: 18px;
     margin-left: 4px;
-    text-shadow: 0px 1px 4px #666666;
+    text-shadow: 0px 1px 4px #666;
     font-size: 11px; }
     .paging a:last-child {
       margin-left: 0px; }
     .paging a:hover {
-      color: white;
-      background: #aaaaaa; }
+      color: #FFF;
+      background: #AAA; }
     .paging a:disabled {
-      color: white;
-      background: #999999; }
+      color: #FFF;
+      background: #999; }
     .paging a.current {
-      color: white;
+      color: #FFF;
       background: #0a76b5;
       text-shadow: none; }
+
+/*# sourceMappingURL=style-three-column-single.css.map */

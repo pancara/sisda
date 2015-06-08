@@ -38,8 +38,12 @@
         ##            <a href="#springUrl("/leaflet.html")">
         ##                Leaflet masuk ke link sidebar
         ##            </a>
+
+            <a href="#springUrl("/planningPSDA.html")">
+                Pola &amp; Rencana PSDA
+            </a>
             <a href="#springUrl("/regulation.html")">
-                Peraturan <span class="small">&amp;</span> Perundangan
+                Peraturan &amp;  Perundangan
             </a>
         ##             <a href="#springUrl("/progress_pekerjaan.html")">
         ##                 Progress Pekerjaan Tahun Berjalan
@@ -47,7 +51,6 @@
             <a href="#springUrl("/agenda.html")">
                 Agenda Kegiatan
             </a>
-             
         </span>
 </div>
 </body>

@@ -22,7 +22,7 @@ public class FileCacheManager {
     }
 
     public InputStream getStream(String path, String key) throws FileNotFoundException {
-        File file = generateFile(path, key);
+        File file = getFile(path, key);
         if (!file.exists())
             return null;
         return new FileInputStream(file);
@@ -30,12 +30,12 @@ public class FileCacheManager {
 
 
     public boolean exist(String path, String key) {
-        File f = generateFile(path, key);
+        File f = getFile(path, key);
         return f.exists();
     }
 
     public void store(String path, String key, InputStream is) throws IOException {
-        FileOutputStream os = new FileOutputStream(generateFile(path, key));
+        FileOutputStream os = new FileOutputStream(getFile(path, key));
         try {
             StreamHelper.copy(is, os);
         } finally {
@@ -47,7 +47,7 @@ public class FileCacheManager {
         FileUtils.deleteDirectory(pathToDir(path));
     }
 
-    private File generateFile(String path, String key) {
+    public File getFile(String path, String key) {
         return new File(pathToDir(path), String.format("%s.%s", key, extension));
     }
 
