@@ -93,6 +93,12 @@
             background-image: -webkit-linear-gradient(top, #f2f2f2, #ffffff);
         }
 
+        div.error {
+            font-size: 11px;
+            line-height: 18px;
+            border-top: 1px solid #999;
+            padding-top: 24px;
+        }
     </style>
 </head>
 <body id="error-page">
@@ -111,8 +117,10 @@
         <p>Untuk kembali ke halaman depan klik di <a href='http://bbws-so.net/'>sini</a></p>
     </li>
 </ul>
-<%
-    exception.printStackTrace(new java.io.PrintWriter(out));
-%>
+<div class="error">
+    <%
+        exception.printStackTrace(new java.io.PrintWriter(out));
+    %>
+</div>
 </body>
 </html>

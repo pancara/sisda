@@ -452,6 +452,7 @@ public class HibernateGenericDao<T, TId> extends HibernateDaoSupport implements 
                     public Object doInHibernate(Session session)
                             throws HibernateException, SQLException {
                         session.saveOrUpdate(obj);
+                        session.flush();
                         return obj;
                     }
                 });

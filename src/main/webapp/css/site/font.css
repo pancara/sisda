@@ -2,26 +2,26 @@
   font-family: "Signika";
   font-style: normal;
   font-weight: 400;
-  src: local("Signika"), url("http://localhost:8080/demo_exploded/fonts/signika.woff") format("woff"); }
+  src: local("Signika"), url("http://localhost:8080/sisda_exp/fonts/signika.woff") format("woff"); }
 @font-face {
   font-family: "Signika";
   font-style: normal;
   font-weight: 600;
-  src: local("Signika-Semibold"), url("http://localhost:8080/demo_exploded/fonts/signika-bold.woff") format("woff"); }
+  src: local("Signika-Semibold"), url("http://localhost:8080/sisda_exp/fonts/signika-bold.woff") format("woff"); }
 @font-face {
   font-family: "Inconsolata";
   font-style: normal;
   font-weight: 400;
-  src: local("Inconsolata"), url("http://localhost:8080/demo_exploded/fonts/inconsolata-normal.woff") format("woff"); }
+  src: local("Inconsolata"), url("http://localhost:8080/sisda_exp/fonts/inconsolata-normal.woff") format("woff"); }
 @font-face {
   font-family: "Inconsolata";
   font-style: normal;
   font-weight: bold;
-  src: local("Inconsolata Bold"), url("http://localhost:8080/demo_exploded/fonts/inconsolata-bold.woff") format("woff"); }
+  src: local("Inconsolata Bold"), url("http://localhost:8080/sisda_exp/fonts/inconsolata-bold.woff") format("woff"); }
 @font-face {
   font-family: "Acme";
   font-style: normal;
   font-weight: 400;
-  src: local("Acme"), url("http://localhost:8080/demo_exploded/fonts/acme.woff") format("woff"); }
+  src: local("Acme"), url("http://localhost:8080/sisda_exp/fonts/acme.woff") format("woff"); }
 
 /*# sourceMappingURL=font.css.map */

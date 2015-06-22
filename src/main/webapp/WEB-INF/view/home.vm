@@ -60,9 +60,7 @@
 
                 <div class="panel">
                     <a href='#springUrl("/news/full/${news.id}.html")'>
-                        <img src="#springUrl("/images/16x16/document_view.png")"/>
-                        &nbsp;&nbsp;
-                        baca 
+                        baca
                     </a>
                 </div>
             </div>

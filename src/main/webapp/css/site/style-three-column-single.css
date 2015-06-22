@@ -265,11 +265,11 @@ a.btn {
     padding: 0px 2px 2px 2px;
     display: block; }
     #header .menubar a {
-      font-family: "Trebuchet MS";
-      padding: 1px 5px 2px 5px;
+      font-family: "Signika";
+      padding: 3px 8px 2px 8px;
       margin: 0px 0px 0px 0px;
       text-decoration: none;
-      font-size: 11px;
+      font-size: 12px;
       line-height: 16px;
       font-weight: bold;
       color: #FFF;
@@ -380,11 +380,11 @@ a.btn {
     padding: 0px 2px 2px 2px;
     display: block; }
     #header .menubar a {
-      font-family: "Trebuchet MS";
-      padding: 1px 5px 2px 5px;
+      font-family: "Signika";
+      padding: 3px 8px 2px 8px;
       margin: 0px 0px 0px 0px;
       text-decoration: none;
-      font-size: 11px;
+      font-size: 12px;
       line-height: 16px;
       font-weight: bold;
       color: #FFF;
@@ -820,8 +820,6 @@ a.btn {
       display: block;
       text-align: left;
       font-weight: bold;
-      background-image: linear-gradient(to top, #a37c0a, #ebb30e);
-      background-repeat: repeat-x;
       border-radius: 3px; }
       #sidebar-left .guest_book_form h1 img {
         float: left;
@@ -831,11 +829,11 @@ a.btn {
         padding: 3px 3px 2px 3px; }
       #sidebar-left .guest_book_form h1 span {
         padding-top: 2px;
-        font-size: 12px;
+        font-size: 11px;
         line-height: 16px;
         font-family: "Signika";
         text-align: left;
-        font-weight: bold;
+        font-weight: normal;
         color: #FFF;
         letter-spacing: 0px;
         text-shadow: 0px 0px 4px #333;
@@ -844,16 +842,14 @@ a.btn {
       margin: 4px 2px 2px 2px;
       padding: 4px 3px 4px 3px;
       background: #FFF;
-      border-top-left-radius: 2px;
-      border-top-right-radius: 2px;
-      border-bottom-left-radius: 4px;
-      border-bottom-right-radius: 4px;
       border-radius: 4px; }
       #sidebar-left .guest_book_form .content form {
         margin-left: 4px; }
         #sidebar-left .guest_book_form .content form label {
           display: block;
-          margin: 6px 0px 1px 0px; }
+          margin: 6px 0px 1px 0px;
+          font-size: 12px;
+          font-weight: normal; }
         #sidebar-left .guest_book_form .content form input[type="text"], #sidebar-left .guest_book_form .content form textarea {
           width: 154px;
           margin-left: 0px;
@@ -869,16 +865,17 @@ a.btn {
         #sidebar-left .guest_book_form .content form input[type="submit"] {
           color: #FFF;
           font-family: Signika;
-          font-size: 11px;
+          font-size: 12px;
           border-radius: 3px;
           border: 1px solid #4e94c1;
-          background-repeat: repeat-x;
-          background: #599bc5;
-          background-image: linear-gradient(to top, #599bc5, #7fb2d3); }
-          #sidebar-left .guest_book_form .content form input[type="submit"]:focused {
-            box-shadow: 0px 0px 8px #AAA; }
+          background: linear-gradient(to top, #599bc5, #7fb2d3) repeat-x;
+          padding: 4px 8px 2px 8px;
+          margin-top: 4px; }
         #sidebar-left .guest_book_form .content form img {
-          margin-left: 4px; }
+          margin-left: 4px;
+          margin-top: 8px;
+          margin-bottom: 8px;
+          display: block; }
 
 #sidebar-right {
   position: relative;
@@ -1400,16 +1397,14 @@ a.btn {
         text-align: left;
         text-shadow: 2px 1px 1px #DDD; }
       #home .news > div .date {
-        margin: 8px 0px 0px 0px;
         padding: 2px 5px 2px 5px;
         border-radius: 4px;
         color: #444;
-        background: #EEE;
+        background: transparent;
         font-size: 11px;
         font-weight: bold;
         font-family: Signika;
-        margin-top: 8px;
-        margin-bottom: 8px;
+        margin: 8px 8px;
         text-shadow: 1px 2px 2px #FFF; }
       #home .news > div .thumb {
         float: left;
@@ -1436,8 +1431,10 @@ a.btn {
         text-align: right; }
         #home .news > div div.panel a {
           margin: 0px 0px 0px 0px;
-          padding: 0px 4px 2px 4px;
+          padding: 0px 8px 0px 8px;
           font-size: 11px;
+          font-weight: bold;
+          letter-spacing: 2px;
           font-weight: normal;
           line-height: 18px;
           color: #444;
@@ -1446,10 +1443,10 @@ a.btn {
           border: none;
           display: inline-block;
           letter-spacing: 0px;
-          color: #376ea6;
-          background: #edf4ff; }
+          color: #FFF;
+          background: #376ea6; }
           #home .news > div div.panel a:hover {
-            background: #cde4ff; }
+            background: #5588FF; }
           #home .news > div div.panel a img {
             display: inline-block;
             vertical-align: bottom; }
@@ -1529,7 +1526,6 @@ a.btn {
         #home .agenda div div.item p {
           font-family: "Telex", sans-serif;
           font-style: normal;
-          font-weight: 550;
           font-size: 11px;
           color: #222222;
           text-transform: none;
@@ -1562,6 +1558,61 @@ a.btn {
         display: inline;
         margin-top: 2px;
         margin-right: 8px; }
+
+#guest {
+  margin: 0px 0px 4px 0px;
+  padding: 4px 0px 4px 0px;
+  border-bottom: 0px solid #dceafd; }
+  #guest table.list span.sent_at {
+    font-size: 12px; }
+  #guest table.list img {
+    padding-right: 8px; }
+  #guest table.list p {
+    font-size: 12px;
+    line-height: 24px;
+    margin: 18px 0px 0px 0px;
+    padding: 0 0 0 0;
+    color: #222; }
+  #guest table.list div.response {
+    background: #F9F9F9;
+    border-top: 1px solid #F0F0F0;
+    border-left: 1px solid #F0F0F0;
+    color: #444;
+    font-size: 12px;
+    line-height: 24px;
+    margin-left: 24px;
+    margin-bottom: 4px;
+    margin-top: 8px;
+    padding-left: 8px; }
+    #guest table.list div.response div.footer {
+      background: #FFF;
+      color: #333;
+      font-size: 11px;
+      border-top: 1px solid #F0F0F0; }
+      #guest table.list div.response div.footer img {
+        float: left;
+        display: inline;
+        margin-top: 2px;
+        margin-right: 8px; }
+  #guest div.form {
+    width: 95%;
+    background: #f4fbfe;
+    border: 3px solid #edf2f5;
+    border-radius: 6px;
+    margin-top: 16px;
+    padding: 6px 4px 4px 6px; }
+    #guest div.form textarea {
+      font-family: "Trebuchet MS";
+      font-size: 12px;
+      line-height: 22px;
+      padding: 4px 2px 2px 0px;
+      color: #555; }
+    #guest div.form td {
+      padding: 4px 0px 0px 8px;
+      vertical-align: top;
+      line-height: 1.5rem; }
+  #guest img.captcha {
+    padding: 4px 0px 4px 0px; }
 
 #profile img.profile {
   border: 4px solid #FFF;
@@ -2019,8 +2070,8 @@ a.btn {
       margin: 8px 0px 0px 0px;
       padding: 2px 5px 2px 5px;
       border-radius: 4px;
-      color: #444;
-      background: #EEE;
+      color: #666;
+      background: transparent;
       font-size: 11px;
       font-weight: bold;
       font-family: Signika;
@@ -2031,8 +2082,8 @@ a.btn {
       font-family: Signika;
       font-style: normal;
       font-weight: 500;
-      font-size: 12px;
-      color: #333;
+      font-size: 13px;
+      color: #555;
       text-transform: none;
       text-decoration: none;
       letter-spacing: 0em;
@@ -2049,8 +2100,10 @@ a.btn {
       text-align: right; }
       #news .item div.panel a {
         margin: 0px 0px 0px 0px;
-        padding: 0px 4px 0px 4px;
+        padding: 0px 8px 0px 8px;
         font-size: 11px;
+        font-weight: bold;
+        letter-spacing: 2px;
         font-weight: normal;
         line-height: 18px;
         color: #444;
@@ -2059,10 +2112,10 @@ a.btn {
         border: none;
         display: inline-block;
         letter-spacing: 0px;
-        color: #376ea6;
-        background: #edf4ff; }
+        color: #FFF;
+        background: #376ea6; }
         #news .item div.panel a:hover {
-          background: #cde4ff; }
+          background: #5588FF; }
   #news td {
     padding: 0px 0px 0px 0px; }
   #news .comments .title {
@@ -2092,9 +2145,14 @@ a.btn {
       font-size: 12px;
       text-align: left;
       border-bottom: 1px solid #F5F5F5; }
-      #presentation .items .detail h4 img {
-        float: left;
-        margin-right: 3px; }
+      #presentation .items .detail h4 a {
+        vertical-align: middle;
+        display: inline-block; }
+        #presentation .items .detail h4 a span {
+          font-size: 12px; }
+        #presentation .items .detail h4 a img {
+          float: left;
+          margin-right: 3px; }
     #presentation .items .item, #presentation .items .detail {
       margin: 8px 0px 8px 0px;
       padding: 8px 0px 8px 0px;
@@ -2104,7 +2162,8 @@ a.btn {
       #presentation .items .item table, #presentation .items .detail table {
         border-collapse: collapse; }
         #presentation .items .item table tr td, #presentation .items .detail table tr td {
-          padding: 3px 4px 4px 0px; }
+          padding: 3px 4px 4px 0px;
+          vertical-align: middle; }
       #presentation .items .item h3, #presentation .items .detail h3 {
         padding: 0px 0px 0px 0px;
         margin: 0px 0px 8px 0px;
@@ -2147,8 +2206,10 @@ a.btn {
         text-align: right; }
         #presentation .items .item div.panel a, #presentation .items .detail div.panel a {
           margin: 0px 0px 0px 0px;
-          padding: 0px 4px 0px 4px;
+          padding: 0px 8px 0px 8px;
           font-size: 11px;
+          font-weight: bold;
+          letter-spacing: 2px;
           font-weight: normal;
           line-height: 18px;
           color: #444;
@@ -2157,10 +2218,10 @@ a.btn {
           border: none;
           display: inline-block;
           letter-spacing: 0px;
-          color: #376ea6;
-          background: #edf4ff; }
+          color: #FFF;
+          background: #376ea6; }
           #presentation .items .item div.panel a:hover, #presentation .items .detail div.panel a:hover {
-            background: #cde4ff; }
+            background: #5588FF; }
 
 #leaflet {
   margin-left: 8px; }

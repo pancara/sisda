@@ -1,0 +1,35 @@
+<div class="folder">
+    <span class="label">
+        ${dto.name}
+    </span>
+
+    <div class="children">
+        #if ($dto.children.size() == 0 && $dto.files.size() == 0)
+            <div class="item">
+                <span class="empty">
+                    .. tidak ada dokumen ..
+                </span>
+            </div>
+        #else
+            #foreach($dto in ${dto.children})
+                #parse("site/pola_rencana_sda/folder.vm")
+            #end
+            #foreach($file in ${dto.files})
+                <div class="item_pdf">
+                <span class="label">
+                    $!{file.title}
+                    #if ($file.description)
+                        tentang $!{file.description}
+                    #end
+
+                    <a href="#springUrl("/download/pola_rencana_sda/file/${file.id}/${file.filename}")"
+                       style="float: right; display: inline;" target="_blank">
+                        <img src="#springUrl("/images/16x16/download.png")"/>
+                    </a>
+                </span>
+                </div>
+
+            #end
+        #end
+    </div>
+</div>

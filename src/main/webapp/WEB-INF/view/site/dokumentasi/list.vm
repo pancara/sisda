@@ -1,7 +1,7 @@
 #macro(paging $pages)
 <div class='paging'>
     #if ($current != 1)
-        <a href='#springUrl("/dokumentasi/1.html")'>
+        <a href='#springUrl("/dokumentasi/page/1.html")'>
             &laquo;&laquo;
         </a>
         #set($previous = $current - 1)

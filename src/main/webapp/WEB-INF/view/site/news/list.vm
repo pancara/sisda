@@ -68,7 +68,7 @@
             </p>
 
             <div class="panel">
-                <a href='#springUrl("/news/full/${news.id}.html")'>&raquo; baca &laquo;</a>
+                <a href='#springUrl("/news/full/${news.id}.html")'> baca </a>
             </div>
         </div>
         #set($row = $row + 1)

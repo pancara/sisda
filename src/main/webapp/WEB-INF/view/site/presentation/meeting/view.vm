@@ -40,7 +40,9 @@
                             <a href='#springUrl("/download/presentation/module/${module.id}/${module.filename}")' class="btn">
                                 <img src="#springUrl("/images/filetype/$fileTool.getFileTypeIcon($module.filename)")"
                                      class="filetype"/>
-                                download
+                                <span>
+                                    download
+                                </span>
                             </a>
                         </td>
                     </tr>

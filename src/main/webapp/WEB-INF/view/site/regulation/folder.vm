@@ -17,14 +17,15 @@
             #foreach($regulation in ${dto.regulations})
                 <div class="item">
                 <span class="label">
-                    ${regulation.title} tentang:
-                    ${regulation.description}
-
+                    ${regulation.title}
+                    #if ($regulation.description)
+                        tentang ${regulation.description}
+                    #end
+                </span>
                     <a href="#springUrl("/download/regulation/${regulation.id}/${regulation.filename}")"
-                       style="float: right; display: inline;" target="_blank">
+                       style="float: right; display: inline; padding: 4px;" target="_blank">
                         <img src="#springUrl("/images/16x16/download.png")"/>
                     </a>
-                </span>
                 </div>
 
             #end

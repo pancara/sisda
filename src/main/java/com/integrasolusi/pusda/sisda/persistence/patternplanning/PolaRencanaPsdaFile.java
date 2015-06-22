@@ -7,17 +7,17 @@ import java.io.Serializable;
  * Date         : 7/12/11
  * Time         : 9:02 AM
  */
-public class PatternPlanSdaFile implements Serializable {
+public class PolaRencanaPsdaFile implements Serializable {
     private Long id;
     private Integer version;
     private String title;
     private String description;
     private String filename;
 
-    private PatternPlanSdaFolder folder;
+    private PolaRencanaPsdaFolder folder;
     private Integer index;
 
-    public PatternPlanSdaFile() {
+    public PolaRencanaPsdaFile() {
     }
 
     public Long getId() {
@@ -60,11 +60,11 @@ public class PatternPlanSdaFile implements Serializable {
         this.filename = filename;
     }
 
-    public PatternPlanSdaFolder getFolder() {
+    public PolaRencanaPsdaFolder getFolder() {
         return folder;
     }
 
-    public void setFolder(PatternPlanSdaFolder folder) {
+    public void setFolder(PolaRencanaPsdaFolder folder) {
         this.folder = folder;
     }
 
@@ -75,4 +75,5 @@ public class PatternPlanSdaFile implements Serializable {
     public void setIndex(Integer index) {
         this.index = index;
     }
+
 }

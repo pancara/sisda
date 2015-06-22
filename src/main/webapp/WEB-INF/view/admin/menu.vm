@@ -29,6 +29,11 @@
     ["map.html", "Peta"]
     ])
 
+    #set($pola_rencana_psda = [
+    ["pola_rencana_psda_file/list.html", "Pola &amp; Rencana PSDA"],
+    ["pola_rencana_psda_folder/list.html", "Folder Pola &amp; Rencana PSDA"]
+    ])
+
     #set($photos = [
     ["dokumentasi/list.html", "Dokumentasi"],
     ["repo/photo/list.html", "Repository Photo"],
@@ -85,6 +90,7 @@
     ["Moderator", $moderator],
     ["Artikel", $article],
     ["Peta", $peta],
+    ["Pola &amp; Rencana PSDA", $pola_rencana_psda],
     ["Photo &amp; Gambar", $photos],
     ["TKPSDA", $tkpsda],
     ["Data SDA", $dataSDA],

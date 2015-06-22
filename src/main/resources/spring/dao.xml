@@ -188,6 +188,15 @@
 
     <bean id="projectDao" class="com.integrasolusi.pusda.sisda.dao.ProjectDaoImpl" parent="daoTemplate"/>
 
+    <!-- pattern planning sda -->
+
+    <bean id="polaRencanaPsdaFolderDao"
+          class="com.integrasolusi.pusda.sisda.dao.patternplanning.PolaRencanaPsdaFolderDaoImpl"
+          parent="daoTemplate"/>
+
+    <bean id="polaRencanaPsdaDao"
+          class="com.integrasolusi.pusda.sisda.dao.patternplanning.PolaRencanaPsdadaFileDaoImpl"
+          parent="daoTemplate"/>
 
 </beans>                           
 

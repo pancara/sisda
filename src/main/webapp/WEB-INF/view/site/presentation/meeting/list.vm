@@ -62,7 +62,7 @@
 
                 <div class="panel">
                     <a href='#springUrl("/download/presentation/meeting/view/${meeting.id}.html")' class="btn">
-                        &raquo; detail &laquo;
+                        detail
                     </a>
                 </div>
             </div>

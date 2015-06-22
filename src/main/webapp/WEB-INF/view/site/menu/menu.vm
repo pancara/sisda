@@ -39,7 +39,7 @@
         ##                Leaflet masuk ke link sidebar
         ##            </a>
 
-            <a href="#springUrl("/planningPSDA.html")">
+            <a href="#springUrl("/pola_rencana_sda.html")">
                 Pola &amp; Rencana PSDA
             </a>
             <a href="#springUrl("/regulation.html")">

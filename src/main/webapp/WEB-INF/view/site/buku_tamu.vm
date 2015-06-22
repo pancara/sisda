@@ -46,7 +46,7 @@
 <div id="guest">
     #paging($pages)
     #set($row = $start_row + 1)
-    <table>
+    <table class="list">
         #foreach ($entry in $commentGuestMap.entrySet())
             <tr>
                 <td>
@@ -58,8 +58,8 @@
                         #getEncodedEmail($entry.key.email, $code)
                         <img src='#springUrl("/email/${code}.html")'/>
                     </span>
+                    <span class="sent_at">$dateTimeTool.format($entry.key.postDate)</span>
 
-                    <div style='font-size: 10px;'>$dateTimeTool.format($entry.key.postDate)</div>
                     <p>$entry.key.message</p>
                     #if ($entry.value.size() > 0)
                         #foreach($r in $entry.value)
@@ -82,7 +82,7 @@
         #end
     </table>
 
-     #paging($pages)
+    #paging($pages)
 
     <img src='#springUrl("/images/hr.png")'/>
     <br/>

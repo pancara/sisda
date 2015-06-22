@@ -2,10 +2,10 @@
   display: block;
   cursor: default; }
   .jquery_foldertree div.title {
-    background: #eeeeee;
+    background: #EEEEEE;
     padding: 2px 4px 2px 12px;
     margin-bottom: 4px;
-    color: #3366cc; }
+    color: #3366CC; }
   .jquery_foldertree div.children {
     margin-left: 24px; }
   .jquery_foldertree div.folder, .jquery_foldertree div.item, .jquery_foldertree div.item_html, .jquery_foldertree div.item_pdf, .jquery_foldertree div.item_date, .jquery_foldertree div.item_file, .jquery_foldertree div.item_map, .jquery_foldertree div.item_empty {
@@ -13,88 +13,89 @@
     border: none; }
     .jquery_foldertree div.folder span.empty, .jquery_foldertree div.item span.empty, .jquery_foldertree div.item_html span.empty, .jquery_foldertree div.item_pdf span.empty, .jquery_foldertree div.item_date span.empty, .jquery_foldertree div.item_file span.empty, .jquery_foldertree div.item_map span.empty, .jquery_foldertree div.item_empty span.empty {
       display: block;
-      color: #cc0000;
+      color: #CC0000;
       padding: 6px 4px 6px 8px;
-      border-bottom: 1px solid #eeeeee; }
+      border-bottom: 1px solid #EEEEEE; }
     .jquery_foldertree div.folder span.label, .jquery_foldertree div.item span.label, .jquery_foldertree div.item_html span.label, .jquery_foldertree div.item_pdf span.label, .jquery_foldertree div.item_date span.label, .jquery_foldertree div.item_file span.label, .jquery_foldertree div.item_map span.label, .jquery_foldertree div.item_empty span.label {
       display: block;
-      padding: 6px 4px 6px 32px;
-      border-bottom: 1px solid #eeeeee;
-      background: white url(../../images/16x16/folder.png) no-repeat 2px 5px; }
+      padding: 8px 4px 8px 32px;
+      border-bottom: 1px solid #EEEEEE;
+      background: #FFF url(../../images/16x16/folder.png) no-repeat 2px 5px;
+      line-height: 1.2rem; }
     .jquery_foldertree div.folder span.label:hover, .jquery_foldertree div.item span.label:hover, .jquery_foldertree div.item_html span.label:hover, .jquery_foldertree div.item_pdf span.label:hover, .jquery_foldertree div.item_date span.label:hover, .jquery_foldertree div.item_file span.label:hover, .jquery_foldertree div.item_map span.label:hover, .jquery_foldertree div.item_empty span.label:hover {
-      background-color: whitesmoke; }
+      background-color: #F5F5F5; }
   .jquery_foldertree div.item span.empty {
     display: block;
-    color: #cc0000;
+    color: #CC0000;
     padding: 6px 4px 6px 8px;
-    border-bottom: 1px solid #eeeeee; }
+    border-bottom: 1px solid #EEEEEE; }
   .jquery_foldertree div.item span.label {
     display: block;
     padding: 6px 4px 6px 32px;
-    border-bottom: 1px solid #eeeeee;
-    background: white url(../../images/16x16/page_white_edit.png) no-repeat 2px 5px; }
+    border-bottom: 1px solid #EEEEEE;
+    background: #FFF url(../../images/16x16/page_white_edit.png) no-repeat 2px 5px; }
   .jquery_foldertree div.item span.label:hover {
-    background-color: whitesmoke; }
+    background-color: #F5F5F5; }
   .jquery_foldertree div.item_html span.empty {
     display: block;
-    color: #cc0000;
+    color: #CC0000;
     padding: 6px 4px 6px 8px;
-    border-bottom: 1px solid #eeeeee; }
+    border-bottom: 1px solid #EEEEEE; }
   .jquery_foldertree div.item_html span.label {
     display: block;
     padding: 6px 4px 6px 32px;
-    border-bottom: 1px solid #eeeeee;
-    background: white url(../../images/16x16/html.png) no-repeat 2px 5px; }
+    border-bottom: 1px solid #EEEEEE;
+    background: #FFF url(../../images/16x16/html.png) no-repeat 2px 5px; }
   .jquery_foldertree div.item_html span.label:hover {
-    background-color: whitesmoke; }
+    background-color: #F5F5F5; }
   .jquery_foldertree div.item_pdf span.empty {
     display: block;
-    color: #cc0000;
+    color: #CC0000;
     padding: 6px 4px 6px 8px;
-    border-bottom: 1px solid #eeeeee; }
+    border-bottom: 1px solid #EEEEEE; }
   .jquery_foldertree div.item_pdf span.label {
     display: block;
     padding: 6px 4px 6px 32px;
-    border-bottom: 1px solid #eeeeee;
-    background: white url(../../images/16x16/pdf.png) no-repeat 2px 5px; }
+    border-bottom: 1px solid #EEEEEE;
+    background: #FFF url(../../images/16x16/pdf.png) no-repeat 2px 5px; }
   .jquery_foldertree div.item_pdf span.label:hover {
-    background-color: whitesmoke; }
+    background-color: #F5F5F5; }
   .jquery_foldertree div.item_date span.empty {
     display: block;
-    color: #cc0000;
+    color: #CC0000;
     padding: 6px 4px 6px 8px;
-    border-bottom: 1px solid #eeeeee; }
+    border-bottom: 1px solid #EEEEEE; }
   .jquery_foldertree div.item_date span.label {
     display: block;
     padding: 6px 4px 6px 32px;
-    border-bottom: 1px solid #eeeeee;
-    background: white url(../../images/16x16/date_magnify.png) no-repeat 2px 5px; }
+    border-bottom: 1px solid #EEEEEE;
+    background: #FFF url(../../images/16x16/date_magnify.png) no-repeat 2px 5px; }
   .jquery_foldertree div.item_date span.label:hover {
-    background-color: whitesmoke; }
+    background-color: #F5F5F5; }
   .jquery_foldertree div.item_file span.empty {
     display: block;
-    color: #cc0000;
+    color: #CC0000;
     padding: 6px 4px 6px 8px;
-    border-bottom: 1px solid #eeeeee; }
+    border-bottom: 1px solid #EEEEEE; }
   .jquery_foldertree div.item_file span.label {
     display: block;
     padding: 6px 4px 6px 32px;
-    border-bottom: 1px solid #eeeeee;
-    background: white url(../../images/16x16/page_white.png) no-repeat 2px 5px; }
+    border-bottom: 1px solid #EEEEEE;
+    background: #FFF url(../../images/16x16/page_white.png) no-repeat 2px 5px; }
   .jquery_foldertree div.item_file span.label:hover {
-    background-color: whitesmoke; }
+    background-color: #F5F5F5; }
   .jquery_foldertree div.item_map span.empty {
     display: block;
-    color: #cc0000;
+    color: #CC0000;
     padding: 6px 4px 6px 8px;
-    border-bottom: 1px solid #eeeeee; }
+    border-bottom: 1px solid #EEEEEE; }
   .jquery_foldertree div.item_map span.label {
     display: block;
     padding: 6px 4px 6px 32px;
-    border-bottom: 1px solid #eeeeee;
-    background: white url(../../images/16x16/map.png) no-repeat 2px 5px; }
+    border-bottom: 1px solid #EEEEEE;
+    background: #FFF url(../../images/16x16/map.png) no-repeat 2px 5px; }
   .jquery_foldertree div.item_map span.label:hover {
-    background-color: whitesmoke; }
+    background-color: #F5F5F5; }
   .jquery_foldertree div.item_empty {
     background-image: none;
     vertical-align: top; }
@@ -102,17 +103,19 @@
       margin-right: 5px; }
     .jquery_foldertree div.item_empty span.empty {
       display: block;
-      color: #cc0000;
+      color: #CC0000;
       padding: 6px 4px 6px 8px;
-      border-bottom: 1px solid #eeeeee; }
+      border-bottom: 1px solid #EEEEEE; }
     .jquery_foldertree div.item_empty span.label {
       display: block;
       padding: 6px 4px 6px 0px;
-      border-bottom: 1px solid #eeeeee;
-      background: white;
+      border-bottom: 1px solid #EEEEEE;
+      background: #FFF;
       background-image: none;
       vertical-align: top; }
     .jquery_foldertree div.item_empty span.label:hover {
-      background-color: whitesmoke; }
+      background-color: #F5F5F5; }
   .jquery_foldertree div.folder:last-child, .jquery_foldertree div.item:last-child, .jquery_foldertree div.item_html:last-child, .jquery_foldertree div.item_pdf:last-child, .jquery_foldertree div.item_date:last-child, .jquery_foldertree div.item_file:last-child, .jquery_foldertree div.item_map:last-child, .jquery_foldertree div.item_empty:last-child, .jquery_foldertree div.item:last-child, .jquery_foldertree div.item_html:last-child, .jquery_foldertree div.item_date:last-child {
     border: none; }
+
+/*# sourceMappingURL=folder_tree.css.map */

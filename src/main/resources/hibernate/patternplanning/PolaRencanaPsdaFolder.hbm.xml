@@ -3,8 +3,8 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="com.integrasolusi.pusda.sisda.persistence.patternplanning.PatternPlanSdaFolder"
-           table="patternplanningsda_folder">
+    <class name="com.integrasolusi.pusda.sisda.persistence.patternplanning.PolaRencanaPsdaFolder"
+           table="pattern_plan_sda_folder">
 
         <id name="id" column="UID" type="java.lang.Long" unsaved-value="null">
             <generator class="native"/>
@@ -16,14 +16,11 @@
             <column name="NAME" sql-type="TEXT"/>
         </property>
 
-        <property name="description" type="java.lang.String">
-            <column name="DESCRIPTION" sql-type="TEXT"/>
-        </property>
-
         <property name="index" type="java.lang.Integer" column="IDX"/>
 
         <many-to-one name="parent"
-                     class="com.integrasolusi.pusda.sisda.persistence.patternplanning.PatternPlanSdaFolder"
+                     class="com.integrasolusi.pusda.sisda.persistence.patternplanning.PolaRencanaPsdaFolder"
                      column="PARENT" lazy="false" not-null="false"/>
+
     </class>
 </hibernate-mapping>

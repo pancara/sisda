@@ -31,6 +31,8 @@ public enum BlobDataType {
     PROJECT,
     SDA_BENDUNGAN_THUMB,
 
+    PATTERN_AND_PLAN_SDA,
+
     SDA_SUNGAI,
     SDA_SUNGAI_SUMMARY,
 

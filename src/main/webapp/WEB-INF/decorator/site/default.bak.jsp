@@ -13,7 +13,6 @@
     <link rel="shortcut icon" href='<c:url value="/images/logo.png"/>' type="image/png"/>
     <decorator:head/>
 
-    <link href='<c:url value="/css/site/css.css"/>' rel="stylesheet" type="text/css"/>
     <link href='<c:url value="/css/site/ticker-style.css"/>' rel="stylesheet" type="text/css"/>
 
     <script src='<c:url value="/js/jquery.js"/>' type="text/javascript"></script>

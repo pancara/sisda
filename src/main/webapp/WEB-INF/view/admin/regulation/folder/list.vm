@@ -80,7 +80,7 @@
                 <th></th>
                 <th>ID</th>
                 <th>Nama</th>
-                <th>DI</th>
+                <th>Parent Folder</th>
                 <th>
                     <a href='#springUrl("/admin/regulation/folder/add.html?page=$!{current}&keyword=$!{form.keyword}")'
                        class='button'>

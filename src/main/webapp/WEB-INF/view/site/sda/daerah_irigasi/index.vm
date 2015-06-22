@@ -51,7 +51,7 @@
                             <div class="folder">
                                 <span class="label">
                                     $di.name
-                                    #if ($di.filename != "")
+                                    #if ($di.filename)
                                         <a href="#springUrl("/download/sda/daerah_irigasi/di/${type.id}/${di.id}/${di.filename}")"
                                            style="float: right;" target="_blank">
                                             <img src="#springUrl("/images/filetype/$fileTool.getFileTypeIcon(${di.filename})")"/>

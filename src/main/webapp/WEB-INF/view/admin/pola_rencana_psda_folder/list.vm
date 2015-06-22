@@ -1,0 +1,216 @@
+#macro(paging $pages $keyword)
+<div class="page_index">
+    #if ($pages.size() > 0)
+        <a href='#springUrl("/admin/pola_rencana_psda_folder/page/1.html?keyword=$!{form.keyword}")'>
+            <img src="#springUrl("/images/16x16/go-first.png")" alt="1"/>
+        </a>
+
+        #set($prev = $current - 1)
+        #if ($prev < 1)
+            #set($prev = 1)
+        #end
+        <a href='#springUrl("/admin/pola_rencana_psda_folder/page/${prev}.html?keyword=$!{form.keyword}")'>
+            <img src="#springUrl("/images/16x16/go-previous.png")" alt="${prev}"/>
+        </a>
+
+        #foreach($page in $pages)
+            #if ($page == $current)
+                <a href='#springUrl("/admin/pola_rencana_psda_folder/page/${page}.html?keyword=$!{form.keyword}")'
+                   class="current">$page</a>
+            #else
+                <a href='#springUrl("/admin/pola_rencana_psda_folder/page/${page}.html?keyword=$!{form.keyword}")'
+                   class="page">$page</a>
+            #end
+        #end
+
+        #set($next = $current + 1)
+        #if ($next > $last)
+            #set($next = $last)
+        #end
+        <a href='#springUrl("/admin/pola_rencana_psda_folder/page/${next}.html?keyword=$!{form.keyword}")'>
+            <img src="#springUrl("/images/16x16/go-next.png")" alt="${next}"/>
+        </a>
+
+        <a href='#springUrl("/admin/pola_rencana_psda_folder/page/${last}.html?keyword=$!{form.keyword}")'>
+            <img src="#springUrl("/images/16x16/go-last.png")" alt="${last}"/>
+        </a>
+    #end
+</div>
+#end<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        <img src='#springUrl("/images/16x16/folder.png")'/> &nbsp;
+        <span>Folder Pola &amp; Rencana PSDA</span>
+    </title>
+</head>
+<body>
+<div id="regulation">
+    <div style="display: block;">
+        <form action='#springUrl("/admin/pola_rencana_psda_folder/list.html")'
+              method="post" style="display: block; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;">
+            Kata kunci:&nbsp;
+            <input type='text' name='keyword' value='$!{form.keyword}' class='text'/>
+            <input type='submit' value='cari'/>
+        </form>
+    </div>
+    <div>
+        <span class="info">
+            <img src="#springUrl("/images/16x16/table_row_select.png")"/>
+            Ditemukan ${count} data.
+        </span>
+        #paging($pages, ${form.keyword})
+    </div>
+
+    <form id="folder_list" method="post" action="#springUrl("/admin/pola_rencana_psda_folder/manage.html")">
+        <table>
+            <colgroup style="width: 20px"/>
+            <colgroup style="width: 20px"/>
+            <colgroup style="width: 20px"/>
+            <colgroup style="width: 20px"/>
+            <colgroup style="width: 820px;"/>
+            <colgroup style="width: 20px"/>
+            <colgroup style="width: 20px"/>
+            <thead>
+            <tr>
+                <th>No.</th>
+                <th>
+                    <input type='checkbox' name="ids_all" class="select_all"/>
+                </th>
+                <th></th>
+                <th>ID</th>
+                <th>Nama</th>
+                <th>Parent Folder</th>
+                <th>
+                    <a href='#springUrl("/admin/pola_rencana_psda_folder/add.html?page=$!{current}&keyword=$!{form.keyword}")'
+                       class='button'>
+                        baru
+                    </a>
+                </th>
+            </tr>
+            </thead>
+            #set($row = $start + 1)
+            #foreach ($folder in $folders)
+                <tr>
+                    <td style="width: 24px;">${row}.</td>
+                    <td>
+                        <input type='checkbox' name='ids' value='$!{folder.id}'/>
+                    </td>
+                    <td>
+                        <a href="#springUrl("/admin/pola_rencana_psda_folder/${folder.id}/up.html")" class="up">
+                            <img src="#springUrl("/images/16x16/up.png")"/>
+                        </a>
+                        <a href="#springUrl("/admin/pola_rencana_psda_folder/${folder.id}/down.html")" class="down">
+                            <img src="#springUrl("/images/16x16/down.png")"/>
+                        </a>
+                    </td>
+                    <td>
+                        <span class="text_id">
+                            ${folder.id}
+                        </span>
+                    </td>
+                    <td class="short_content">
+                        <a href="#springUrl("/download/admin/pola_rencana_psda_folder/$!{folder.id}/$!{folder.filename}")"
+                           target="_blank">
+                            ${folder.name}
+                        </a>
+                    </td>
+                    <td class="short_content">
+                         <span class="text_id">
+                             $!{folder.parent.id}
+                         </span>
+                    </td>
+                    <td>
+                        <a href='#springUrl("/admin/pola_rencana_psda_folder/edit/${folder.id}.html?page=$!{current}&keyword=$!{form.keyword}")'
+                           class='button'>
+                            edit
+                        </a>
+                    </td>
+                </tr>
+                #set($row = $row + 1)
+            #end
+            <tfoot>
+            <tr>
+                <td></td>
+                <td>
+                    <input type='checkbox' name="ids_all" class="select_all"/>
+                </td>
+                <td colspan="4">
+                    <input type="hidden" name="page" value="$!{current}"/>
+                    <input type="hidden" name="keyword" value="$!{form.keyword}"/>
+
+                    <input type="submit" name="remove" value="Hapus"/>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+    </form>
+
+    <div>
+        <span class="info">
+            <img src="#springUrl("/images/16x16/table_row_select.png")"/>
+            Ditemukan $count data.
+        </span>
+        #paging($pages, $keyword)
+    </div>
+</div>
+<script type="text/javascript">
+    function bindUpDownLink(context) {
+        $("a.up", context).click(linkUpHandler);
+        $("a.down", context).click(linkDownHandler);
+    }
+
+    var linkUpHandler = function (e) {
+        e.preventDefault();
+        var _this = this;
+        var url = $(_this).attr("href");
+        jQuery.getJSON(url, function (data) {
+            window.console.debug(data);
+            if (data.result) {
+                var tr = $(_this).parentsUntil("tbody").last();
+                var above = $(tr).prev();
+                $(tr).animate({"opacity":0.0}, function () {
+                    $(tr).remove();
+                    $(tr).insertBefore(above);
+                    $(tr).animate({"opacity":1.0});
+                    bindUpDownLink(tr);
+                });
+
+            }
+        });
+    };
+
+    var linkDownHandler = function (e) {
+        e.preventDefault();
+        var _this = this;
+        var url = $(this).attr("href");
+        jQuery.getJSON(url, function (data) {
+            if (data.result) {
+                var tr = $(_this).parentsUntil("tbody").last();
+                var below = $(tr).next();
+                $(tr).animate({"opacity":0.0}, function () {
+                    $(tr).remove();
+                    $(tr).insertAfter(below);
+                    $(tr).css({"opacity":1.0});
+                    bindUpDownLink(tr);
+                });
+
+            }
+        });
+    };
+
+
+    $(document).ready(function () {
+        $("input[type=checkbox].select_all").click(function () {
+            var checked = $(this).prop("checked");
+            $("#folder_list table input[type=checkbox]").attr("checked", checked);
+        });
+
+        $("#folder_list a.disabled").click(function (e) {
+            e.preventDefault();
+        });
+        bindUpDownLink(null);
+    });
+</script>
+</body>
+</html>

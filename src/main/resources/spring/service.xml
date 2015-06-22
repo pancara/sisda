@@ -390,6 +390,17 @@
         <property name="blobRepository" ref="blobRepository"/>
     </bean>
 
+    <!-- pattern and planning -->
+    <bean id="polaRencanaPsdaFolderService"
+          class="com.integrasolusi.pusda.sisda.service.patternplanning.PolaRencanaPsdaFolderServiceImpl">
+        <property name="polaRencanaPsdaFolderDao" ref="polaRencanaPsdaFolderDao"/>
+    </bean>
+
+    <bean id="polaRencanaPsdaFileService"
+          class="com.integrasolusi.pusda.sisda.service.patternplanning.PolaRencanaPsdaFileServiceImpl">
+        <property name="polaRencanaPsdadaFileDao" ref="polaRencanaPsdaDao"/>
+        <property name="blobRepository" ref="blobRepository"/>
+    </bean>
 </beans>
 
 
