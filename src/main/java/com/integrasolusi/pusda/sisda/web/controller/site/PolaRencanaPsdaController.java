@@ -68,9 +68,9 @@ public class PolaRencanaPsdaController {
         for (PolaRencanaPsdaFolder child : children) {
             PatternPlanSdaFolderDto dto = new PatternPlanSdaFolderDto();
 
-            dto.setId(folder.getId());
-            dto.setName(folder.getName());
-            dto.setIndex(folder.getIndex());
+            dto.setId(child.getId());
+            dto.setName(child.getName());
+            dto.setIndex(child.getIndex());
 
             parentDto.getChildren().add(dto);
 
